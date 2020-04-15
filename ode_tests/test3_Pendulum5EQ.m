@@ -1,7 +1,7 @@
 %
 % Matlab code for the Course:
 %
-%     Modelling and Simulation Mechatronics System
+%     Modelling and Simulation of Mechatronics System
 %
 % by
 % Enrico Bertolazzi
