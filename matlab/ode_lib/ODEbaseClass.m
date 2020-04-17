@@ -24,7 +24,7 @@ classdef ODEbaseClass < handle
     f( self, t, x )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %  return jacobian Df( t, x ) / Dx 
+    %  return jacobian Df( t, x ) / Dx
     %
     DfDx( self, t, x )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

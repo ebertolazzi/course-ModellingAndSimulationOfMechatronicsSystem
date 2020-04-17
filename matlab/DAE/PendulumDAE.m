@@ -50,7 +50,7 @@ classdef PendulumDAE < DAE3baseClass
       rhs = 2*(x*vx+y*vy);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function J = Phi_p( self, t, pos )
+    function J = Phi_q( self, t, pos )
       x = pos(1);
       y = pos(2);
       J = 2*[x,y];
@@ -61,6 +61,27 @@ classdef PendulumDAE < DAE3baseClass
       vx  = vel(1);
       vy  = vel(2);
       rhs = -2*(vx^2+vy^2);
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function plot( self, pos )
+      x  = pos(1);
+      y  = pos(2);
+      dL = 1-self.ell/hypot(x,y);
+
+      x0 = x*dL;
+      y0 = y*dL;
+
+      hold off;
+      drawLine(-1.2,0,1.2,0,'LineWidth',2,'Color','k');
+      hold on;
+      drawLine(0,-1.2,0,1.2,'LineWidth',2,'Color','k');
+      drawAxes(2,0.25,1,0,0);
+
+      %drawPoint(1,0.25,x,0);
+      %drawPoint(1,0.25,0,y);
+      drawLine(x0,y0,x,y,'LineWidth',8,'Color','r');
+      drawCOG( 0.1, x0, y0 );
+      drawDonut( 0.05, 0.1, x, y );
     end
   end
 end

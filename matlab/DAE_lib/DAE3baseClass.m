@@ -20,24 +20,26 @@ classdef DAE3baseClass < handle
     %
     %  Abstract functions defining an index-3 DAE
     %
-    %  p' = v
-    %  M(t,p) v' + Phi_p(t,p)^T lambda = f( t, p, v )
-    %  Phi_p(t,p) = 0
+    %  q' = v
+    %  M(t,p) v' + Phi_p(t,q)^T lambda = f( t, q, v )
+    %  Phi(t,q) = 0
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    M( self, t, p )
+    M( self, t, q )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Phi( self, t, p )
+    % return function Phi(t,q)
+    Phi( self, t, q )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    dPhiDt( self, t, p )
+    % return function Phi(t,q)
+    dPhiDt( self, t, q, v )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Phi_p( self, t, p )
+    Phi_q( self, t, q )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    f( self, t, p, v )
+    f( self, t, q, v )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     % d Phi(t,q) / dt     = Phi_q(t,q) v
     % d^2 Phi(t,q) / dt^2 = Phi_q(t,q) v' - B(t,q,v)
-    B( self, t, p, v )
+    B( self, t, q, v )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end
 

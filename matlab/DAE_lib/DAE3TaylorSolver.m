@@ -14,7 +14,7 @@ classdef DAE3TaylorSolver < handle
     solverName; % should contain the name of the numerical method used
     DAEclass;   % the object storing the DAE
   end
-  
+
   methods
     function self = DAE3TaylorSolver()
       self.solverName = 'TaylorSolver';
@@ -36,7 +36,7 @@ classdef DAE3TaylorSolver < handle
     %  starting at initial point [p0,v0]
     %
     function [pos,vel,lambda] = advance_simple( self, t, p0, v0 )
-      [n,m] = self.DAEclass.getDim();
+      [n,m]    = self.DAEclass.getDim();
       pos      = zeros(n,length(t));
       vel      = zeros(n,length(t));
       lambda   = zeros(m,length(t));
@@ -46,14 +46,14 @@ classdef DAE3TaylorSolver < handle
         tt = t(:,k);
         pp = pos(:,k);
         vv = vel(:,k);
-        % get M, Phi, Phi_p, f and b
+        % get M, Phi, Phi_q, f and b
         M     = self.DAEclass.M( tt, pp );
-        Phi_p = self.DAEclass.Phi_p( tt, pp );
+        Phi_q = self.DAEclass.Phi_q( tt, pp );
         f     = self.DAEclass.f( tt, pp, vv );
         b     = self.DAEclass.B( tt, pp, vv );
         % solve for v' and lambda
-        vl    = [ M,     Phi_p.'; ...
-                  Phi_p, zeros(m,m) ]\[f;b];
+        vl    = [ M,     Phi_q.'; ...
+                  Phi_q, zeros(m,m) ]\[f;b];
         vp    = vl(1:n);
         % update using Taylor
         DT = t(k+1)-t(k);
@@ -80,16 +80,16 @@ classdef DAE3TaylorSolver < handle
         tt = t(:,k);
         pp = pos(:,k);
         vv = vel(:,k);
-        % get M, Phi, Phi_p, f and b
+        % get M, Phi, Phi_q, f and b
         M     = self.DAEclass.M( tt, pp );
         Phi   = self.DAEclass.Phi( tt, pp );
         Phi_t = self.DAEclass.dPhiDt( tt, pp, vv );
-        Phi_p = self.DAEclass.Phi_p( tt, pp );
+        Phi_q = self.DAEclass.Phi_q( tt, pp );
         f     = self.DAEclass.f( tt, pp, vv );
         b     = self.DAEclass.B( tt, pp, vv ) + t1 * Phi_t + t2 * Phi;
         % solve for v' and lambda
-        vl    = [ M,     Phi_p.'; ...
-                  Phi_p, zeros(m,m) ]\[f;b];
+        vl    = [ M,     Phi_q.'; ...
+                  Phi_q, zeros(m,m) ]\[f;b];
         vp    = vl(1:n);
         % update using Taylor
         DT = t(k+1)-t(k);

@@ -63,7 +63,7 @@ classdef BiralDAE1 < DAE3baseClass
                 2*vx + ell*cos(theta)*omega];
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function J = Phi_p( self, t, p )
+    function J = Phi_q( self, t, p )
       x     = p(1);
       y     = p(2);
       theta = p(3);
@@ -81,5 +81,28 @@ classdef BiralDAE1 < DAE3baseClass
       rhs   = ell*omega^2*[ -cos(theta); sin(theta) ];
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function plot( self, p )
+      x     = p(1);
+      y     = p(2);
+      theta = p(3);
+      L     = self.ell/2;
+      alpha = pi/2-theta;
+      x0    = x+L*cos(alpha);
+      y0    = y+L*sin(alpha);
+      x1    = x-L*cos(alpha);
+      y1    = y-L*sin(alpha);
+
+      hold off;
+      drawLine(-1.2,0,1.2,0,'LineWidth',2,'Color','k');
+      hold on;
+      drawLine(0,-1.2,0,1.2,'LineWidth',2,'Color','k');
+      drawAxes(2,0.25,1,0,0);
+
+      %drawPoint(1,0.25,x,0);
+      %drawPoint(1,0.25,0,y);
+      drawLine(x0,y0,x1,y1,'LineWidth',8,'Color','r');
+      drawCOG( 0.1, x0, y0 );
+      drawCOG( 0.1, x1, y1 );
+    end
   end
 end
