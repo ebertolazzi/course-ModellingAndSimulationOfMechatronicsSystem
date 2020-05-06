@@ -4,9 +4,9 @@
     <param.authnamewatermark>Enrico Bertolazzi</param.authnamewatermark>
     <param.email>enrico.bertolazzi@unitn.it</param.email>
     <param.company>Unversità Degli Studi di Trento</param.company>
-    <param.summary />
+    <param.summary>Matlab code for the Course: Modelling and Simulation Mechatronics System (AA 2019/2020)</param.summary>
     <param.description />
-    <param.screenshot />
+    <param.screenshot>${PROJECT_ROOT}/toolbox/logo.png</param.screenshot>
     <param.version>1.0</param.version>
     <param.output>${PROJECT_ROOT}/DAE solver.mltbx</param.output>
     <param.products.name />
@@ -61,11 +61,10 @@
     <param.additional.sw.mac.url />
     <param.additional.sw.linux.url />
     <unset>
+      <param.authnamewatermark />
       <param.email />
       <param.company />
-      <param.summary />
       <param.description />
-      <param.screenshot />
       <param.version />
       <param.output />
       <param.products.name />

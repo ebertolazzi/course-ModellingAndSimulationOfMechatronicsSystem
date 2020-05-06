@@ -1,4 +1,5 @@
 addpath('3rd/draw2d_v01/draw2d');
+addpath('lib');
 addpath('lib/DAE');
 addpath('lib/ODE');
 addpath('lib/ODE/explicit');

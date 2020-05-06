@@ -60,7 +60,7 @@ classdef BiralDAE1 < DAE3baseClassImplicit
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function H = PhiL_q( self, t, pos, lambda )
-      theta = p(3);
+      theta = pos(3);
       ell   = self.ell;
       H     = [ 0, 0, 0; ...
                 0, 0, 0; ...
@@ -68,7 +68,7 @@ classdef BiralDAE1 < DAE3baseClassImplicit
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function H = PhiV_q( self, t, pos, v_dot )
-      theta = p(3);
+      theta = pos(3);
       ell   = self.ell;
       H     = ell*[ 0, 0, v_dot(3)*cos(theta); ...
                     0, 0, -v_dot(3)*sin(theta) ];
@@ -81,11 +81,11 @@ classdef BiralDAE1 < DAE3baseClassImplicit
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function rhs = gforce_q( self, ~, ~, ~ )
-      rhs = zeros(3,1);
+      rhs = zeros(3,3);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function rhs = gforce_v( self, ~, ~, ~ )
-      rhs = zeros(3,1);
+      rhs = zeros(3,3);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     % d^2 Phi(t,q) / dt^2 = Phi_q(t,q) v' - b(t,q,v)

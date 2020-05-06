@@ -4,7 +4,7 @@
 %     Modelling and Simulation of Mechatronics System
 %
 % by
-% Enrico Bertolazzi
+% Enrico Bertolazzi and Francesco Biral
 % Dipartimento di Ingegneria Industriale
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it

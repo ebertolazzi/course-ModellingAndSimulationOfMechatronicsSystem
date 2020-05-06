@@ -38,8 +38,9 @@ classdef DAE3ProjectionSolver < handle
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %  form the index 1 DAE
     %  q' = v
-    %  M(t,p) v' + Phi_p(t,q)^T lambda = f( t, q, v )
-    %  Phi_q(t,q) v' = b( t, q, v )
+    %  v' = v_dot
+    %  M(t,p) v_dot + Phi_p(t,q)^T lambda = f( t, q, v )
+    %  Phi_q(t,q)v_dot = b( t, q, v )
     %
     %  solve the linear system
     %
@@ -50,7 +51,7 @@ classdef DAE3ProjectionSolver < handle
     %  To obtain the ODE
     %
     %  q' = v
-    %  v' = F(t,q,v)
+    %  v' = v_dot(t,q,v)
     %
     function rhs = f( self, t, x )
       [n,m] = self.DAEclass.getDim();
@@ -58,11 +59,55 @@ classdef DAE3ProjectionSolver < handle
       vel   = x(n+1:end);
       M     = self.DAEclass.M( t, pos );
       Phi_q = self.DAEclass.Phi_q( t, pos );
-      f     = self.DAEclass.f( t, pos, vel );
-      b     = self.DAEclass.B( t, pos, vel );
+      f     = self.DAEclass.gforce( t, pos, vel );
+      b     = self.DAEclass.b( t, pos, vel );
       % solve for v' and lambda
       vl    = [ M, Phi_q.'; Phi_q, zeros(m,m) ]\[f;b];
       rhs   = [ vel; vl(1:n) ];
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %  form the index 1 DAE
+    %  q' = v
+    %  v' = v_dot
+    %  M(t,p) v_dot + Phi_p(t,q)^T lambda = f( t, q, v )
+    %  Phi_q(t,q)v_dot = b( t, q, v )
+    %
+    %  solve the linear system
+    %
+    %  / M(t,q)      Phi_p(t,q)^T \ /   v'   \   / f( t, q, v ) \
+    %  |                          | |        | = |              |
+    %  \ Phi_p(t,q)      0        / \ lambda /   \ b( t, q, v ) /
+    %
+    %  To obtain the ODE
+    %
+    %  q' = v
+    %  v' = v_dot(t,q,v)
+    %
+    function Jac = DfDx( self, t, x )
+      [n,m]  = self.DAEclass.getDim();
+      pos    = x(1:n);
+      vel    = x(n+1:end);
+      M      = self.DAEclass.M( t, pos );
+      Phi_q  = self.DAEclass.Phi_q( t, pos );
+      f      = self.DAEclass.gforce( t, pos, vel );
+      b      = self.DAEclass.b( t, pos, vel );
+      % solve for v' and lambda
+      Mat    = [ M, Phi_q.'; Phi_q, zeros(m,m) ];
+      vl     = Mat\[f;b];
+      v_dot  = vl(1:n);
+      lambda = vl(n+1:end);
+      aa     = self.DAEclass.gforce_q( t, pos, vel ) ...
+             - self.DAEclass.W_q( t, pos, v_dot ) ...
+             - self.DAEclass.PhiL_q( t, pos, lambda );
+      bb     = self.DAEclass.b_q( t, pos, vel ) ...
+             - self.DAEclass.PhiV_q( t, pos, v_dot );
+      vl     = Mat\[aa;bb];
+      v_D_q  = vl(1:n,:);
+      aa     = self.DAEclass.gforce_v( t, pos, vel );
+      bb     = self.DAEclass.b_v( t, pos, vel );
+      vl     = Mat\[aa;bb];
+      v_D_v  = vl(1:n,:);
+      Jac    = [ zeros(n,n), eye(n); v_D_q, v_D_v ];
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %  form the index 1 DAE
@@ -84,8 +129,8 @@ classdef DAE3ProjectionSolver < handle
       vel   = x(n+1:end);
       M     = self.DAEclass.M( t, pos );
       Phi_q = self.DAEclass.Phi_q( t, pos );
-      f     = self.DAEclass.f( t, pos, vel );
-      b     = self.DAEclass.B( t, pos, vel );
+      f     = self.DAEclass.gforce( t, pos, vel );
+      b     = self.DAEclass.b( t, pos, vel );
       % solve for v' and lambda
       vl    = [ M, Phi_q.'; Phi_q, zeros(m,m) ]\[f;b];
       lbd   = vl(n+1,end);
@@ -124,7 +169,7 @@ classdef DAE3ProjectionSolver < handle
     function projected_vel = project_velocity( self, t, pos, vel )
       [n,m] = self.DAEclass.getDim();
       A   = self.DAEclass.Phi_q( t, pos );
-      b   = self.DAEclass.dPhiDt( t, pos, zeros(n,1) );
+      b   = self.DAEclass.Phi_t( t, pos ) + A*vel;
       vmu = [ eye(n), A.'; A, zeros(m,m) ] \ [ vel; -b ];
       projected_vel = vmu(1:n);
     end
