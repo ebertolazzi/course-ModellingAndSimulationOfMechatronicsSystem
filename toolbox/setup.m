@@ -4,6 +4,10 @@ addpath('lib/DAE');
 addpath('lib/ODE');
 addpath('lib/ODE/explicit');
 addpath('lib/ODE/implicit');
+addpath('lib/ODE_P');
+addpath('lib/ODE_P/explicit');
+addpath('lib/ODE_P/implicit');
 
 addpath('examples/ODE');
+addpath('examples/ODE_P');
 addpath('examples/DAE');
