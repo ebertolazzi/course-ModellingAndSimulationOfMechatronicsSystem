@@ -79,7 +79,7 @@ classdef ODEbaseSolver_P < handle
           Dxl = [ eye(neq), M.'; M, zeros(ninv,ninv) ] \ [ xtilde - x;-h];
           dx  = Dxl(1:neq);
           x   = x + dx;
-          if max(abs(dx)) < tol
+          if (max(abs(dx)) < tol) && (max(abs(h)) < tol)
             break;
           end
         end

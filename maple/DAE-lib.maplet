@@ -71,7 +71,7 @@ end proc:
 # 
 # E1(x,t) x' = G1(x,t)
 # 
-# and tne hidden constraint
+# and the hidden constraint
 # 
 # A(x,t) = 0
 # 
@@ -137,8 +137,8 @@ DAEindex3ToODE := proc( Mass, Phi, gfun, qvars, vvars )
   Phi_P := JACOBIAN( Phi, qvars );
   print(Phi);
   print(Phi_P);
-  H     := <op(gfun)>-Mass.<op(v_dot)>-LinearAlgebra[Transpose](Phi_P).<seq(lambda||i(t),i=1..m)>;
-  W     := <op(B)>-Phi_P.<op(v_dot)>;
+  H     := convert(<op(gfun)>-Mass.<op(v_dot)>-LinearAlgebra[Transpose](Phi_P).<seq(lambda||i(t),i=1..m)>,list);
+  W     := convert(<op(B)>-Phi_P.<op(v_dot)>,list);
   return A, B, Phi_P, H, W;
 end proc:
 #Mass := <<1,0>|<0,1>>;
@@ -147,12 +147,12 @@ end proc:
 #DAEindex3ToODE( Mass, Phi, gfun, [x(t),y(t)], [u(t),v(t)] );
 # Code Generation
 F_TO_MATLAB := proc( F, vars, name )
-  local i, str, LST;
-  LST := []:
-  for i from 1 to nops(F) do
-    if evalb(F[i] <> 0) then
-      LST := [op(LST), convert("res__"||i,symbol) = simplify(F[i]) ];
-    end;
+  local i, str, LST, vals, vv;
+  LST  := []:
+  vals := "":  for i from 1 to nops(F) do
+    vv := simplify(F[i]);    if evalb(vv <> 0) then
+      LST  := [op(LST), convert("res__"||i,symbol) = vv ];
+      vals := cat(vals,sprintf("  res__%s(%d) = res__%d;\n",name,i,i));    end;
   end;
   str := CodeGeneration[Matlab](LST,optimize=true,coercetypes=false,deducetypes=false,output=string);
   printf("function res__%s = %s( vars__ )\n",name,name);
@@ -164,23 +164,22 @@ F_TO_MATLAB := proc( F, vars, name )
   printf("  %s\n",StringTools[SubstituteAll](  str, "\n", "\n  " ));
   printf("\n  %% store on output\n");
   printf("  res__%s = zeros(%d,1);\n",name,nops(F));
-  for i from 1 to nops(F) do
-    printf("  res__%s(%d) = res__%d;\n",name,i,i);
-  end;
-  printf("end\n");
+  printf("%s\nend\n",vals);
 end proc:
 JF_TO_MATLAB := proc( JF, vars, name )
-  local NR, NC, i, j, str, LST;
-  NR := LinearAlgebra[RowDimension](JF);  NC := LinearAlgebra[ColumnDimension](JF);  LST := []:
-  for i from 1 to LinearAlgebra[RowDimension](JF) do
-    for j from 1 to LinearAlgebra[ColumnDimension](JF) do
-      if evalb(JF[i,j] <> 0) then
-        LST := [op(LST), convert("jac__"||i||_||j,symbol) = simplify(JF[i,j]) ];
-      end;
+  local val, pat, NR, NC, i, j, str, LST;
+  NR  := LinearAlgebra[RowDimension](JF);
+  NC  := LinearAlgebra[ColumnDimension](JF);
+  LST := []:
+  pat := "";  for i from 1 to NR do
+    for j from 1 to NC do
+      val := simplify(JF[i,j]);      if evalb(val <> 0) then
+        LST := [op(LST), convert("jac__"||i||_||j,symbol) = val];
+        pat := cat(pat,sprintf("  jac__%s(%d,%d) = jac__%d_%d;\n",name,i,j,i,j));      end;
     end;
   end;
-  str := CodeGeneration[Matlab](LST,optimize=true,coercetypes=false,deducetypes=false,output=string);
-  printf("function jac__%s = %s( vars__ )\n",name,name);
+  str := CodeGeneration[Matlab](LST,optimize=true,coercetypes=false,deducetypes=false,output=string);
+  printf("function jac__%s = %s( vars__ )\n",name,name);
   printf("\n  %% extract states\n");
   for i from 1 to nops(vars) do
     printf("  %s = vars__(%d);\n",convert(vars[i],string),i);
@@ -189,13 +188,8 @@ JF_TO_MATLAB := proc( JF, vars, name )
   printf("  %s\n",StringTools[SubstituteAll](  str, "\n", "\n  " ));
   printf("\n  %% store on output\n");
   printf("  jac__%s = zeros(%d,%d);\n",name,NR,NC);
-  for i from 1 to NR do
-    for j from 1 to NC do
-      if evalb(JF[i,j] <> 0) then
-        printf("  jac__%s(%d,%d) = jac__%d_%d;\n",name,i,j,i,j);
-      end;
-    end;
-  end;
+  printf("%s",pat);
+  printf("end\n");
 end proc:
 
 
