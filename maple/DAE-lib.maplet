@@ -8,19 +8,26 @@ with(LinearAlgebra):
 # Index Reduction using Library
 # Compute the kernel of a transpose of matrix by using LU decomposition
 KernelBuild := proc( E )
-  local P, L, U, r, k, DiagU, LP;
+  local P, L, U, r, k, j, all0, LP;
 
   # decompose the matrix as E = P * L * U
   P, L, U := LUDecomposition(E);
 
-
   # the rank can be deduced from LU decomposition,
-  # by counting the row of U that are zeros (its enough to look at the diagonal)
-  DiagU := Diagonal(U);
-  for k from 1 to Dimension(DiagU) do
-    if DiagU[k] <> 0 then
-      r := k;
+  # by counting the row of U that are zeros
+  r := 0;
+  for k from 1 to RowDimension(U) do
+    all0 := true;
+    for j from 1 to ColumnDimension(U) do
+      if U[k,j] <> 0 then
+        all0 := false;
+        break;
+      end;
     end;
+    if all0 then
+      break;
+    end;
+    r := k;
   end;
 
   # matrix ( 0, I ) where 0 id of dimension r x r has the property
@@ -85,7 +92,7 @@ DAEreduceBy1TheIndex := proc( E, G, Dvars )
   # Separate Algebraic and Differential part
   DALG := diff( ALG, t );
 
-  
+
   # E2*Dvars-G2 = DALG
   E2, G2 := GenerateMatrix( convert(DALG,list), Dvars );
 
@@ -149,10 +156,13 @@ end proc:
 F_TO_MATLAB := proc( F, vars, name )
   local i, str, LST, vals, vv;
   LST  := []:
-  vals := "":  for i from 1 to nops(F) do
-    vv := simplify(F[i]);    if evalb(vv <> 0) then
+  vals := "":
+  for i from 1 to nops(F) do
+    vv := simplify(F[i]);
+    if evalb(vv <> 0) then
       LST  := [op(LST), convert("res__"||i,symbol) = vv ];
-      vals := cat(vals,sprintf("  res__%s(%d) = res__%d;\n",name,i,i));    end;
+      vals := cat(vals,sprintf("  res__%s(%d) = res__%d;\n",name,i,i));
+    end;
   end;
   str := CodeGeneration[Matlab](LST,optimize=true,coercetypes=false,deducetypes=false,output=string);
   printf("function res__%s = %s( vars__ )\n",name,name);
@@ -171,11 +181,14 @@ JF_TO_MATLAB := proc( JF, vars, name )
   NR  := LinearAlgebra[RowDimension](JF);
   NC  := LinearAlgebra[ColumnDimension](JF);
   LST := []:
-  pat := "";  for i from 1 to NR do
+  pat := "";
+  for i from 1 to NR do
     for j from 1 to NC do
-      val := simplify(JF[i,j]);      if evalb(val <> 0) then
+      val := simplify(JF[i,j]);
+      if evalb(val <> 0) then
         LST := [op(LST), convert("jac__"||i||_||j,symbol) = val];
-        pat := cat(pat,sprintf("  jac__%s(%d,%d) = jac__%d_%d;\n",name,i,j,i,j));      end;
+        pat := cat(pat,sprintf("  jac__%s(%d,%d) = jac__%d_%d;\n",name,i,j,i,j));
+      end;
     end;
   end;
   str := CodeGeneration[Matlab](LST,optimize=true,coercetypes=false,deducetypes=false,output=string);
