@@ -1,1 +1,6 @@
 Icon?
+
+*.gz
+*.aux
+*.log
+*.synctex.gz

@@ -1,0 +1,59 @@
+\usepackage{bm,bbm}												% allow use the bold in formulas
+%\usepackage[sc]{mathpazo} 										% use the Palatino font
+\usepackage{mathrsfs}											% load a script font for math
+\usepackage[sans]{dsfont}										% load the ds font for math mode
+\usepackage[T1]{fontenc} 										% use 8-bit encoding that has 256 glyphs
+\usepackage{microtype} 											% slightly tweak font spacing for aesthetics
+\usepackage{geometry} 											% document margins and geometry
+\geometry{a4paper,top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,heightrounded,bindingoffset=5mm}
+\usepackage [Lenny]{fncychap}									% allows customization of chapter titles
+\usepackage{booktabs} 											% horizontal rules in tables
+\usepackage{float} 												% required for tables and figures in the multi-column environment - they need to be placed 															% in specific locations with the [H] (e.g. \begin{table}[H])
+\usepackage{lettrine} 											% the lettrine is the first enlarged letter at the beginning of the text
+\usepackage{verbatim}											% allows comment enviroment
+\usepackage{psfrag}												% change labels in eps file into LaTeX text
+\usepackage{titlesec} 											% allows customization of titles
+\usepackage{fancyhdr} 											% headers and footers
+\usepackage[utf8]{inputenc}										% accented letters directly from keyboard
+\usepackage[italian,english]{babel}								% used to write in italian and english
+\usepackage{lipsum}												% used to generate dummy text
+\usepackage{url}												% used to write URLs 
+\usepackage{indentfirst}										% justifies the text better
+\usepackage{amsmath}											% professional writing for math formulas
+\usepackage{amsthm}												% allows the creation of mathematical enviroments, like theorem, proof, lemma...
+\usepackage{amssymb}											% another packet for professional math writing
+\usepackage[output-decimal-marker={,}]{siunitx}					% allows the use of the SI unit symbols
+\usepackage{hyperref}											% allows hyperlink
+\hypersetup{hidelinks}											% hide the links of hyperref packet
+\usepackage{latexsym}											% some additional characters
+\usepackage{amsfonts}											% some additional math symbols
+\usepackage{makeidx}											% allows creation of professional index
+%\usepackage{varioref}											% allows creation of more complete references
+\usepackage{color} 												% manages the colors in the document
+\usepackage{subfig}												% pictures side by side
+\usepackage{pgfplots}											% allows creation of professional graphs
+\pgfplotsset{compat=1.7}
+\usepackage{graphicx} 											% allows creation of graphics
+\usepackage{transparent}										% allows the creation of transparent levels in pictures
+\usepackage{mparhack}											% right alignment for footnotes
+\usepackage{epigraph}											% allows creation of beatiful epigraphs
+\usepackage{listings}											% code printing
+\usepackage{fancyvrb}											% code printing
+\usepackage{algorithm}											% code printing
+\usepackage{algpseudocode}										% code printing
+\usepackage{braket}												% allows use of bra and ket brakets
+\usepackage{mathtools}											% allows creation of pre-subscript and pre-superscripts
+\usepackage[square, numbers, comma, sort&compress]{natbib} 		% use the natbib reference package - read up on this to edit the reference style; 
+																% if you want text (e.g. Smith et al., 2012) for the in-text references (instead of
+																% numbers), remove 'numbers' 
+\usepackage{cleveref}											% allows creation of reference of type, eq. (1), fig(2),... ecc \cref{key}
+\usepackage{tikz}												% package for drawing
+\usetikzlibrary{shapes,arrows,positioning,spy,through,calc}						% set wich part load
+\usepackage{array}												% possibility to create array, useful for partitioned matricies
+\usepackage{arydshln}											% some line style
+\usepackage[draft]{listofsymbols}
+
+\usepackage[acronym,nonumberlist]{glossaries}					% creation of glossaries
+
+\renewcommand*{\glossaryname}{Symbol list}
+\deftranslation{Glossary}{Symbol list}

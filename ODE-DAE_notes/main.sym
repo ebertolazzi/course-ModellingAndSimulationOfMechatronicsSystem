@@ -1,0 +1,34 @@
+\printsymline{\mathbb{R}}{\mathbb{R}}{realsetg}{real set}{1}
+\printsymline{\mathbb{C}}{\mathbb{C}}{complexsetg}{complex set}{1}
+\printsymline{\mathcal{L}_{\infty }}{\mathcal{L}_{\infty }}{hinffun}{set of bounded function}{1}
+\printsymline{\text{Sym}}{\text{Sym}}{sym}{Symmetrix matricies set}{1}
+\printsymline{t}{t}{timescalar}{time}{1}
+\printsymline{\lambda}{\lambda}{eigs}{eigenvalue}{1}
+\printsymline{n}{n}{dimstates}{state dimension}{1}
+\printsymline{m}{m}{diminputs}{input dimension}{1}
+\printsymline{p}{p}{dimoutputs}{output dimension}{1}
+\printsymline{d}{d}{dimexos}{exostate dimension}{1}
+\printsymline{\Sigma}{\Sigma}{blocko}{system block}{1}
+\printsymline{x}{x}{statev}{state of dynamic system}{1}
+\printsymline{\xi}{\xi}{esstatev}{state of extended servomechanis system}{1}
+\printsymline{u}{u}{inputv}{input of dynamic system}{1}
+\printsymline{w}{w}{exov}{exogenus signal acting on the dynamic system}{1}
+\printsymline{y}{y}{outputv}{measured output of dynamic system}{1}
+\printsymline{z}{z}{addmeasv}{other measured output in addition to error}{1}
+\printsymline{e}{e}{errorv}{tracking error}{1}
+\printsymline{v}{v}{stabsigv}{stabilizing signal for the antiwindup dynamic}{1}
+\printsymline{\lambda}{\lambda}{lagmultv}{lagrange multipliers}{1}
+\printsymline{A}{A}{statem}{state matrix}{1}
+\printsymline{B}{B}{inputm}{input matrix}{1}
+\printsymline{C}{C}{outputm}{output matrix}{1}
+\printsymline{D}{D}{inputoutm}{direct feedthrough matrix}{1}
+\printsymline{P}{P}{diststatem}{disturbance state matrix}{1}
+\printsymline{Q}{Q}{distoutm}{disturbance output matrix}{1}
+\printsymline{S}{S}{exom}{exogenous system state matrix}{1}
+\printsymline{T}{T}{changecoordm}{change of coordinates matrix}{1}
+\printsymline{K}{K}{gainm}{feedback gain matrix}{1}
+\printsymline{L}{L}{gainexom}{exosystem gain matrix}{1}
+\printsymline{L}{L}{algloopgainm}{algebraic loop gain matrix}{1}
+\printsymline{I}{I}{eyem}{identity matrix}{1}
+\printsymline{\Delta}{\Delta}{variationm}{generic variation}{1}
+\printsymline{\mathcal{H}}{\mathcal{H}}{hamiltonf}{hamiltonian function}{1}
