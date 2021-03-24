@@ -1,0 +1,36 @@
+\chapter{}
+	\label{sec:appendix}
+	\section{Explicit matrix inverse}
+		\label{subsec:matrixinverse}
+		Here we provide the explicit expression for the inverse of matrix in \cref{eq:numericalscheme},
+		\begin{equation*}
+			\begin{bmatrix}
+				\bm{I} 	&	0		&	0 \\
+				0	& 	\bm{M}(\bm{q}) 	&	-\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal} \\
+				0 	& -\frac{\partial\bm{\phi}}{\partial\bm{q}} & 0\\
+			\end{bmatrix}^{-1}
+			= 
+			\begin{bmatrix}
+				\bm{I} 	&	0		&	0 			\\
+				0	& 	\bm{X}_{11} &	\bm{X}_{12} \\
+				0 	& 	\bm{X}_{21} & 	\bm{X}_{22}
+			\end{bmatrix},
+		\end{equation*}	
+		where the quantities $\bm{X}_{11}\in\mathbb{R}^{n\times n}$, $\bm{X}_{12}\in\mathbb{R}^{n\times m}$, $\bm{X}_{21}\in\mathbb{R}^{m\times n}$, $\bm{X}_{22}\in\mathbb{R}^{m\times m}$ are defined as follows,
+		\begin{subequations}
+			\begin{align*}
+				\bm{X}_{11} &= \bm{M}(\bm{q})^{-1}- \bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}, \\
+				\bm{X}_{12} &= -\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)^{-1}, \\
+				\bm{X}_{21} &= - \left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}, \\
+				\bm{X}_{22} &= -\left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)^{-1}.
+			\end{align*}
+		\end{subequations}
+		Notice that as expected $\bm{X}_{12} = \bm{X}_{21}^{\intercal}$, moreover in the inversion formula appears the expression,
+		\begin{equation*}
+			\left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)^{-1}
+		\end{equation*}
+		which is exactly the one in \cref{eq:compression} for which we must guarantee the invertibility. Notice also that in the case of a single constraint, i.e., $\phi(\bm{q})\in\mathbb{R}$ the following expression can be simplified as follows,
+		\begin{equation*}
+			\bm{M(\bm{q})}^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)^{-1} \frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1} = \frac{\bm{M(\bm{q})}^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M(\bm{q})}^{-1}}{\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}}.
+		\end{equation*}
+			

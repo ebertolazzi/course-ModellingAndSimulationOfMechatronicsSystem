@@ -13,7 +13,7 @@ classdef RK4 < ODEbaseSolverRKexplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    %  Classic fourth-order method
+    % Classical fourth-order Runge-Kutta's method (RK4) tableau
     %
     % 0   | 0   0   0   0
     % 1/2 | 1/2 0   0   0

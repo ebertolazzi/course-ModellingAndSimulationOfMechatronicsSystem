@@ -1,0 +1,131 @@
+%---------------------------------------------
+%	load packages
+%---------------------------------------------
+	\usepackage{bm,bbm}												% allow use the bold in formulas
+	%\usepackage[sc]{mathpazo} 										% use the Palatino font
+	\usepackage{mathrsfs}											% load a script font for math
+	\usepackage[sans]{dsfont}										% load the ds font for math mode
+	\usepackage[T1]{fontenc} 										% use 8-bit encoding that has 256 glyphs
+	\usepackage{microtype} 											% slightly tweak font spacing for aesthetics
+	\usepackage{geometry} 											% document margins and geometry
+	\geometry{a4paper,top=3cm,bottom=3cm,left=3.5cm,right=3.5cm,heightrounded,bindingoffset=5mm}
+	\usepackage [Lenny]{fncychap}									% allows customization of chapter titles
+	\usepackage{booktabs} 											% horizontal rules in tables
+	\usepackage{float} 												% required for tables and figures in the multi-column environment - they need to be placed 															% in specific locations with the [H] (e.g. \begin{table}[H])
+	\usepackage{lettrine} 											% the lettrine is the first enlarged letter at the beginning of the text
+	\usepackage{verbatim}											% allows comment enviroment
+	\usepackage{psfrag}												% change labels in eps file into LaTeX text
+	\usepackage{fancyhdr} 											% headers and footers
+	\usepackage[utf8]{inputenc}										% accented letters directly from keyboard
+	\usepackage[italian,english]{babel}								% used to write in italian and english
+	\usepackage{lipsum}												% used to generate dummy text
+	\usepackage{url}												% used to write URLs 
+	\usepackage{indentfirst}										% justifies the text better
+	\usepackage{amssymb}											% another packet for professional math writing
+	\usepackage{amsmath}											% professional writing for math formulas, and definitions, lemmas, ecc ecc 
+	\usepackage{amsthm}												% professional writing for definitions, lemmas, ecc ecc 
+	\usepackage{thmtools}											% allows customization of definition, lemmas, proofs, environments
+	\usepackage[output-decimal-marker={,}]{siunitx}					% allows the use of the SI unit symbols
+	\usepackage{hyperref}											% allows hyperlink
+	\hypersetup{hidelinks}											% hide the links of hyperref packet
+	\usepackage{latexsym}											% some additional characters
+	\usepackage{amsfonts}											% some additional math symbols
+	\usepackage{makeidx}											% allows creation of professional index
+	\usepackage{color} 												% manages the colors in the document
+	\usepackage{subfig}												% pictures side by side
+	\usepackage{pgfplots}											% allows creation of professional graphs
+	\pgfplotsset{compat=1.7}										% set the compatibility version
+	\usepackage{graphicx} 											% allows creation of graphics
+	\usepackage{transparent}										% allows the creation of transparent levels in pictures
+	\usepackage{mparhack}											% right alignment for footnotes
+	\usepackage{listings}											% code printing
+	\usepackage{fancyvrb}											% code printing
+	\usepackage{algorithm}											% code printing
+	\usepackage{algpseudocode}										% code printing
+	\usepackage{braket}												% allows use of bra and ket brakets
+	\usepackage{mathtools}											% allows creation of pre-subscript and pre-superscripts
+	\usepackage{cleveref}											% allows creation of reference of type, eq. (1), fig(2),... ecc \cref{key}
+	\usepackage{tikz}												% package for drawing
+	\usetikzlibrary{shapes,arrows,positioning,spy,calc}				% set wich part load
+	\usepackage{array}												% possibility to create array, useful for partitioned matricies
+	\usepackage{enumerate}											% creation of enumeration/itemization environments.
+	\usepackage{textcomp}											% more symbols
+
+%---------------------------------------------
+%	define mathematical environments
+%---------------------------------------------
+	\declaretheorem[style=plain]{theorem}
+	\declaretheorem[style=plain]{corollary}
+	\declaretheorem[style=plain]{lemma}
+	\declaretheorem[style=plain]{proposition}
+
+	\declaretheorem[style=definition]{definition}
+	\declaretheorem[style=definition]{assumption}
+	\declaretheorem[style=definition]{problem}
+
+	\declaretheorem[style=remark,qed=$\lrcorner$]{remark}
+	\declaretheorem[style=remark,qed=$\circ$]{example}
+
+%---------------------------------------------
+%	set the numbering representation for the new enviroments
+%---------------------------------------------
+	\renewcommand\thetheorem{\arabic{theorem}}
+	\renewcommand\thecorollary{\arabic{theorem}.\arabic{corollary}}
+	\renewcommand\thelemma{\arabic{theorem}.\arabic{lemma}}
+	\renewcommand\theproposition{\arabic{proposition}}
+
+	\renewcommand\thedefinition{\arabic{definition}}
+	\renewcommand\theassumption{\arabic{assumption}}
+	\renewcommand\theproblem{\arabic{problem}}
+
+	\renewcommand\theremark{\arabic{remark}}
+	\renewcommand\theexample{\arabic{example}}
+
+%---------------------------------------------
+%	define the graphic path
+%---------------------------------------------
+	\graphicspath{{pictures/}} 				% Specifies the directory where pictures are stored
+	
+%---------------------------------------------
+%	define some additional commands 
+%---------------------------------------------	
+	\newcommand{\quotemarks}[1]{``#1''}
+	\let\oldbar\bar
+	\renewcommand{\bar}{\overline}
+
+%---------------------------------------------
+%	define mathematical operators
+%---------------------------------------------
+	\newcommand{\transp}[1]{#1^{\intercal}}
+	\newcommand{\transpinv}[1]{#1^{-\intercal}}
+	\newcommand{\partialdev}[2]{\dfrac{\partial#1}{\partial#2}}
+	\newcommand{\diff}{\mathop{}\!\mathrm{d}}
+	\newcommand{\derivative}[2]{\frac{\diff}{\diff#2}{#1}}
+	\newcommand{\determinant}[1]{\mathrm{det}\left(#1\right)}
+	\newcommand{\diag}[1]{\mathrm{diag}\left(#1\right)}
+	\newcommand{\blkdiag}[1]{\mathrm{blkdiag}\left(#1\right)}
+	\newcommand{\trace}[1]{\mathrm{trace}~#1}
+	\newcommand{\dimens}[1]{\mathrm{dim}\left(#1\right)}
+	\newcommand{\norm}[1]{|#1|}
+	\newcommand{\sat}[1]{\mathrm{sat}\left(#1\right)}
+	\newcommand{\ortcmp}[1]{#1^{\bot}}
+	\newcommand{\spanning}[1]{\mathrm{span}\left(#1\right)}
+	\newcommand{\kernel}[1]{\mathrm{ker}~#1}
+	\newcommand{\im}[1]{\mathrm{im}~#1}
+	\newcommand{\dz}[1]{\mathrm{dz}\left(#1\right)}
+	\newcommand{\rank}[1]{\mathrm{rank}~#1}
+	\newcommand{\nulla}[1]{\mathrm{nul}~#1}
+	\newcommand{\spec}[1]{\lambda\left(#1\right)}
+	\newcommand{\He}[1]{\mathrm{He}\left(#1\right)}
+	\newcommand{\kron}{\mathrm{\otimes}}
+	\newcommand{\col}[1]{\mathrm{col}\left(#1\right)}
+	\newcommand{\argmin}[1]{\mathrm{arg\,min}~#1}
+	\newcommand{\softmax}[1]{\mathrm{soft}\max\left(#1\right)}
+	
+%---------------------------------------------
+%	set some page options
+%---------------------------------------------
+	\fancypagestyle{plain}{\fancyhf{}\fancyfoot{}\renewcommand{\headrulewidth}{0pt}}
+	\renewcommand{\chaptermark}[1]{\markboth{Ch. \thechapter \textit{ #1}} {} }
+	\renewcommand{\sectionmark}[1]{\markright{\thesection \textit{ #1}} {} }
+		

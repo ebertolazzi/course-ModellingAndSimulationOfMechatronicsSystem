@@ -1,0 +1,12 @@
+\printsymline{p}{p}{plantsub}{plant subscript}{1}
+\printsymline{a}{a}{antiwindupsub}{antiwindup subscript}{1}
+\printsymline{c}{c}{controllersub}{controller subscript}{1}
+\printsymline{sr}{sr}{strongredsub}{strong redundacy subscript}{1}
+\printsymline{wr}{wr}{weakredsub}{weak redundacy subscript}{1}
+\printsymline{w}{w}{exosub}{exogenous system subscript}{1}
+\printsymline{l}{l}{linsub}{equivalent linear system subscript}{1}
+\printsymline{e}{e}{errsub}{error subscript}{1}
+\printsymline{z}{z}{addmessub}{additional measurement subscript}{1}
+\printsymline{n}{n}{nominalsub}{nominal plant subscript}{1}
+\printsymline{d}{d}{diffsub}{differential dynamic subscript}{1}
+\printsymline{im}{im}{imsub}{internalmodel subscript}{1}

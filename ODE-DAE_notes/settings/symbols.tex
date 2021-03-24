@@ -1,0 +1,269 @@
+\opensymdef
+	%---------------------------------------------
+	%	create a symbol list
+	%	
+	%	g = general
+	%	s = scalar
+	%	v = vector
+	%	m = matrix
+	%   f = function
+	%	o = object
+	%---------------------------------------------
+	
+	%---------------------------------------------
+	%	general
+	%---------------------------------------------
+	\newsym[real set]{realsetg}{\mathbb{R}}
+	\newsym[complex set]{complexsetg}{\mathbb{C}}
+	\newsym[set of bounded function]{hinffun}{\mathcal{L}_{\infty}}
+	\newsym[Symmetrix matricies set]{sym}{\text{Sym}}
+	
+	%---------------------------------------------
+	%	scalar
+	%---------------------------------------------
+	\newsym[time]{timescalar}{t}
+	\newsym[eigenvalue]{eigs}{\lambda}
+	
+	\newsym[state dimension]{dimstates}{n}
+	\newsym[input dimension]{diminputs}{m}
+	\newsym[output dimension]{dimoutputs}{p}
+	\newsym[exostate dimension]{dimexos}{d}
+	
+	%---------------------------------------------
+	%	objects
+	%---------------------------------------------
+	\newsym[system block]{blocko}{\Sigma}
+	
+	%---------------------------------------------
+	%	vectors
+	%---------------------------------------------
+	\newsym[state of dynamic system]{statev}{x}
+	\newsym[state of extended servomechanis system]{esstatev}{\xi}
+	\newsym[input of dynamic system]{inputv}{u}
+	\newsym[exogenus signal acting on the dynamic system]{exov}{w}
+	\newsym[measured output of dynamic system]{outputv}{y}
+	\newsym[other measured output in addition to error]{addmeasv}{z}
+	
+	\newsym[tracking error]{errorv}{e}
+	
+	\newsym[stabilizing signal for the antiwindup dynamic]{stabsigv}{v}
+	
+	\newsym[lagrange multipliers]{lagmultv}{\lambda}
+	
+	%---------------------------------------------
+	%	matricies
+	%---------------------------------------------
+	\newsym[state matrix]{statem}{A}
+	\newsym[input matrix]{inputm}{B}
+	\newsym[output matrix]{outputm}{C}
+	\newsym[direct feedthrough matrix]{inputoutm}{D}
+	\newsym[disturbance state matrix]{diststatem}{P}
+	\newsym[disturbance output matrix]{distoutm}{Q}
+	
+	\newsym[exogenous system state matrix]{exom}{S}
+	
+	\newsym[change of coordinates matrix]{changecoordm}{T}
+	
+	\newsym[feedback gain matrix]{gainm}{K}
+	\newsym[exosystem gain matrix]{gainexom}{L}
+	\newsym[algebraic loop gain matrix]{algloopgainm}{L}
+	
+	\newsym[identity matrix]{eyem}{I}
+	
+	\newsym[generic variation]{variationm}{\Delta}
+	
+	
+	
+	%---------------------------------------------
+	%	functions
+	%---------------------------------------------
+	\newsym[hamiltonian function]{hamiltonf}{\mathcal{H}}
+	
+	%---------------------------------------------
+	%	create a subscript symbol list
+	%	
+	%	sub = subscript
+	%---------------------------------------------
+	\newsub[plant subscript]{plantsub}{p}
+	\newsub[antiwindup subscript]{antiwindupsub}{a}
+	\newsub[controller subscript]{controllersub}{c}
+	\newsub[strong redundacy subscript]{strongredsub}{sr}
+	\newsub[weak redundacy subscript]{weakredsub}{wr}
+	\newsub[exogenous system subscript]{exosub}{w}
+	\newsub[equivalent linear system subscript]{linsub}{l}
+	\newsub[error subscript]{errsub}{e}
+	\newsub[additional measurement subscript]{addmessub}{z}
+	\newsub[nominal plant subscript]{nominalsub}{n}
+	\newsub[differential dynamic subscript]{diffsub}{d}
+	\newsub[internalmodel subscript]{imsub}{im}
+
+
+\closesymdef
+
+%---------------------------------------------
+%	redefine symbol commands for the editor
+%---------------------------------------------
+
+%---------------------------------------------
+%	general
+%---------------------------------------------
+\let\oldrealsetg\realsetg
+\renewcommand{\realsetg}{\oldrealsetg}
+
+\let\oldcomplexsetg\complexsetg
+\renewcommand{\complexsetg}{\oldcomplexsetg}
+
+\let\oldhinffun\hinffun
+\renewcommand{\hinffun}{\oldhinffun}
+
+\let\oldsym\sym
+\renewcommand{\sym}{\oldsym}
+
+%---------------------------------------------
+%	scalar
+%---------------------------------------------
+\let\oldtimescalar\timescalar
+\renewcommand{\timescalar}{\oldtimescalar}
+
+\let\oldeigs\eigs
+\renewcommand{\eigs}{\oldeigs}
+
+\let\olddimstates\dimstates
+\renewcommand{\dimstates}{\olddimstates}
+
+\let\olddiminputs\diminputs
+\renewcommand{\diminputs}{\olddiminputs}
+
+\let\olddimoutputs\dimoutputs
+\renewcommand{\dimoutputs}{\olddimoutputs}
+
+\let\olddimexos\dimexos
+\renewcommand{\dimexos}{\olddimexos}
+	
+%---------------------------------------------
+%	objects
+%---------------------------------------------
+\let\oldblocko\blocko
+\renewcommand{\blocko}{\oldblocko}
+
+%---------------------------------------------
+%	vectors
+%---------------------------------------------
+\let\oldstatev\statev
+\renewcommand{\statev}{\oldstatev}
+
+\let\oldesstatev\esstatev
+\renewcommand{\esstatev}{\oldesstatev}
+
+\let\oldinputv\inputv
+\renewcommand{\inputv}{\oldinputv}
+
+\let\oldexov\exov
+\renewcommand{\exov}{\oldexov}
+
+\let\oldoutputv\outputv
+\renewcommand{\outputv}{\oldoutputv}
+
+\let\oldstabsigv\stabsigv
+\renewcommand{\stabsigv}{\oldstabsigv}
+
+\let\olderrorv\errorv
+\renewcommand{\errorv}{\olderrorv}
+
+\let\oldaddmeasv\addmeasv
+\renewcommand{\addmeasv}{\oldaddmeasv}
+
+\let\oldlagmultv\lagmultv
+\renewcommand{\lagmultv}{\oldlagmultv}
+
+%---------------------------------------------
+%	matricies
+%---------------------------------------------
+\let\oldstatem\statem
+\renewcommand{\statem}{\oldstatem}
+
+\let\oldinputm\inputm
+\renewcommand{\inputm}{\oldinputm}
+
+\let\oldoutputm\outputm
+\renewcommand{\outputm}{\oldoutputm}
+
+\let\oldinputoutm\inputoutm
+\renewcommand{\inputoutm}{\oldinputoutm}
+
+\let\olddiststatem\diststatem
+\renewcommand{\diststatem}{\olddiststatem}
+
+\let\olddistoutm\distoutm
+\renewcommand{\distoutm}{\olddistoutm}
+
+\let\oldexom\exom
+\renewcommand{\exom}{\oldexom}
+
+\let\oldchangecoordm\changecoordm
+\renewcommand{\changecoordm}{\oldchangecoordm}
+
+\let\oldgainm\gainm
+\renewcommand{\gainm}{\oldgainm}
+
+\let\oldgainexom\gainexom
+\renewcommand{\gainexom}{\oldgainexom}
+
+\let\oldalgloopgainm\algloopgainm
+\renewcommand{\algloopgainm}{\oldalgloopgainm}
+
+\let\oldeyem\eyem
+\renewcommand{\eyem}{\oldeyem}
+
+\let\oldvariationm\variationm
+\renewcommand{\variationm}{\oldvariationm}
+
+%---------------------------------------------
+%	functions
+%---------------------------------------------
+
+\let\oldhamiltonf\hamiltonf
+\renewcommand{\hamiltonf}{\oldhamiltonf}
+
+%---------------------------------------------
+%	redefine symbol subscript commands for the editor
+%---------------------------------------------
+
+\let\oldplantsub\plantsub
+\renewcommand{\plantsub}{\oldplantsub}
+
+\let\oldantiwindupsub\antiwindupsub
+\renewcommand{\antiwindupsub}{\oldantiwindupsub}
+
+\let\oldcontrollersub\controllersub
+\renewcommand{\controllersub}{\oldcontrollersub}
+
+\let\oldstrongredsub\strongredsub
+\renewcommand{\strongredsub}{\oldstrongredsub}
+
+\let\oldweakredsub\weakredsub
+\renewcommand{\weakredsub}{\oldweakredsub}
+
+\let\oldexosub\exosub
+\renewcommand{\exosub}{\oldexosub}
+
+\let\oldlinsub\linsub
+\renewcommand{\linsub}{\oldlinsub}
+
+\let\olderrsub\errsub
+\renewcommand{\errsub}{\olderrsub}
+
+\let\oldaddmessub\addmessub
+\renewcommand{\addmessub}{\oldaddmessub}
+
+\let\oldnominalsub\nominalsub
+\renewcommand{\nominalsub}{\oldnominalsub}
+
+\let\olddiffsub\diffsub
+\renewcommand{\diffsub}{\olddiffsub}
+
+\let\oldimsub\imsub
+\renewcommand{\imsub}{\oldimsub}
+
+
+
