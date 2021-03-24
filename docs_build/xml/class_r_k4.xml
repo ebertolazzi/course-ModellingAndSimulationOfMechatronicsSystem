@@ -1,0 +1,268 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_r_k4" kind="class" language="C++" prot="public">
+    <compoundname>RK4</compoundname>
+    <basecompoundref refid="class_o_d_ebase_solver_r_kexplicit" prot="public" virt="non-virtual">ODEbaseSolverRKexplicit</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_r_k4_1aeba54f3850d45566dfcc9f366d95a854" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function RK4::RK4</definition>
+        <argsstring>(in)</argsstring>
+        <name>RK4</name>
+        <param>
+          <type>in</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit/RK4.m" line="28" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_r_k4_1a8aaf0071a9208c179b04e44acb61ab09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function RK4::delete</definition>
+        <argsstring>(in self)</argsstring>
+        <name>delete</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit/RK4.m" line="39" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_r_kexplicit_1a2bc8a39197761a3213b70229b5996e63" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolverRKexplicit::step</definition>
+        <argsstring>(in self, in t0, in x0, in dt)</argsstring>
+        <name>step</name>
+        <reimplements refid="class_o_d_ebase_solver_1a06088a4f14175451a450623fc8e6d204">step</reimplements>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m" line="45" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_1a763011221a3e61796ad944b7a5f3022b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolver::getName</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getName</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m" line="44" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_1ac7055749661d4a5318333d06c8f08bff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolver::setODE</definition>
+        <argsstring>(in self, in odeClass)</argsstring>
+        <name>setODE</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>odeClass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m" line="49" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_1a841a2044d66efdc7082b4bd2027e370e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolver::advance</definition>
+        <argsstring>(in self, in t, in x0)</argsstring>
+        <name>advance</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m" line="58" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kexplicit_1a48424ada359d8aa5d4b44bb4e849a38a" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKexplicit::A</definition>
+        <argsstring></argsstring>
+        <name>A</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kexplicit_1a6c16b61d7f1bc1481ba2e42f6e7e1802" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKexplicit::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m" line="19" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kexplicit_1aae3efc1a6899f706ac82967718a80e59" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKexplicit::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m" line="21" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_1a8217b66fc7948ae24e85afc1b84eaabc" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolver::solverName</definition>
+        <argsstring></argsstring>
+        <name>solverName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_1a0cf86a3bbfa2e38b50720bba71ebcc8c" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolver::odeClass</definition>
+        <argsstring></argsstring>
+        <name>odeClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m" line="19" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>RK4</label>
+        <link refid="class_r_k4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>handle</label>
+      </node>
+      <node id="3">
+        <label>ODEbaseSolver</label>
+        <link refid="class_o_d_ebase_solver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ODEbaseSolverRKexplicit</label>
+        <link refid="class_o_d_ebase_solver_r_kexplicit"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>RK4</label>
+        <link refid="class_r_k4"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>handle</label>
+      </node>
+      <node id="3">
+        <label>ODEbaseSolver</label>
+        <link refid="class_o_d_ebase_solver"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ODEbaseSolverRKexplicit</label>
+        <link refid="class_o_d_ebase_solver_r_kexplicit"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit/RK4.m" line="12" column="1" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit/RK4.m" bodystart="13" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_o_d_ebase_solver_r_kexplicit_1a48424ada359d8aa5d4b44bb4e849a38a" prot="private" virt="non-virtual"><scope>RK4</scope><name>A</name></member>
+      <member refid="class_o_d_ebase_solver_1a841a2044d66efdc7082b4bd2027e370e" prot="public" virt="non-virtual"><scope>RK4</scope><name>advance</name></member>
+      <member refid="class_o_d_ebase_solver_r_kexplicit_1a6c16b61d7f1bc1481ba2e42f6e7e1802" prot="private" virt="non-virtual"><scope>RK4</scope><name>b</name></member>
+      <member refid="class_o_d_ebase_solver_r_kexplicit_1aae3efc1a6899f706ac82967718a80e59" prot="private" virt="non-virtual"><scope>RK4</scope><name>c</name></member>
+      <member refid="class_r_k4_1a8aaf0071a9208c179b04e44acb61ab09" prot="public" virt="non-virtual"><scope>RK4</scope><name>delete</name></member>
+      <member refid="class_o_d_ebase_solver_1a763011221a3e61796ad944b7a5f3022b" prot="public" virt="non-virtual"><scope>RK4</scope><name>getName</name></member>
+      <member refid="class_o_d_ebase_solver_1a8d7859d1a6caeffc8e61f631cae0887d" prot="public" virt="non-virtual"><scope>RK4</scope><name>ODEbaseSolver</name></member>
+      <member refid="class_o_d_ebase_solver_r_kexplicit_1a9bdc93c8e893c7b94efdca48fba77b05" prot="public" virt="non-virtual"><scope>RK4</scope><name>ODEbaseSolverRKexplicit</name></member>
+      <member refid="class_o_d_ebase_solver_1a0cf86a3bbfa2e38b50720bba71ebcc8c" prot="private" virt="non-virtual"><scope>RK4</scope><name>odeClass</name></member>
+      <member refid="class_r_k4_1aeba54f3850d45566dfcc9f366d95a854" prot="public" virt="non-virtual"><scope>RK4</scope><name>RK4</name></member>
+      <member refid="class_o_d_ebase_solver_1ac7055749661d4a5318333d06c8f08bff" prot="public" virt="non-virtual"><scope>RK4</scope><name>setODE</name></member>
+      <member refid="class_o_d_ebase_solver_1a8217b66fc7948ae24e85afc1b84eaabc" prot="private" virt="non-virtual"><scope>RK4</scope><name>solverName</name></member>
+      <member refid="class_o_d_ebase_solver_r_kexplicit_1a2bc8a39197761a3213b70229b5996e63" prot="public" virt="virtual"><scope>RK4</scope><name>step</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

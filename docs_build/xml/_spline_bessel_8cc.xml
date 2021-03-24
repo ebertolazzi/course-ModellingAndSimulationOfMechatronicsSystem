@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_spline_bessel_8cc" kind="file" language="C++">
+    <compoundname>SplineBessel.cc</compoundname>
+    <includes refid="_splines_8hh" local="yes">Splines.hh</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>SplineAkima.hxx</label>
+        <link refid="_spline_akima_8hxx"/>
+      </node>
+      <node id="23">
+        <label>Splines2D.hxx</label>
+        <link refid="_splines2_d_8hxx"/>
+      </node>
+      <node id="13">
+        <label>SplinePchip.hxx</label>
+        <link refid="_spline_pchip_8hxx"/>
+      </node>
+      <node id="1">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBessel.cc</label>
+        <link refid="_spline_bessel_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>SplineQuintic.hxx</label>
+        <link refid="_spline_quintic_8hxx"/>
+      </node>
+      <node id="19">
+        <label>SplineBiQuintic.hxx</label>
+        <link refid="_spline_bi_quintic_8hxx"/>
+      </node>
+      <node id="14">
+        <label>SplineQuinticBase.hxx</label>
+        <link refid="_spline_quintic_base_8hxx"/>
+      </node>
+      <node id="21">
+        <label>SplineSet.hxx</label>
+        <link refid="_spline_set_8hxx"/>
+      </node>
+      <node id="6">
+        <label>fstream</label>
+      </node>
+      <node id="16">
+        <label>SplineBilinear.hxx</label>
+        <link refid="_spline_bilinear_8hxx"/>
+      </node>
+      <node id="10">
+        <label>SplineLinear.hxx</label>
+        <link refid="_spline_linear_8hxx"/>
+      </node>
+      <node id="9">
+        <label>SplineConstant.hxx</label>
+        <link refid="_spline_constant_8hxx"/>
+      </node>
+      <node id="12">
+        <label>SplineHermite.hxx</label>
+        <link refid="_spline_hermite_8hxx"/>
+      </node>
+      <node id="5">
+        <label>GenericContainer.hh</label>
+      </node>
+      <node id="11">
+        <label>SplineCubic.hxx</label>
+        <link refid="_spline_cubic_8hxx"/>
+      </node>
+      <node id="18">
+        <label>SplineAkima2D.hxx</label>
+        <link refid="_spline_akima2_d_8hxx"/>
+      </node>
+      <node id="20">
+        <label>SplineVec.hxx</label>
+        <link refid="_spline_vec_8hxx"/>
+      </node>
+      <node id="3">
+        <label>SplinesConfig.hh</label>
+        <link refid="_splines_config_8hh"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Utils.hh</label>
+      </node>
+      <node id="17">
+        <label>SplineBiCubic.hxx</label>
+        <link refid="_spline_bi_cubic_8hxx"/>
+      </node>
+      <node id="22">
+        <label>Splines1D.hxx</label>
+        <link refid="_splines1_d_8hxx"/>
+      </node>
+      <node id="8">
+        <label>SplineBessel.hxx</label>
+        <link refid="_spline_bessel_8hxx"/>
+      </node>
+      <node id="2">
+        <label>Splines.hh</label>
+        <link refid="_splines_8hh"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespace_splines">Splines</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*--------------------------------------------------------------------------*\</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>|<sp/><sp/>Copyright<sp/>(C)<sp/>2016<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|/<sp/><sp/>\<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|/<sp/><sp/>\<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>__/<sp/>_<sp/><sp/><sp/>,_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>__/<sp/>_<sp/><sp/><sp/>,_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/>\|/<sp/><sp/>/<sp/><sp/>|<sp/><sp/>|<sp/><sp/><sp/>|<sp/>|<sp/><sp/><sp/>\|/<sp/><sp/>/<sp/><sp/>|<sp/><sp/>|<sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|(__/|__/<sp/><sp/><sp/>|_/<sp/>\_/|/|(__/|__/<sp/><sp/><sp/>|_/<sp/>\_/|/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Enrico<sp/>Bertolazzi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Dipartimento<sp/>di<sp/>Ingegneria<sp/>Industriale<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Universita`<sp/>degli<sp/>Studi<sp/>di<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>email:<sp/>enrico.bertolazzi@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">\*--------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_splines_8hh" kindref="compound">Splines.hh</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>|<sp/><sp/><sp/>____<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/>____<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/>_</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>|<sp/><sp/>|<sp/>__<sp/>)<sp/><sp/>___<sp/><sp/>___<sp/>___<sp/><sp/>___|<sp/>/<sp/>___|<sp/>_<sp/>__<sp/>|<sp/>(_)_<sp/>__<sp/><sp/><sp/>___</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>|<sp/><sp/>|<sp/><sp/>_<sp/>\<sp/>/<sp/>_<sp/>\/<sp/>__/<sp/>__|/<sp/>_<sp/>\<sp/>\___<sp/>\|<sp/>&apos;_<sp/>\|<sp/>|<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>|<sp/><sp/>|<sp/>|_)<sp/>|<sp/><sp/>__/\__<sp/>\__<sp/>\<sp/><sp/>__/<sp/>|___)<sp/>|<sp/>|_)<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>__/</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>|<sp/><sp/>|____/<sp/>\___||___/___/\___|_|____/|<sp/>.__/|_|_|_|<sp/>|_|\___|</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">\*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__clang__</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>clang<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wc++98-compat&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>clang<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wglobal-constructors&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>clang<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wc++98-compat-pedantic&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>clang<sp/>diagnostic<sp/>ignored<sp/>&quot;-Wpoison-system-directories&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DOXYGEN_SHOULD_SKIP_THIS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std;<sp/></highlight><highlight class="comment">//<sp/>load<sp/>standard<sp/>namspace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_splines" kindref="compound">Splines</ref><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#ifndef<sp/>DOXYGEN_SHOULD_SKIP_THIS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>Bessel_build(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>X,</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>Y,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>Yp,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>npts</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>n<sp/>=<sp/>size_t(npts<sp/>&gt;<sp/>0<sp/>?<sp/>npts-1<sp/>:<sp/>0);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>Utils::Malloc&lt;real_type&gt;<sp/>mem(</highlight><highlight class="stringliteral">&quot;Bessel_build&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m<sp/>=<sp/>mem.malloc(<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal">(n+1)<sp/>);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calcolo<sp/>slopes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>n;<sp/>++i<sp/>)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m[i]<sp/>=<sp/>(Y[i+1]-Y[i])/(X[i+1]-X[i]);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>npts<sp/>==<sp/>2<sp/>)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>caso<sp/>speciale<sp/>2<sp/>soli<sp/>punti</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Yp[0]<sp/>=<sp/>Yp[1]<sp/>=<sp/>m[0];</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>1;<sp/>i<sp/>&lt;<sp/>n;<sp/>++i<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>DL<sp/>=<sp/>X[i]<sp/><sp/><sp/>-<sp/>X[i-1];</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>DR<sp/>=<sp/>X[i+1]<sp/>-<sp/>X[i];</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Yp[i]<sp/>=<sp/>(DR*m[i-1]+DL*m[i])/((DL+DR));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Yp[0]<sp/>=<sp/>1.5*m[0]-0.5*m[1];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Yp[n]<sp/>=<sp/>1.5*m[n-1]-0.5*m[n-2];</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/>#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="class_splines_1_1_bessel_spline_1ab3dad9dbdc0bd13bf866d82f35d00837" refkind="member"><highlight class="normal"><sp/><sp/>BesselSpline::build()<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>msg<sp/>=<sp/>fmt::format(</highlight><highlight class="stringliteral">&quot;BesselSpline[{}]::build():&quot;</highlight><highlight class="normal">,<sp/>m_name<sp/>);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>UTILS_ASSERT(</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>m_npts<sp/>&gt;<sp/>1,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="stringliteral">&quot;{}<sp/>npts<sp/>=<sp/>{}<sp/>not<sp/>enought<sp/>points\n&quot;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>msg,<sp/>m_npts</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>Utils::checkNaN(<sp/>m_X,<sp/>(msg+</highlight><highlight class="stringliteral">&quot;<sp/>X&quot;</highlight><highlight class="normal">).c_str(),<sp/>m_npts,<sp/>__LINE__,<sp/>__FILE__<sp/>);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>Utils::checkNaN(<sp/>m_Y,<sp/>(msg+</highlight><highlight class="stringliteral">&quot;<sp/>Y&quot;</highlight><highlight class="normal">).c_str(),<sp/>m_npts,<sp/>__LINE__,<sp/>__FILE__<sp/>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>ibegin<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>iend<sp/><sp/><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">do</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>cerca<sp/>intervallo<sp/>monotono<sp/>strettamente<sp/>crescente</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>++iend<sp/>&lt;<sp/>m_npts<sp/>&amp;&amp;<sp/>m_X[iend-1]<sp/>&lt;<sp/>m_X[iend]<sp/>)<sp/>{}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Bessel_build(<sp/>m_X+ibegin,<sp/>m_Y+ibegin,<sp/>m_Yp+ibegin,<sp/>iend-ibegin<sp/>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ibegin<sp/>=<sp/>iend;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(<sp/>iend<sp/>&lt;<sp/>m_npts<sp/>);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/>Utils::checkNaN(<sp/>m_Yp,<sp/>(msg+</highlight><highlight class="stringliteral">&quot;<sp/>Yp&quot;</highlight><highlight class="normal">).c_str(),<sp/>m_npts,<sp/>__LINE__,<sp/>__FILE__<sp/>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>GenericContainerNamespace::GC_VEC_REAL;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>GenericContainerNamespace::vec_real_type;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114" refid="class_splines_1_1_bessel_spline_1aa765e87cd88e14e66e31264409076b38" refkind="member"><highlight class="normal"><sp/><sp/>BesselSpline::setup(<sp/>GenericContainer<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>gc<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>gc[&quot;xdata&quot;]</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/>gc[&quot;ydata&quot;]</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/><sp/><sp/>//</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/>msg<sp/>=<sp/>fmt::format(</highlight><highlight class="stringliteral">&quot;BesselSpline[{}]::setup(<sp/>gc<sp/>):&quot;</highlight><highlight class="normal">,<sp/>m_name<sp/>);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>UTILS_ASSERT(<sp/>gc.exists(</highlight><highlight class="stringliteral">&quot;xdata&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="stringliteral">&quot;{}<sp/>missing<sp/>`xdata`<sp/>field!\n&quot;</highlight><highlight class="normal">,<sp/>msg<sp/>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>UTILS_ASSERT(<sp/>gc.exists(</highlight><highlight class="stringliteral">&quot;ydata&quot;</highlight><highlight class="normal">),<sp/></highlight><highlight class="stringliteral">&quot;{}<sp/>missing<sp/>`ydata`<sp/>field!\n&quot;</highlight><highlight class="normal">,<sp/>msg<sp/>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>GenericContainer<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>gc_x<sp/>=<sp/>gc(</highlight><highlight class="stringliteral">&quot;xdata&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>GenericContainer<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>gc_y<sp/>=<sp/>gc(</highlight><highlight class="stringliteral">&quot;ydata&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>vec_real_type<sp/>x,<sp/>y;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>ff<sp/>=<sp/>fmt::format(<sp/></highlight><highlight class="stringliteral">&quot;{},<sp/>field<sp/>`xdata&apos;&quot;</highlight><highlight class="normal">,<sp/>msg<sp/>);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gc_x.copyto_vec_real<sp/>(<sp/>x,<sp/>ff.c_str()<sp/>);</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>ff<sp/>=<sp/>fmt::format(<sp/></highlight><highlight class="stringliteral">&quot;{},<sp/>field<sp/>`ydata&apos;&quot;</highlight><highlight class="normal">,<sp/>msg<sp/>);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>gc_y.copyto_vec_real<sp/>(<sp/>y,<sp/>ff.c_str()<sp/>);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;build(<sp/>x,<sp/>y<sp/>);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBessel.cc"/>
+  </compounddef>
+</doxygen>

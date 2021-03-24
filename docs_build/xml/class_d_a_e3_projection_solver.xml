@@ -1,0 +1,370 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_d_a_e3_projection_solver" kind="class" language="C++" prot="public">
+    <compoundname>DAE3ProjectionSolver</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_d_a_e3_projection_solver_1a48e3749bf62f5f0d8ee409a179ee7f85" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property DAE3ProjectionSolver::solverName</definition>
+        <argsstring></argsstring>
+        <name>solverName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_e3_projection_solver_1af182fee8efa8c13ea63ab13b30a1162f" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property DAE3ProjectionSolver::DAEclass</definition>
+        <argsstring></argsstring>
+        <name>DAEclass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="19" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_e3_projection_solver_1ace35e8dac054e9e7003f6f8371ae1a9f" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property DAE3ProjectionSolver::RKclass</definition>
+        <argsstring></argsstring>
+        <name>RKclass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="21" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a070f20203056023b8f7bffe1c0c46a54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::DAE3ProjectionSolver</definition>
+        <argsstring>()</argsstring>
+        <name>DAE3ProjectionSolver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="26" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a40837aede3bf14e134bbc25ccb9f47f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::delete</definition>
+        <argsstring>(in self)</argsstring>
+        <name>delete</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="31" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a10f0cc6d6de08614500833f74c723cc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::getName</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getName</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="35" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a17954cf23a1a2fb44a94a3565c7c8568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::setDAE</definition>
+        <argsstring>(in self, in DAEclass)</argsstring>
+        <name>setDAE</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>DAEclass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="40" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1aef234e5765711ea9232eb15965d5705a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::setRK</definition>
+        <argsstring>(in self, in RKclass)</argsstring>
+        <name>setRK</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>RKclass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="45" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1ac694541d85e1afca63a23ab4b7abe4c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::f</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>f</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="67" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1af06dc171a84bf72f5bbcd9760a0a88e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::DfDx</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>DfDx</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="98" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a4fed36a0a3a1679af4c82a251ff66f9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::lambda</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>lambda</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="139" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a085d23f8d27d5d8ea793fb8501cc1dc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::project_position</definition>
+        <argsstring>(in self, in t, in pos)</argsstring>
+        <name>project_position</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="159" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a996c00e92eb262bea84a3893d107dd35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::project_velocity</definition>
+        <argsstring>(in self, in t, in pos, in vel)</argsstring>
+        <name>project_velocity</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>vel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="184" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1ac244e2fa36ac0ec328f2464598c654f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::step</definition>
+        <argsstring>(in self, in x0, in t0, in dt)</argsstring>
+        <name>step</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="198" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_projection_solver_1a0c88f00848b884cfd1973a21d3f2e004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3ProjectionSolver::advance</definition>
+        <argsstring>(in self, in t, in pos0, in vel0)</argsstring>
+        <name>advance</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>pos0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>vel0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="214" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>DAE3ProjectionSolver</label>
+        <link refid="class_d_a_e3_projection_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>handle</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>DAE3ProjectionSolver</label>
+        <link refid="class_d_a_e3_projection_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>handle</label>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" line="12" column="1" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m" bodystart="13" bodyend="234"/>
+    <listofallmembers>
+      <member refid="class_d_a_e3_projection_solver_1a0c88f00848b884cfd1973a21d3f2e004" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>advance</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a070f20203056023b8f7bffe1c0c46a54" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>DAE3ProjectionSolver</name></member>
+      <member refid="class_d_a_e3_projection_solver_1af182fee8efa8c13ea63ab13b30a1162f" prot="private" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>DAEclass</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a40837aede3bf14e134bbc25ccb9f47f7" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>delete</name></member>
+      <member refid="class_d_a_e3_projection_solver_1af06dc171a84bf72f5bbcd9760a0a88e3" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>DfDx</name></member>
+      <member refid="class_d_a_e3_projection_solver_1ac694541d85e1afca63a23ab4b7abe4c1" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>f</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a10f0cc6d6de08614500833f74c723cc2" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>getName</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a4fed36a0a3a1679af4c82a251ff66f9e" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>lambda</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a085d23f8d27d5d8ea793fb8501cc1dc0" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>project_position</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a996c00e92eb262bea84a3893d107dd35" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>project_velocity</name></member>
+      <member refid="class_d_a_e3_projection_solver_1ace35e8dac054e9e7003f6f8371ae1a9f" prot="private" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>RKclass</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a17954cf23a1a2fb44a94a3565c7c8568" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>setDAE</name></member>
+      <member refid="class_d_a_e3_projection_solver_1aef234e5765711ea9232eb15965d5705a" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>setRK</name></member>
+      <member refid="class_d_a_e3_projection_solver_1a48e3749bf62f5f0d8ee409a179ee7f85" prot="private" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>solverName</name></member>
+      <member refid="class_d_a_e3_projection_solver_1ac244e2fa36ac0ec328f2464598c654f5" prot="public" virt="non-virtual"><scope>DAE3ProjectionSolver</scope><name>step</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

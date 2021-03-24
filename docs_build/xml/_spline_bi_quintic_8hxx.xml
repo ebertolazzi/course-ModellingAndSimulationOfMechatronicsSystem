@@ -1,0 +1,293 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_spline_bi_quintic_8hxx" kind="file" language="C++">
+    <compoundname>SplineBiQuintic.hxx</compoundname>
+    <includedby refid="_splines_8hh" local="yes">/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh</includedby>
+    <invincdepgraph>
+      <node id="9">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineConstant.cc</label>
+        <link refid="_spline_constant_8cc"/>
+      </node>
+      <node id="5">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBessel.cc</label>
+        <link refid="_spline_bessel_8cc"/>
+      </node>
+      <node id="24">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinesUtils.cc</label>
+        <link refid="_splines_utils_8cc"/>
+      </node>
+      <node id="1">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBiQuintic.hxx</label>
+        <link refid="_spline_bi_quintic_8hxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBiCubic.cc</label>
+        <link refid="_spline_bi_cubic_8cc"/>
+      </node>
+      <node id="22">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinesUtils.hh</label>
+        <link refid="_splines_utils_8hh"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineCubicBase.cc</label>
+        <link refid="_spline_cubic_base_8cc"/>
+      </node>
+      <node id="21">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineSetGC.cc</label>
+        <link refid="_spline_set_g_c_8cc"/>
+      </node>
+      <node id="13">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineLinear.cc</label>
+        <link refid="_spline_linear_8cc"/>
+      </node>
+      <node id="7">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBilinear.cc</label>
+        <link refid="_spline_bilinear_8cc"/>
+      </node>
+      <node id="19">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinesBivariate.cc</label>
+        <link refid="_splines_bivariate_8cc"/>
+      </node>
+      <node id="16">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineQuinticBase.cc</label>
+        <link refid="_spline_quintic_base_8cc"/>
+      </node>
+      <node id="15">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineQuintic.cc</label>
+        <link refid="_spline_quintic_8cc"/>
+      </node>
+      <node id="20">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineSet.cc</label>
+        <link refid="_spline_set_8cc"/>
+      </node>
+      <node id="4">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineAkima2D.cc</label>
+        <link refid="_spline_akima2_d_8cc"/>
+      </node>
+      <node id="3">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineAkima.cc</label>
+        <link refid="_spline_akima_8cc"/>
+      </node>
+      <node id="10">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineCubic.cc</label>
+        <link refid="_spline_cubic_8cc"/>
+      </node>
+      <node id="18">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.cc</label>
+        <link refid="_splines2_d_8cc"/>
+      </node>
+      <node id="23">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc</label>
+        <link refid="_splines_8cc"/>
+      </node>
+      <node id="17">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines1D.cc</label>
+        <link refid="_splines1_d_8cc"/>
+      </node>
+      <node id="12">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineHermite.cc</label>
+        <link refid="_spline_hermite_8cc"/>
+      </node>
+      <node id="8">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBiQuintic.cc</label>
+        <link refid="_spline_bi_quintic_8cc"/>
+      </node>
+      <node id="25">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc</label>
+        <link refid="_spline_vec_8cc"/>
+      </node>
+      <node id="2">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh</label>
+        <link refid="_splines_8hh"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinePchip.cc</label>
+        <link refid="_spline_pchip_8cc"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_splines_1_1_bi_quintic_spline_base" prot="public">Splines::BiQuinticSplineBase</innerclass>
+    <innerclass refid="class_splines_1_1_bi_quintic_spline" prot="public">Splines::BiQuinticSpline</innerclass>
+    <innernamespace refid="namespace_splines">Splines</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*--------------------------------------------------------------------------*\</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>|<sp/><sp/>Copyright<sp/>(C)<sp/>2016<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|/<sp/><sp/>\<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|/<sp/><sp/>\<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>__/<sp/>_<sp/><sp/><sp/>,_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>__/<sp/>_<sp/><sp/><sp/>,_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/>\|/<sp/><sp/>/<sp/><sp/>|<sp/><sp/>|<sp/><sp/><sp/>|<sp/>|<sp/><sp/><sp/>\|/<sp/><sp/>/<sp/><sp/>|<sp/><sp/>|<sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|(__/|__/<sp/><sp/><sp/>|_/<sp/>\_/|/|(__/|__/<sp/><sp/><sp/>|_/<sp/>\_/|/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Enrico<sp/>Bertolazzi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Dipartimento<sp/>di<sp/>Ingegneria<sp/>Industriale<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Universita`<sp/>degli<sp/>Studi<sp/>di<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>email:<sp/>enrico.bertolazzi@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">\*--------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>|<sp/><sp/><sp/>____<sp/><sp/>_<sp/><sp/>___<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/>____<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>____</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>|<sp/><sp/>|<sp/>__<sp/>)(_)/<sp/>_<sp/>\<sp/>_<sp/><sp/><sp/>_(_)_<sp/>__<sp/>|<sp/>|_(_)<sp/>___/<sp/>___|<sp/>_<sp/>__<sp/>|<sp/>(_)_<sp/>__<sp/><sp/><sp/>___|<sp/>__<sp/>)<sp/><sp/>__<sp/>_<sp/>___<sp/><sp/>___</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>|<sp/><sp/>|<sp/><sp/>_<sp/>\|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>&apos;_<sp/>\|<sp/>__|<sp/>|/<sp/>__\___<sp/>\|<sp/>&apos;_<sp/>\|<sp/>|<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\<sp/><sp/>_<sp/>\<sp/>/<sp/>_`<sp/>/<sp/>__|/<sp/>_<sp/>\</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>|<sp/><sp/>|<sp/>|_)<sp/>|<sp/>|<sp/>|_|<sp/>|<sp/>|_|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|_|<sp/>|<sp/>(__<sp/>___)<sp/>|<sp/>|_)<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>__/<sp/>|_)<sp/>|<sp/>(_|<sp/>\__<sp/>\<sp/><sp/>__/</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>|<sp/><sp/>|____/|_|\__\_\\__,_|_|_|<sp/>|_|\__|_|\___|____/|<sp/>.__/|_|_|_|<sp/>|_|\___|____/<sp/>\__,_|___/\___|</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">\*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_splines" kindref="compound">Splines</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="class_splines_1_1_bi_quintic_spline_base" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_splines_1_1_bi_quintic_spline_base" kindref="compound">BiQuinticSplineBase</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline_surf" kindref="compound">SplineSurf</ref><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>Utils::Malloc&lt;real_type&gt;<sp/>mem;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DX;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DXX;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DY;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DYY;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DXY;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DXYY;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DXXY;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>*<sp/>m_DXXYY;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>load(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>j,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>bili5[6][6]<sp/>)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="class_splines_1_1_bi_quintic_spline_base_1a56c09b52f52ebc64c8a95a6fb89ab66d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a56c09b52f52ebc64c8a95a6fb89ab66d" kindref="member">BiQuinticSplineBase</ref>(<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="class_splines_1_1_spline_surf_1a608635cd50deed1fff36e7cd03b0c6ec" kindref="member">name</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Spline&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_splines_1_1_spline_surf" kindref="compound">SplineSurf</ref>(<sp/><ref refid="class_splines_1_1_spline_surf_1a608635cd50deed1fff36e7cd03b0c6ec" kindref="member">name</ref><sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>mem(</highlight><highlight class="stringliteral">&quot;BiQuinticSplineBase&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_DX(nullptr)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_DXX(nullptr)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_DY(nullptr)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_DYY(nullptr)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_DXY(nullptr)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_DXYY(nullptr)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_DXXY(nullptr)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="class_splines_1_1_bi_quintic_spline_base_1ac33e08e51b5ee166162a0c80044060d2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1ac33e08e51b5ee166162a0c80044060d2" kindref="member">~BiQuinticSplineBase</ref>()</highlight><highlight class="keyword"><sp/>override</highlight></codeline>
+<codeline lineno="63"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/>mem.free();<sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="66" refid="class_splines_1_1_bi_quintic_spline_base_1a2bf9d52051ccfc1fa0c410d3a252f16b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a2bf9d52051ccfc1fa0c410d3a252f16b" kindref="member">DxNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>j<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="67"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_DX[size_t(this-&gt;ipos_C(i,j))];<sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="70" refid="class_splines_1_1_bi_quintic_spline_base_1aa277aa23cde5f145d1ae78c4bb6f461a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1aa277aa23cde5f145d1ae78c4bb6f461a" kindref="member">DyNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>j<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="71"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_DY[size_t(this-&gt;ipos_C(i,j))];<sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="74" refid="class_splines_1_1_bi_quintic_spline_base_1a5246ece95c98834935b48872abed444c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a5246ece95c98834935b48872abed444c" kindref="member">DxxNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>j<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="75"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_DXX[size_t(this-&gt;ipos_C(i,j))];<sp/>}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="78" refid="class_splines_1_1_bi_quintic_spline_base_1ad61d717547398f9f1b95f09de9be87e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1ad61d717547398f9f1b95f09de9be87e5" kindref="member">DyyNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>j<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="79"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_DYY[size_t(this-&gt;ipos_C(i,j))];<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="82" refid="class_splines_1_1_bi_quintic_spline_base_1aed90e3565f9da60d9d3a85444b7b2b40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1aed90e3565f9da60d9d3a85444b7b2b40" kindref="member">DxyNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>j<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="83"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_DXY[size_t(this-&gt;ipos_C(i,j))];<sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a4b1980852f2e50913825fbc73c42856b" kindref="member">operator () </ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a35b9d0e4c060a290cc5c462c944278d5" kindref="member">D</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>d[3]<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a259de027e1d9a118a75bc58d82ff30ed" kindref="member">Dx</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a2091f0ba7f356e368a33dc5f83818389" kindref="member">Dy</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a1b384fb6815a15a279d510ccd581ab4a" kindref="member">DD</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>dd[6]<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1a4c1db5d3d64dbf68a578a6d1833c2874" kindref="member">Dxx</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1ae64f55cd54ed335f7dd35e85c95636ec" kindref="member">Dxy</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base_1ac844f40e57eba04cb9f8323053a411d9" kindref="member">Dyy</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/>____<sp/><sp/>_<sp/><sp/>___<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/><sp/><sp/>_<sp/><sp/><sp/><sp/><sp/><sp/>____<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/>_</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>__<sp/>)(_)/<sp/>_<sp/>\<sp/>_<sp/><sp/><sp/>_(_)_<sp/>__<sp/>|<sp/>|_(_)<sp/>___/<sp/>___|<sp/>_<sp/>__<sp/>|<sp/>(_)_<sp/>__<sp/><sp/><sp/>___</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/><sp/>_<sp/>\|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>&apos;_<sp/>\|<sp/>__|<sp/>|/<sp/>__\___<sp/>\|<sp/>&apos;_<sp/>\|<sp/>|<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|<sp/>|_)<sp/>|<sp/>|<sp/>|_|<sp/>|<sp/>|_|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|_|<sp/>|<sp/>(__<sp/>___)<sp/>|<sp/>|_)<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>__/</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/>|____/|_|\__\_\\__,_|_|_|<sp/>|_|\__|_|\___|____/|<sp/>.__/|_|_|_|<sp/>|_|\___|</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/>\*/</highlight></codeline>
+<codeline lineno="106" refid="class_splines_1_1_bi_quintic_spline" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_splines_1_1_bi_quintic_spline" kindref="compound">BiQuinticSpline</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_bi_quintic_spline_base" kindref="compound">BiQuinticSplineBase</ref><sp/>{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>makeSpline()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="class_splines_1_1_bi_quintic_spline_1ad7723eaedf718985866eea52e69a200f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_1ad7723eaedf718985866eea52e69a200f" kindref="member">BiQuinticSpline</ref>(<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="class_splines_1_1_spline_surf_1a608635cd50deed1fff36e7cd03b0c6ec" kindref="member">name</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Spline&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="class_splines_1_1_bi_quintic_spline_base" kindref="compound">BiQuinticSplineBase</ref>(<sp/><ref refid="class_splines_1_1_spline_surf_1a608635cd50deed1fff36e7cd03b0c6ec" kindref="member">name</ref><sp/>)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="class_splines_1_1_bi_quintic_spline_1a71fcc132cb98cd5beaaa90d700a43aa6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_bi_quintic_spline_1a71fcc132cb98cd5beaaa90d700a43aa6" kindref="member">~BiQuinticSpline</ref>()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_bi_quintic_spline_1a30edea36289d49007c87e08d792efb61" kindref="member">writeToStream</ref>(<sp/><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref><sp/>&amp;<sp/>s<sp/>)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="class_splines_1_1_bi_quintic_spline_1a755e0aae0802a6a5b7c01a51514dbfc8" kindref="member">type_name</ref>()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">//<sp/>EOF:<sp/>SplineBiQuintic.hxx</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBiQuintic.hxx"/>
+  </compounddef>
+</doxygen>

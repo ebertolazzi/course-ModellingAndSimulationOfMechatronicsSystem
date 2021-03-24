@@ -1,0 +1,1237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_splines_1_1_spline2_d" kind="class" language="C++" prot="public">
+    <compoundname>Splines::Spline2D</compoundname>
+    <includes refid="_splines2_d_8hxx" local="no">Splines2D.hxx</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_splines_1_1_spline2_d_1a4a190094646ffe04de27fc0ce34fc0ea" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Splines::Spline2D::m_name</definition>
+        <argsstring></argsstring>
+        <name>m_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="34" column="18" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline2_d_1a867efe89a5f2b028c82d39e70679d2ca" prot="private" static="no" mutable="no">
+        <type><ref refid="class_splines_1_1_spline_surf" kindref="compound">SplineSurf</ref> *</type>
+        <definition>SplineSurf* Splines::Spline2D::m_pSpline2D</definition>
+        <argsstring></argsstring>
+        <name>m_pSpline2D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="35" column="17" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a4bb0d5ad76b1a74515c3009c585e3977" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Splines::Spline2D::Spline2D</definition>
+        <argsstring>(string const &amp;name=&quot;Spline2D&quot;)</argsstring>
+        <name>Spline2D</name>
+        <param>
+          <type>string const &amp;</type>
+          <declname>name</declname>
+          <defval>&quot;Spline2D&quot;</defval>
+        </param>
+        <briefdescription>
+<para>spline constructor </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="39" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1abaa21767107f13450585a34f8d5206bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Splines::Spline2D::~Spline2D</definition>
+        <argsstring>()</argsstring>
+        <name>~Spline2D</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="44" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="44" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a2ac53cea39786a8e535f18f27d752945" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::Spline2D::is_x_closed</definition>
+        <argsstring>() const</argsstring>
+        <name>is_x_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="47" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a80680bd3f3335a6985479c3d1910b2e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_x_closed</definition>
+        <argsstring>()</argsstring>
+        <name>make_x_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="48" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1ad5d7d326cdbcb425cb753761e3f073ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_x_opened</definition>
+        <argsstring>()</argsstring>
+        <name>make_x_opened</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="49" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1aa727a21a450628f93c7f31c12719e10a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::Spline2D::is_y_closed</definition>
+        <argsstring>() const</argsstring>
+        <name>is_y_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="51" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a11a39d51cfd79ed23efa3ebe685f6241" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_y_closed</definition>
+        <argsstring>()</argsstring>
+        <name>make_y_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="52" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a76b9b2aca48aa7ae66643bde27184bf8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_y_opened</definition>
+        <argsstring>()</argsstring>
+        <name>make_y_opened</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="53" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1aca11e9614a3ab4ef5040e1270b58f625" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::Spline2D::is_x_bounded</definition>
+        <argsstring>() const</argsstring>
+        <name>is_x_bounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="55" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a24e4a92cf42daed052f5dc320abe1fb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_x_unbounded</definition>
+        <argsstring>()</argsstring>
+        <name>make_x_unbounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="56" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a0bb6bc35c9878e12a2a235bc6f1ac056" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_x_bounded</definition>
+        <argsstring>()</argsstring>
+        <name>make_x_bounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="57" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a77d7e6ce1e765f3d398eef8df4cd2f50" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::Spline2D::is_y_bounded</definition>
+        <argsstring>() const</argsstring>
+        <name>is_y_bounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="59" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1adf709164ec0774b1a37afbe2dce3e505" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_y_unbounded</definition>
+        <argsstring>()</argsstring>
+        <name>make_y_unbounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="60" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1ab535f112e5b1b9bbc143443f4ba33e00" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::make_y_bounded</definition>
+        <argsstring>()</argsstring>
+        <name>make_y_bounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="61" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a1d952012782cb5af0fe93c4e02fa510b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string const  &amp;</type>
+        <definition>string const&amp; Splines::Spline2D::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="63" column="19" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1abc9e4215b9fc86c64433dbb16873ddd0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+<para>Cancel the support points, empty the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="66" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a6bbe7afcd7817db6e455b4ab0101f563" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::Spline2D::numPointX</definition>
+        <argsstring>() const</argsstring>
+        <name>numPointX</name>
+        <briefdescription>
+<para>return the number of support points of the spline along x direction </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="70" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a17ae868e02912c9968f9e2328e72b7ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::Spline2D::numPointY</definition>
+        <argsstring>() const</argsstring>
+        <name>numPointY</name>
+        <briefdescription>
+<para>return the number of support points of the spline along y direction </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="74" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a6b7551e9e4f199a5ef5b4806920578a0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::xNode</definition>
+        <argsstring>(integer i) const</argsstring>
+        <name>xNode</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>return the i-th node of the spline (x component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="78" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a0a1cad4e52cfd0aaa8cb1e040a2b8c61" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::yNode</definition>
+        <argsstring>(integer i) const</argsstring>
+        <name>yNode</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>return the i-th node of the spline (y component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="82" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a61d2028cb523d72d2df7569fd8d1f5be" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::zNode</definition>
+        <argsstring>(integer i, integer j) const</argsstring>
+        <name>zNode</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>return the i-th node of the spline (y component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="86" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="86" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1ac3120131263cb398593484c8d674bac3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::xMin</definition>
+        <argsstring>() const</argsstring>
+        <name>xMin</name>
+        <briefdescription>
+<para>return x-minumum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="90" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="90" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a3e3aac8a010976882be5eee9484e6e77" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::xMax</definition>
+        <argsstring>() const</argsstring>
+        <name>xMax</name>
+        <briefdescription>
+<para>return x-maximum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="94" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="94" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a75a3bf3d11b08ce351a1eb1b66d1c6c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::yMin</definition>
+        <argsstring>() const</argsstring>
+        <name>yMin</name>
+        <briefdescription>
+<para>return y-minumum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="98" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1ae31a17675487995a68ed21185bc3a342" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::yMax</definition>
+        <argsstring>() const</argsstring>
+        <name>yMax</name>
+        <briefdescription>
+<para>return y-maximum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="102" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1ac6c66219f95a4565afab2f77d8b3d482" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::zMin</definition>
+        <argsstring>() const</argsstring>
+        <name>zMin</name>
+        <briefdescription>
+<para>return z-minumum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="106" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a27292b81ce58cba6a284d8b62cc526a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::zMax</definition>
+        <argsstring>() const</argsstring>
+        <name>zMax</name>
+        <briefdescription>
+<para>return z-maximum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="110" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::build</definition>
+        <argsstring>(SplineType2D tp, real_type const *x, integer incx, real_type const *y, integer incy, real_type const *z, integer ldZ, integer nx, integer ny, bool fortran_storage=false, bool transposed=false)</argsstring>
+        <name>build</name>
+        <param>
+          <type><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref></type>
+          <declname>tp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>incx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>incy</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ldZ</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>nx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ny</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fortran_storage</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>transposed</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="113" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.cc" bodystart="34" bodyend="66"/>
+        <referencedby refid="class_splines_1_1_spline2_d_1a43b7b23a82102849ea10f9f801e8ba46" compoundref="_splines2_d_8cc" startline="71" endline="101">build</referencedby>
+        <referencedby refid="class_splines_1_1_spline2_d_1a05776ff454c82d1b1ce2cbaa5c38f261" compoundref="_splines2_d_8hxx" startline="196" endline="197">setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a43b7b23a82102849ea10f9f801e8ba46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::build</definition>
+        <argsstring>(SplineType2D tp, vector&lt; real_type &gt; const &amp;x, vector&lt; real_type &gt; const &amp;y, vector&lt; real_type &gt; const &amp;z, bool fortran_storage=false, bool transposed=false)</argsstring>
+        <name>build</name>
+        <param>
+          <type><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref></type>
+          <declname>tp</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; const &amp;</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; const &amp;</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fortran_storage</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>transposed</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Build surface spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>spline type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of x-coordinates, nx = x.size() </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of y-coordinates, ny = y.size() </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>matrix of z-values. Elements are stored by row Z(i,j) = z[i*ny+j] as C-matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fortran_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true elements are stored by column i.e. Z(i,j) = z[i+j*nx] as Fortran-matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transposed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true matrix Z is stored transposed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="137" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.cc" bodystart="71" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1af2b563f445c12fb3f583a8ad407a3090" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::build</definition>
+        <argsstring>(SplineType2D tp, real_type const *z, integer ldZ, integer nx, integer ny, bool fortran_storage=false, bool transposed=false)</argsstring>
+        <name>build</name>
+        <param>
+          <type><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref></type>
+          <declname>tp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ldZ</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>nx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ny</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fortran_storage</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>transposed</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Build surface spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>spline type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>matrix of z-values. Elements are stored by row Z(i,j) = z[i*ny+j] as C-matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ldZ</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>leading dimension of the matrix. Elements are stored by row Z(i,j) = z[i*ldZ+j] as C-matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x-dimension </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ny</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y-dimension </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fortran_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true elements are stored by column i.e. Z(i,j) = z[i+j*nx] as Fortran-matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transposed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true matrix Z is stored transposed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="161" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.cc" bodystart="106" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1ad599399139e46b51c4398e736cf88f95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::build</definition>
+        <argsstring>(SplineType2D tp, vector&lt; real_type &gt; const &amp;z, integer nx, integer ny, bool fortran_storage=false, bool transposed=false)</argsstring>
+        <name>build</name>
+        <param>
+          <type><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref></type>
+          <declname>tp</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; const &amp;</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>nx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ny</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>fortran_storage</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>transposed</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>Build surface spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>tp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>spline type </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>z</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>matrix of z-values. Elements are stored by row Z(i,j) = z[i*ny+j] as C-matrix. ldZ leading dimension of the matrix is ny for C-storage and nx for Fortran storage. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>x-dimension </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ny</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>y-dimension </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fortran_storage</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true elements are stored by column i.e. Z(i,j) = z[i+j*nx] as Fortran-matrix </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>transposed</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if true matrix Z is stored transposed </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="186" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.cc" bodystart="142" bodyend="172"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a05776ff454c82d1b1ce2cbaa5c38f261" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::setup</definition>
+        <argsstring>(GenericContainer const &amp;gc)</argsstring>
+        <name>setup</name>
+        <param>
+          <type>GenericContainer const &amp;</type>
+          <declname>gc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="196" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="196" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a6ca9137b36417366b423b21fcc62c7b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::build</definition>
+        <argsstring>(GenericContainer const &amp;gc)</argsstring>
+        <name>build</name>
+        <param>
+          <type>GenericContainer const &amp;</type>
+          <declname>gc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="200" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.cc" bodystart="177" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a2266c0ff697c268fc210bc8780c56cdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::operator()</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate spline value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="204" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="204" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1afc1b939cda6d693fa3036a1c99a9b8ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::D</definition>
+        <argsstring>(real_type x, real_type y, real_type d[3]) const</argsstring>
+        <name>D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>d</declname>
+          <array>[3]</array>
+        </param>
+        <briefdescription>
+<para>First derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="209" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="209" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a450076a23a819660eefc50e80a1b3858" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::Dx</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>Dx</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="213" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="213" bodyend="214"/>
+        <referencedby refid="class_splines_1_1_spline2_d_1a5a829b850e4e4afe1e8fb166c5a2a44f" compoundref="_splines2_d_8hxx" startline="244" endline="245">eval_D_1</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a6b895a0af8c0ab4c3e07682cea0d856a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::Dy</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>Dy</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="217" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="217" bodyend="218"/>
+        <referencedby refid="class_splines_1_1_spline2_d_1a340de4d1d9d5d4cb2becbdc610f0444f" compoundref="_splines2_d_8hxx" startline="248" endline="249">eval_D_2</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1afa991a844100404a7a0b3a126ee7fd3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::DD</definition>
+        <argsstring>(real_type x, real_type y, real_type dd[6]) const</argsstring>
+        <name>DD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>dd</declname>
+          <array>[6]</array>
+        </param>
+        <briefdescription>
+<para>Second derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="222" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="222" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1af9dabc8345af8775da915b90e13591f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::Dxx</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>Dxx</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="226" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="226" bodyend="227"/>
+        <referencedby refid="class_splines_1_1_spline2_d_1a194856210b3ed4e7589437a2a63b1cba" compoundref="_splines2_d_8hxx" startline="253" endline="254">eval_D_1_1</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a37b2eb017b75756c88cb5f689408dcee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::Dxy</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>Dxy</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="230" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="230" bodyend="231"/>
+        <referencedby refid="class_splines_1_1_spline2_d_1a3d14e7538dc951d6076cfa77b3825779" compoundref="_splines2_d_8hxx" startline="257" endline="258">eval_D_1_2</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1aff8c908a8631a0e71485fc9ade3270c0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::Dyy</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>Dyy</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="234" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="234" bodyend="235"/>
+        <referencedby refid="class_splines_1_1_spline2_d_1acfcb02e712be4d5cb06d5c2496713451" compoundref="_splines2_d_8hxx" startline="261" endline="262">eval_D_2_2</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a732835be50e0f244304c0513829e8cf3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::eval</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate spline value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="239" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="239" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a5a829b850e4e4afe1e8fb166c5a2a44f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::eval_D_1</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>eval_D_1</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>First derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="244" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="244" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a340de4d1d9d5d4cb2becbdc610f0444f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::eval_D_2</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>eval_D_2</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="248" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="248" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a194856210b3ed4e7589437a2a63b1cba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::eval_D_1_1</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>eval_D_1_1</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="253" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="253" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a3d14e7538dc951d6076cfa77b3825779" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::eval_D_1_2</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>eval_D_1_2</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="257" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="257" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1acfcb02e712be4d5cb06d5c2496713451" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline2D::eval_D_2_2</definition>
+        <argsstring>(real_type x, real_type y) const</argsstring>
+        <name>eval_D_2_2</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="261" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="261" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a6a18c3d75c3df54267aae62a28c41ecb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::writeToStream</definition>
+        <argsstring>(ostream_type &amp;s) const</argsstring>
+        <name>writeToStream</name>
+        <param>
+          <type><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Print spline coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="266" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="266" bodyend="267"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1a8f59f233545a36b17e5472851f26fd34" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>char const  *</type>
+        <definition>char const* Splines::Spline2D::type_name</definition>
+        <argsstring>() const</argsstring>
+        <name>type_name</name>
+        <briefdescription>
+<para>Return spline typename. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="270" column="17" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="270" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1ad3431e98de1b460ee5411f867356d059" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>string Splines::Spline2D::info</definition>
+        <argsstring>() const</argsstring>
+        <name>info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="273" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="273" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline2_d_1af4f711069e4c9c348e2400aa045178af" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline2D::info</definition>
+        <argsstring>(ostream_type &amp;stream) const</argsstring>
+        <name>info</name>
+        <param>
+          <type><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="277" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="277" bodyend="278"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Bi-quintic spline base class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" line="32" column="3" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx" bodystart="32" bodyend="279"/>
+    <listofallmembers>
+      <member refid="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a43b7b23a82102849ea10f9f801e8ba46" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline2_d_1af2b563f445c12fb3f583a8ad407a3090" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline2_d_1ad599399139e46b51c4398e736cf88f95" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a6ca9137b36417366b423b21fcc62c7b6" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline2_d_1abc9e4215b9fc86c64433dbb16873ddd0" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>clear</name></member>
+      <member refid="class_splines_1_1_spline2_d_1afc1b939cda6d693fa3036a1c99a9b8ff" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>D</name></member>
+      <member refid="class_splines_1_1_spline2_d_1afa991a844100404a7a0b3a126ee7fd3a" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>DD</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a450076a23a819660eefc50e80a1b3858" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>Dx</name></member>
+      <member refid="class_splines_1_1_spline2_d_1af9dabc8345af8775da915b90e13591f4" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>Dxx</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a37b2eb017b75756c88cb5f689408dcee" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>Dxy</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a6b895a0af8c0ab4c3e07682cea0d856a" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>Dy</name></member>
+      <member refid="class_splines_1_1_spline2_d_1aff8c908a8631a0e71485fc9ade3270c0" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>Dyy</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a732835be50e0f244304c0513829e8cf3" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>eval</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a5a829b850e4e4afe1e8fb166c5a2a44f" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>eval_D_1</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a194856210b3ed4e7589437a2a63b1cba" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>eval_D_1_1</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a3d14e7538dc951d6076cfa77b3825779" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>eval_D_1_2</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a340de4d1d9d5d4cb2becbdc610f0444f" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>eval_D_2</name></member>
+      <member refid="class_splines_1_1_spline2_d_1acfcb02e712be4d5cb06d5c2496713451" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>eval_D_2_2</name></member>
+      <member refid="class_splines_1_1_spline2_d_1ad3431e98de1b460ee5411f867356d059" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>info</name></member>
+      <member refid="class_splines_1_1_spline2_d_1af4f711069e4c9c348e2400aa045178af" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>info</name></member>
+      <member refid="class_splines_1_1_spline2_d_1aca11e9614a3ab4ef5040e1270b58f625" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>is_x_bounded</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a2ac53cea39786a8e535f18f27d752945" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>is_x_closed</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a77d7e6ce1e765f3d398eef8df4cd2f50" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>is_y_bounded</name></member>
+      <member refid="class_splines_1_1_spline2_d_1aa727a21a450628f93c7f31c12719e10a" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>is_y_closed</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a4a190094646ffe04de27fc0ce34fc0ea" prot="private" virt="non-virtual"><scope>Splines::Spline2D</scope><name>m_name</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a867efe89a5f2b028c82d39e70679d2ca" prot="private" virt="non-virtual"><scope>Splines::Spline2D</scope><name>m_pSpline2D</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a0bb6bc35c9878e12a2a235bc6f1ac056" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_x_bounded</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a80680bd3f3335a6985479c3d1910b2e7" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_x_closed</name></member>
+      <member refid="class_splines_1_1_spline2_d_1ad5d7d326cdbcb425cb753761e3f073ff" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_x_opened</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a24e4a92cf42daed052f5dc320abe1fb3" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_x_unbounded</name></member>
+      <member refid="class_splines_1_1_spline2_d_1ab535f112e5b1b9bbc143443f4ba33e00" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_y_bounded</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a11a39d51cfd79ed23efa3ebe685f6241" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_y_closed</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a76b9b2aca48aa7ae66643bde27184bf8" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_y_opened</name></member>
+      <member refid="class_splines_1_1_spline2_d_1adf709164ec0774b1a37afbe2dce3e505" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>make_y_unbounded</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a1d952012782cb5af0fe93c4e02fa510b" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>name</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a6bbe7afcd7817db6e455b4ab0101f563" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>numPointX</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a17ae868e02912c9968f9e2328e72b7ac" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>numPointY</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a2266c0ff697c268fc210bc8780c56cdc" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>operator()</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a05776ff454c82d1b1ce2cbaa5c38f261" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>setup</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a4bb0d5ad76b1a74515c3009c585e3977" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>Spline2D</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a8f59f233545a36b17e5472851f26fd34" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>type_name</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a6a18c3d75c3df54267aae62a28c41ecb" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>writeToStream</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a3e3aac8a010976882be5eee9484e6e77" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>xMax</name></member>
+      <member refid="class_splines_1_1_spline2_d_1ac3120131263cb398593484c8d674bac3" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>xMin</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a6b7551e9e4f199a5ef5b4806920578a0" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>xNode</name></member>
+      <member refid="class_splines_1_1_spline2_d_1ae31a17675487995a68ed21185bc3a342" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>yMax</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a75a3bf3d11b08ce351a1eb1b66d1c6c8" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>yMin</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a0a1cad4e52cfd0aaa8cb1e040a2b8c61" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>yNode</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a27292b81ce58cba6a284d8b62cc526a6" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>zMax</name></member>
+      <member refid="class_splines_1_1_spline2_d_1ac6c66219f95a4565afab2f77d8b3d482" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>zMin</name></member>
+      <member refid="class_splines_1_1_spline2_d_1a61d2028cb523d72d2df7569fd8d1f5be" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>zNode</name></member>
+      <member refid="class_splines_1_1_spline2_d_1abaa21767107f13450585a34f8d5206bf" prot="public" virt="non-virtual"><scope>Splines::Spline2D</scope><name>~Spline2D</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

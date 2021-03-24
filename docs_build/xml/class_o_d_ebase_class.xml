@@ -1,0 +1,209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_o_d_ebase_class" kind="class" language="C++" prot="public">
+    <compoundname>ODEbaseClass</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
+    <derivedcompoundref refid="class_d_a_e3base_class_implicit" prot="public" virt="non-virtual">DAE3baseClassImplicit</derivedcompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_o_d_ebase_class_1a823f3665c4f2d9108acc8ad937f377d5" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseClass::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_o_d_ebase_class_1abb6cf02421cbd31153f587740295ab2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass::f</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>f</name>
+        <reimplementedby refid="class_d_a_e3base_class_implicit_1aec168cffd47ed94fcc26119d79065c9f">f</reimplementedby>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="28" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class_1ab2cc3bd14bcce7f8a9315a8f41c49a7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass::DfDx</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>DfDx</name>
+        <reimplementedby refid="class_d_a_e3base_class_implicit_1a69b0936ffa436f0b72e2cf4414afab93">DfDx</reimplementedby>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="34" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class_1a80b915453358bd76ac8f86bb4f9fd541" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass::DfDt</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>DfDt</name>
+        <reimplementedby refid="class_d_a_e3base_class_implicit_1a9680daa25d09d9345d1f666edd73891d">DfDt</reimplementedby>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="40" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class_1abeb9bdeb2ccc9016fe1fafc0e8665e0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass::exact</definition>
+        <argsstring>(in self, in t0, in x0, in t)</argsstring>
+        <name>exact</name>
+        <reimplementedby refid="class_d_a_e3base_class_implicit_1aa93f632871fd00c8147ff9e0c830f419">exact</reimplementedby>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="47" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class_1a95ef0edd9b840bcfe6b459a44b1405ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseClass::ODEbaseClass</definition>
+        <argsstring>(in name)</argsstring>
+        <name>ODEbaseClass</name>
+        <param>
+          <type>in</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="53" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class_1ae4576925165635430fcf1360afdf2f07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseClass::delete</definition>
+        <argsstring>(in self)</argsstring>
+        <name>delete</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="58" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>DAE3baseClassImplicit</label>
+        <link refid="class_d_a_e3base_class_implicit"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>ODEbaseClass</label>
+        <link refid="class_o_d_ebase_class"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>ODEbaseClass</label>
+        <link refid="class_o_d_ebase_class"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" line="12" column="1" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m" bodystart="13" bodyend="62"/>
+    <listofallmembers>
+      <member refid="class_o_d_ebase_class_1ae4576925165635430fcf1360afdf2f07" prot="public" virt="non-virtual"><scope>ODEbaseClass</scope><name>delete</name></member>
+      <member refid="class_o_d_ebase_class_1a80b915453358bd76ac8f86bb4f9fd541" prot="public" virt="virtual"><scope>ODEbaseClass</scope><name>DfDt</name></member>
+      <member refid="class_o_d_ebase_class_1ab2cc3bd14bcce7f8a9315a8f41c49a7a" prot="public" virt="virtual"><scope>ODEbaseClass</scope><name>DfDx</name></member>
+      <member refid="class_o_d_ebase_class_1abeb9bdeb2ccc9016fe1fafc0e8665e0b" prot="public" virt="virtual"><scope>ODEbaseClass</scope><name>exact</name></member>
+      <member refid="class_o_d_ebase_class_1abb6cf02421cbd31153f587740295ab2c" prot="public" virt="virtual"><scope>ODEbaseClass</scope><name>f</name></member>
+      <member refid="class_o_d_ebase_class_1a823f3665c4f2d9108acc8ad937f377d5" prot="private" virt="non-virtual"><scope>ODEbaseClass</scope><name>name</name></member>
+      <member refid="class_o_d_ebase_class_1a95ef0edd9b840bcfe6b459a44b1405ec" prot="public" virt="non-virtual"><scope>ODEbaseClass</scope><name>ODEbaseClass</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

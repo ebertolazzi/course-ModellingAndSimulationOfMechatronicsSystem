@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_5b4b15ad1a73fad52bae7f6126ee706d" kind="dir">
+    <compoundname>/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit</compoundname>
+    <innerfile refid="_crank_nicolson___p_8m">CrankNicolson_P.m</innerfile>
+    <innerfile refid="_gauss_legendre4___p_8m">GaussLegendre4_P.m</innerfile>
+    <innerfile refid="_gauss_legendre6___p_8m">GaussLegendre6_P.m</innerfile>
+    <innerfile refid="_implicit_euler___p_8m">ImplicitEuler_P.m</innerfile>
+    <innerfile refid="_lobatto_i_i_i_a___p_8m">LobattoIIIA_P.m</innerfile>
+    <innerfile refid="_lobatto_i_i_i_b___p_8m">LobattoIIIB_P.m</innerfile>
+    <innerfile refid="_lobatto_i_i_i_c___p_8m">LobattoIIIC_P.m</innerfile>
+    <innerfile refid="_lobatto_i_i_i_c__star___p_8m">LobattoIIIC_star_P.m</innerfile>
+    <innerfile refid="_radau_i_a___p_8m">RadauIA_P.m</innerfile>
+    <innerfile refid="_radau_i_i_a___p_8m">RadauIIA_P.m</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit/"/>
+  </compounddef>
+</doxygen>

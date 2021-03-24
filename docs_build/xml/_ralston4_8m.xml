@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_ralston4_8m" kind="file" language="C++">
+    <compoundname>Ralston4.m</compoundname>
+    <innerclass refid="class_ralston4" prot="public">Ralston4</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%<sp/>Matlab<sp/>code<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>the<sp/>Course:</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/>Modelling<sp/>and<sp/>Simulation<sp/>of<sp/>Mechatronics<sp/>System</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">%<sp/>Enrico<sp/>Bertolazzi</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%<sp/>Dipartimento<sp/>di<sp/>Ingegneria<sp/>Industriale</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">%<sp/>Universita`<sp/>degli<sp/>Studi<sp/>di<sp/>Trento</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">%<sp/>email:<sp/>enrico.bertolazzi@unitn.it</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="12" refid="class_ralston4" refkind="compound"><highlight class="normal">classdef<sp/><ref refid="class_ralston4" kindref="compound">Ralston4</ref><sp/>&lt;<sp/><ref refid="class_o_d_ebase_solver_r_kexplicit" kindref="compound">ODEbaseSolverRKexplicit</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>methods</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><ref refid="class_ralston" kindref="compound">Ralston</ref></highlight><highlight class="stringliteral">&apos;s<sp/>fourth-order<sp/>method<sp/>tableau</highlight></codeline>
+<codeline lineno="17"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="18"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0</highlight></codeline>
+<codeline lineno="19"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/>0.4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0.4<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0</highlight></codeline>
+<codeline lineno="20"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/>0.45573725<sp/>|<sp/>0.29697761<sp/>|<sp/>0.15875964<sp/><sp/>|<sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0</highlight></codeline>
+<codeline lineno="21"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/>1<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0.21810040<sp/>|<sp/>-3.05096516<sp/>|<sp/>3.83286476<sp/>|<sp/>0</highlight></codeline>
+<codeline lineno="22"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/>-----------+---------------------------------------------------</highlight></codeline>
+<codeline lineno="23"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>0.17476028<sp/>|<sp/>-0.55148066<sp/>|<sp/>1.20553560<sp/>|<sp/>0.17118478</highlight></codeline>
+<codeline lineno="24"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="25"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>function<sp/>self<sp/>=<sp/>Ralston4(<sp/>)</highlight></codeline>
+<codeline lineno="26"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>self@ODEbaseSolverRKexplicit(&apos;</highlight><highlight class="normal"><ref refid="class_ralston4" kindref="compound">Ralston4</ref></highlight><highlight class="stringliteral">&apos;,...</highlight></codeline>
+<codeline lineno="27"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[<sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0;...</highlight></codeline>
+<codeline lineno="28" refid="class_ralston4_1a18104a1e8d0f81c6fe49655fc7951d3f" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.4,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0;...</highlight></codeline>
+<codeline lineno="29"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.29697761,<sp/>0.15875964,<sp/><sp/><sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0;...</highlight></codeline>
+<codeline lineno="30"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.21810040,<sp/>-3.05096516,<sp/><sp/>3.83286476,<sp/>0<sp/>],...</highlight></codeline>
+<codeline lineno="31"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[<sp/>0.17476028<sp/>,<sp/>-0.55148066,<sp/>1.20553560,<sp/>0.17118478<sp/>],...</highlight></codeline>
+<codeline lineno="32"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>[<sp/>0,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.4,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.45573725,<sp/>1<sp/>]...</highlight></codeline>
+<codeline lineno="33"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="34"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="35"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="36"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>function<sp/>delete(<sp/>self<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="38"><highlight class="stringliteral"><sp/><sp/>end</highlight></codeline>
+<codeline lineno="39"><highlight class="stringliteral">end</highlight></codeline>
+    </programlisting>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit/Ralston4.m"/>
+  </compounddef>
+</doxygen>

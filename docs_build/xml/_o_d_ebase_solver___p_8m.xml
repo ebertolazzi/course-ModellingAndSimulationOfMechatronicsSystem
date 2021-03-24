@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_o_d_ebase_solver___p_8m" kind="file" language="C++">
+    <compoundname>ODEbaseSolver_P.m</compoundname>
+    <innerclass refid="class_o_d_ebase_solver___p" prot="public">ODEbaseSolver_P</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%<sp/>Matlab<sp/>code<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>the<sp/>Course:</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/>Modelling<sp/>and<sp/>Simulation<sp/>of<sp/>Mechatronics<sp/>System</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">%<sp/>Enrico<sp/>Bertolazzi</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%<sp/>Dipartimento<sp/>di<sp/>Ingegneria<sp/>Industriale</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">%<sp/>Universita`<sp/>degli<sp/>Studi<sp/>di<sp/>Trento</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">%<sp/>email:<sp/>enrico.bertolazzi@unitn.it</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="12" refid="class_o_d_ebase_solver___p" refkind="compound"><highlight class="normal">classdef<sp/><ref refid="class_o_d_ebase_solver___p" kindref="compound">ODEbaseSolver_P</ref><sp/>&lt;<sp/>handle</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>properties<sp/>(SetAccess<sp/>=<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/>Hidden<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>solverName;<sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>should<sp/>contain<sp/>the<sp/>name<sp/>of<sp/>the<sp/>numerical<sp/>method<sp/>used</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>odeClass;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>the<sp/></highlight><highlight class="keywordtype">object</highlight><highlight class="normal"><sp/>storing<sp/>the<sp/>ODE<sp/>with<sp/>invariants</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/>end</highlight></codeline>
+<codeline lineno="17" refid="class_o_d_ebase_solver___p_1a463a4efd529f4a2e58a564a1d7a82a30" refkind="member"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>methods<sp/>(Abstract)</highlight></codeline>
+<codeline lineno="19" refid="class_o_d_ebase_solver___p_1af4cec50b8d704baf7fcda1c1003a644b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>step<sp/>is<sp/>a<sp/>generic<sp/>advancing<sp/>step<sp/>for<sp/>a<sp/>generic<sp/>numerical<sp/>methods</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>given<sp/>x0<sp/>=<sp/>x(t0)<sp/>return<sp/>the<sp/>approximation<sp/>of<sp/>x(t0+dt)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>step(<sp/>self,<sp/>x0,<sp/>t0,<sp/>dt<sp/>)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/>end</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/>methods</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>self<sp/>=<sp/><ref refid="class_o_d_ebase_solver___p" kindref="compound">ODEbaseSolver_P</ref>(<sp/>solverName<sp/>)</highlight></codeline>
+<codeline lineno="30" refid="class_o_d_ebase_solver___p_1a16bfd72a87b0dad9c89f0e6b46e566d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>self.solverName<sp/>=<sp/>solverName;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>delete(<sp/>self<sp/>)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="35" refid="class_o_d_ebase_solver___p_1a43db96cd775976adb99ba2b941635492" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>name<sp/>=<sp/>getName(<sp/>self<sp/>)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/>=<sp/>self.solverName</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="40" refid="class_o_d_ebase_solver___p_1ab6eba6707f9c15496d9e3178bd206399" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>setODE(<sp/>self,<sp/>odeClass<sp/>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>self.odeClass<sp/>=<sp/>odeClass;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="44" refid="class_o_d_ebase_solver___p_1a71ec30b767d73a084f0b7ed486b01018" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>Solve<sp/>the<sp/>problem</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>minimize<sp/><sp/><sp/><sp/><sp/><sp/>1/2<sp/>*<sp/>(x-xtilde)^2</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>subject<sp/>to<sp/><sp/><sp/><sp/>h(<sp/>t,<sp/>x<sp/>)<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="49" refid="class_o_d_ebase_solver___p_1a2ea144d34f384059d1d67c6db217883d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>Given<sp/>the<sp/>Lagrangian</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>L(<sp/>x,<sp/>lambda<sp/>)<sp/>=<sp/>1/2<sp/>*<sp/>(x-xtilde)^2<sp/>+<sp/>lambda<sp/>*<sp/>h(<sp/>t,<sp/>x<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>solve<sp/>the<sp/>problem</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/><sp/>x<sp/>+<sp/>DhDx(<sp/>t,<sp/>x<sp/>)^T<sp/>lambda<sp/>=<sp/>xtilde</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/><sp/>h(<sp/>t,<sp/>x<sp/>)<sp/>=<sp/>0</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>using<sp/>the<sp/>approximation</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>{<sp/>h(<sp/>t_k,<sp/>x_k<sp/>)<sp/>+<sp/>DhDx(<sp/>t_k,<sp/>x_k<sp/>)<sp/>Dx<sp/>+<sp/>O(<sp/>dx^2<sp/>)<sp/>=<sp/>0<sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>define<sp/>the<sp/>iterative<sp/>method</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>x_{k+1}<sp/>=<sp/>x_k<sp/>+<sp/>dx</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>where<sp/>dx<sp/>is<sp/>the<sp/>solution<sp/>of<sp/>the<sp/>linear<sp/>system</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>/<sp/><sp/><sp/><sp/><sp/><sp/><sp/>I<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DhDx(<sp/>t_k,<sp/>x_k<sp/>)^T<sp/>\<sp/>/<sp/><sp/><sp/>dx<sp/><sp/><sp/>\<sp/><sp/><sp/>/<sp/>xtilde<sp/>-<sp/>x_k<sp/><sp/>\</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>=<sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>\<sp/>DhDx(<sp/>t_k,<sp/>x_k<sp/>)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/<sp/>\<sp/>lambda<sp/>/<sp/><sp/><sp/>\<sp/>-h(<sp/>t_k,<sp/>x_k)<sp/>/</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">function</highlight><highlight class="normal"><sp/>x<sp/>=<sp/>project(<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">,<sp/>t,<sp/>xtilde<sp/>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>[neq,ninv]<sp/>=<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">.<ref refid="class_o_d_ebase_solver___p_1af4cec50b8d704baf7fcda1c1003a644b" kindref="member">odeClass</ref>.getDim();</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>x<sp/>=<sp/>xtilde;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>ninv<sp/>&gt;<sp/>0</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tol<sp/>=<sp/>max(1,norm(xtilde,inf))*sqrt(eps);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>k=1:10</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>h<sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">.odeClass.h(<sp/>t,<sp/>x<sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>M<sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">self</highlight><highlight class="normal">.odeClass.DhDx(<sp/>t,<sp/>x<sp/>);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Dxl<sp/>=<sp/>[<sp/>eye(neq),<sp/>M.</highlight><highlight class="stringliteral">&apos;;<sp/>M,<sp/>zeros(ninv,ninv)<sp/>]<sp/>\<sp/>[<sp/>xtilde<sp/>-<sp/>x;-h];</highlight></codeline>
+<codeline lineno="80"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dx<sp/><sp/>=<sp/>Dxl(1:neq);</highlight></codeline>
+<codeline lineno="81" refid="class_o_d_ebase_solver___p_1a0f13dc90f22924a569c8b792da1fc72a" refkind="member"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x<sp/><sp/><sp/>=<sp/>x<sp/>+<sp/>dx;</highlight></codeline>
+<codeline lineno="82"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(max(abs(dx))<sp/>&lt;<sp/>tol)<sp/>&amp;&amp;<sp/>(max(abs(h))<sp/>&lt;<sp/>tol)</highlight></codeline>
+<codeline lineno="83"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>break;</highlight></codeline>
+<codeline lineno="84"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="85"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="86"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="87"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="88"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="89"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="90"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/><sp/>compute<sp/>approximate<sp/>solution<sp/>on<sp/>a<sp/>series<sp/>of<sp/>point<sp/>given<sp/>by<sp/>the<sp/>vector<sp/>t</highlight></codeline>
+<codeline lineno="91"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%<sp/><sp/>starting<sp/>at<sp/>initial<sp/>point<sp/>x0</highlight></codeline>
+<codeline lineno="92"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="93"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>function<sp/>x<sp/>=<sp/>advance(<sp/>self,<sp/>t,<sp/>x0<sp/>)</highlight></codeline>
+<codeline lineno="94"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>x<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>zeros(length(x0),length(t));</highlight></codeline>
+<codeline lineno="95"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>x(:,1)<sp/>=<sp/>x0(:);</highlight></codeline>
+<codeline lineno="96"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>k=1:length(t)-1</highlight></codeline>
+<codeline lineno="97"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>advance</highlight></codeline>
+<codeline lineno="98"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xtilde<sp/><sp/><sp/>=<sp/>self.step(<sp/>t(k),<sp/>x(:,k),<sp/>t(k+1)-t(k)<sp/>);</highlight></codeline>
+<codeline lineno="99"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>%<sp/>project<sp/>solution<sp/>to<sp/>the<sp/>invariants</highlight></codeline>
+<codeline lineno="100"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x(:,k+1)<sp/>=<sp/>self.project(<sp/>t(k+1),<sp/>xtilde<sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="stringliteral"><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="102"><highlight class="stringliteral"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="103"><highlight class="stringliteral"><sp/><sp/>end</highlight></codeline>
+<codeline lineno="104" refid="class_o_d_ebase_solver___p_1a9323f9aae7520f4c5a33b856ff51950f" refkind="member"><highlight class="stringliteral">end</highlight></codeline>
+    </programlisting>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m"/>
+  </compounddef>
+</doxygen>

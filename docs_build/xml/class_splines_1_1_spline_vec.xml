@@ -1,0 +1,1670 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_splines_1_1_spline_vec" kind="class" language="C++" prot="public">
+    <compoundname>Splines::SplineVec</compoundname>
+    <includes refid="_spline_vec_8hxx" local="no">SplineVec.hxx</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1ac7b2580c7d3eac4cc0e4309846f83075" prot="private" static="no" mutable="no">
+        <type>string const</type>
+        <definition>string const Splines::SplineVec::m_name</definition>
+        <argsstring></argsstring>
+        <name>m_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="39" column="18" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a0f33495513a06a7e9aa3e8d1c5affeef" prot="private" static="no" mutable="no">
+        <type>Utils::Malloc&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt;</type>
+        <definition>Utils::Malloc&lt;real_type&gt; Splines::SplineVec::m_baseValue</definition>
+        <argsstring></argsstring>
+        <name>m_baseValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="41" column="20" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a1e4e37aff551608be9c3f5c94b25d01a" prot="private" static="no" mutable="no">
+        <type>Utils::Malloc&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> * &gt;</type>
+        <definition>Utils::Malloc&lt;real_type*&gt; Splines::SplineVec::m_basePointer</definition>
+        <argsstring></argsstring>
+        <name>m_basePointer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="42" column="19" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a97eea3f4309a0c87b1804f2183b3736b" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::SplineVec::m_dim</definition>
+        <argsstring></argsstring>
+        <name>m_dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="44" column="13" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1aea4391c3f12db0bcbb4003051a813ea7" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::SplineVec::m_npts</definition>
+        <argsstring></argsstring>
+        <name>m_npts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="45" column="13" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a2677ba1635d44438eabc936c70ebf249" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Splines::SplineVec::m_curve_is_closed</definition>
+        <argsstring></argsstring>
+        <name>m_curve_is_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="46" column="13" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a70f437caf455d297f9ebf7effa9f6c19" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Splines::SplineVec::m_curve_can_extend</definition>
+        <argsstring></argsstring>
+        <name>m_curve_can_extend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="47" column="13" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1ad05a24708a8c15d215acec5d88024d07" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *</type>
+        <definition>real_type* Splines::SplineVec::m_X</definition>
+        <argsstring></argsstring>
+        <name>m_X</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="49" column="17" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a8b407fce2ca92b8a3e8e3911a875507f" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> **</type>
+        <definition>real_type** Splines::SplineVec::m_Y</definition>
+        <argsstring></argsstring>
+        <name>m_Y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="50" column="16" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a9910df70ac0d1280f90eedd07dc1d4ba" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> **</type>
+        <definition>real_type** Splines::SplineVec::m_Yp</definition>
+        <argsstring></argsstring>
+        <name>m_Yp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="51" column="16" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_vec_1a090fb0a6bd8c294c42d36959af946a27" prot="private" static="no" mutable="yes">
+        <type>Utils::BinarySearch&lt; <ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref> &gt;</type>
+        <definition>Utils::BinarySearch&lt;integer&gt; Splines::SplineVec::m_bs</definition>
+        <argsstring></argsstring>
+        <name>m_bs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="53" column="33" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a1aec5c7516636e865ed23975bba58247" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Splines::SplineVec::SplineVec</definition>
+        <argsstring>(SplineVec const &amp;)=delete</argsstring>
+        <name>SplineVec</name>
+        <param>
+          <type><ref refid="class_splines_1_1_spline_vec" kindref="compound">SplineVec</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="34" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a744929bf40428239527ebda6f7eef98e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_splines_1_1_spline_vec" kindref="compound">SplineVec</ref> const  &amp;</type>
+        <definition>SplineVec const&amp; Splines::SplineVec::operator=</definition>
+        <argsstring>(SplineVec const &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="class_splines_1_1_spline_vec" kindref="compound">SplineVec</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="35" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a02db2e9dc5e2bc3f5d37e37af2fb92a7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::initLastInterval</definition>
+        <argsstring>()</argsstring>
+        <name>initLastInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="55" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="86" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ac61e94ab1e570da6b289b53430878e34" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::allocate</definition>
+        <argsstring>(integer dim, integer npts)</argsstring>
+        <name>allocate</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>npts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="59" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="122" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1aa7a0174f9d4590212ecef6f2ab8fd81e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::computeChords</definition>
+        <argsstring>()</argsstring>
+        <name>computeChords</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="62" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="187" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a82c0557b982b9269df8face3f085714f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Splines::SplineVec::SplineVec</definition>
+        <argsstring>(string const &amp;name=&quot;SplineVec&quot;)</argsstring>
+        <name>SplineVec</name>
+        <param>
+          <type>string const &amp;</type>
+          <declname>name</declname>
+          <defval>&quot;SplineVec&quot;</defval>
+        </param>
+        <briefdescription>
+<para>spline constructor </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="67" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="41" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a1a102948d1f08edd85045afeefc8f9ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>Splines::SplineVec::~SplineVec</definition>
+        <argsstring>()</argsstring>
+        <name>~SplineVec</name>
+        <briefdescription>
+<para>spline destructor </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="71" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="59" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ac9cd046a8b24e73a0c1fec4a68b71a8a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::SplineVec::search</definition>
+        <argsstring>(real_type &amp;x) const</argsstring>
+        <name>search</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="73" column="13" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="67" bodyend="81"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1aacb8abf06752ebc9c89f7f2e07ab00f1" compoundref="_spline_vec_8cc" startline="301" endline="309">D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a0829f9e2b067fed309213145e29d10ce" compoundref="_spline_vec_8cc" startline="314" endline="322">DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a353dbc3bab5331664f39ee0a416d4264" compoundref="_spline_vec_8cc" startline="327" endline="335">DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1ad820c82afd1718979f034501b7dfb305" compoundref="_spline_vec_8cc" startline="340" endline="354">eval</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a6c4839be5c4ee15b15a19b74a6df1e77" compoundref="_spline_vec_8cc" startline="359" endline="373">eval_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a44ea02c26483652046a9fd0bd47066b0" compoundref="_spline_vec_8cc" startline="378" endline="392">eval_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a8c2af20a03a5aeb616df1735bb3a5898" compoundref="_spline_vec_8cc" startline="397" endline="411">eval_DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a64e71a1619f66bd9bdf5aa5a793fb2cb" compoundref="_spline_vec_8cc" startline="288" endline="296">operator()</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1acbdaf0c4897d269d34656b9035858aea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::SplineVec::is_closed</definition>
+        <argsstring>() const</argsstring>
+        <name>is_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="75" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="75" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a378d18b79c265cf5f064aea85ae30a7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::make_closed</definition>
+        <argsstring>()</argsstring>
+        <name>make_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="76" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a7983a81168b61193cbe7ab9072550e82" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::make_open</definition>
+        <argsstring>()</argsstring>
+        <name>make_open</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="77" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a4be0ad6c97195f5d5804b500b1a6a8bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::SplineVec::can_extend</definition>
+        <argsstring>() const</argsstring>
+        <name>can_extend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="79" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a3305f3186e5f95a70f3b3d1950914a8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::make_unbounded</definition>
+        <argsstring>()</argsstring>
+        <name>make_unbounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="80" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ac26ce60a8351d6d4f19f7944b61e51da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::make_buonded</definition>
+        <argsstring>()</argsstring>
+        <name>make_buonded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="81" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="81" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a9aff37a1246f2e6c73d710ab08813055" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string const  &amp;</type>
+        <definition>string const&amp; Splines::SplineVec::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="83" column="19" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="83" bodyend="83"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a6c5bf4dd1be9026da2eefdbbb261cad7" compoundref="_spline_vec_8cc" startline="95" endline="99">info</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ad95a1c6cd737cce6fc8b6748fbb0663b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::SplineVec::numPoints</definition>
+        <argsstring>() const</argsstring>
+        <name>numPoints</name>
+        <briefdescription>
+<para>return the number of support points of the splines </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="87" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="87" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a7de90d41b1cec0f9f8fae7c5c92754ae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::SplineVec::dimension</definition>
+        <argsstring>() const</argsstring>
+        <name>dimension</name>
+        <briefdescription>
+<para>return the number splines in the spline set </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="92" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="92" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a202ecda902388181e0e3b74c23263902" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const  *</type>
+        <definition>real_type const* Splines::SplineVec::xNodes</definition>
+        <argsstring>() const</argsstring>
+        <name>xNodes</name>
+        <briefdescription>
+<para>return the vector of values of x-nodes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="97" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="97" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a9ec02d201c5d3d8c984a693211f69c37" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::xNode</definition>
+        <argsstring>(integer npt) const</argsstring>
+        <name>xNode</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>npt</declname>
+        </param>
+        <briefdescription>
+<para>return the npt-th node of the spline (x component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="102" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="102" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ad517fb0fc8edbd0741db46a4c9d6ebca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::yNode</definition>
+        <argsstring>(integer npt, integer j) const</argsstring>
+        <name>yNode</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>npt</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>j</declname>
+        </param>
+        <briefdescription>
+<para>return the npt-th node of the spline (y component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="107" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="107" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ab524fa6258842d3678a08313d64fed2b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::xMin</definition>
+        <argsstring>() const</argsstring>
+        <name>xMin</name>
+        <briefdescription>
+<para>return x-minumum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="112" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="112" bodyend="113"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1ae89e2d291c777e9062c8a098d04206de" compoundref="_spline_vec_8cc" startline="104" endline="117">dump_table</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a007af0d18c584e7681c63e5946d6283d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::xMax</definition>
+        <argsstring>() const</argsstring>
+        <name>xMax</name>
+        <briefdescription>
+<para>return x-maximum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="117" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="117" bodyend="118"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1ae89e2d291c777e9062c8a098d04206de" compoundref="_spline_vec_8cc" startline="104" endline="117">dump_table</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a64e71a1619f66bd9bdf5aa5a793fb2cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::operator()</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate spline value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="122" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="288" bodyend="296"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a5260e804b538858a519ff9ae239bd468" compoundref="_spline_vec_8hxx" startline="125" endline="126">eval</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a5260e804b538858a519ff9ae239bd468" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::eval</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="125" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="125" bodyend="126"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1ae89e2d291c777e9062c8a098d04206de" compoundref="_spline_vec_8cc" startline="104" endline="117">dump_table</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a126089ff2b9698231371833e9c32aaa1" compoundref="_spline_vec_8cc" startline="416" endline="419">eval</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1aacb8abf06752ebc9c89f7f2e07ab00f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::D</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>First derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="130" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="301" bodyend="309"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a708b6767e5a48550a7417eac736a6383" compoundref="_spline_vec_8cc" startline="448" endline="461">curvature</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" compoundref="_spline_vec_8cc" startline="466" endline="488">curvature_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a5b59783b7be3fcce9c67f3bd961abe70" compoundref="_spline_vec_8hxx" startline="133" endline="134">eval_D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a5b59783b7be3fcce9c67f3bd961abe70" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::eval_D</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>eval_D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="133" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="133" bodyend="134"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a708b6767e5a48550a7417eac736a6383" compoundref="_spline_vec_8cc" startline="448" endline="461">curvature</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" compoundref="_spline_vec_8cc" startline="466" endline="488">curvature_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a1874de15325486898aab958e63638e5a" compoundref="_spline_vec_8cc" startline="424" endline="427">eval_D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a0829f9e2b067fed309213145e29d10ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::DD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>DD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="138" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="314" bodyend="322"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a708b6767e5a48550a7417eac736a6383" compoundref="_spline_vec_8cc" startline="448" endline="461">curvature</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" compoundref="_spline_vec_8cc" startline="466" endline="488">curvature_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1acd329f2bfbd1c084f4c239ac7491da52" compoundref="_spline_vec_8hxx" startline="141" endline="142">eval_DD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1acd329f2bfbd1c084f4c239ac7491da52" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::eval_DD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>eval_DD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="141" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="141" bodyend="142"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a708b6767e5a48550a7417eac736a6383" compoundref="_spline_vec_8cc" startline="448" endline="461">curvature</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" compoundref="_spline_vec_8cc" startline="466" endline="488">curvature_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a37bbbe8b1821288412caf6a6dcfe072b" compoundref="_spline_vec_8cc" startline="432" endline="435">eval_DD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a353dbc3bab5331664f39ee0a416d4264" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::DDD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>DDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Third derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="146" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="327" bodyend="335"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" compoundref="_spline_vec_8cc" startline="466" endline="488">curvature_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1ae25da50df100c571c27fcbd04a9455cc" compoundref="_spline_vec_8hxx" startline="149" endline="150">eval_DDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ae25da50df100c571c27fcbd04a9455cc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::eval_DDD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>eval_DDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="149" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="149" bodyend="150"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" compoundref="_spline_vec_8cc" startline="466" endline="488">curvature_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_vec_1a987fc92c215733580a6fe3563d3b0295" compoundref="_spline_vec_8cc" startline="440" endline="443">eval_DDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a715d7f40a53c23520a2cb43c1b66aa22" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::DDDD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>DDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>4th derivative </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="154" column="5"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1aeb891011411b7180036eb140a14fd1dc" compoundref="_spline_vec_8hxx" startline="157" endline="158">eval_DDDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1aeb891011411b7180036eb140a14fd1dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::eval_DDDD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>eval_DDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="157" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="157" bodyend="158"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a3b1473617be23b93c77d6d857db800a6" compoundref="_spline_vec_8hxx" startline="260" endline="261">eval_DDDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a83cfb2b81778215cb15e6aa6c5725bb8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::DDDDD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>DDDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>5th derivative </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="162" column="5"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1aee42e4e67fd75d7a9663497e65e697a6" compoundref="_spline_vec_8hxx" startline="165" endline="166">eval_DDDDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1aee42e4e67fd75d7a9663497e65e697a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::eval_DDDDD</definition>
+        <argsstring>(real_type x, integer i) const</argsstring>
+        <name>eval_DDDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="165" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="165" bodyend="166"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a63093a718b98240aabc50823229d144e" compoundref="_spline_vec_8hxx" startline="264" endline="265">eval_DDDDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ad820c82afd1718979f034501b7dfb305" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval</definition>
+        <argsstring>(real_type x, real_type *const vals, integer inc) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>vals</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>inc</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="170" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="340" bodyend="354"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a6c4839be5c4ee15b15a19b74a6df1e77" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_D</definition>
+        <argsstring>(real_type x, real_type *const vals, integer inc) const</argsstring>
+        <name>eval_D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>vals</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>inc</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the fist derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="178" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="359" bodyend="373"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a44ea02c26483652046a9fd0bd47066b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DD</definition>
+        <argsstring>(real_type x, real_type *const vals, integer inc) const</argsstring>
+        <name>eval_DD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>vals</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>inc</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the second derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="186" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="378" bodyend="392"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a8c2af20a03a5aeb616df1735bb3a5898" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDD</definition>
+        <argsstring>(real_type x, real_type *const vals, integer inc) const</argsstring>
+        <name>eval_DDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>vals</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>inc</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the third derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="194" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="397" bodyend="411"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a2b2510969f33b1851e538c7e4ac87ddb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDD</definition>
+        <argsstring>(real_type x, real_type *const vals, integer inc) const</argsstring>
+        <name>eval_DDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>vals</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>inc</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the 4th derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="202" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a2521cf421091f6ec99535e26aae4c17a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDDD</definition>
+        <argsstring>(real_type x, real_type *const vals, integer inc) const</argsstring>
+        <name>eval_DDDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>vals</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>inc</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the 5th derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="210" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a126089ff2b9698231371833e9c32aaa1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval</definition>
+        <argsstring>(real_type x, vector&lt; real_type &gt; &amp;vals) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="218" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="416" bodyend="419"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a1874de15325486898aab958e63638e5a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_D</definition>
+        <argsstring>(real_type x, vector&lt; real_type &gt; &amp;vals) const</argsstring>
+        <name>eval_D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the fist derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="222" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="424" bodyend="427"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a37bbbe8b1821288412caf6a6dcfe072b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DD</definition>
+        <argsstring>(real_type x, vector&lt; real_type &gt; &amp;vals) const</argsstring>
+        <name>eval_DD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the second derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="226" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="432" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a987fc92c215733580a6fe3563d3b0295" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDD</definition>
+        <argsstring>(real_type x, vector&lt; real_type &gt; &amp;vals) const</argsstring>
+        <name>eval_DDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the third derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="230" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="440" bodyend="443"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a27b6eb3f5b0dac1b68bf71ee4e8196d5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDD</definition>
+        <argsstring>(real_type x, vector&lt; real_type &gt; &amp;vals) const</argsstring>
+        <name>eval_DDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the 4th derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="234" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a56c7a643300e80fcf55e3597f6855fe8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDDD</definition>
+        <argsstring>(real_type x, vector&lt; real_type &gt; &amp;vals) const</argsstring>
+        <name>eval_DDDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate the 5th derivative of all the splines at <computeroutput>x</computeroutput> </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="238" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1aeeab66b4e2131594be0615b569c7ab8c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval</definition>
+        <argsstring>(real_type x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>| Evaluate at <computeroutput>x</computeroutput> and fill a GenericContainer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="244" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="244" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a711ba8a8ced47a7b20e4990b0426d060" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_D</definition>
+        <argsstring>(real_type x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="248" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="248" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ad43ae2d2fbb05d19c010eeb182d30760" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DD</definition>
+        <argsstring>(real_type x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="252" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="252" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a21edbe76ef9d8f341f9647d22f05047c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDD</definition>
+        <argsstring>(real_type x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="256" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="256" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a3b1473617be23b93c77d6d857db800a6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDD</definition>
+        <argsstring>(real_type x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="260" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="260" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a63093a718b98240aabc50823229d144e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDDD</definition>
+        <argsstring>(real_type x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DDDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="264" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="264" bodyend="265"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ad00d535c110d4bdb059eb782a2c30e59" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval</definition>
+        <argsstring>(vec_real_type const &amp;x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type>vec_real_type const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>| Evaluate at <computeroutput>x</computeroutput> and fill a GenericContainer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="271" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="494" bodyend="503"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ac2aa262b7b45e96d536a9c9ad18b7591" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_D</definition>
+        <argsstring>(vec_real_type const &amp;x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_D</name>
+        <param>
+          <type>vec_real_type const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="274" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="508" bodyend="517"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a70c0d1d06d0179f6a05b7faff257d8cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DD</definition>
+        <argsstring>(vec_real_type const &amp;x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DD</name>
+        <param>
+          <type>vec_real_type const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="277" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="522" bodyend="532"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ad2f6f42796c19bd3f4faf2b65b0bb79f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDD</definition>
+        <argsstring>(vec_real_type const &amp;x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DDD</name>
+        <param>
+          <type>vec_real_type const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="280" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="537" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a44a848fa3ca02b1b99320358ed7a895b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDD</definition>
+        <argsstring>(vec_real_type const &amp;x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DDDD</name>
+        <param>
+          <type>vec_real_type const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="283" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1afe02651f7df1df5e5e3b884d509922b5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::eval_DDDDD</definition>
+        <argsstring>(vec_real_type const &amp;x, GenericContainer &amp;vals) const</argsstring>
+        <name>eval_DDDDD</name>
+        <param>
+          <type>vec_real_type const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>GenericContainer &amp;</type>
+          <declname>vals</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="286" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ae9777ac712295a98be6e032a201c27a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::setup</definition>
+        <argsstring>(integer dim, integer npts, real_type const **Y)</argsstring>
+        <name>setup</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>npts</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const **</type>
+          <declname>Y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="289" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="153" bodyend="161"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1ac88e4fe329f1d9fe44e30c51d9878f4d" compoundref="_spline_vec_8hxx" startline="329" endline="330">build</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ac4117d61cfa1d0b5c203efa9c332cb0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::setup</definition>
+        <argsstring>(integer dim, integer npts, real_type const *Y, integer ldY)</argsstring>
+        <name>setup</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>npts</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>Y</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ldY</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="296" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="166" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ab0435370499524290c2054ecd5b1a406" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::setKnots</definition>
+        <argsstring>(real_type const *X)</argsstring>
+        <name>setKnots</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>X</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="304" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="181" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a50d564723e536420f2d0964c46dde458" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::setKnotsChordLength</definition>
+        <argsstring>()</argsstring>
+        <name>setKnotsChordLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="307" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="220" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a454ccc147974a2bbb910d7589f5d5f2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::setKnotsCentripetal</definition>
+        <argsstring>()</argsstring>
+        <name>setKnotsCentripetal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="310" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="236" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a85fdb4c353c3e743d3583d5649f3ea3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::setKnotsFoley</definition>
+        <argsstring>()</argsstring>
+        <name>setKnotsFoley</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="313" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ae920f33a197e681df6d4f45a2e8abf5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::CatmullRom</definition>
+        <argsstring>()</argsstring>
+        <name>CatmullRom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="316" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="250" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a708b6767e5a48550a7417eac736a6383" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::curvature</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>curvature</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="319" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="448" bodyend="461"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::SplineVec::curvature_D</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>curvature_D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="322" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="466" bodyend="488"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a81581c3428dc9dcdc598f60583760163" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::setup</definition>
+        <argsstring>(GenericContainer const &amp;gc)</argsstring>
+        <name>setup</name>
+        <param>
+          <type>GenericContainer const &amp;</type>
+          <declname>gc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="326" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="551" bodyend="554"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ac88e4fe329f1d9fe44e30c51d9878f4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::build</definition>
+        <argsstring>(GenericContainer const &amp;gc)</argsstring>
+        <name>build</name>
+        <param>
+          <type>GenericContainer const &amp;</type>
+          <declname>gc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="329" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="329" bodyend="330"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a92ea8208a1f97702cd800fc2de1aef30" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned Splines::SplineVec::type</definition>
+        <argsstring>() const</argsstring>
+        <name>type</name>
+        <briefdescription>
+<para>Return spline type (as number) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="335" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="335" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a6c5bf4dd1be9026da2eefdbbb261cad7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Splines::SplineVec::info</definition>
+        <argsstring>() const</argsstring>
+        <name>info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="339" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="95" bodyend="99"/>
+        <referencedby refid="class_splines_1_1_spline_vec_1a63f530f954b3b34e3da20fc4edad019a" compoundref="_spline_vec_8hxx" startline="342" endline="343">info</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1a63f530f954b3b34e3da20fc4edad019a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::info</definition>
+        <argsstring>(ostream_type &amp;stream) const</argsstring>
+        <name>info</name>
+        <param>
+          <type><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="342" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="342" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_vec_1ae89e2d291c777e9062c8a098d04206de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::SplineVec::dump_table</definition>
+        <argsstring>(ostream_type &amp;s, integer num_points) const</argsstring>
+        <name>dump_table</name>
+        <param>
+          <type><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>num_points</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="346" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc" bodystart="104" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="namespace_splines" kindref="compound">Splines</ref> Management Class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" line="32" column="3" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.hxx" bodystart="32" bodyend="348"/>
+    <listofallmembers>
+      <member refid="class_splines_1_1_spline_vec_1ac61e94ab1e570da6b289b53430878e34" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>allocate</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ac88e4fe329f1d9fe44e30c51d9878f4d" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a4be0ad6c97195f5d5804b500b1a6a8bc" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>can_extend</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ae920f33a197e681df6d4f45a2e8abf5d" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>CatmullRom</name></member>
+      <member refid="class_splines_1_1_spline_vec_1aa7a0174f9d4590212ecef6f2ab8fd81e" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>computeChords</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a708b6767e5a48550a7417eac736a6383" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>curvature</name></member>
+      <member refid="class_splines_1_1_spline_vec_1aee013d7a0b9c9667cadb4e6380af281f" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>curvature_D</name></member>
+      <member refid="class_splines_1_1_spline_vec_1aacb8abf06752ebc9c89f7f2e07ab00f1" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>D</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a0829f9e2b067fed309213145e29d10ce" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>DD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a353dbc3bab5331664f39ee0a416d4264" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>DDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a715d7f40a53c23520a2cb43c1b66aa22" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>DDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a83cfb2b81778215cb15e6aa6c5725bb8" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a7de90d41b1cec0f9f8fae7c5c92754ae" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>dimension</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ae89e2d291c777e9062c8a098d04206de" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>dump_table</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a5260e804b538858a519ff9ae239bd468" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ad820c82afd1718979f034501b7dfb305" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a126089ff2b9698231371833e9c32aaa1" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval</name></member>
+      <member refid="class_splines_1_1_spline_vec_1aeeab66b4e2131594be0615b569c7ab8c" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ad00d535c110d4bdb059eb782a2c30e59" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a5b59783b7be3fcce9c67f3bd961abe70" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_D</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a6c4839be5c4ee15b15a19b74a6df1e77" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_D</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a1874de15325486898aab958e63638e5a" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_D</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a711ba8a8ced47a7b20e4990b0426d060" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_D</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ac2aa262b7b45e96d536a9c9ad18b7591" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_D</name></member>
+      <member refid="class_splines_1_1_spline_vec_1acd329f2bfbd1c084f4c239ac7491da52" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a44ea02c26483652046a9fd0bd47066b0" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a37bbbe8b1821288412caf6a6dcfe072b" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ad43ae2d2fbb05d19c010eeb182d30760" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a70c0d1d06d0179f6a05b7faff257d8cc" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ae25da50df100c571c27fcbd04a9455cc" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a8c2af20a03a5aeb616df1735bb3a5898" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a987fc92c215733580a6fe3563d3b0295" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a21edbe76ef9d8f341f9647d22f05047c" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ad2f6f42796c19bd3f4faf2b65b0bb79f" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1aeb891011411b7180036eb140a14fd1dc" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a2b2510969f33b1851e538c7e4ac87ddb" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a27b6eb3f5b0dac1b68bf71ee4e8196d5" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a3b1473617be23b93c77d6d857db800a6" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a44a848fa3ca02b1b99320358ed7a895b" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1aee42e4e67fd75d7a9663497e65e697a6" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a2521cf421091f6ec99535e26aae4c17a" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a56c7a643300e80fcf55e3597f6855fe8" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a63093a718b98240aabc50823229d144e" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1afe02651f7df1df5e5e3b884d509922b5" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>eval_DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a6c5bf4dd1be9026da2eefdbbb261cad7" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>info</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a63f530f954b3b34e3da20fc4edad019a" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>info</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a02db2e9dc5e2bc3f5d37e37af2fb92a7" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>initLastInterval</name></member>
+      <member refid="class_splines_1_1_spline_vec_1acbdaf0c4897d269d34656b9035858aea" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>is_closed</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a1e4e37aff551608be9c3f5c94b25d01a" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_basePointer</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a0f33495513a06a7e9aa3e8d1c5affeef" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_baseValue</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a090fb0a6bd8c294c42d36959af946a27" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_bs</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a70f437caf455d297f9ebf7effa9f6c19" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_curve_can_extend</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a2677ba1635d44438eabc936c70ebf249" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_curve_is_closed</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a97eea3f4309a0c87b1804f2183b3736b" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_dim</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ac7b2580c7d3eac4cc0e4309846f83075" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_name</name></member>
+      <member refid="class_splines_1_1_spline_vec_1aea4391c3f12db0bcbb4003051a813ea7" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_npts</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ad05a24708a8c15d215acec5d88024d07" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_X</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a8b407fce2ca92b8a3e8e3911a875507f" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_Y</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a9910df70ac0d1280f90eedd07dc1d4ba" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>m_Yp</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ac26ce60a8351d6d4f19f7944b61e51da" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>make_buonded</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a378d18b79c265cf5f064aea85ae30a7b" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>make_closed</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a7983a81168b61193cbe7ab9072550e82" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>make_open</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a3305f3186e5f95a70f3b3d1950914a8f" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>make_unbounded</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a9aff37a1246f2e6c73d710ab08813055" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>name</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ad95a1c6cd737cce6fc8b6748fbb0663b" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>numPoints</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a64e71a1619f66bd9bdf5aa5a793fb2cb" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>operator()</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a744929bf40428239527ebda6f7eef98e" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>operator=</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ac9cd046a8b24e73a0c1fec4a68b71a8a" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>search</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ab0435370499524290c2054ecd5b1a406" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>setKnots</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a454ccc147974a2bbb910d7589f5d5f2c" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>setKnotsCentripetal</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a50d564723e536420f2d0964c46dde458" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>setKnotsChordLength</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a85fdb4c353c3e743d3583d5649f3ea3f" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>setKnotsFoley</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ae9777ac712295a98be6e032a201c27a0" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>setup</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ac4117d61cfa1d0b5c203efa9c332cb0d" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>setup</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a81581c3428dc9dcdc598f60583760163" prot="public" virt="virtual"><scope>Splines::SplineVec</scope><name>setup</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a1aec5c7516636e865ed23975bba58247" prot="private" virt="non-virtual"><scope>Splines::SplineVec</scope><name>SplineVec</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a82c0557b982b9269df8face3f085714f" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>SplineVec</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a92ea8208a1f97702cd800fc2de1aef30" prot="public" virt="virtual"><scope>Splines::SplineVec</scope><name>type</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a007af0d18c584e7681c63e5946d6283d" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>xMax</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ab524fa6258842d3678a08313d64fed2b" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>xMin</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a9ec02d201c5d3d8c984a693211f69c37" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>xNode</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a202ecda902388181e0e3b74c23263902" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>xNodes</name></member>
+      <member refid="class_splines_1_1_spline_vec_1ad517fb0fc8edbd0741db46a4c9d6ebca" prot="public" virt="non-virtual"><scope>Splines::SplineVec</scope><name>yNode</name></member>
+      <member refid="class_splines_1_1_spline_vec_1a1a102948d1f08edd85045afeefc8f9ce" prot="public" virt="virtual"><scope>Splines::SplineVec</scope><name>~SplineVec</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

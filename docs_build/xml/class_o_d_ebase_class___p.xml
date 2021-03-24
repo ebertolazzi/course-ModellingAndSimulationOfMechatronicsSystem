@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_o_d_ebase_class___p" kind="class" language="C++" prot="public">
+    <compoundname>ODEbaseClass_P</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_o_d_ebase_class___p_1aa600f6e5ea2fc93662e67c271fa8fba2" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseClass_P::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_class___p_1a386d0a5fcda5a269f7d85ca53ef03f7c" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseClass_P::neq</definition>
+        <argsstring></argsstring>
+        <name>neq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="19" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_class___p_1a571a674c23571576e0c2b4fae14e3511" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseClass_P::ninv</definition>
+        <argsstring></argsstring>
+        <name>ninv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="21" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1ae080ae22066ec5cdc463eb7acfec2eb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass_P::f</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>f</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="36" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1aa108d688bc6bdf249970a3ff1eb5e034" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass_P::DfDx</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>DfDx</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="41" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1a114ada07d45171099264b31613b1882e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass_P::DfDt</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>DfDt</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="45" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1a4c5268da8a3e7eed5e56cb12b5c455a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass_P::h</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>h</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="50" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1a100fd5e6fa4c4ed6c356dc44fbcc3ccf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass_P::DhDx</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>DhDx</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="55" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1ac784c310d5f9f1790cbc1f780949936b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ODEbaseClass_P::DhDt</definition>
+        <argsstring>(in self, in t, in x)</argsstring>
+        <name>DhDt</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="60" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1ab979c8430ada5c818eb34c02a43fffbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseClass_P::ODEbaseClass_P</definition>
+        <argsstring>(in name, in neq, in ninv)</argsstring>
+        <name>ODEbaseClass_P</name>
+        <param>
+          <type>in</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>neq</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>ninv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="66" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1a9f6f10c3056acfa05cddd166afa417f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseClass_P::delete</definition>
+        <argsstring>(in self)</argsstring>
+        <name>delete</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="73" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_class___p_1addac94e3bdda7a32ba68741edec234c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseClass_P::getDim</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getDim</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="77" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>ODEbaseClass_P</label>
+        <link refid="class_o_d_ebase_class___p"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>ODEbaseClass_P</label>
+        <link refid="class_o_d_ebase_class___p"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" line="12" column="1" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m" bodystart="13" bodyend="83"/>
+    <listofallmembers>
+      <member refid="class_o_d_ebase_class___p_1a9f6f10c3056acfa05cddd166afa417f4" prot="public" virt="non-virtual"><scope>ODEbaseClass_P</scope><name>delete</name></member>
+      <member refid="class_o_d_ebase_class___p_1a114ada07d45171099264b31613b1882e" prot="public" virt="virtual"><scope>ODEbaseClass_P</scope><name>DfDt</name></member>
+      <member refid="class_o_d_ebase_class___p_1aa108d688bc6bdf249970a3ff1eb5e034" prot="public" virt="virtual"><scope>ODEbaseClass_P</scope><name>DfDx</name></member>
+      <member refid="class_o_d_ebase_class___p_1ac784c310d5f9f1790cbc1f780949936b" prot="public" virt="virtual"><scope>ODEbaseClass_P</scope><name>DhDt</name></member>
+      <member refid="class_o_d_ebase_class___p_1a100fd5e6fa4c4ed6c356dc44fbcc3ccf" prot="public" virt="virtual"><scope>ODEbaseClass_P</scope><name>DhDx</name></member>
+      <member refid="class_o_d_ebase_class___p_1ae080ae22066ec5cdc463eb7acfec2eb5" prot="public" virt="virtual"><scope>ODEbaseClass_P</scope><name>f</name></member>
+      <member refid="class_o_d_ebase_class___p_1addac94e3bdda7a32ba68741edec234c2" prot="public" virt="non-virtual"><scope>ODEbaseClass_P</scope><name>getDim</name></member>
+      <member refid="class_o_d_ebase_class___p_1a4c5268da8a3e7eed5e56cb12b5c455a6" prot="public" virt="virtual"><scope>ODEbaseClass_P</scope><name>h</name></member>
+      <member refid="class_o_d_ebase_class___p_1aa600f6e5ea2fc93662e67c271fa8fba2" prot="private" virt="non-virtual"><scope>ODEbaseClass_P</scope><name>name</name></member>
+      <member refid="class_o_d_ebase_class___p_1a386d0a5fcda5a269f7d85ca53ef03f7c" prot="private" virt="non-virtual"><scope>ODEbaseClass_P</scope><name>neq</name></member>
+      <member refid="class_o_d_ebase_class___p_1a571a674c23571576e0c2b4fae14e3511" prot="private" virt="non-virtual"><scope>ODEbaseClass_P</scope><name>ninv</name></member>
+      <member refid="class_o_d_ebase_class___p_1ab979c8430ada5c818eb34c02a43fffbe" prot="public" virt="non-virtual"><scope>ODEbaseClass_P</scope><name>ODEbaseClass_P</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

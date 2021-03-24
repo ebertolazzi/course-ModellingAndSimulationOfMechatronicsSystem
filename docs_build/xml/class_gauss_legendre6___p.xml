@@ -1,0 +1,409 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_gauss_legendre6___p" kind="class" language="C++" prot="public">
+    <compoundname>GaussLegendre6_P</compoundname>
+    <basecompoundref refid="class_o_d_ebase_solver_r_kimplicit___p" prot="public" virt="non-virtual">ODEbaseSolverRKimplicit_P</basecompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_gauss_legendre6___p_1a81882dd86a972b08d636731792ab63cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function GaussLegendre6_P::GaussLegendre6_P</definition>
+        <argsstring>()</argsstring>
+        <name>GaussLegendre6_P</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit/GaussLegendre6_P.m" line="33" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_gauss_legendre6___p_1a43639a05ef410f779b7970d273be6ac7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function GaussLegendre6_P::delete</definition>
+        <argsstring>(in self)</argsstring>
+        <name>delete</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit/GaussLegendre6_P.m" line="45" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_r_kimplicit___p_1aab1e1f95eab693e5d4d02da75543b68c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolverRKimplicit_P::stepResidual</definition>
+        <argsstring>(in self, in K)</argsstring>
+        <name>stepResidual</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>K</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="61" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_r_kimplicit___p_1a58dedfb7c7825a59823f55ac1efa9e2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolverRKimplicit_P::stepResidualJacobian</definition>
+        <argsstring>(in self, in K)</argsstring>
+        <name>stepResidualJacobian</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>K</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="84" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_r_kimplicit___p_1a1da6a419f39d5dc331144abd0ec737ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolverRKimplicit_P::solveStepByNewton</definition>
+        <argsstring>(in self)</argsstring>
+        <name>solveStepByNewton</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="108" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver_r_kimplicit___p_1abc7a08b2d38140f672f78b03dcfd4add" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolverRKimplicit_P::step</definition>
+        <argsstring>(in self, in t0, in x0, in dt)</argsstring>
+        <name>step</name>
+        <reimplements refid="class_o_d_ebase_solver___p_1a16bfd72a87b0dad9c89f0e6b46e566d0">step</reimplements>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="123" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver___p_1a71ec30b767d73a084f0b7ed486b01018" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolver_P::getName</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getName</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" line="44" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver___p_1a2ea144d34f384059d1d67c6db217883d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolver_P::setODE</definition>
+        <argsstring>(in self, in odeClass)</argsstring>
+        <name>setODE</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>odeClass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" line="49" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver___p_1a0f13dc90f22924a569c8b792da1fc72a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolver_P::project</definition>
+        <argsstring>(in self, in t, in xtilde)</argsstring>
+        <name>project</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>xtilde</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" line="81" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_o_d_ebase_solver___p_1a9323f9aae7520f4c5a33b856ff51950f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function ODEbaseSolver_P::advance</definition>
+        <argsstring>(in self, in t, in x0)</argsstring>
+        <name>advance</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>x0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" line="104" column="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kimplicit___p_1a5bf0c3aa6ec03d4c945677312434220b" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKimplicit_P::x0</definition>
+        <argsstring></argsstring>
+        <name>x0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kimplicit___p_1a842bb2b0e80b21cbf6f50489abfb4245" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKimplicit_P::t0</definition>
+        <argsstring></argsstring>
+        <name>t0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="19" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kimplicit___p_1a0f9c454e6f24c43b67cb09ebcac1c5f3" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKimplicit_P::dt</definition>
+        <argsstring></argsstring>
+        <name>dt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="21" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kimplicit___p_1aaee5a4c887229fea1c6eb6eb7f681ad1" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKimplicit_P::tol</definition>
+        <argsstring></argsstring>
+        <name>tol</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="23" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kimplicit___p_1aacb9ccf78f5c261e2194b058118f7f28" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKimplicit_P::A</definition>
+        <argsstring></argsstring>
+        <name>A</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="25" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kimplicit___p_1aa30f5474c2e8cfb303329499370888be" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKimplicit_P::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="27" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver_r_kimplicit___p_1af9e3786d6e53d33c42c5f35a71ab839f" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolverRKimplicit_P::c</definition>
+        <argsstring></argsstring>
+        <name>c</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" line="29" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver___p_1a463a4efd529f4a2e58a564a1d7a82a30" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolver_P::solverName</definition>
+        <argsstring></argsstring>
+        <name>solverName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_o_d_ebase_solver___p_1af4cec50b8d704baf7fcda1c1003a644b" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property ODEbaseSolver_P::odeClass</definition>
+        <argsstring></argsstring>
+        <name>odeClass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" line="19" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>handle</label>
+      </node>
+      <node id="2">
+        <label>ODEbaseSolverRKimplicit_P</label>
+        <link refid="class_o_d_ebase_solver_r_kimplicit___p"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ODEbaseSolver_P</label>
+        <link refid="class_o_d_ebase_solver___p"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GaussLegendre6_P</label>
+        <link refid="class_gauss_legendre6___p"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>handle</label>
+      </node>
+      <node id="2">
+        <label>ODEbaseSolverRKimplicit_P</label>
+        <link refid="class_o_d_ebase_solver_r_kimplicit___p"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ODEbaseSolver_P</label>
+        <link refid="class_o_d_ebase_solver___p"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>GaussLegendre6_P</label>
+        <link refid="class_gauss_legendre6___p"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit/GaussLegendre6_P.m" line="12" column="1" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit/GaussLegendre6_P.m" bodystart="13" bodyend="50"/>
+    <listofallmembers>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1aacb9ccf78f5c261e2194b058118f7f28" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>A</name></member>
+      <member refid="class_o_d_ebase_solver___p_1a9323f9aae7520f4c5a33b856ff51950f" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>advance</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1aa30f5474c2e8cfb303329499370888be" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>b</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1af9e3786d6e53d33c42c5f35a71ab839f" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>c</name></member>
+      <member refid="class_gauss_legendre6___p_1a43639a05ef410f779b7970d273be6ac7" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>delete</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1a0f9c454e6f24c43b67cb09ebcac1c5f3" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>dt</name></member>
+      <member refid="class_gauss_legendre6___p_1a81882dd86a972b08d636731792ab63cd" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>GaussLegendre6_P</name></member>
+      <member refid="class_o_d_ebase_solver___p_1a71ec30b767d73a084f0b7ed486b01018" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>getName</name></member>
+      <member refid="class_o_d_ebase_solver___p_1a43db96cd775976adb99ba2b941635492" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>ODEbaseSolver_P</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1a6ffca5716911227747d3eb21030ed693" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>ODEbaseSolverRKimplicit_P</name></member>
+      <member refid="class_o_d_ebase_solver___p_1af4cec50b8d704baf7fcda1c1003a644b" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>odeClass</name></member>
+      <member refid="class_o_d_ebase_solver___p_1a0f13dc90f22924a569c8b792da1fc72a" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>project</name></member>
+      <member refid="class_o_d_ebase_solver___p_1a2ea144d34f384059d1d67c6db217883d" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>setODE</name></member>
+      <member refid="class_o_d_ebase_solver___p_1a463a4efd529f4a2e58a564a1d7a82a30" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>solverName</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1a1da6a419f39d5dc331144abd0ec737ea" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>solveStepByNewton</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1abc7a08b2d38140f672f78b03dcfd4add" prot="public" virt="virtual"><scope>GaussLegendre6_P</scope><name>step</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1aab1e1f95eab693e5d4d02da75543b68c" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>stepResidual</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1a58dedfb7c7825a59823f55ac1efa9e2a" prot="public" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>stepResidualJacobian</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1a842bb2b0e80b21cbf6f50489abfb4245" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>t0</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1aaee5a4c887229fea1c6eb6eb7f681ad1" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>tol</name></member>
+      <member refid="class_o_d_ebase_solver_r_kimplicit___p_1a5bf0c3aa6ec03d4c945677312434220b" prot="private" virt="non-virtual"><scope>GaussLegendre6_P</scope><name>x0</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

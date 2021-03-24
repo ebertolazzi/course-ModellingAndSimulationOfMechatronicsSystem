@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_d_a_e3_taylor_solver" kind="class" language="C++" prot="public">
+    <compoundname>DAE3TaylorSolver</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">handle</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_d_a_e3_taylor_solver_1a59cfed9b16b4b9f515e7989f2d39babc" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property DAE3TaylorSolver::solverName</definition>
+        <argsstring></argsstring>
+        <name>solverName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="17" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_d_a_e3_taylor_solver_1a217fc2ce2f1ac3f58ff6e9cea9903d65" prot="private" static="no" mutable="no">
+        <type>Property</type>
+        <definition>Property DAE3TaylorSolver::DAEclass</definition>
+        <argsstring></argsstring>
+        <name>DAEclass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="19" column="10" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_d_a_e3_taylor_solver_1aed337aa9328219e884fd2f45641bd14c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3TaylorSolver::DAE3TaylorSolver</definition>
+        <argsstring>()</argsstring>
+        <name>DAE3TaylorSolver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="24" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_taylor_solver_1a004f81ddddedd493083f51669ccd4b37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3TaylorSolver::delete</definition>
+        <argsstring>(in self)</argsstring>
+        <name>delete</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="29" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_taylor_solver_1a74e68eb6cdaa590ab35a644c980b3426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3TaylorSolver::getName</definition>
+        <argsstring>(in self)</argsstring>
+        <name>getName</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="33" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_taylor_solver_1a4c180616d95dff2303450bcacdd16d71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3TaylorSolver::setDAE</definition>
+        <argsstring>(in self, in DAEclass)</argsstring>
+        <name>setDAE</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>DAEclass</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="38" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_taylor_solver_1aceb3300adac244f41fc257ec59fb3bea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3TaylorSolver::advance_simple</definition>
+        <argsstring>(in self, in t, in p0, in v0)</argsstring>
+        <name>advance_simple</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>p0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>v0</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="47" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_d_a_e3_taylor_solver_1a56dbeaaf2c42761df6622e1e28a79942" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>function</type>
+        <definition>function DAE3TaylorSolver::advance_Baumgarte</definition>
+        <argsstring>(in self, in t, in p0, in v0, in eta, in omega)</argsstring>
+        <name>advance_Baumgarte</name>
+        <param>
+          <type>in</type>
+          <declname>self</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>p0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>v0</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>eta</declname>
+        </param>
+        <param>
+          <type>in</type>
+          <declname>omega</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="80" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>DAE3TaylorSolver</label>
+        <link refid="class_d_a_e3_taylor_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>handle</label>
+      </node>
+      <node id="1">
+        <label>DAE3TaylorSolver</label>
+        <link refid="class_d_a_e3_taylor_solver"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" line="12" column="1" bodyfile="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3TaylorSolver.m" bodystart="13" bodyend="113"/>
+    <listofallmembers>
+      <member refid="class_d_a_e3_taylor_solver_1a56dbeaaf2c42761df6622e1e28a79942" prot="public" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>advance_Baumgarte</name></member>
+      <member refid="class_d_a_e3_taylor_solver_1aceb3300adac244f41fc257ec59fb3bea" prot="public" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>advance_simple</name></member>
+      <member refid="class_d_a_e3_taylor_solver_1aed337aa9328219e884fd2f45641bd14c" prot="public" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>DAE3TaylorSolver</name></member>
+      <member refid="class_d_a_e3_taylor_solver_1a217fc2ce2f1ac3f58ff6e9cea9903d65" prot="private" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>DAEclass</name></member>
+      <member refid="class_d_a_e3_taylor_solver_1a004f81ddddedd493083f51669ccd4b37" prot="public" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>delete</name></member>
+      <member refid="class_d_a_e3_taylor_solver_1a74e68eb6cdaa590ab35a644c980b3426" prot="public" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>getName</name></member>
+      <member refid="class_d_a_e3_taylor_solver_1a4c180616d95dff2303450bcacdd16d71" prot="public" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>setDAE</name></member>
+      <member refid="class_d_a_e3_taylor_solver_1a59cfed9b16b4b9f515e7989f2d39babc" prot="private" virt="non-virtual"><scope>DAE3TaylorSolver</scope><name>solverName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

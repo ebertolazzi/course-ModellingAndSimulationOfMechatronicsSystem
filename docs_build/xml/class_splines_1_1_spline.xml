@@ -1,0 +1,1744 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="class_splines_1_1_spline" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Splines::Spline</compoundname>
+    <derivedcompoundref refid="class_splines_1_1_constant_spline" prot="public" virt="non-virtual">Splines::ConstantSpline</derivedcompoundref>
+    <derivedcompoundref refid="class_splines_1_1_cubic_spline_base" prot="public" virt="non-virtual">Splines::CubicSplineBase</derivedcompoundref>
+    <derivedcompoundref refid="class_splines_1_1_linear_spline" prot="public" virt="non-virtual">Splines::LinearSpline</derivedcompoundref>
+    <derivedcompoundref refid="class_splines_1_1_quintic_spline_base" prot="public" virt="non-virtual">Splines::QuinticSplineBase</derivedcompoundref>
+    <includes refid="_splines_8hh" local="no">Splines.hh</includes>
+      <sectiondef kind="user-defined">
+      <header>Spline Data Info</header>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ad12ced52b61acfdf81e80cf94463781d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>string const  &amp;</type>
+        <definition>string const&amp; Splines::Spline::name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>return the name of the spline used in the constructor </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="348" column="19" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="348" bodyend="348"/>
+        <referencedby refid="class_splines_1_1_spline_set_1a7c61521bebcda475e45c8825d7250fb4" compoundref="_spline_set_8cc" startline="214" endline="407">Splines::SplineSet::build</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a4db60e3d41727aeb9bc8ba012bb684d2" compoundref="_spline_set_8cc" startline="135" endline="140">Splines::SplineSet::get_headers</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1aed8fe88ec9857d14a3c6cc1f234d3dd9" compoundref="_spline_set_8hxx" startline="102" endline="103">Splines::SplineSet::header</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a23f29a80cc70fc021ac80e8ba8647b45" compoundref="_splines1_d_8hxx" startline="54" endline="54">Splines::Spline1D::name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a431472a7d4aa2a31a58abe297e786e96" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::Spline::is_closed</definition>
+        <argsstring>() const</argsstring>
+        <name>is_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="350" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="350" bodyend="350"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a3cae5b716b43e67f516a6b6d2248d1d9" compoundref="_splines1_d_8hxx" startline="56" endline="56">Splines::Spline1D::is_closed</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a54493db067c02d0c4c758609c45e0012" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::make_closed</definition>
+        <argsstring>()</argsstring>
+        <name>make_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="351" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="351" bodyend="351"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a2e6a476159fd3be2bfcd7b5a619dc62d" compoundref="_splines1_d_8hxx" startline="57" endline="57">Splines::Spline1D::make_closed</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a54372dbcce6c3cfd6f3aa815642df352" compoundref="_spline_set_g_c_8cc" startline="53" endline="274">Splines::SplineSet::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a80ab8ff6188bc9be6a09152c19e88519" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::make_opened</definition>
+        <argsstring>()</argsstring>
+        <name>make_opened</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="352" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="352" bodyend="352"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1ac48c6cb4990982cd63a983c82b6b760c" compoundref="_splines1_d_8hxx" startline="58" endline="58">Splines::Spline1D::make_opened</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a54372dbcce6c3cfd6f3aa815642df352" compoundref="_spline_set_g_c_8cc" startline="53" endline="274">Splines::SplineSet::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a1cdaf9ec387cbdb53faf6aca30d02997" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::Spline::is_bounded</definition>
+        <argsstring>() const</argsstring>
+        <name>is_bounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="354" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="354" bodyend="354"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a1ea91238b0a63e6cd3eab01abdcfce6b" compoundref="_splines1_d_8hxx" startline="60" endline="60">Splines::Spline1D::is_bounded</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a4cb02493a9e83dd14f6aa79c2d1c9b80" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::make_unbounded</definition>
+        <argsstring>()</argsstring>
+        <name>make_unbounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="355" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="355" bodyend="355"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1ae0d61e961d2ee5a9e8370fd10a182ed0" compoundref="_splines1_d_8hxx" startline="61" endline="61">Splines::Spline1D::make_unbounded</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a54372dbcce6c3cfd6f3aa815642df352" compoundref="_spline_set_g_c_8cc" startline="53" endline="274">Splines::SplineSet::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ab4d4f0e173b89874c88240be3fb4464f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::make_bounded</definition>
+        <argsstring>()</argsstring>
+        <name>make_bounded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="356" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="356" bodyend="356"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a6d9ad7e0514886b42da625dfb34168b5" compoundref="_splines1_d_8hxx" startline="62" endline="62">Splines::Spline1D::make_bounded</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a54372dbcce6c3cfd6f3aa815642df352" compoundref="_spline_set_g_c_8cc" startline="53" endline="274">Splines::SplineSet::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ad288fd41f0bfe53a72e515a224ae9684" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Splines::Spline::is_extended_constant</definition>
+        <argsstring>() const</argsstring>
+        <name>is_extended_constant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="358" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="358" bodyend="358"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a136031149f0d37c34485aa4ab61a0fa1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::make_extended_constant</definition>
+        <argsstring>()</argsstring>
+        <name>make_extended_constant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="359" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="359" bodyend="359"/>
+        <referencedby refid="class_splines_1_1_spline_set_1a54372dbcce6c3cfd6f3aa815642df352" compoundref="_spline_set_g_c_8cc" startline="53" endline="274">Splines::SplineSet::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a03b4785b5902ab438e4ba1d4d28accfc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::make_extended_not_constant</definition>
+        <argsstring>()</argsstring>
+        <name>make_extended_not_constant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="360" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="360" bodyend="360"/>
+        <referencedby refid="class_splines_1_1_spline_set_1a54372dbcce6c3cfd6f3aa815642df352" compoundref="_spline_set_g_c_8cc" startline="53" endline="274">Splines::SplineSet::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ac6a0d121b81e43218e49afe40b4545a9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::Spline::numPoints</definition>
+        <argsstring>() const</argsstring>
+        <name>numPoints</name>
+        <briefdescription>
+<para>return the number of support points of the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="363" column="13" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="363" bodyend="363"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a018d8c67026e42e31185ee58f7591007" compoundref="_splines1_d_8hxx" startline="65" endline="65">Splines::Spline1D::numPoints</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a24a20ca80ec288c0a4765375875ab270" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::xNode</definition>
+        <argsstring>(integer i) const</argsstring>
+        <name>xNode</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>return the i-th node of the spline (x component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="366" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="366" bodyend="366"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1ae8d2376ea7275befd1eff025feeac054" compoundref="_splines1_d_8hxx" startline="68" endline="68">Splines::Spline1D::xNode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a845f5979b4dc3ff1263ac67b12d7dbca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::yNode</definition>
+        <argsstring>(integer i) const</argsstring>
+        <name>yNode</name>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>return the i-th node of the spline (y component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="369" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="369" bodyend="369"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1af6c35e905be954b42e6ca79357f897ea" compoundref="_splines1_d_8hxx" startline="71" endline="71">Splines::Spline1D::yNode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a92db11049305b5d99089f8dac81e0830" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::xBegin</definition>
+        <argsstring>() const</argsstring>
+        <name>xBegin</name>
+        <briefdescription>
+<para>return first node of the spline (x component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="372" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="372" bodyend="372"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1ab721bd9dec7f1718963aa01f11f4d83c" compoundref="_splines1_d_8hxx" startline="74" endline="74">Splines::Spline1D::xBegin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a41c3c62402c7878ca54b112d8964b0df" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::yBegin</definition>
+        <argsstring>() const</argsstring>
+        <name>yBegin</name>
+        <briefdescription>
+<para>return first node of the spline (y component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="375" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="375" bodyend="375"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1adb92c2c804960175bf20224b9eb7026c" compoundref="_splines1_d_8hxx" startline="77" endline="77">Splines::Spline1D::yBegin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ab9caef603b324d51f13665127f169a39" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::xEnd</definition>
+        <argsstring>() const</argsstring>
+        <name>xEnd</name>
+        <briefdescription>
+<para>return last node of the spline (x component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="378" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="378" bodyend="378"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a1d3886023aeba34a3253f207416d3cd7" compoundref="_splines1_d_8hxx" startline="80" endline="80">Splines::Spline1D::xEnd</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1aacf77e66e5af59058a30023ae5c6c4bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::yEnd</definition>
+        <argsstring>() const</argsstring>
+        <name>yEnd</name>
+        <briefdescription>
+<para>return last node of the spline (y component). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="381" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="381" bodyend="381"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1ae8ac3e1c18182451666a7698ec32bb7a" compoundref="_splines1_d_8hxx" startline="83" endline="83">Splines::Spline1D::yEnd</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1acddc7abdecd1410b61c8315b876af5ef" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::xMin</definition>
+        <argsstring>() const</argsstring>
+        <name>xMin</name>
+        <briefdescription>
+<para>return x-minumum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="384" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="384" bodyend="384"/>
+        <referencedby refid="class_splines_1_1_spline_1a473e7287d887d034985cb6f4720a6380" compoundref="_splines_8cc" startline="412" endline="423">dump</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" compoundref="_splines_8cc" startline="340" endline="351">info</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1aad4c9fb1f8ca8309eb9f36b2c4643139" compoundref="_splines1_d_8hxx" startline="160" endline="160">Splines::Spline1D::xMin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ab0551f6cd9eadc008d58ad631a937e33" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::xMax</definition>
+        <argsstring>() const</argsstring>
+        <name>xMax</name>
+        <briefdescription>
+<para>return x-maximum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="387" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="387" bodyend="387"/>
+        <referencedby refid="class_splines_1_1_spline_1a473e7287d887d034985cb6f4720a6380" compoundref="_splines_8cc" startline="412" endline="423">dump</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" compoundref="_splines_8cc" startline="340" endline="351">info</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a7c6eefa6551be2507557672fdceea860" compoundref="_splines1_d_8hxx" startline="163" endline="163">Splines::Spline1D::xMax</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a5e18badaf66b10451a96d3e7e1a64200" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::yMin</definition>
+        <argsstring>() const</argsstring>
+        <name>yMin</name>
+        <briefdescription>
+<para>return y-minumum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="391" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="391" bodyend="395"/>
+        <referencedby refid="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" compoundref="_splines_8cc" startline="340" endline="351">info</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a6cf90e1034c20ce531213659e867549e" compoundref="_splines1_d_8hxx" startline="166" endline="166">Splines::Spline1D::yMin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a5a98f5793d5665205abd86577ba6728d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::yMax</definition>
+        <argsstring>() const</argsstring>
+        <name>yMax</name>
+        <briefdescription>
+<para>return y-maximum spline value </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="399" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="399" bodyend="403"/>
+        <referencedby refid="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" compoundref="_splines_8cc" startline="340" endline="351">info</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a6983fb81b79ffa8cd56ddc5690b21338" compoundref="_splines1_d_8hxx" startline="169" endline="169">Splines::Spline1D::yMax</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1af70d387cea25618beacaaad5fbff6803" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::setOrigin</definition>
+        <argsstring>(real_type x0)</argsstring>
+        <name>setOrigin</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x0</declname>
+        </param>
+        <briefdescription>
+<para>change X-origin of the spline </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="407" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="390" bodyend="394"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a9aa9adbaf983ac61552eca9d7f1851b9" compoundref="_splines1_d_8hxx" startline="174" endline="175">Splines::Spline1D::setOrigin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a7fa7484f41753fa5a7c0d9650dfb025f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::setRange</definition>
+        <argsstring>(real_type xmin, real_type xmax)</argsstring>
+        <name>setRange</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>xmin</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>xmax</declname>
+        </param>
+        <briefdescription>
+<para>change X-range of the spline </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="410" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="399" bodyend="407"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a7f08c163d7a3d262eea0bb3843494b36" compoundref="_splines1_d_8hxx" startline="179" endline="180">Splines::Spline1D::setRange</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Build</header>
+      <memberdef kind="function" id="class_splines_1_1_spline_1af3000785216d55f29dbfd442796d7fea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::build</definition>
+        <argsstring>(GenericContainer const &amp;gc)</argsstring>
+        <name>build</name>
+        <param>
+          <type>GenericContainer const &amp;</type>
+          <declname>gc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Build a spline using a generic container. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="423" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="423" bodyend="424"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a73ae955cc359c306be879d453336f443" compoundref="_splines1_d_8cc" startline="50" endline="60">Splines::Spline1D::build</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1adc777d1156e295e28e378217498a2e5a" compoundref="_splines1_d_8cc" startline="77" endline="111">Splines::Spline1D::setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a2d9e2514ca0985322993761694f5b4da" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::build</definition>
+        <argsstring>(real_type const *x, integer incx, real_type const *y, integer incy, integer n)</argsstring>
+        <name>build</name>
+        <reimplementedby refid="class_splines_1_1_hermite_spline_1a62d0f1a26cb3be6e156e2b5d02263230">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1aa09382f79df50462241c7b48a3111d55">build</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>incx</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>incy</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Build a spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of x-coordinates </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>incx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>access elements as x[0], x[incx], x[2*incx],... </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of y-coordinates </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>incy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>access elements as y[0], y[incy], y[2*incy],... </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>total number of points </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="437" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="325" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a2b16211271f39ccf4d9e109725beb4db" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::build</definition>
+        <argsstring>(real_type const *x, real_type const *y, integer n)</argsstring>
+        <name>build</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> const *</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+<para>Build a spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of x-coordinates </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of y-coordinates </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>total number of points </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="452" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="452" bodyend="457"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a006b9d1017bd68ad2947ea5ba2ac9e9d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::build</definition>
+        <argsstring>(vector&lt; real_type &gt; const &amp;x, vector&lt; real_type &gt; const &amp;y)</argsstring>
+        <name>build</name>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; const &amp;</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>vector&lt; <ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &gt; const &amp;</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Build a spline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of x-coordinates </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>vector of y-coordinates </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="467" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="467" bodyend="471"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a211dc8867bf3cbf6ae7eab0f1f93e58b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Splines::Spline::build</definition>
+        <argsstring>()=0</argsstring>
+        <name>build</name>
+        <reimplementedby refid="class_splines_1_1_akima_spline_1a810cf4ef57564375436f970d5a8e021e">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_bessel_spline_1ab3dad9dbdc0bd13bf866d82f35d00837">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1a21831bdb2ad96155d84addd8b183c4c7">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_1aaed337a16046522e861af46e9f59b705">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_hermite_spline_1a0aaee3a1537c84263a399154110b1949">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a8266720e42797049a0197b189f2037e2">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_pchip_spline_1ae70361f40feb30b1be75c1b263d62b90">build</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_1af56ac3af94f92fd150bd3a0598d6f052">build</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Build a spline using internal stored data </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="477" column="10"/>
+        <referencedby refid="class_splines_1_1_spline_1a2d9e2514ca0985322993761694f5b4da" compoundref="_splines_8cc" startline="325" endline="335">build</referencedby>
+        <referencedby refid="class_splines_1_1_cubic_spline_base_1abb138425fe4bff3cad9b40cfe80b21e1" compoundref="_splines_8hh" startline="754" endline="761">Splines::CubicSplineBase::build</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a49364931c6136450ed8ae62a09c259ee" compoundref="_splines_8cc" startline="518" endline="541">setup</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a49364931c6136450ed8ae62a09c259ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::setup</definition>
+        <argsstring>(GenericContainer const &amp;gc)</argsstring>
+        <name>setup</name>
+        <reimplementedby refid="class_splines_1_1_akima_spline_1a0ee5960d2ec9b9f50fd87f17c9f7bcd5">setup</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_bessel_spline_1aa765e87cd88e14e66e31264409076b38">setup</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1ad7227f5f40ae607b4177a6f21721c70c">setup</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_1af1b9a10288bd98e178fb2267de3ec016">setup</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_hermite_spline_1a7c32fb66039b73026eede63ac964653b">setup</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a200afb5c1a84c6496f3cb2d0e2716d21">setup</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_pchip_spline_1adcc218eb25f2ce4f1b89f5f6b9b58e5f">setup</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_1ad923ea625c6668a5167438c17d01dbc9">setup</reimplementedby>
+        <param>
+          <type>GenericContainer const &amp;</type>
+          <declname>gc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Build a spline using a generic container. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="483" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="518" bodyend="541"/>
+        <referencedby refid="class_splines_1_1_spline_1af3000785216d55f29dbfd442796d7fea" compoundref="_splines_8hh" startline="423" endline="424">build</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Incremental Build</header>
+      <description><para>Various constructors for the spline class. </para>
+</description>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a835bea5de2461aec56d36b30a310beca" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Splines::Spline::reserve</definition>
+        <argsstring>(integer npts)=0</argsstring>
+        <name>reserve</name>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1ad486e551abc92c652ff52f8160685264">reserve</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a0daaea152335628d5dfee78108010fef">reserve</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a589da691b3cdbcc0117884ad4bb21d2e">reserve</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1acbb7ec9ddedf54901dfd9c29908611ac">reserve</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>npts</declname>
+        </param>
+        <briefdescription>
+<para>Allocate memory for <computeroutput>npts</computeroutput> points. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="497" column="10"/>
+        <referencedby refid="class_splines_1_1_spline_1a2d9e2514ca0985322993761694f5b4da" compoundref="_splines_8cc" startline="325" endline="335">build</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a0f2b4a30c93f186e4df4eb2f237e7328" compoundref="_splines_8cc" startline="356" endline="385">pushBack</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a858b41b818f51a6fe01a1c20c39390db" compoundref="_splines1_d_8hxx" startline="86" endline="86">Splines::Spline1D::reserve</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a0f2b4a30c93f186e4df4eb2f237e7328" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::pushBack</definition>
+        <argsstring>(real_type x, real_type y)</argsstring>
+        <name>pushBack</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Add a support point (x,y) to the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="500" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="356" bodyend="385"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1ad5400c4b2357b7a3b673802dfb5a045b" compoundref="_splines1_d_8hxx" startline="89" endline="89">Splines::Spline1D::pushBack</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a2250b0f37c97ebfe9795efd761b374da" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::dropBack</definition>
+        <argsstring>()</argsstring>
+        <name>dropBack</name>
+        <briefdescription>
+<para>Drop last inserted point of the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="503" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="503" bodyend="503"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a40292749d9808b6b70f32cae5c901779" compoundref="_splines1_d_8hxx" startline="92" endline="92">Splines::Spline1D::dropBack</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1aea14bcc8796da386a296cdfc51378885" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Splines::Spline::clear</definition>
+        <argsstring>()=0</argsstring>
+        <name>clear</name>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1ad9dba3c598e0d5ec58d234334afd81a6">clear</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1afa59551337f533151caf33901a07ee88">clear</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1adf7c2b55356a5a9e5ce49a571f83448c">clear</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1ab3bec7a8946f2709450b639170ddf684">clear</reimplementedby>
+        <briefdescription>
+<para>Cancel the support points, empty the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="507" column="10"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a26de8637acad82c752b607c539e14b03" compoundref="_splines1_d_8hxx" startline="157" endline="157">Splines::Spline1D::clear</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Dump Data</header>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a473e7287d887d034985cb6f4720a6380" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::dump</definition>
+        <argsstring>(ostream_type &amp;s, integer nintervals, char const *header=&quot;x\ty&quot;) const</argsstring>
+        <name>dump</name>
+        <param>
+          <type><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>nintervals</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>header</declname>
+          <defval>&quot;x\ty&quot;</defval>
+        </param>
+        <briefdescription>
+<para>dump a sample of the spline </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="518" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="412" bodyend="423"/>
+        <referencedby refid="class_splines_1_1_spline_1ab4e0846363c4ad114a71ea5cd543ceb8" compoundref="_splines_8hh" startline="526" endline="534">dump</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a8c6201dfed57fa8cf2bb63ed703aa8e1" compoundref="_splines1_d_8hxx" startline="184" endline="190">Splines::Spline1D::dump</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ab4e0846363c4ad114a71ea5cd543ceb8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::dump</definition>
+        <argsstring>(char const *fname, integer nintervals, char const *header=&quot;x\ty&quot;) const</argsstring>
+        <name>dump</name>
+        <param>
+          <type>char const *</type>
+          <declname>fname</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>nintervals</declname>
+        </param>
+        <param>
+          <type>char const *</type>
+          <declname>header</declname>
+          <defval>&quot;x\ty&quot;</defval>
+        </param>
+        <briefdescription>
+<para>dump a sample of the spline </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="526" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="526" bodyend="534"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a653dc1bab015b5f9617044c3b95d95ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Splines::Spline::writeToStream</definition>
+        <argsstring>(ostream_type &amp;s) const =0</argsstring>
+        <name>writeToStream</name>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1a455bacdb127f8e7c2c4d35171652942a">writeToStream</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a6c55338db595cb20e650b253a54ae121">writeToStream</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1aedb17e0b8bad3502a204ceb6987dcbf1">writeToStream</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1a92abe418571e2c5c43722016f15a9851">writeToStream</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Print spline coefficients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="538" column="10"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a1909a6588e866521e71aa9c0d29b21bc" compoundref="_splines1_d_8hxx" startline="267" endline="268">Splines::Spline1D::writeToStream</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Evaluation</header>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a06869747cc76871e2cb01c72d80feb8d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::operator()</definition>
+        <argsstring>(real_type x) const =0</argsstring>
+        <name>operator()</name>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1ae9778e172fe7641900e75d0d798b3d9d">operator()</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a18a3b690198711ed6d382251c143af11">operator()</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1abd688a4a8ba4ab622d8a1e055c6cb562">operator()</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1af74dd9e0476965c94408708f03018e41">operator()</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate spline value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="549" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ab536907883c1788205a5ec66f4a713b8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::D</definition>
+        <argsstring>(real_type x) const =0</argsstring>
+        <name>D</name>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a5c4199a6f46ea0e95d8e179b8ccace87">D</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a32babf77a98870e64424dcf8a4f97a0f">D</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1aa31c245cfd3c6abe6b92831aa027009b">D</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1ab4962ceaada53d6f6514d619f43c5815">D</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>First derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="553" column="15"/>
+        <referencedby refid="namespace_splines_1a94d2862da920a586358451ce3b3bcb41" compoundref="_splines_8cc" startline="428" endline="438">Splines::curvature</referencedby>
+        <referencedby refid="namespace_splines_1ad1cb03ee7c6c9f13f93df88d7612e26e" compoundref="_splines_8cc" startline="443" endline="461">Splines::curvature_D</referencedby>
+        <referencedby refid="namespace_splines_1a62d87177bbdb8da9a92701e528c57f00" compoundref="_splines_8cc" startline="466" endline="501">Splines::curvature_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a3fd0be0473dba776b67ee8075b6f22f7" compoundref="_splines1_d_8hxx" startline="206" endline="206">Splines::Spline1D::D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1ac3b19336658dfdfaa0518314cac2c0ae" compoundref="_spline_set_8hxx" startline="192" endline="195">Splines::SplineSet::D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1ae0743377cb662b3dc3cc574293567a23" compoundref="_spline_set_8cc" startline="631" endline="643">Splines::SplineSet::eval2_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a1dbfc691b6d0019a67d9b53a08a09702" compoundref="_spline_set_8cc" startline="684" endline="700">Splines::SplineSet::eval2_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a31cbbab55ef47dc90a9593a6e294e2c6" compoundref="_spline_set_8cc" startline="745" endline="762">Splines::SplineSet::eval2_DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a1e535c0fb806e665f2fa20d77acfa3de" compoundref="_splines_8hh" startline="573" endline="573">eval_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1ac57229c9d6709c5bfd64db52fbabad1e" compoundref="_splines1_d_8hxx" startline="222" endline="222">Splines::Spline1D::eval_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1aaaf06f270cd61d50886de7848854e179" compoundref="_spline_set_8cc" startline="434" endline="438">Splines::SplineSet::eval_D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a5ada19e68247242a4ff526caa95fbef1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::DD</definition>
+        <argsstring>(real_type x) const =0</argsstring>
+        <name>DD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1ac907bc429c2e04f4032e1afd983ffa81">DD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1a22d5dccfb4a11390c379206134deb4a6">DD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1a33f613220f24e97dd82b081490a2cffd">DD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a6ceb9732f8114593a7233997bcb7a2d2">DD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="557" column="15"/>
+        <referencedby refid="namespace_splines_1a94d2862da920a586358451ce3b3bcb41" compoundref="_splines_8cc" startline="428" endline="438">Splines::curvature</referencedby>
+        <referencedby refid="namespace_splines_1ad1cb03ee7c6c9f13f93df88d7612e26e" compoundref="_splines_8cc" startline="443" endline="461">Splines::curvature_D</referencedby>
+        <referencedby refid="namespace_splines_1a62d87177bbdb8da9a92701e528c57f00" compoundref="_splines_8cc" startline="466" endline="501">Splines::curvature_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a58956de4ab3d232676604a6d2389a4e0" compoundref="_splines1_d_8hxx" startline="209" endline="209">Splines::Spline1D::DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a1d7c5057754649f9902ed7d46eeba624" compoundref="_spline_set_8hxx" startline="205" endline="208">Splines::SplineSet::DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a1dbfc691b6d0019a67d9b53a08a09702" compoundref="_spline_set_8cc" startline="684" endline="700">Splines::SplineSet::eval2_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a31cbbab55ef47dc90a9593a6e294e2c6" compoundref="_spline_set_8cc" startline="745" endline="762">Splines::SplineSet::eval2_DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a3763f7cf8c1090809dc58c5d5a7f9bec" compoundref="_splines_8hh" startline="574" endline="574">eval_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1ac1633bd8d607c223447450e667c9bf15" compoundref="_splines1_d_8hxx" startline="223" endline="223">Splines::Spline1D::eval_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1aed588d14ea215be3fb3e73f2b5645f61" compoundref="_spline_set_8cc" startline="456" endline="460">Splines::SplineSet::eval_DD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ab7dc574857b2b325faa5a22f5f456735" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::DDD</definition>
+        <argsstring>(real_type x) const =0</argsstring>
+        <name>DDD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a440433db66a9e58a7714c574a2f64194">DDD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1ab6694659017ba6c048b3271fb75b596d">DDD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1a4eff1a6c04879af6f1e973884f4b68c2">DDD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a296b08761e93ca3a54e20eee2ba04eee">DDD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Third derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="561" column="15"/>
+        <referencedby refid="namespace_splines_1ad1cb03ee7c6c9f13f93df88d7612e26e" compoundref="_splines_8cc" startline="443" endline="461">Splines::curvature_D</referencedby>
+        <referencedby refid="namespace_splines_1a62d87177bbdb8da9a92701e528c57f00" compoundref="_splines_8cc" startline="466" endline="501">Splines::curvature_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a5a14a6574fa4814b86d8b58eaaace453" compoundref="_splines1_d_8hxx" startline="212" endline="212">Splines::Spline1D::DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a518c67d4b64e310f2d1334d96910d1b6" compoundref="_spline_set_8hxx" startline="218" endline="221">Splines::SplineSet::DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a31cbbab55ef47dc90a9593a6e294e2c6" compoundref="_spline_set_8cc" startline="745" endline="762">Splines::SplineSet::eval2_DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a45f52cb16cf6cef77ab882cb7170e804" compoundref="_splines_8hh" startline="575" endline="575">eval_DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a1af1cb06a952282d4d8e73aaecd35c44" compoundref="_splines1_d_8hxx" startline="224" endline="224">Splines::Spline1D::eval_DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a2796e38da32fa7f6b9c5cdfc8d0b8aca" compoundref="_spline_set_8hxx" startline="224" endline="227">Splines::SplineSet::eval_DDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a8a28469ca7a82263cfc45a9b8cf7e085" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::DDDD</definition>
+        <argsstring>(real_type) const</argsstring>
+        <name>DDDD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1ac4f70dd977660d1e3ed7262bda493dbc">DDDD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        </param>
+        <briefdescription>
+<para>4th derivative </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="565" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="565" bodyend="565"/>
+        <referencedby refid="namespace_splines_1a62d87177bbdb8da9a92701e528c57f00" compoundref="_splines_8cc" startline="466" endline="501">Splines::curvature_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a0a23e619c3d76291f2488d5cf2a349d8" compoundref="_splines1_d_8hxx" startline="215" endline="215">Splines::Spline1D::DDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1afba184a1323067937596e62908355b6f" compoundref="_spline_set_8hxx" startline="231" endline="234">Splines::SplineSet::DDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1acc73e70d2637c45cdb36aa6a1ba55c3e" compoundref="_splines_8hh" startline="576" endline="576">eval_DDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1abc910f8a3116ae5a836129004eb5dfba" compoundref="_splines1_d_8hxx" startline="225" endline="225">Splines::Spline1D::eval_DDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a7b9bb6035b266fc8217492fac1f707ea" compoundref="_spline_set_8hxx" startline="237" endline="240">Splines::SplineSet::eval_DDDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a1f112d7149fbd152d6f4d062888ecc9d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::DDDDD</definition>
+        <argsstring>(real_type) const</argsstring>
+        <name>DDDDD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1ac29226c3a9bbb707514dfd81114b88c8">DDDDD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        </param>
+        <briefdescription>
+<para>4th derivative </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="569" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="569" bodyend="569"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1aedc8de8f397d0a1e6bda73ffd743316e" compoundref="_splines1_d_8hxx" startline="218" endline="218">Splines::Spline1D::DDDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a0f8aa34ab198a5755f81614e09bba366" compoundref="_spline_set_8hxx" startline="244" endline="247">Splines::SplineSet::DDDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1aba331446570d9d540d04947c145d924f" compoundref="_splines_8hh" startline="577" endline="577">eval_DDDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a9a86ca5d37a9cce833e90f0489f10ddb" compoundref="_splines1_d_8hxx" startline="226" endline="226">Splines::Spline1D::eval_DDDDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1ac103681b1aae62c9e5d4ba098f270364" compoundref="_spline_set_8hxx" startline="250" endline="253">Splines::SplineSet::eval_DDDDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a3bc7688f7a13e618b2222c190e68c9b1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::eval</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>eval</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Some aliases. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="572" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="572" bodyend="572"/>
+        <referencedby refid="class_splines_1_1_spline_set_1a56e4a4b716edeffd41f4e181471834e2" compoundref="_spline_set_g_c_8cc" startline="281" endline="287">Splines::SplineSet::eval</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a27011f83885afd8775ea9f1342a4274c" compoundref="_spline_set_g_c_8cc" startline="348" endline="360">Splines::SplineSet::eval2</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a1e535c0fb806e665f2fa20d77acfa3de" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::eval_D</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>eval_D</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="573" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="573" bodyend="573"/>
+        <referencedby refid="class_splines_1_1_spline_set_1a81ee781e17f437c7ef6c45d62ab681c8" compoundref="_spline_set_g_c_8cc" startline="522" endline="534">Splines::SplineSet::eval2_D</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a8606380e41d364759cdfcd52e8184d07" compoundref="_spline_set_g_c_8cc" startline="455" endline="461">Splines::SplineSet::eval_D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a3763f7cf8c1090809dc58c5d5a7f9bec" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::eval_DD</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>eval_DD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="574" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="574" bodyend="574"/>
+        <referencedby refid="class_splines_1_1_spline_set_1ac3ef65aeed29ac3be1a7c437bcdcfc54" compoundref="_spline_set_g_c_8cc" startline="695" endline="707">Splines::SplineSet::eval2_DD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1af612358fa158b19ab6a9f63b1bc3a3c2" compoundref="_spline_set_g_c_8cc" startline="628" endline="634">Splines::SplineSet::eval_DD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a45f52cb16cf6cef77ab882cb7170e804" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::eval_DDD</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>eval_DDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="575" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="575" bodyend="575"/>
+        <referencedby refid="class_splines_1_1_spline_set_1a997a652ccbf9eec633133775be48151a" compoundref="_spline_set_g_c_8cc" startline="872" endline="884">Splines::SplineSet::eval2_DDD</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1a63f1cdbda9f2ba095e2fb9c4ee308907" compoundref="_spline_set_g_c_8cc" startline="802" endline="808">Splines::SplineSet::eval_DDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1acc73e70d2637c45cdb36aa6a1ba55c3e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::eval_DDDD</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>eval_DDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="576" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="576" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1aba331446570d9d540d04947c145d924f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>real_type Splines::Spline::eval_DDDDD</definition>
+        <argsstring>(real_type x) const</argsstring>
+        <name>eval_DDDDD</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="577" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="577" bodyend="577"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a97cadc14d04d0fc393ad589d747fb9dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::id_eval</definition>
+        <argsstring>(integer ni, real_type x) const =0</argsstring>
+        <name>id_eval</name>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1aa529814d7d33aa5846200e9adaebd620">id_eval</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a5034c50bbc977a7cc0fd94e44461ed85">id_eval</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a5d9322f87836f795f5d893fc23bdc41b">id_eval</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1a6343163c603f13e931ccc1245d6ea6fd">id_eval</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ni</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate spline value when interval is known. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="582" column="15"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a6a75d14475402522b5b3e73d20e777a9" compoundref="_splines1_d_8hxx" startline="231" endline="231">Splines::Spline1D::id_eval</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a06bc8ca97bfb6d74959cf9083dc75f33" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::id_D</definition>
+        <argsstring>(integer ni, real_type x) const =0</argsstring>
+        <name>id_D</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1ad2003c2d3fce0abc33bee124d24c400d">id_D</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1aaf0fc83bfce4a5ae45b721e3deecbe14">id_D</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1a8dc115653d9837c3880f1ba79ae4ec98">id_D</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a36879fd0ca3914717ca29f623eb52676">id_D</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ni</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>First derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="586" column="15"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a84db8b6475f5ef9be1ee6bfadda436c2" compoundref="_splines1_d_8hxx" startline="235" endline="235">Splines::Spline1D::id_D</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a80e2d5ed69a039ad8becad84eca15b5b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::id_DD</definition>
+        <argsstring>(integer ni, real_type x) const =0</argsstring>
+        <name>id_DD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a1ee03539fab005ac5cdbf662e94e70ac">id_DD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1ac96cfb2da69a2c7d99ab175fc9befa51">id_DD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1aff5b42684cdd3700c1342a43bcb17439">id_DD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a3aacdd198de53672ca1c43c22df7ccd0">id_DD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ni</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Second derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="590" column="15"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1afb92965a551bc51c9ec2a98468ba1c59" compoundref="_splines1_d_8hxx" startline="239" endline="239">Splines::Spline1D::id_DD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a6bd6421a28123ba2a44680dec7e7be18" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::id_DDD</definition>
+        <argsstring>(integer ni, real_type x) const =0</argsstring>
+        <name>id_DDD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1ab2f85d241b4cad8ea1a70d166d5df51a">id_DDD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1a879011327d8f2e7352db90cdd5bdcdd7">id_DDD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1af4bb5f028ac8c787998c4d031ec9d9d7">id_DDD</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a5baa5b01dba1e0e26c3c6bc81d1a0ee5">id_DDD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+          <declname>ni</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>Third derivative. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="594" column="15"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a98fc8163c5e8c2bfe354a0f7b0b2d468" compoundref="_splines1_d_8hxx" startline="243" endline="243">Splines::Spline1D::id_DDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a10b76dcd22e5232f5529e03f4f55fe87" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::id_DDDD</definition>
+        <argsstring>(integer, real_type) const</argsstring>
+        <name>id_DDDD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a0de91bf7fc8d821651f74f4a6783a58e">id_DDDD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        </param>
+        <briefdescription>
+<para>4th derivative </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="598" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="598" bodyend="598"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a3e6c26df08352529ed9167d74dec34f9" compoundref="_splines1_d_8hxx" startline="247" endline="247">Splines::Spline1D::id_DDDD</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a33dfea6d6e2d0a0ba0053fd65ca5fd45" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        <definition>virtual real_type Splines::Spline::id_DDDDD</definition>
+        <argsstring>(integer, real_type) const</argsstring>
+        <name>id_DDDDD</name>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a6f7a332c81c6eb2e12114af763c41e1d">id_DDDDD</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></type>
+        </param>
+        <briefdescription>
+<para>4th derivative </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="602" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="602" bodyend="602"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a2aa01a542c942681ecee3977c8d510e9" compoundref="_splines1_d_8hxx" startline="251" endline="251">Splines::Spline1D::id_DDDDD</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Get Info</header>
+      <memberdef kind="function" id="class_splines_1_1_spline_1aae6b54a1077607bc00d81dd49f091b50" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>virtual integer Splines::Spline::coeffs</definition>
+        <argsstring>(real_type *const cfs, real_type *const nodes, bool transpose=false) const =0</argsstring>
+        <name>coeffs</name>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1a51f0418f196914af94f1e980df018759">coeffs</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1ad772ea9eeac61c7b40218df3af3f0dc1">coeffs</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1ae821d2ecf953c5983440f61379e0bd64">coeffs</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1ae720eec14ada9e2ad9059bf2ca7a5e0b">coeffs</reimplementedby>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>cfs</declname>
+        </param>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *const</type>
+          <declname>nodes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>transpose</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+<para>get the piecewise polinomials of the spline </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="614" column="5"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a9103f807cbeec77f877a434f8c127cd4" compoundref="_splines1_d_8hxx" startline="255" endline="261">Splines::Spline1D::coeffs</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1aec824944bcb00ffbfc9a7c32bdb900c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>virtual integer Splines::Spline::order</definition>
+        <argsstring>() const =0</argsstring>
+        <name>order</name>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1a97e2dfd1f15e6ff4c039eb3081b079c1">order</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1a55eb5eecf90cb029ba489ec6f20ab471">order</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a4e248c3a5938c677efd54085875b1fd9">order</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_base_1a2999b4cca4001e6a1604510e8d6d7b77">order</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="622" column="5"/>
+        <referencedby refid="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" compoundref="_splines_8cc" startline="340" endline="351">info</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1ae9df1637967ab5739dab5c28c8f96bf5" compoundref="_splines1_d_8hxx" startline="263" endline="263">Splines::Spline1D::order</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a2d759876c727b11439b9b2acb8344ad5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>char const  *</type>
+        <definition>char const* Splines::Spline::type_name</definition>
+        <argsstring>() const</argsstring>
+        <name>type_name</name>
+        <briefdescription>
+<para>Return spline typename. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="625" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="625" bodyend="626"/>
+        <referencedby refid="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" compoundref="_splines_8cc" startline="340" endline="351">info</referencedby>
+        <referencedby refid="class_splines_1_1_spline1_d_1a22adb114478d72350d63b3e3a1765aab" compoundref="_splines1_d_8hxx" startline="272" endline="273">Splines::Spline1D::type_name</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1aeddab940f998d7397715c4680502ff46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>unsigned</type>
+        <definition>virtual unsigned Splines::Spline::type</definition>
+        <argsstring>() const =0</argsstring>
+        <name>type</name>
+        <reimplementedby refid="class_splines_1_1_akima_spline_1a534c66d89709008658358527d4c6632f">type</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_bessel_spline_1a4a5e756fd2efa655d54eda4b2d60b62d">type</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_constant_spline_1ae3f8e3186f915d91f573507f2dc44708">type</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_cubic_spline_1ad4d3d0d39a56921ccb94093dfde91144">type</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_hermite_spline_1a7514deb3d2560aa08adc1ccf927c35c5">type</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_linear_spline_1abbf8752b80f60429913d78d952af92f5">type</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_pchip_spline_1aef03c5cd57b0b2b48f11d2c2bce64230">type</reimplementedby>
+        <reimplementedby refid="class_splines_1_1_quintic_spline_base_1a9436e7594ada17dcd3951aa2c50c24d8">type</reimplementedby>
+        <briefdescription>
+<para>Return spline type (as number) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="630" column="14"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a1b5759736b8ec19266d000d7b93c04f8" compoundref="_splines1_d_8hxx" startline="277" endline="278">Splines::Spline1D::type</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a2d759876c727b11439b9b2acb8344ad5" compoundref="_splines_8hh" startline="625" endline="626">type_name</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a5a98f5793d5665205abd86577ba6728d" compoundref="_splines_8hh" startline="399" endline="403">yMax</referencedby>
+        <referencedby refid="class_splines_1_1_spline_1a5e18badaf66b10451a96d3e7e1a64200" compoundref="_splines_8hh" startline="391" endline="395">yMin</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>string Splines::Spline::info</definition>
+        <argsstring>() const</argsstring>
+        <name>info</name>
+        <briefdescription>
+<para>Return a string information of the kind and order of the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="633" column="12" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="340" bodyend="351"/>
+        <referencedby refid="class_splines_1_1_spline1_d_1a3bf8600c71837c5797b26508c5e4e304" compoundref="_splines1_d_8hxx" startline="281" endline="282">Splines::Spline1D::info</referencedby>
+        <referencedby refid="class_splines_1_1_spline_set_1ab31367aa52124ceebe1f5c7836e4e853" compoundref="_spline_set_8cc" startline="109" endline="130">Splines::SplineSet::info</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a75ef33bb6139f24d671fe45f78698019" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::info</definition>
+        <argsstring>(ostream_type &amp;stream) const</argsstring>
+        <name>info</name>
+        <param>
+          <type><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref> &amp;</type>
+          <declname>stream</declname>
+        </param>
+        <briefdescription>
+<para>Print information of the kind and order of the spline. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="636" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="636" bodyend="636"/>
+        <referencedby refid="class_splines_1_1_spline_1a75ef33bb6139f24d671fe45f78698019" compoundref="_splines_8hh" startline="636" endline="636">info</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="class_splines_1_1_spline_1a8c47d9f74aa79536fa0812d13a3d7f8e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class SplineSet</definition>
+        <argsstring></argsstring>
+        <name>SplineSet</name>
+        <param>
+          <type><ref refid="class_splines_1_1_spline_set" kindref="compound">SplineSet</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="299" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_splines_1_1_spline_1a6e8467866eb8c63907dd8862bad4c7a5" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string Splines::Spline::m_name</definition>
+        <argsstring></argsstring>
+        <name>m_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="302" column="12" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="302" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1a46352ff6a08a74612e99f8ba5ea7247c" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Splines::Spline::m_curve_is_closed</definition>
+        <argsstring></argsstring>
+        <name>m_curve_is_closed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="303" column="12" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1a27bfc989f3ab0302a7506a17d0459097" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Splines::Spline::m_curve_can_extend</definition>
+        <argsstring></argsstring>
+        <name>m_curve_can_extend</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="304" column="12" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="304" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1a8643656645c1b7d5f6de2c6e27c65c35" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Splines::Spline::m_curve_extended_constant</definition>
+        <argsstring></argsstring>
+        <name>m_curve_extended_constant</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="305" column="12" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1a78b7770f3c0acee4680164fa437ec806" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::Spline::m_npts</definition>
+        <argsstring></argsstring>
+        <name>m_npts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="307" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1aaa8deabe02f23c6cfa79dcf6a7578f8e" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::Spline::m_npts_reserved</definition>
+        <argsstring></argsstring>
+        <name>m_npts_reserved</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="308" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1acab8929b9488fc761ec29198e6741008" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *</type>
+        <definition>real_type* Splines::Spline::m_X</definition>
+        <argsstring></argsstring>
+        <name>m_X</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="309" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1ac71d21d1ce24cf2e5744089c509df057" prot="private" static="no" mutable="no">
+        <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> *</type>
+        <definition>real_type* Splines::Spline::m_Y</definition>
+        <argsstring></argsstring>
+        <name>m_Y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="310" column="15" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_splines_1_1_spline_1a47fab83c0061ec9cfd6cd120d8fd05ee" prot="private" static="no" mutable="yes">
+        <type>Utils::BinarySearch&lt; <ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref> &gt;</type>
+        <definition>Utils::BinarySearch&lt;integer&gt; Splines::Spline::m_bs</definition>
+        <argsstring></argsstring>
+        <name>m_bs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="312" column="33" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_splines_1_1_spline_1abd996cb9f09c3374498e17dca4f52fc1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Splines::Spline::initLastInterval</definition>
+        <argsstring>()</argsstring>
+        <name>initLastInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="314" column="10" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="227" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a86448ec0f2b6eb699944ee7261542bc3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Splines::Spline::Spline</definition>
+        <argsstring>(Spline const &amp;)=delete</argsstring>
+        <name>Spline</name>
+        <param>
+          <type><ref refid="class_splines_1_1_spline" kindref="compound">Spline</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="316" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a6aecc96038f4a5045c632748c17ae7e6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_splines_1_1_spline" kindref="compound">Spline</ref> const  &amp;</type>
+        <definition>Spline const&amp; Splines::Spline::operator=</definition>
+        <argsstring>(Spline const &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="class_splines_1_1_spline" kindref="compound">Spline</ref> const &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="317" column="19"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_splines_1_1_spline_1a35040c875d89dd19984870464b301bc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Splines::Spline::Spline</definition>
+        <argsstring>(string const &amp;name=&quot;Spline&quot;)</argsstring>
+        <name>Spline</name>
+        <param>
+          <type>string const &amp;</type>
+          <declname>name</declname>
+          <defval>&quot;Spline&quot;</defval>
+        </param>
+        <briefdescription>
+<para>spline constructor </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="322" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="322" bodyend="333"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1ade42f06b129e46b59ed005d004458adb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual Splines::Spline::~Spline</definition>
+        <argsstring>()</argsstring>
+        <name>~Spline</name>
+        <briefdescription>
+<para>spline destructor </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="336" column="5" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="336" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="class_splines_1_1_spline_1a0a3096464e89b04366c3640c24e8cb0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></type>
+        <definition>integer Splines::Spline::search</definition>
+        <argsstring>(real_type &amp;x) const</argsstring>
+        <name>search</name>
+        <param>
+          <type><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref> &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+<para>find interval containing <computeroutput>x</computeroutput> using binary search. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="340" column="13" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc" bodystart="210" bodyend="224"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="class_splines_1_1_spline" kindref="compound">Spline</ref> Management Class. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Splines::ConstantSpline</label>
+        <link refid="class_splines_1_1_constant_spline"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Splines::HermiteSpline</label>
+        <link refid="class_splines_1_1_hermite_spline"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Splines::BesselSpline</label>
+        <link refid="class_splines_1_1_bessel_spline"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Splines::QuinticSplineBase</label>
+        <link refid="class_splines_1_1_quintic_spline_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Splines::AkimaSpline</label>
+        <link refid="class_splines_1_1_akima_spline"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>Splines::LinearSpline</label>
+        <link refid="class_splines_1_1_linear_spline"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Splines::CubicSpline</label>
+        <link refid="class_splines_1_1_cubic_spline"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Splines::CubicSplineBase</label>
+        <link refid="class_splines_1_1_cubic_spline_base"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Splines::Spline</label>
+        <link refid="class_splines_1_1_spline"/>
+      </node>
+      <node id="11">
+        <label>Splines::QuinticSpline</label>
+        <link refid="class_splines_1_1_quintic_spline"/>
+        <childnode refid="10" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Splines::PchipSpline</label>
+        <link refid="class_splines_1_1_pchip_spline"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" line="298" column="3" bodyfile="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh" bodystart="298" bodyend="640"/>
+    <listofallmembers>
+      <member refid="class_splines_1_1_spline_1af3000785216d55f29dbfd442796d7fea" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline_1a2d9e2514ca0985322993761694f5b4da" prot="public" virt="virtual"><scope>Splines::Spline</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline_1a2b16211271f39ccf4d9e109725beb4db" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline_1a006b9d1017bd68ad2947ea5ba2ac9e9d" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline_1a211dc8867bf3cbf6ae7eab0f1f93e58b" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>build</name></member>
+      <member refid="class_splines_1_1_spline_1aea14bcc8796da386a296cdfc51378885" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>clear</name></member>
+      <member refid="class_splines_1_1_spline_1aae6b54a1077607bc00d81dd49f091b50" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>coeffs</name></member>
+      <member refid="class_splines_1_1_spline_1ab536907883c1788205a5ec66f4a713b8" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>D</name></member>
+      <member refid="class_splines_1_1_spline_1a5ada19e68247242a4ff526caa95fbef1" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>DD</name></member>
+      <member refid="class_splines_1_1_spline_1ab7dc574857b2b325faa5a22f5f456735" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>DDD</name></member>
+      <member refid="class_splines_1_1_spline_1a8a28469ca7a82263cfc45a9b8cf7e085" prot="public" virt="virtual"><scope>Splines::Spline</scope><name>DDDD</name></member>
+      <member refid="class_splines_1_1_spline_1a1f112d7149fbd152d6f4d062888ecc9d" prot="public" virt="virtual"><scope>Splines::Spline</scope><name>DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_1a2250b0f37c97ebfe9795efd761b374da" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>dropBack</name></member>
+      <member refid="class_splines_1_1_spline_1a473e7287d887d034985cb6f4720a6380" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>dump</name></member>
+      <member refid="class_splines_1_1_spline_1ab4e0846363c4ad114a71ea5cd543ceb8" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>dump</name></member>
+      <member refid="class_splines_1_1_spline_1a3bc7688f7a13e618b2222c190e68c9b1" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>eval</name></member>
+      <member refid="class_splines_1_1_spline_1a1e535c0fb806e665f2fa20d77acfa3de" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>eval_D</name></member>
+      <member refid="class_splines_1_1_spline_1a3763f7cf8c1090809dc58c5d5a7f9bec" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>eval_DD</name></member>
+      <member refid="class_splines_1_1_spline_1a45f52cb16cf6cef77ab882cb7170e804" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>eval_DDD</name></member>
+      <member refid="class_splines_1_1_spline_1acc73e70d2637c45cdb36aa6a1ba55c3e" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>eval_DDDD</name></member>
+      <member refid="class_splines_1_1_spline_1aba331446570d9d540d04947c145d924f" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>eval_DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_1a06bc8ca97bfb6d74959cf9083dc75f33" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>id_D</name></member>
+      <member refid="class_splines_1_1_spline_1a80e2d5ed69a039ad8becad84eca15b5b" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>id_DD</name></member>
+      <member refid="class_splines_1_1_spline_1a6bd6421a28123ba2a44680dec7e7be18" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>id_DDD</name></member>
+      <member refid="class_splines_1_1_spline_1a10b76dcd22e5232f5529e03f4f55fe87" prot="public" virt="virtual"><scope>Splines::Spline</scope><name>id_DDDD</name></member>
+      <member refid="class_splines_1_1_spline_1a33dfea6d6e2d0a0ba0053fd65ca5fd45" prot="public" virt="virtual"><scope>Splines::Spline</scope><name>id_DDDDD</name></member>
+      <member refid="class_splines_1_1_spline_1a97cadc14d04d0fc393ad589d747fb9dc" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>id_eval</name></member>
+      <member refid="class_splines_1_1_spline_1a057639e428f28b666c0d63bfed63084d" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>info</name></member>
+      <member refid="class_splines_1_1_spline_1a75ef33bb6139f24d671fe45f78698019" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>info</name></member>
+      <member refid="class_splines_1_1_spline_1abd996cb9f09c3374498e17dca4f52fc1" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>initLastInterval</name></member>
+      <member refid="class_splines_1_1_spline_1a1cdaf9ec387cbdb53faf6aca30d02997" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>is_bounded</name></member>
+      <member refid="class_splines_1_1_spline_1a431472a7d4aa2a31a58abe297e786e96" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>is_closed</name></member>
+      <member refid="class_splines_1_1_spline_1ad288fd41f0bfe53a72e515a224ae9684" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>is_extended_constant</name></member>
+      <member refid="class_splines_1_1_spline_1a47fab83c0061ec9cfd6cd120d8fd05ee" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_bs</name></member>
+      <member refid="class_splines_1_1_spline_1a27bfc989f3ab0302a7506a17d0459097" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_curve_can_extend</name></member>
+      <member refid="class_splines_1_1_spline_1a8643656645c1b7d5f6de2c6e27c65c35" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_curve_extended_constant</name></member>
+      <member refid="class_splines_1_1_spline_1a46352ff6a08a74612e99f8ba5ea7247c" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_curve_is_closed</name></member>
+      <member refid="class_splines_1_1_spline_1a6e8467866eb8c63907dd8862bad4c7a5" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_name</name></member>
+      <member refid="class_splines_1_1_spline_1a78b7770f3c0acee4680164fa437ec806" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_npts</name></member>
+      <member refid="class_splines_1_1_spline_1aaa8deabe02f23c6cfa79dcf6a7578f8e" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_npts_reserved</name></member>
+      <member refid="class_splines_1_1_spline_1acab8929b9488fc761ec29198e6741008" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_X</name></member>
+      <member refid="class_splines_1_1_spline_1ac71d21d1ce24cf2e5744089c509df057" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>m_Y</name></member>
+      <member refid="class_splines_1_1_spline_1ab4d4f0e173b89874c88240be3fb4464f" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>make_bounded</name></member>
+      <member refid="class_splines_1_1_spline_1a54493db067c02d0c4c758609c45e0012" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>make_closed</name></member>
+      <member refid="class_splines_1_1_spline_1a136031149f0d37c34485aa4ab61a0fa1" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>make_extended_constant</name></member>
+      <member refid="class_splines_1_1_spline_1a03b4785b5902ab438e4ba1d4d28accfc" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>make_extended_not_constant</name></member>
+      <member refid="class_splines_1_1_spline_1a80ab8ff6188bc9be6a09152c19e88519" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>make_opened</name></member>
+      <member refid="class_splines_1_1_spline_1a4cb02493a9e83dd14f6aa79c2d1c9b80" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>make_unbounded</name></member>
+      <member refid="class_splines_1_1_spline_1ad12ced52b61acfdf81e80cf94463781d" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>name</name></member>
+      <member refid="class_splines_1_1_spline_1ac6a0d121b81e43218e49afe40b4545a9" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>numPoints</name></member>
+      <member refid="class_splines_1_1_spline_1a06869747cc76871e2cb01c72d80feb8d" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>operator()</name></member>
+      <member refid="class_splines_1_1_spline_1a6aecc96038f4a5045c632748c17ae7e6" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>operator=</name></member>
+      <member refid="class_splines_1_1_spline_1aec824944bcb00ffbfc9a7c32bdb900c3" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>order</name></member>
+      <member refid="class_splines_1_1_spline_1a0f2b4a30c93f186e4df4eb2f237e7328" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>pushBack</name></member>
+      <member refid="class_splines_1_1_spline_1a835bea5de2461aec56d36b30a310beca" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>reserve</name></member>
+      <member refid="class_splines_1_1_spline_1a0a3096464e89b04366c3640c24e8cb0c" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>search</name></member>
+      <member refid="class_splines_1_1_spline_1af70d387cea25618beacaaad5fbff6803" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>setOrigin</name></member>
+      <member refid="class_splines_1_1_spline_1a7fa7484f41753fa5a7c0d9650dfb025f" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>setRange</name></member>
+      <member refid="class_splines_1_1_spline_1a49364931c6136450ed8ae62a09c259ee" prot="public" virt="virtual"><scope>Splines::Spline</scope><name>setup</name></member>
+      <member refid="class_splines_1_1_spline_1a86448ec0f2b6eb699944ee7261542bc3" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>Spline</name></member>
+      <member refid="class_splines_1_1_spline_1a35040c875d89dd19984870464b301bc4" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>Spline</name></member>
+      <member refid="class_splines_1_1_spline_1a8c47d9f74aa79536fa0812d13a3d7f8e" prot="private" virt="non-virtual"><scope>Splines::Spline</scope><name>SplineSet</name></member>
+      <member refid="class_splines_1_1_spline_1aeddab940f998d7397715c4680502ff46" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>type</name></member>
+      <member refid="class_splines_1_1_spline_1a2d759876c727b11439b9b2acb8344ad5" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>type_name</name></member>
+      <member refid="class_splines_1_1_spline_1a653dc1bab015b5f9617044c3b95d95ea" prot="public" virt="pure-virtual"><scope>Splines::Spline</scope><name>writeToStream</name></member>
+      <member refid="class_splines_1_1_spline_1a92db11049305b5d99089f8dac81e0830" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>xBegin</name></member>
+      <member refid="class_splines_1_1_spline_1ab9caef603b324d51f13665127f169a39" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>xEnd</name></member>
+      <member refid="class_splines_1_1_spline_1ab0551f6cd9eadc008d58ad631a937e33" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>xMax</name></member>
+      <member refid="class_splines_1_1_spline_1acddc7abdecd1410b61c8315b876af5ef" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>xMin</name></member>
+      <member refid="class_splines_1_1_spline_1a24a20ca80ec288c0a4765375875ab270" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>xNode</name></member>
+      <member refid="class_splines_1_1_spline_1a41c3c62402c7878ca54b112d8964b0df" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>yBegin</name></member>
+      <member refid="class_splines_1_1_spline_1aacf77e66e5af59058a30023ae5c6c4bf" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>yEnd</name></member>
+      <member refid="class_splines_1_1_spline_1a5a98f5793d5665205abd86577ba6728d" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>yMax</name></member>
+      <member refid="class_splines_1_1_spline_1a5e18badaf66b10451a96d3e7e1a64200" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>yMin</name></member>
+      <member refid="class_splines_1_1_spline_1a845f5979b4dc3ff1263ac67b12d7dbca" prot="public" virt="non-virtual"><scope>Splines::Spline</scope><name>yNode</name></member>
+      <member refid="class_splines_1_1_spline_1ade42f06b129e46b59ed005d004458adb" prot="public" virt="virtual"><scope>Splines::Spline</scope><name>~Spline</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,393 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_splines2_d_8hxx" kind="file" language="C++">
+    <compoundname>Splines2D.hxx</compoundname>
+    <includedby refid="_splines_8hh" local="yes">/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx</label>
+        <link refid="_splines2_d_8hxx"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineConstant.cc</label>
+        <link refid="_spline_constant_8cc"/>
+      </node>
+      <node id="5">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBessel.cc</label>
+        <link refid="_spline_bessel_8cc"/>
+      </node>
+      <node id="24">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinesUtils.cc</label>
+        <link refid="_splines_utils_8cc"/>
+      </node>
+      <node id="6">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBiCubic.cc</label>
+        <link refid="_spline_bi_cubic_8cc"/>
+      </node>
+      <node id="22">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinesUtils.hh</label>
+        <link refid="_splines_utils_8hh"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineCubicBase.cc</label>
+        <link refid="_spline_cubic_base_8cc"/>
+      </node>
+      <node id="21">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineSetGC.cc</label>
+        <link refid="_spline_set_g_c_8cc"/>
+      </node>
+      <node id="13">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineLinear.cc</label>
+        <link refid="_spline_linear_8cc"/>
+      </node>
+      <node id="7">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBilinear.cc</label>
+        <link refid="_spline_bilinear_8cc"/>
+      </node>
+      <node id="19">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinesBivariate.cc</label>
+        <link refid="_splines_bivariate_8cc"/>
+      </node>
+      <node id="16">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineQuinticBase.cc</label>
+        <link refid="_spline_quintic_base_8cc"/>
+      </node>
+      <node id="15">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineQuintic.cc</label>
+        <link refid="_spline_quintic_8cc"/>
+      </node>
+      <node id="20">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineSet.cc</label>
+        <link refid="_spline_set_8cc"/>
+      </node>
+      <node id="4">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineAkima2D.cc</label>
+        <link refid="_spline_akima2_d_8cc"/>
+      </node>
+      <node id="3">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineAkima.cc</label>
+        <link refid="_spline_akima_8cc"/>
+      </node>
+      <node id="10">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineCubic.cc</label>
+        <link refid="_spline_cubic_8cc"/>
+      </node>
+      <node id="18">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.cc</label>
+        <link refid="_splines2_d_8cc"/>
+      </node>
+      <node id="23">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.cc</label>
+        <link refid="_splines_8cc"/>
+      </node>
+      <node id="17">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines1D.cc</label>
+        <link refid="_splines1_d_8cc"/>
+      </node>
+      <node id="12">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineHermite.cc</label>
+        <link refid="_spline_hermite_8cc"/>
+      </node>
+      <node id="8">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineBiQuintic.cc</label>
+        <link refid="_spline_bi_quintic_8cc"/>
+      </node>
+      <node id="25">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplineVec.cc</label>
+        <link refid="_spline_vec_8cc"/>
+      </node>
+      <node id="2">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines.hh</label>
+        <link refid="_splines_8hh"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/SplinePchip.cc</label>
+        <link refid="_spline_pchip_8cc"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_splines_1_1_spline2_d" prot="public">Splines::Spline2D</innerclass>
+    <innernamespace refid="namespace_splines">Splines</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*--------------------------------------------------------------------------*\</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>|<sp/><sp/>Copyright<sp/>(C)<sp/>2016<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>__<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|/<sp/><sp/>\<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|/<sp/><sp/>\<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>__/<sp/>_<sp/><sp/><sp/>,_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>__/<sp/>_<sp/><sp/><sp/>,_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/><sp/><sp/>\|/<sp/><sp/>/<sp/><sp/>|<sp/><sp/>|<sp/><sp/><sp/>|<sp/>|<sp/><sp/><sp/>\|/<sp/><sp/>/<sp/><sp/>|<sp/><sp/>|<sp/><sp/><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|(__/|__/<sp/><sp/><sp/>|_/<sp/>\_/|/|(__/|__/<sp/><sp/><sp/>|_/<sp/>\_/|/<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Enrico<sp/>Bertolazzi<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Dipartimento<sp/>di<sp/>Ingegneria<sp/>Industriale<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>Universita`<sp/>degli<sp/>Studi<sp/>di<sp/>Trento<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/>email:<sp/>enrico.bertolazzi@unitn.it<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">\*--------------------------------------------------------------------------*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">/*\</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>|<sp/><sp/><sp/>____<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_<sp/>_<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>____<sp/><sp/>____</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>|<sp/><sp/>/<sp/>___|<sp/>_<sp/>__<sp/>|<sp/>(_)_<sp/>__<sp/><sp/><sp/>___|___<sp/>\|<sp/><sp/>_<sp/>\</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>|<sp/><sp/>\___<sp/>\|<sp/>&apos;_<sp/>\|<sp/>|<sp/>|<sp/>&apos;_<sp/>\<sp/>/<sp/>_<sp/>\<sp/>__)<sp/>|<sp/>|<sp/>|<sp/>|</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>|<sp/><sp/><sp/>___)<sp/>|<sp/>|_)<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/>|<sp/><sp/>__//<sp/>__/|<sp/>|_|<sp/>|</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>|<sp/><sp/>|____/|<sp/>.__/|_|_|_|<sp/>|_|\___|_____|____/</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>|<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|_|</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">\*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_splines" kindref="compound">Splines</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="class_splines_1_1_spline2_d" refkind="compound"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_splines_1_1_spline2_d" kindref="compound">Spline2D</ref><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><sp/>m_name;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline_surf" kindref="compound">SplineSurf</ref><sp/>*<sp/>m_pSpline2D;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="class_splines_1_1_spline2_d_1a4bb0d5ad76b1a74515c3009c585e3977" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a4bb0d5ad76b1a74515c3009c585e3977" kindref="member">Spline2D</ref>(<sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="class_splines_1_1_spline2_d_1a1d952012782cb5af0fe93c4e02fa510b" kindref="member">name</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;Spline2D&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>m_name(<ref refid="class_splines_1_1_spline2_d_1a1d952012782cb5af0fe93c4e02fa510b" kindref="member">name</ref>)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>m_pSpline2D(<sp/>nullptr<sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="class_splines_1_1_spline2_d_1abaa21767107f13450585a34f8d5206bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1abaa21767107f13450585a34f8d5206bf" kindref="member">~Spline2D</ref>()</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>{}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="class_splines_1_1_spline2_d_1a2ac53cea39786a8e535f18f27d752945" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1a2ac53cea39786a8e535f18f27d752945" kindref="member">is_x_closed</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1ae81c57bd20e9a56f6ec34ab179e0a77e" kindref="member">is_x_closed</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="48" refid="class_splines_1_1_spline2_d_1a80680bd3f3335a6985479c3d1910b2e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1a80680bd3f3335a6985479c3d1910b2e7" kindref="member">make_x_closed</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1aadb608b2bee5ac6d90972381db7fc474" kindref="member">make_x_closed</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="49" refid="class_splines_1_1_spline2_d_1ad5d7d326cdbcb425cb753761e3f073ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1ad5d7d326cdbcb425cb753761e3f073ff" kindref="member">make_x_opened</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1abb54ecfeafaac4593d1b0c3788761b7f" kindref="member">make_x_opened</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="class_splines_1_1_spline2_d_1aa727a21a450628f93c7f31c12719e10a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1aa727a21a450628f93c7f31c12719e10a" kindref="member">is_y_closed</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a4b41e49135b384f4a7d61691bf697121" kindref="member">is_y_closed</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="52" refid="class_splines_1_1_spline2_d_1a11a39d51cfd79ed23efa3ebe685f6241" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1a11a39d51cfd79ed23efa3ebe685f6241" kindref="member">make_y_closed</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1aab6a52592ebe995f675fc2a7f53c52f0" kindref="member">make_y_closed</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="53" refid="class_splines_1_1_spline2_d_1a76b9b2aca48aa7ae66643bde27184bf8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1a76b9b2aca48aa7ae66643bde27184bf8" kindref="member">make_y_opened</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1af537a09f1f219b07544f016c925206f2" kindref="member">make_y_opened</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="class_splines_1_1_spline2_d_1aca11e9614a3ab4ef5040e1270b58f625" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1aca11e9614a3ab4ef5040e1270b58f625" kindref="member">is_x_bounded</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1af973208e1cb61064310b805c94373fdf" kindref="member">is_x_bounded</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="56" refid="class_splines_1_1_spline2_d_1a24e4a92cf42daed052f5dc320abe1fb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1a24e4a92cf42daed052f5dc320abe1fb3" kindref="member">make_x_unbounded</ref>()<sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a11cddae997421bc327d87ce71b62311d" kindref="member">make_x_unbounded</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="57" refid="class_splines_1_1_spline2_d_1a0bb6bc35c9878e12a2a235bc6f1ac056" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1a0bb6bc35c9878e12a2a235bc6f1ac056" kindref="member">make_x_bounded</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a49881b27fb55ce9715034695fddb6f11" kindref="member">make_x_bounded</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="class_splines_1_1_spline2_d_1a77d7e6ce1e765f3d398eef8df4cd2f50" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1a77d7e6ce1e765f3d398eef8df4cd2f50" kindref="member">is_y_bounded</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a9ac734162f244915244f89f72dfced89" kindref="member">is_y_bounded</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="60" refid="class_splines_1_1_spline2_d_1adf709164ec0774b1a37afbe2dce3e505" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1adf709164ec0774b1a37afbe2dce3e505" kindref="member">make_y_unbounded</ref>()<sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a98fec3ba164a8cc6e193f5c28af87a53" kindref="member">make_y_unbounded</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="61" refid="class_splines_1_1_spline2_d_1ab535f112e5b1b9bbc143443f4ba33e00" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1ab535f112e5b1b9bbc143443f4ba33e00" kindref="member">make_y_bounded</ref>()<sp/><sp/><sp/><sp/><sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a9539bc72a47a813ee4c10110b6bbd120" kindref="member">make_y_bounded</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="class_splines_1_1_spline2_d_1a1d952012782cb5af0fe93c4e02fa510b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/><ref refid="class_splines_1_1_spline2_d_1a1d952012782cb5af0fe93c4e02fa510b" kindref="member">name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a608635cd50deed1fff36e7cd03b0c6ec" kindref="member">name</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="class_splines_1_1_spline2_d_1abc9e4215b9fc86c64433dbb16873ddd0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_splines_1_1_spline2_d_1abc9e4215b9fc86c64433dbb16873ddd0" kindref="member">clear</ref>()<sp/>{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a94618b6ce21fedc6b756bfbd5cfc0fb4" kindref="member">clear</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></highlight></codeline>
+<codeline lineno="70" refid="class_splines_1_1_spline2_d_1a6bbe7afcd7817db6e455b4ab0101f563" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a6bbe7afcd7817db6e455b4ab0101f563" kindref="member">numPointX</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a53b6ab80b72fc6d25c428d523167a13f" kindref="member">numPointX</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref></highlight></codeline>
+<codeline lineno="74" refid="class_splines_1_1_spline2_d_1a17ae868e02912c9968f9e2328e72b7ac" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a17ae868e02912c9968f9e2328e72b7ac" kindref="member">numPointY</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a65211a03a1b6fe553a76a0c451d39a0e" kindref="member">numPointY</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="78" refid="class_splines_1_1_spline2_d_1a6b7551e9e4f199a5ef5b4806920578a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a6b7551e9e4f199a5ef5b4806920578a0" kindref="member">xNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a1b92b8c9226636ebdba3b8c24a45908f" kindref="member">xNode</ref>(i);<sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="82" refid="class_splines_1_1_spline2_d_1a0a1cad4e52cfd0aaa8cb1e040a2b8c61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a0a1cad4e52cfd0aaa8cb1e040a2b8c61" kindref="member">yNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1aff12798d37407db141aba1435ed2fd9a" kindref="member">yNode</ref>(i);<sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="86" refid="class_splines_1_1_spline2_d_1a61d2028cb523d72d2df7569fd8d1f5be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a61d2028cb523d72d2df7569fd8d1f5be" kindref="member">zNode</ref>(<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>i,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>j<sp/>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a607401ca161c26675be92507d4e29d97" kindref="member">zNode</ref>(i,j);<sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="90" refid="class_splines_1_1_spline2_d_1ac3120131263cb398593484c8d674bac3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1ac3120131263cb398593484c8d674bac3" kindref="member">xMin</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a6fc403cb0c7c0937d1b478415625beee" kindref="member">xMin</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="94" refid="class_splines_1_1_spline2_d_1a3e3aac8a010976882be5eee9484e6e77" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a3e3aac8a010976882be5eee9484e6e77" kindref="member">xMax</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a4fd0b17f1a8cf3f67d5a217ce6808ce2" kindref="member">xMax</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="98" refid="class_splines_1_1_spline2_d_1a75a3bf3d11b08ce351a1eb1b66d1c6c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a75a3bf3d11b08ce351a1eb1b66d1c6c8" kindref="member">yMin</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1ab25c1789119fdf8620fd3fb34ca1ff89" kindref="member">yMin</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="102" refid="class_splines_1_1_spline2_d_1ae31a17675487995a68ed21185bc3a342" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1ae31a17675487995a68ed21185bc3a342" kindref="member">yMax</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1ac9c67e81e44c777cc39cbcf6cc6cc022" kindref="member">yMax</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="106" refid="class_splines_1_1_spline2_d_1ac6c66219f95a4565afab2f77d8b3d482" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1ac6c66219f95a4565afab2f77d8b3d482" kindref="member">zMin</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a4bb3cf3a8e18a1415b6cce42c7ae5878" kindref="member">zMin</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="110" refid="class_splines_1_1_spline2_d_1a27292b81ce58cba6a284d8b62cc526a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a27292b81ce58cba6a284d8b62cc526a6" kindref="member">zMax</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a494a7c2eba6eb7c56894a5e53004fef4" kindref="member">zMax</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" kindref="member">build</ref>(</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref><sp/><sp/><sp/><sp/><sp/><sp/>tp,</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>x,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>incx,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>y,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>incy,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>z,<sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/>ldZ,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nx,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ny,</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fortran_storage<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transposed<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" kindref="member">build</ref>(</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tp,</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;real_type&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>x,</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;real_type&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>y,</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;real_type&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>z,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fortran_storage<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>transposed<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" kindref="member">build</ref>(</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref><sp/><sp/><sp/><sp/><sp/><sp/>tp,</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/>z,</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ldZ,</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nx,</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ny,</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>fortran_storage<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>transposed<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" kindref="member">build</ref>(</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1aa6410df8c515cad4d238820f523fead7" kindref="member">SplineType2D</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tp,</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>vector&lt;real_type&gt;<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>z,</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nx,</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1a0b83d8865bf650fca7ad1d657245a8a1" kindref="member">integer</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ny,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>fortran_storage<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>transposed<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="class_splines_1_1_spline2_d_1a05776ff454c82d1b1ce2cbaa5c38f261" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a05776ff454c82d1b1ce2cbaa5c38f261" kindref="member">setup</ref>(<sp/>GenericContainer<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>gc<sp/>)</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/><ref refid="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" kindref="member">build</ref>(gc);<sp/>}</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a4f8428ae3bdd9b27314d54e0b0e75a14" kindref="member">build</ref>(<sp/>GenericContainer<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>&amp;<sp/>gc<sp/>);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="204" refid="class_splines_1_1_spline2_d_1a2266c0ff697c268fc210bc8780c56cdc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a2266c0ff697c268fc210bc8780c56cdc" kindref="member">operator () </ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="205"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*m_pSpline2D)(<sp/>x,<sp/>y<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="class_splines_1_1_spline2_d_1afc1b939cda6d693fa3036a1c99a9b8ff" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1afc1b939cda6d693fa3036a1c99a9b8ff" kindref="member">D</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>d[3]<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="210"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a196bd4a53066cc4f9d0873b02d621936" kindref="member">D</ref>(<sp/>x,<sp/>y,<sp/>d<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="213" refid="class_splines_1_1_spline2_d_1a450076a23a819660eefc50e80a1b3858" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a450076a23a819660eefc50e80a1b3858" kindref="member">Dx</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="214"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a0e7720a163600987a3bee8e8bb64931e" kindref="member">Dx</ref>(<sp/>x,<sp/>y<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="217" refid="class_splines_1_1_spline2_d_1a6b895a0af8c0ab4c3e07682cea0d856a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a6b895a0af8c0ab4c3e07682cea0d856a" kindref="member">Dy</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="218"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1ab572f7f3fb26c76c53bd8eb3a86e4fe9" kindref="member">Dy</ref>(<sp/>x,<sp/>y<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222" refid="class_splines_1_1_spline2_d_1afa991a844100404a7a0b3a126ee7fd3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1afa991a844100404a7a0b3a126ee7fd3a" kindref="member">DD</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>dd[6]<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="223"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a9b62e4529f9324b2e739ccae440baa6c" kindref="member">DD</ref>(<sp/>x,<sp/>y,<sp/>dd<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="226" refid="class_splines_1_1_spline2_d_1af9dabc8345af8775da915b90e13591f4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1af9dabc8345af8775da915b90e13591f4" kindref="member">Dxx</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="227"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1aeeb02c6c7036489bfe72d41ffb8ec5ed" kindref="member">Dxx</ref>(<sp/>x,<sp/>y<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="230" refid="class_splines_1_1_spline2_d_1a37b2eb017b75756c88cb5f689408dcee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a37b2eb017b75756c88cb5f689408dcee" kindref="member">Dxy</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="231"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a351cab30da2db2317de984522778f3bb" kindref="member">Dxy</ref>(<sp/>x,<sp/>y<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="234" refid="class_splines_1_1_spline2_d_1aff8c908a8631a0e71485fc9ade3270c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1aff8c908a8631a0e71485fc9ade3270c0" kindref="member">Dyy</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="235"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a38d078ec965c0d672869182b3dae8095" kindref="member">Dyy</ref>(<sp/>x,<sp/>y<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="239" refid="class_splines_1_1_spline2_d_1a732835be50e0f244304c0513829e8cf3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a732835be50e0f244304c0513829e8cf3" kindref="member">eval</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="240"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">)(x,y);<sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="244" refid="class_splines_1_1_spline2_d_1a5a829b850e4e4afe1e8fb166c5a2a44f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a5a829b850e4e4afe1e8fb166c5a2a44f" kindref="member">eval_D_1</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="245"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="class_splines_1_1_spline2_d_1a450076a23a819660eefc50e80a1b3858" kindref="member">Dx</ref>(x,y);<sp/>}</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="248" refid="class_splines_1_1_spline2_d_1a340de4d1d9d5d4cb2becbdc610f0444f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a340de4d1d9d5d4cb2becbdc610f0444f" kindref="member">eval_D_2</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="249"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="class_splines_1_1_spline2_d_1a6b895a0af8c0ab4c3e07682cea0d856a" kindref="member">Dy</ref>(x,y);<sp/>}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="253" refid="class_splines_1_1_spline2_d_1a194856210b3ed4e7589437a2a63b1cba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a194856210b3ed4e7589437a2a63b1cba" kindref="member">eval_D_1_1</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="254"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="class_splines_1_1_spline2_d_1af9dabc8345af8775da915b90e13591f4" kindref="member">Dxx</ref>(x,y);<sp/>}</highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="257" refid="class_splines_1_1_spline2_d_1a3d14e7538dc951d6076cfa77b3825779" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a3d14e7538dc951d6076cfa77b3825779" kindref="member">eval_D_1_2</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="258"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="class_splines_1_1_spline2_d_1a37b2eb017b75756c88cb5f689408dcee" kindref="member">Dxy</ref>(x,y);<sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref></highlight></codeline>
+<codeline lineno="261" refid="class_splines_1_1_spline2_d_1acfcb02e712be4d5cb06d5c2496713451" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1acfcb02e712be4d5cb06d5c2496713451" kindref="member">eval_D_2_2</ref>(<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>x,<sp/><ref refid="namespace_splines_1afabb8610fb01952c2fcf1f17337bd44a" kindref="member">real_type</ref><sp/>y<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="262"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="class_splines_1_1_spline2_d_1aff8c908a8631a0e71485fc9ade3270c0" kindref="member">Dyy</ref>(x,y);<sp/>}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266" refid="class_splines_1_1_spline2_d_1a6a18c3d75c3df54267aae62a28c41ecb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1a6a18c3d75c3df54267aae62a28c41ecb" kindref="member">writeToStream</ref>(<sp/><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref><sp/>&amp;<sp/>s<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="267"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a3563e238101df5ff2bdc83cfd4c6d605" kindref="member">writeToStream</ref>(<sp/>s<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270" refid="class_splines_1_1_spline2_d_1a8f59f233545a36b17e5472851f26fd34" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<sp/><ref refid="class_splines_1_1_spline2_d_1a8f59f233545a36b17e5472851f26fd34" kindref="member">type_name</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1ad62c9a89edef93615b3d36c20fd54ae4" kindref="member">type_name</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="273" refid="class_splines_1_1_spline2_d_1ad3431e98de1b460ee5411f867356d059" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1ad3431e98de1b460ee5411f867356d059" kindref="member">info</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="274"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a6ab464c5941d3b04659bbf068de64e76" kindref="member">info</ref>();<sp/>}</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="277" refid="class_splines_1_1_spline2_d_1af4f711069e4c9c348e2400aa045178af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_splines_1_1_spline2_d_1af4f711069e4c9c348e2400aa045178af" kindref="member">info</ref>(<sp/><ref refid="namespace_splines_1a943d4ae4896c10228d57d004bd991e7f" kindref="member">ostream_type</ref><sp/>&amp;<sp/>stream<sp/>)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="278"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{<sp/>m_pSpline2D-&gt;<ref refid="class_splines_1_1_spline_surf_1a6ab464c5941d3b04659bbf068de64e76" kindref="member">info</ref>(<sp/>stream<sp/>);<sp/>}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"></highlight><highlight class="comment">//<sp/>EOF<sp/>Splines2D.hxx</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/enrico/Ricerca/develop/C++/pins-mechatronix/LibSources/submodules/Splines/src/Splines2D.hxx"/>
+  </compounddef>
+</doxygen>

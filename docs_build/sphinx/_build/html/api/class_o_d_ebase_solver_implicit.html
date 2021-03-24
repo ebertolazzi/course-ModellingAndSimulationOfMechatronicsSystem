@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="docsearch:name" content="ODE/DAE" />
+    <meta name="docsearch:package_type" content="" />
+    <meta name="docsearch:release" content="" />
+    <meta name="docsearch:version" content="" />
+
+    <title>Class ODEbaseSolverImplicit &mdash; ODE/DAE  documentation</title>
+
+    <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/webfonts.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/fontawesome.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-treeview/bootstrap-treeview.min.css" />
+<!-- linktags -->
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="ODE/DAE  documentation" href="#" />
+    <link rel="up" title="MATLAB API" href="library_root.html" />
+    <link rel="next" title="Class ODEbaseSolverRKexplicit" href="class_o_d_ebase_solver_r_kexplicit.html" />
+    <link rel="prev" title="Class ODEbaseSolver_P" href="class_o_d_ebase_solver___p.html" />
+<!-- /linktags -->
+<!-- extrahead --><!-- /extrahead -->
+    <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <div class="page-header">
+            <div class="page-header-inner">
+<!-- pageheader -->
+<a href="https://docs.typo3.org/" title="TYPO3 Documentation" class="logo">
+    <img src="../_static/logo.png" width="484" height="130" alt="TYPO3 Logo" class="logo-image" />
+</a>
+<!-- /pageheader -->
+            </div>
+        </div>
+
+        
+
+        <div class="page-main">
+            <div class="page-main-inner">
+                <div class="page-main-navigation">
+                    <nav>
+                        <input type="checkbox" id="toggleToc" class="toc-checkbox">
+                        <div class="toc-header"><div class="toc-title">
+                                    <a class="toc-title-project" href="../index.html">ODE/DAE</a></div><div class="toc-actions">
+                                <label for="toggleToc" class="toc-toggle">
+                                    Menu
+                                </label>
+                            </div>
+                        </div>
+                        <div class="toc-collapse">
+<!-- searchbox.html -->
+<div id="searchbox" class="toc-search" role="search">
+    <form id="search-form" action="../search.html" autocomplete="off" method="get">
+        <input class="form-control" type="text" name="q" placeholder="Search this project" aria-label="Search this project" id="searchinput" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<!-- /searchbox.html -->
+                            <div class="toc" role="navigation" aria-label="main navigation">
+<!-- menu -->
+                                        <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">course-ModellingAndSimulationOfMechatronicsSystem</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">MATLAB API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="class_collatz.html">Class Collatz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_collatz___p.html">Class Collatz_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_crank_nicolson.html">Class CrankNicolson</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_crank_nicolson___p.html">Class CrankNicolson_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_d_a_e3base_class.html">Class DAE3baseClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_d_a_e3base_class_implicit.html">Class DAE3baseClassImplicit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_d_a_e3_projection_solver.html">Class DAE3ProjectionSolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_d_a_e3_taylor_solver.html">Class DAE3TaylorSolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_explicit_euler.html">Class ExplicitEuler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_explicit_euler___p.html">Class ExplicitEuler_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_gauss_legendre4.html">Class GaussLegendre4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_gauss_legendre4___p.html">Class GaussLegendre4_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_gauss_legendre6.html">Class GaussLegendre6</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_gauss_legendre6___p.html">Class GaussLegendre6_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_heun.html">Class Heun</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_heun3.html">Class Heun3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_heun3___p.html">Class Heun3_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_heun___p.html">Class Heun_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_implicit_euler.html">Class ImplicitEuler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_implicit_euler___p.html">Class ImplicitEuler_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_a.html">Class LobattoIIIA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_a___p.html">Class LobattoIIIA_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_b.html">Class LobattoIIIB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_b___p.html">Class LobattoIIIB_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_c.html">Class LobattoIIIC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_c___p.html">Class LobattoIIIC_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_c__star.html">Class LobattoIIIC_star</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_lobatto_i_i_i_c__star___p.html">Class LobattoIIIC_star_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_midpoint.html">Class Midpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_midpoint___p.html">Class Midpoint_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_class.html">Class ODEbaseClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_class___p.html">Class ODEbaseClass_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_solver.html">Class ODEbaseSolver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_solver___p.html">Class ODEbaseSolver_P</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Class ODEbaseSolverImplicit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_solver_r_kexplicit.html">Class ODEbaseSolverRKexplicit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_solver_r_kexplicit___p.html">Class ODEbaseSolverRKexplicit_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_solver_r_kimplicit.html">Class ODEbaseSolverRKimplicit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_o_d_ebase_solver_r_kimplicit___p.html">Class ODEbaseSolverRKimplicit_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_radau_i_a.html">Class RadauIA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_radau_i_a___p.html">Class RadauIA_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_radau_i_i_a.html">Class RadauIIA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_radau_i_i_a___p.html">Class RadauIIA_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ralston.html">Class Ralston</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ralston3.html">Class Ralston3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ralston3___p.html">Class Ralston3_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ralston4.html">Class Ralston4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ralston4___p.html">Class Ralston4_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_ralston___p.html">Class Ralston_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_r_k3.html">Class RK3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_r_k3__8.html">Class RK3_8</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_r_k3__8___p.html">Class RK3_8_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_r_k3___p.html">Class RK3_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_r_k4.html">Class RK4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_r_k4___p.html">Class RK4_P</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_s_s_p_r_k3.html">Class SSPRK3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="class_s_s_p_r_k3___p.html">Class SSPRK3_P</a></li>
+</ul>
+</li>
+</ul>
+
+                                    <p class="caption"><span class="caption-text">PAGE CONTENTS</span></p>
+                                    <ul>
+<li><a class="reference internal" href="#">Class ODEbaseSolverImplicit</a><ul>
+<li><a class="reference internal" href="#inheritance-relationships">Inheritance Relationships</a><ul>
+<li><a class="reference internal" href="#base-type">Base Type</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+<!-- /menu -->
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="page-main-content">
+                    <div class="rst-content">
+<!-- pager-hidden.html -->
+
+        <a class="no-focus" accesskey="p" href="class_o_d_ebase_solver___p.html" tabindex="-1"></a>
+        <a class="no-focus" accesskey="n" href="class_o_d_ebase_solver_r_kexplicit.html" tabindex="-1"></a>
+<!-- /pager-hidden.html -->
+<!-- breadcrumbs.html -->
+<div class="breadcrumb-bar" role="navigation" aria-label="breadcrumbs navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Start</a></li>
+            <li class="breadcrumb-item"><a href="library_root.html">MATLAB API</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Class ODEbaseSolverImplicit</li>
+    </ol>
+        <div class="breadcrumb-additions">
+            <a class="btn btn-sm btn-primary" id="btnHowToEdit" style="display:none"
+               href="https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/GitHub/"
+               rel="nofollow noopener" target="_blank">
+                <span class="btn-icon"><span class="fas fa-info-circle"></span></span>
+                <span class="btn-text">How to edit</span>
+            </a>
+                    <a class="btn btn-sm btn-primary" id="btnEditOnGitHub" href="https://github.com/unused, deprecated/edit/unused, deprecated/Documentation/Localization.unused, deprecated/api/class_o_d_ebase_solver_implicit.rst" target="_blank">
+                        <span class="btn-icon"><span class="fab fa-github"></span></span>
+                        <span class="btn-text">Edit on GitHub</span>
+                    </a>
+                <a class="btn btn-sm btn-light" href="../_sources/api/class_o_d_ebase_solver_implicit.rst.txt" rel="nofollow">
+                    <span class="btn-icon"><span class="fas fa-code"></span></span>
+                    <span class="btn-text">View source</span>
+                </a>
+        </div>
+</div>
+<!-- /breadcrumbs.html -->
+                        <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                            <div itemprop="articleBody">
+<!-- body -->
+    <div class="section" id="class-odebasesolverimplicit">
+<span id="exhale-class-class-o-d-ebase-solver-implicit"></span><h1>Class ODEbaseSolverImplicit<a class="headerlink" href="#class-odebasesolverimplicit" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseSolverImplicit.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-odebasesolverimplicit-m"><span class="std std-ref">File ODEbaseSolverImplicit.m</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ODEbaseSolver</span></code> (<a class="reference internal" href="class_o_d_ebase_solver.html#exhale-class-class-o-d-ebase-solver"><span class="std std-ref">Class ODEbaseSolver</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt id="_CPPv421ODEbaseSolverImplicit">
+<span id="_CPPv321ODEbaseSolverImplicit"></span><span id="_CPPv221ODEbaseSolverImplicit"></span><span id="ODEbaseSolverImplicit"></span><span class="target" id="class_o_d_ebase_solver_implicit"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ODEbaseSolverImplicit</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <a class="reference internal" href="class_o_d_ebase_solver.html#_CPPv413ODEbaseSolver" title="ODEbaseSolver"><span class="pre">ODEbaseSolver</span></a><a class="headerlink" href="#_CPPv421ODEbaseSolverImplicit" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit12stepResidualE2in2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit12stepResidualE2in2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit12stepResidualE2in2in"></span><span id="ODEbaseSolverImplicit::stepResidual__in.in"></span><span class="target" id="class_o_d_ebase_solver_implicit_1a4b27714b8234dd595cf1ddfa1d137b21"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">stepResidual</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit12stepResidualE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit20stepResidualJacobianE2in2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit20stepResidualJacobianE2in2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit20stepResidualJacobianE2in2in"></span><span id="ODEbaseSolverImplicit::stepResidualJacobian__in.in"></span><span class="target" id="class_o_d_ebase_solver_implicit_1ae112490a9a61a6e81701b2e007add838"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">stepResidualJacobian</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit20stepResidualJacobianE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit21ODEbaseSolverImplicitE2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit21ODEbaseSolverImplicitE2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit21ODEbaseSolverImplicitE2in"></span><span id="ODEbaseSolverImplicit::ODEbaseSolverImplicit__in"></span><span class="target" id="class_o_d_ebase_solver_implicit_1a3cd04f6e5b1fff75b54e3b49ee9eeff7"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">ODEbaseSolverImplicit</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">solverName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit21ODEbaseSolverImplicitE2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="class_o_d_ebase_solver_implicit_1a6b7b27b2e9c488577cfaad48ec2863d3"></span><code class="sig-name descname"><span class="pre">function</span> <span class="pre">delete</span> <span class="pre">(in</span> <span class="pre">self)</span></code>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit17solveStepByNewtonE2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit17solveStepByNewtonE2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit17solveStepByNewtonE2in"></span><span id="ODEbaseSolverImplicit::solveStepByNewton__in"></span><span class="target" id="class_o_d_ebase_solver_implicit_1aa6f22dc2f101e93f0993a952bc36e2ee"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">solveStepByNewton</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit17solveStepByNewtonE2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit4stepE2in2in2in2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit4stepE2in2in2in2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit4stepE2in2in2in2in"></span><span id="ODEbaseSolverImplicit::step__in.in.in.in"></span><span class="target" id="class_o_d_ebase_solver_implicit_1afe3cda7563ccac662d44fed50ca7c4f6"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">function</span> <code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t0</span></em>, <span class="pre">in</span> <em><span class="pre">x0</span></em>, <span class="pre">in</span> <em><span class="pre">dt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit4stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit7getNameE2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit7getNameE2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit7getNameE2in"></span><span id="ODEbaseSolverImplicit::getName__in"></span><span class="target" id="class_o_d_ebase_solver_1a763011221a3e61796ad944b7a5f3022b"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">getName</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit7getNameE2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit6setODEE2in2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit6setODEE2in2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit6setODEE2in2in"></span><span id="ODEbaseSolverImplicit::setODE__in.in"></span><span class="target" id="class_o_d_ebase_solver_1ac7055749661d4a5318333d06c8f08bff"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">setODE</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">odeClass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit6setODEE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N21ODEbaseSolverImplicit7advanceE2in2in2in">
+<span id="_CPPv3N21ODEbaseSolverImplicit7advanceE2in2in2in"></span><span id="_CPPv2N21ODEbaseSolverImplicit7advanceE2in2in2in"></span><span id="ODEbaseSolverImplicit::advance__in.in.in"></span><span class="target" id="class_o_d_ebase_solver_1a841a2044d66efdc7082b4bd2027e370e"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">advance</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em>, <span class="pre">in</span> <em><span class="pre">x0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N21ODEbaseSolverImplicit7advanceE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+<!-- /body -->
+                            </div>
+                        </div>
+<!-- pager.html -->
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link" href="class_o_d_ebase_solver___p.html" title="Accesskey Alt(+Shift)+p">
+                Previous
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="class_o_d_ebase_solver_r_kexplicit.html" title="Accesskey Alt(+Shift)+n">
+                Next
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+<!-- /pager.html -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="page-footer">
+<!-- footer.html -->
+<footer>
+    <div class="frame frame-ruler-before frame-background-dark">
+        <div class="frame-container">
+            <div class="frame-inner">
+                <div class="footer-additional">
+                    <p class="text-center">
+                        <a href="https://github.com/TYPO3-Documentation/sphinx_typo3_theme" rel="nofollow" target="_blank">
+                            TYPO3 Theme 4.5.1
+                        </a>
+                    </p>
+                </div>
+                <div class="footer-meta">
+                    <div class="footer-meta-copyright">
+                        &copy; Copyright 2021, Enrico Bertolazzi
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- /footer.html -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT: '../',
+            VERSION: '',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE: true
+        };
+    </script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/js/underscore.min.js"></script>
+    <script type="text/javascript" src="../_static/js/doctools.min.js"></script>
+    <script type="text/javascript" src="../_static/js/popper.min.js"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.min.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/js/searchtools.min.js"></script>
+    <script type="text/javascript" src="../_static/js/autocomplete.min.js"></script>
+    <script src="../_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function() { Search.loadIndex("../searchindex.js"); });
+    </script>
+    <script type="text/javascript" id="searchindexloader"></script>
+<!-- scripts2 --><!-- /scripts2 -->
+<!-- footer2 --><!-- /footer2 -->
+
+</body>
+</html>

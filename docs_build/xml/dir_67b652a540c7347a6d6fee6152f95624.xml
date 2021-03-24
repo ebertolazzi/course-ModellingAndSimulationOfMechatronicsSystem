@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_67b652a540c7347a6d6fee6152f95624" kind="dir">
+    <compoundname>/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/explicit</compoundname>
+    <innerfile refid="_collatz___p_8m">Collatz_P.m</innerfile>
+    <innerfile refid="_explicit_euler___p_8m">ExplicitEuler_P.m</innerfile>
+    <innerfile refid="_heun3___p_8m">Heun3_P.m</innerfile>
+    <innerfile refid="_heun___p_8m">Heun_P.m</innerfile>
+    <innerfile refid="_midpoint___p_8m">Midpoint_P.m</innerfile>
+    <innerfile refid="_ralston3___p_8m">Ralston3_P.m</innerfile>
+    <innerfile refid="_ralston4___p_8m">Ralston4_P.m</innerfile>
+    <innerfile refid="_ralston___p_8m">Ralston_P.m</innerfile>
+    <innerfile refid="_r_k3__8___p_8m">RK3_8_P.m</innerfile>
+    <innerfile refid="_r_k3___p_8m">RK3_P.m</innerfile>
+    <innerfile refid="_r_k4___p_8m">RK4_P.m</innerfile>
+    <innerfile refid="_s_s_p_r_k3___p_8m">SSPRK3_P.m</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/explicit/"/>
+  </compounddef>
+</doxygen>

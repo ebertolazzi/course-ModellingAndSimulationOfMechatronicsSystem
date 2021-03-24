@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_e56b46f96049ecfc1b8e4267d3ddfa67" kind="dir">
+    <compoundname>/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit</compoundname>
+    <innerfile refid="_collatz_8m">Collatz.m</innerfile>
+    <innerfile refid="_explicit_euler_8m">ExplicitEuler.m</innerfile>
+    <innerfile refid="_heun_8m">Heun.m</innerfile>
+    <innerfile refid="_heun3_8m">Heun3.m</innerfile>
+    <innerfile refid="_midpoint_8m">Midpoint.m</innerfile>
+    <innerfile refid="_ralston_8m">Ralston.m</innerfile>
+    <innerfile refid="_ralston3_8m">Ralston3.m</innerfile>
+    <innerfile refid="_ralston4_8m">Ralston4.m</innerfile>
+    <innerfile refid="_r_k3_8m">RK3.m</innerfile>
+    <innerfile refid="_r_k3__8_8m">RK3_8.m</innerfile>
+    <innerfile refid="_r_k4_8m">RK4.m</innerfile>
+    <innerfile refid="_s_s_p_r_k3_8m">SSPRK3.m</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit/"/>
+  </compounddef>
+</doxygen>

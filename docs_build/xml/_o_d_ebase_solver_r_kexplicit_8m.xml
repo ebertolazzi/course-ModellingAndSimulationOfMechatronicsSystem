@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="_o_d_ebase_solver_r_kexplicit_8m" kind="file" language="C++">
+    <compoundname>ODEbaseSolverRKexplicit.m</compoundname>
+    <innerclass refid="class_o_d_ebase_solver_r_kexplicit" prot="public">ODEbaseSolverRKexplicit</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="2"><highlight class="normal">%<sp/>Matlab<sp/>code<sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>the<sp/>Course:</highlight></codeline>
+<codeline lineno="3"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="4"><highlight class="normal">%<sp/><sp/><sp/><sp/><sp/>Modelling<sp/>and<sp/>Simulation<sp/>of<sp/>Mechatronics<sp/>System</highlight></codeline>
+<codeline lineno="5"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="6"><highlight class="normal">%<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">%<sp/>Enrico<sp/>Bertolazzi</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">%<sp/>Dipartimento<sp/>di<sp/>Ingegneria<sp/>Industriale</highlight></codeline>
+<codeline lineno="9"><highlight class="normal">%<sp/>Universita`<sp/>degli<sp/>Studi<sp/>di<sp/>Trento</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">%<sp/>email:<sp/>enrico.bertolazzi@unitn.it</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">%</highlight></codeline>
+<codeline lineno="12" refid="class_o_d_ebase_solver_r_kexplicit" refkind="compound"><highlight class="normal">classdef<sp/><ref refid="class_o_d_ebase_solver_r_kexplicit" kindref="compound">ODEbaseSolverRKexplicit</ref><sp/>&lt;<sp/><ref refid="class_o_d_ebase_solver" kindref="compound">ODEbaseSolver</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/>properties<sp/>(SetAccess<sp/>=<sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">,<sp/>Hidden<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>A;<sp/>%<sp/>tableau</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>b;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/>c;</highlight></codeline>
+<codeline lineno="17" refid="class_o_d_ebase_solver_r_kexplicit_1a48424ada359d8aa5d4b44bb4e849a38a" refkind="member"><highlight class="normal"><sp/><sp/>end</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/>methods</highlight></codeline>
+<codeline lineno="19" refid="class_o_d_ebase_solver_r_kexplicit_1a6c16b61d7f1bc1481ba2e42f6e7e1802" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>self<sp/>=<sp/><ref refid="class_o_d_ebase_solver_r_kexplicit" kindref="compound">ODEbaseSolverRKexplicit</ref>(<sp/>solverName,<sp/>A,<sp/>b,<sp/>c<sp/>)</highlight></codeline>
+<codeline lineno="21" refid="class_o_d_ebase_solver_r_kexplicit_1aae3efc1a6899f706ac82967718a80e59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>self@<ref refid="class_o_d_ebase_solver" kindref="compound">ODEbaseSolver</ref>(<sp/>solverName<sp/>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>self.A<sp/>=<sp/>A;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>self.b<sp/>=<sp/>b;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>self.c<sp/>=<sp/>c;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="26" refid="class_o_d_ebase_solver_r_kexplicit_1a9bdc93c8e893c7b94efdca48fba77b05" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>delete(<sp/>self<sp/>)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>for<sp/>the<sp/>explicit<sp/>RK<sp/>methods</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>x(k+1)<sp/>=<sp/>x(k)<sp/>+<sp/>sum(j)<sp/>b(j)<sp/>*<sp/>K(k)</highlight></codeline>
+<codeline lineno="34" refid="class_o_d_ebase_solver_r_kexplicit_1a2ed6e359bd4269e9cb7857b6c81efdcf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/><sp/>K(i)<sp/>=<sp/>h*f(<sp/>t(k)<sp/>+<sp/>c(i)<sp/>*<sp/>dt,<sp/>x(k)<sp/>+<sp/>sum(j)<sp/>A(i,j)<sp/>K(j)<sp/>),<sp/>i=1..s</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>%</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>function<sp/>x1<sp/>=<sp/>step(<sp/>self,<sp/>t0,<sp/>x0,<sp/>dt<sp/>)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>nx<sp/><sp/><sp/><sp/><sp/>=<sp/>length(<sp/>x0<sp/>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ns<sp/><sp/><sp/><sp/><sp/>=<sp/>length(<sp/>self.c<sp/>);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>tt<sp/><sp/><sp/><sp/><sp/>=<sp/>t0<sp/>+<sp/>dt<sp/>*<sp/>self.c;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>K<sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>zeros(<sp/>nx,<sp/>ns<sp/>);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>K(:,1)<sp/>=<sp/>dt<sp/>*<sp/>self.odeClass.f(<sp/>tt(1),<sp/>x0<sp/>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>i=2:ns</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp<sp/>=<sp/>x0;</highlight></codeline>
+<codeline lineno="45" refid="class_o_d_ebase_solver_r_kexplicit_1a2bc8a39197761a3213b70229b5996e63" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>j=1:i-1</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>tmp<sp/>=<sp/>tmp<sp/>+<sp/>self.A(i,j)<sp/>*<sp/>K(:,j);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>K(:,i)<sp/>=<sp/>dt<sp/>*<sp/>self.odeClass.f(<sp/>tt(i),<sp/>tmp<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>x1<sp/>=<sp/>x0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>i=1:ns</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x1<sp/>=<sp/>x1<sp/>+<sp/>self.b(i)<sp/>*<sp/>K(:,i);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>end</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>%<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-<sp/>-</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>end</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">end</highlight></codeline>
+    </programlisting>
+    <location file="/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolverRKexplicit.m"/>
+  </compounddef>
+</doxygen>
