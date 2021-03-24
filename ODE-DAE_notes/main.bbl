@@ -1,0 +1,58 @@
+\begin{thebibliography}{10}
+
+\bibitem{arnold1989mathematical}
+Vladimir~Igorevich Arnold.
+\newblock {\em Mathematical methods of classical mechanics}, volume~60.
+\newblock Springer Science \& Business Media, 1989.
+
+\bibitem{ascher1995stabilization}
+Uri~M Ascher, Hongsheng Chin, Linda~R Petzold, and Sebastian Reich.
+\newblock Stabilization of constrained mechanical systems with daes and
+  invariant manifolds.
+\newblock {\em Journal of Structural Mechanics}, 23(2):135--157, 1995.
+
+\bibitem{baumgarte1972stabilization}
+Joachim Baumgarte.
+\newblock Stabilization of constraints and integrals of motion in dynamical
+  systems.
+\newblock {\em Computer methods in applied mechanics and engineering},
+  1(1):1--16, 1972.
+
+\bibitem{coddington1955theory}
+Earl~A Coddington and Norman Levinson.
+\newblock {\em Theory of ordinary differential equations}.
+\newblock Tata McGraw-Hill Education, 1955.
+
+\bibitem{gantmacher1964theory}
+Feliks~R Gantmacher.
+\newblock {\em The theory of matrices}.
+\newblock Taylor \& Francis, 1964.
+
+\bibitem{hespanha2009linear}
+Joao~P Hespanha.
+\newblock {\em Linear systems theory}.
+\newblock Princeton university press, 2009.
+
+\bibitem{marsden2013introduction}
+Jerrold~E Marsden and Tudor Ratiu.
+\newblock {\em Introduction to mechanics and symmetry: a basic exposition of
+  classical mechanical systems}, volume~17.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem{petzold1982differential}
+Linda Petzold.
+\newblock Differential/algebraic equations are not ode's.
+\newblock {\em SIAM Journal on Scientific and Statistical Computing},
+  3(3):367--384, 1982.
+
+\bibitem{rao1995mechanical}
+Singiresu~S Rao and Fook~Fah Yap.
+\newblock {\em Mechanical vibrations}, volume~4.
+\newblock Addison-Wesley Reading, 1995.
+
+\bibitem{siciliano2009robotics}
+Bruno Siciliano, Lorenzo Sciavicco, Luigi Villani, and Giuseppe Oriolo.
+\newblock {\em Robotics: modelling, planning and control}.
+\newblock Springer Science \& Business Media, 2009.
+
+\end{thebibliography}

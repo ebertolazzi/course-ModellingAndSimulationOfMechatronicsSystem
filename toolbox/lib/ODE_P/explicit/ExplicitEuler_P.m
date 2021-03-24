@@ -10,9 +10,9 @@
 % email: enrico.bertolazzi@unitn.it
 %
 classdef ExplicitEuler_P < ODEbaseSolverRKexplicit_P
-
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     % Explicit Euler tableau
     %
     % 0 | 0

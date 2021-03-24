@@ -9,20 +9,22 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef Ralston < ODEbaseSolverRKexplicit
+classdef RK3_P < ODEbaseSolverRKexplicit_P
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    % Ralston tableau
-    % (RK with minimal local truncation error)
+    % Third-order Runge-Kutta's method (RK3) tableau
     %
-    %   0 | 0    0
-    % 2/3 | 2/3  0
-    % ----+-------
-    %     | 1/4 3/4
+    % 0   | 0   0   0
+    % 1/3 | 1/3 0   0
+    % 2/3 | 0   2/3 0
+    % ----+------------
+    %     | 1/4 0   3/4
     %
-    function self = Ralston( )
-      self@ODEbaseSolverRKexplicit('Ralston',[0,0;2/3,0],[1/4,3/4],[0,2/3]);
+    function self = RK3_P( )
+      self@ODEbaseSolverRKexplicit_P('RK3_P',...
+         [0,0,0;1/2,0,0;-1,2,0],[1/6,2/3,1/6],[0,1/2,1]...
+      );
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function delete( self )

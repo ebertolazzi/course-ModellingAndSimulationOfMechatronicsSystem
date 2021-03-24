@@ -13,7 +13,7 @@ classdef Heun < ODEbaseSolverRKexplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    % Heun tableau
+    % Heun's second-order method tableau
     %
     % 0 | 0   0
     % 1 | 1   0

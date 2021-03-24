@@ -1,0 +1,27 @@
+%---------------------------------------------
+%	Define mathematical environments
+%---------------------------------------------
+	\newtheorem{theorem}{Theorem}[section]
+	\newtheorem{corollary}{Corollary}[theorem]
+	%\newtheorem{proof}{Proof}[section]			% this means that the numberation of corollaries and lemmas starts with the number of the previous theorem
+	\newtheorem{lemma}[theorem]{Lemma}				% this means that the lemma enviroment use the same counter as theorem enviroment
+	\newtheorem{proposition}{Proposition}[section]
+	\newtheorem{assumption}{Assumption}[section]
+	\newtheorem{definition}{Definition}[section]
+	\newtheorem{remark}{Remark}[section]
+	\newtheorem{example}{Example}[section]
+
+%---------------------------------------------
+%	Define the graphic path
+%---------------------------------------------
+	\graphicspath{{pictures/}} 				% Specifies the directory where pictures are stored
+
+%---------------------------------------------
+%	Define some additional commands 
+%---------------------------------------------	
+	\newcommand{\quotemarks}[1]{``#1''}
+	\let\oldbar\bar
+	\renewcommand{\bar}{\overline}
+	
+	\let\oldLaTeX\LaTeX
+	\renewcommand*{\LaTeX}{\oldLaTeX\space}

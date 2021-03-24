@@ -1,0 +1,23 @@
+\makeatletter
+\pgfdeclareshape{saturation}{
+\inheritsavedanchors[from={rectangle}]
+\inheritbackgroundpath[from={rectangle}]
+\inheritanchorborder[from={rectangle}]
+\foreach \x in {center,north east,north west,north,south,south east,south west}{
+\inheritanchor[from={rectangle}]{\x}
+}
+\foregroundpath{
+\pgfpointdiff{\northeast}{\southwest}
+\pgf@xa=\pgf@x \pgf@ya=\pgf@y
+\northeast
+\pgfpathmoveto{\pgfpoint{0}{0.33\pgf@ya}}
+\pgfpathlineto{\pgfpoint{0}{-0.33\pgf@ya}}
+\pgfpathmoveto{\pgfpoint{0.33\pgf@xa}{0}}
+\pgfpathlineto{\pgfpoint{-0.33\pgf@xa}{0}}
+\pgfpathmoveto{\pgfpointadd{\southwest}{\pgfpoint{-0.33\pgf@xa}{-0.6\pgf@ya}}}
+\pgfpathlineto{\pgfpointadd{\southwest}{\pgfpoint{-0.5\pgf@xa}{-0.6\pgf@ya}}}
+\pgfpathlineto{\pgfpointadd{\northeast}{\pgfpoint{-0.5\pgf@xa}{-0.6\pgf@ya}}}
+\pgfpathlineto{\pgfpointadd{\northeast}{\pgfpoint{-0.33\pgf@xa}{-0.6\pgf@ya}}}
+}
+}
+\makeatother

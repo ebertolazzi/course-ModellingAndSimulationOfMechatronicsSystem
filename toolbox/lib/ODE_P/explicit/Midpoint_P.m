@@ -9,23 +9,23 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef Ralston < ODEbaseSolverRKexplicit
+classdef Midpoint_P < ODEbaseSolverRKexplicit_P
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    % Ralston tableau
-    % (RK with minimal local truncation error)
+    % Midpoint method tableau
     %
-    %   0 | 0    0
-    % 2/3 | 2/3  0
-    % ----+-------
-    %     | 1/4 3/4
+    % 0   | 0   0
+    % 1/2 | 1/2 0
+    % ----+------
+    %     | 0   1
     %
-    function self = Ralston( )
-      self@ODEbaseSolverRKexplicit('Ralston',[0,0;2/3,0],[1/4,3/4],[0,2/3]);
+    function self = Midpoint_P( )
+      self@ODEbaseSolverRKexplicit_P('Midpoint_P',[0,0;1/2,0],[0,1],[0,1/2]);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function delete( self )
     end
   end
+
 end

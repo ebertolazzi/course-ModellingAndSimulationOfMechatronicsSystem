@@ -1,0 +1,27 @@
+\newenvironment{declaration}{
+	\cleardoublepage\thispagestyle{empty}\null\vspace{\stretch{1}}
+	\begin{center}
+	\large\bfseries Declaration
+	\end{center}}
+	{\vspace{\stretch{2}}\null\clearpage}
+
+\newenvironment{dedication}{
+	\cleardoublepage\thispagestyle{empty}\null\vspace{\stretch{1}}
+	\begin{flushright}
+	\begin{large}
+	\itshape}
+	{\end{large}\end{flushright}\vspace{\stretch{2}}\null}
+
+\newenvironment{abstract}{
+	\cleardoublepage\thispagestyle{empty}\null
+	\begin{center}
+	\large\bfseries\abstractname
+	\end{center}}
+	{\null}
+
+\newenvironment{acknowledgements}{
+	\cleardoublepage\thispagestyle{empty}\null
+	\begin{center}
+	\large\bfseries Acknowledgements
+	\end{center}}
+	{\null}

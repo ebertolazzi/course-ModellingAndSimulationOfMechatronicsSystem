@@ -1,0 +1,12 @@
+\newcommand{\plantsubinclude}{no}
+\newcommand{\antiwindupsubinclude}{no}
+\newcommand{\controllersubinclude}{no}
+\newcommand{\strongredsubinclude}{no}
+\newcommand{\weakredsubinclude}{no}
+\newcommand{\exosubinclude}{no}
+\newcommand{\linsubinclude}{no}
+\newcommand{\errsubinclude}{no}
+\newcommand{\addmessubinclude}{no}
+\newcommand{\nominalsubinclude}{no}
+\newcommand{\diffsubinclude}{no}
+\newcommand{\imsubinclude}{no}

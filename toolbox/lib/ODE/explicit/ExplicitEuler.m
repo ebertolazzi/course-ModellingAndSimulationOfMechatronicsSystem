@@ -13,6 +13,7 @@ classdef ExplicitEuler < ODEbaseSolverRKexplicit
 
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
     % Explicit Euler tableau
     %
     % 0 | 0
