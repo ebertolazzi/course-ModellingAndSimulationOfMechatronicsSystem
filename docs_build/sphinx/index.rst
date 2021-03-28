@@ -6,7 +6,6 @@ ODE/DAE
 
    readme.rst
    Manual.rst
-   Manual_ODE.rst
    api/library_root.rst
 
 Search

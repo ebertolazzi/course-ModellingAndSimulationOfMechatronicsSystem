@@ -68,52 +68,52 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-implicit-gausslegendre6-m"></span><h1>Program Listing for File GaussLegendre6.m<a class="headerlink" href="#program-listing-for-file-gausslegendre6-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_implicit_GaussLegendre6.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-implicit-gausslegendre6-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/implicit/GaussLegendre6.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-classdef GaussLegendre6 &lt; ODEbaseSolverRKimplicit
-  methods
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    % Gauss–Legendre 6th order
-    %
-    % t  = sqrt(15)/10
-    % tt = sqrt(15)/24
-    % w  = 5/36
-    % z  = 2/9
-    %
-    % 1/2-t | w      z-t  w-t/3
-    % 1/2   | w+tt   z    w-tt
-    % 1/2+t | w+t/3  z+t  w
-    % ------+------------------
-    %       | 5/18   4/9  5/18
-    %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function self = GaussLegendre6()
-      t  = sqrt(15)/10;
-      tt = sqrt(15)/24;
-      w  = 5/36;
-      z  = 2/9;
-      self@ODEbaseSolverRKimplicit('GaussLegendre6',...
-        [w,z-t,w-t/3;w+tt,z,w-tt;w+t/3,z+t,w],...
-        [5/18,4/9,5/18],[1/2-t,1/2,1/2+t]...
-      );
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  end
-end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">GaussLegendre6</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ODEbaseSolverRKimplicit</span><span class="w"></span>
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Gauss–Legendre 6th order</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% t  = sqrt(15)/10</span><span class="w"></span>
+<span class="w">    </span><span class="c">% tt = sqrt(15)/24</span><span class="w"></span>
+<span class="w">    </span><span class="c">% w  = 5/36</span><span class="w"></span>
+<span class="w">    </span><span class="c">% z  = 2/9</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 1/2-t | w      z-t  w-t/3</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 1/2   | w+tt   z    w-tt</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 1/2+t | w+t/3  z+t  w</span><span class="w"></span>
+<span class="w">    </span><span class="c">% ------+------------------</span><span class="w"></span>
+<span class="w">    </span><span class="c">%       | 5/18   4/9  5/18</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">GaussLegendre6</span><span class="p">()</span><span class="w"></span>
+<span class="w">      </span><span class="n">t</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">tt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">24</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">w</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="o">/</span><span class="mi">36</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">z</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">ODEbaseSolverRKimplicit</span><span class="p">(</span><span class="s">'GaussLegendre6'</span><span class="p">,</span><span class="k">...</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="n">w</span><span class="p">,</span><span class="n">z</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span><span class="n">w</span><span class="o">+</span><span class="n">tt</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">w</span><span class="o">-</span><span class="n">tt</span><span class="p">;</span><span class="n">w</span><span class="o">+</span><span class="n">t</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">],</span><span class="k">...</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="mi">5</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span><span class="mi">4</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="o">/</span><span class="mi">18</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="p">]</span><span class="k">...</span><span class="w"></span>
+<span class="w">      </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

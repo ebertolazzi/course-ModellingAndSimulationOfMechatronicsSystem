@@ -18,8 +18,9 @@
 %>      res = ode.f(t,x);
 %>
 classdef ODEbaseClass < handle
-    properties (SetAccess = protected, Hidden = true)
-    name; %> the name of the ODE, used in warning/error messages
+  properties (SetAccess = protected, Hidden = true)
+    %> the name of the ODE, used in warning/error messages
+    name;
   end
 
   methods (Abstract)
@@ -48,12 +49,6 @@ classdef ODEbaseClass < handle
     %> such that \f$ x(t_0) = x_0 \f$.
     %> If exact solution is not available the derived function that return `[]`
     %>
-    %> \param self matlab sintactic sugar, ignore it
-    %> \param t0   \f$ t_0 \f$
-    %> \param x0   \f$ x_0 \f$
-    %> \param t    \f$ t \f$
-    %>
-    %>
     exact( self, t0, x0, t )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end
@@ -65,7 +60,6 @@ classdef ODEbaseClass < handle
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function delete( self )
-      %> Delete object
     end
   end
 end

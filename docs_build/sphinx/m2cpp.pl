@@ -134,36 +134,40 @@ foreach $my_fic (@listeFic)
     {
       $functionKeyWord = $1;
       $functionName = $3;
-      $arguments = $4;
-      if ($inClass == 0)
-      {
-        $output = $declTypeDef.$output;
-        $declTypeDef = "";
+      if ($functionName ne "delete") {
+        $arguments = $4;
+        if ($inClass == 0)
+        {
+          $output = $declTypeDef.$output;
+          $declTypeDef = "";
+        }
+        $arguments =~ s/,/,in /g;
+        $arguments =~ s/~/ignoredArg/g;
+        $arguments = "in $arguments";
+        if ($arguments =~ /^in $/)
+        {
+          $arguments = "";
+        }
+        $ligne = "$methodAttribute $functionKeyWord $functionName($arguments);"; 
+        $output=$output.$ligne;
       }
-      $arguments =~ s/,/,in /g;
-      $arguments =~ s/~/ignoredArg/g;
-      $arguments = "in $arguments";
-      if ($arguments =~ /^in $/)
-      {
-        $arguments = "";
-      }
-      $ligne = "$methodAttribute $functionKeyWord $functionName($arguments);"; 
-      $output=$output.$ligne;
     }
     # Signature of functions in abstract methods
     elsif ((/^\s*([\] \w\d,_\[]+=)?\s*([.\w\d_-]+)\s*\(?([\w\d\s,~]*)\)?(%?.*)/) & ($inAbstractMethodBlock == 1) )
     {
       $functionName = $2;
-      $arguments = $3;
-      $arguments =~ s/,/,in /g;
-      $arguments =~ s/~/ignoredArg/g;
-      $arguments = "in $arguments";
-      if ($arguments =~ /^in $/)
-      {
-        $arguments = "";
+      if ($functionName ne "delete") {
+        $arguments = $3;
+        $arguments =~ s/,/,in /g;
+        $arguments =~ s/~/ignoredArg/g;
+        $arguments = "in $arguments";
+        if ($arguments =~ /^in $/)
+        {
+          $arguments = "";
+        }
+        $ligne = "$methodAttribute $functionKeyWord $functionName($arguments);";
+        $output=$output.$ligne;
       }
-      $ligne = "$methodAttribute $functionKeyWord $functionName($arguments);"; 
-      $output=$output.$ligne;
     }
     # inheritance for classes
     if (/(^\s*classdef)\s*(\s*\([\{\}\?\w,=\s]+\s*\))?\s*([\w\d_]+)\s*<?\s*([\s\w\d._&]+)?(.*)/) 

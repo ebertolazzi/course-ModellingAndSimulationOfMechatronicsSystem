@@ -68,43 +68,43 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-implicit-gausslegendre4-p-m"></span><h1>Program Listing for File GaussLegendre4_P.m<a class="headerlink" href="#program-listing-for-file-gausslegendre4-p-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_implicit_GaussLegendre4_P.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-implicit-gausslegendre4-p-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit/GaussLegendre4_P.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-classdef GaussLegendre4_P &lt; ODEbaseSolverRKimplicit_P
-  methods
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    % Gauss–Legendre 4th order
-    %
-    % t = sqrt(3)/6
-    %
-    % 1/2-t | 1/4   1/4-t
-    % 1/2+t | 1/4+t 1/4
-    % ------+-------------
-    %       | 1/2   1/2
-    %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function self = GaussLegendre4_P()
-      t = sqrt(3)/6;
-      self@ODEbaseSolverRKimplicit_P('GaussLegendre4_P',...
-      [1/4,1/4-t;1/4+t,1/4],[1/2,1/2],[1/2-t,1/2+t]);
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  end
-end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">GaussLegendre4_P</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ODEbaseSolverRKimplicit_P</span><span class="w"></span>
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Gauss–Legendre 4th order</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% t = sqrt(3)/6</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 1/2-t | 1/4   1/4-t</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 1/2+t | 1/4+t 1/4</span><span class="w"></span>
+<span class="w">    </span><span class="c">% ------+-------------</span><span class="w"></span>
+<span class="w">    </span><span class="c">%       | 1/2   1/2</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">GaussLegendre4_P</span><span class="p">()</span><span class="w"></span>
+<span class="w">      </span><span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">ODEbaseSolverRKimplicit_P</span><span class="p">(</span><span class="s">'GaussLegendre4_P'</span><span class="p">,</span><span class="k">...</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">-</span><span class="n">t</span><span class="p">;</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">+</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="p">]);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

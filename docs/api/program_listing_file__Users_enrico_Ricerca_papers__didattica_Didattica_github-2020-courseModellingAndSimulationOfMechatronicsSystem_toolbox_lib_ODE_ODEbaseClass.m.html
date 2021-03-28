@@ -68,78 +68,72 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-odebaseclass-m"></span><h1>Program Listing for File ODEbaseClass.m<a class="headerlink" href="#program-listing-for-file-odebaseclass-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseClass.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-odebaseclass-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseClass.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-%&gt;
-%&gt; ODE base class describing an ODE
-%&gt;
-%&gt; *Usage*
-%&gt;
-%&gt;      ode = ODE_derived_class() % create an instance of a ODE
-%&gt;      res = ode.f(t,x);
-%&gt;
-classdef ODEbaseClass &lt; handle
-    properties (SetAccess = protected, Hidden = true)
-    name; %&gt; the name of the ODE, used in warning/error messages
-  end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%&gt;</span><span class="w"></span>
+<span class="c">%&gt; ODE base class describing an ODE</span><span class="w"></span>
+<span class="c">%&gt;</span><span class="w"></span>
+<span class="c">%&gt; *Usage*</span><span class="w"></span>
+<span class="c">%&gt;</span><span class="w"></span>
+<span class="c">%&gt;      ode = ODE_derived_class() % create an instance of a ODE</span><span class="w"></span>
+<span class="c">%&gt;      res = ode.f(t,x);</span><span class="w"></span>
+<span class="c">%&gt;</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ODEbaseClass</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">handle</span><span class="w"></span>
+<span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; the name of the ODE, used in warning/error messages</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-  methods (Abstract)
-    %&gt;
-    %&gt;  Abstract functions. The derived function must define the ODE
-    %&gt;  \f$ x' = f( t, x ) \f$
-    %&gt;
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    f( self, t, x )
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %&gt;
-    %&gt;  Abstract functions. The derived function must return
-    %&gt;  the jacobian \f$ \partial f( t, x ) / \partial x \f$
-    %&gt;
-    DfDx( self, t, x )
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %&gt;
-    %&gt;  Abstract functions. The derived function must return
-    %&gt;  the jacobian \f$ \partial f( t, x ) / \partial t \f$
-    %&gt;
-    DfDt( self, t, x )
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %&gt;
-    %&gt; Abstract functions. The derived function must return the
-    %&gt; exact solution \f$ x(t) \f$ of the ODE \f$ x' = f( t, x ) \f$
-    %&gt; such that \f$ x(t_0) = x_0 \f$.
-    %&gt; If exact solution is not available the derived function that return `[]`
-    %&gt;
-    %&gt; \param self matlab sintactic sugar, ignore it
-    %&gt; \param t0   \f$ t_0 \f$
-    %&gt; \param x0   \f$ x_0 \f$
-    %&gt; \param t    \f$ t \f$
-    %&gt;
-    %&gt;
-    exact( self, t0, x0, t )
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  end
+<span class="w">  </span><span class="k">methods</span><span class="w"> </span><span class="p">(</span><span class="n">Abstract</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  Abstract functions. The derived function must define the ODE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  \f$ x' = f( t, x ) \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  Abstract functions. The derived function must return</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  the jacobian \f$ \partial f( t, x ) / \partial x \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DfDx</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  Abstract functions. The derived function must return</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  the jacobian \f$ \partial f( t, x ) / \partial t \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DfDt</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Abstract functions. The derived function must return the</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; exact solution \f$ x(t) \f$ of the ODE \f$ x' = f( t, x ) \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; such that \f$ x(t_0) = x_0 \f$.</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; If exact solution is not available the derived function that return `[]`</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="n">exact</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-  methods
-    function self = ODEbaseClass( name )
-      %&gt; Construct object with stored `name`
-      self.name = name;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-      %&gt; Delete object
-    end
-  end
-end
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ODEbaseClass</span><span class="p">(</span> name <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">%&gt; Construct object with stored `name`</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">name</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

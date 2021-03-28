@@ -1,8 +1,8 @@
 ODE solve example
------------------
+=================
 
 Load ODE
-~~~~~~~~
+--------
 
 Consider the ODE:
 
@@ -64,7 +64,7 @@ The following is the contents of the file `Pendulum2EQ.m`
   end
 
 Instantiate the ODE
-~~~~~~~~~~~~~~~~~~~
+-------------------
 
 Having `Pendulum2EQ.m` now can instantiate the ODE
 
@@ -76,7 +76,7 @@ Having `Pendulum2EQ.m` now can instantiate the ODE
   ode     = Pendulum2EQ( ell, gravity );
 
 Choose solver
-~~~~~~~~~~~~~
+-------------
 
 Choose `ExplicitEuler` as solver and attach the
 instantiated ode to it.
@@ -88,7 +88,7 @@ instantiated ode to it.
 
 
 Integrate
-~~~~~~~~~
+---------
 
 Select the range and the sam pling point for the numerical solution
 
@@ -118,7 +118,7 @@ The first column contain \(\theta\) the second column
 contains  \(\omega\).
 
 Extract solution
-~~~~~~~~~~~~~~~~
+----------------
 
 .. code:: matlab
 
@@ -128,7 +128,7 @@ Extract solution
   y = -ell*cos(theta);
 
 Plot the solution
-~~~~~~~~~~~~~~~~~
+-----------------
 
 .. code:: matlab
 

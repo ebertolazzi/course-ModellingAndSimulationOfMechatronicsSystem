@@ -50,7 +50,7 @@ extensions = [
   'cloud_sptheme.ext.escaped_samp_literals',
   'cloud_sptheme.ext.issue_tracker',
   'cloud_sptheme.ext.table_styling',
-  'cloud_sptheme.ext.role_index',  # NOTE: used only to provide example role index
+  #'cloud_sptheme.ext.role_index',  # NOTE: used only to provide example role index
 
   #'sphinx.ext.doctest',
   #'sphinx.ext.coverage',
@@ -62,7 +62,8 @@ extensions = [
   #'sphinx.ext.inheritance_diagram',
   #'guzzle_sphinx_theme',
   #'sphinx_typo3_theme',
-  'sphinxcontrib.email'
+  'sphinxcontrib.email',
+  'sphinxcontrib.matlab'
 ]
 
 source_suffix = ['.rst', '.md']
@@ -115,7 +116,7 @@ exhale_args = {
         FILTER_PATTERNS       = *.m=./m2cpp.pl
         GENERATE_HTML         = NO
 ''',
-  'kindsWithContentsDirectives': [] # tolgo contents a tutte! (serve per Furo)
+  "lexerMapping": { r".*\.m": "MATLAB" }
 }
 
 
@@ -188,3 +189,9 @@ html_theme_options = {
   "index_category_color" : "#999999"
 }
 
+# https://github.com/sphinx-contrib/matlabdomain
+this_dir = os.path.dirname(os.path.abspath(__file__))
+matlab_src_dir = os.path.abspath(os.path.join(this_dir, '../../toolbox/lib'))
+#matlab_src_encoding
+#matlab_keep_package_prefix
+autodoc_member_order = 'bysource'

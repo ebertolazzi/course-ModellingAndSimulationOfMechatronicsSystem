@@ -68,46 +68,46 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-explicit-ralston4-p-m"></span><h1>Program Listing for File Ralston4_P.m<a class="headerlink" href="#program-listing-for-file-ralston4-p-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_Ralston4_P.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-explicit-ralston4-p-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/explicit/Ralston4_P.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-classdef Ralston4_P &lt; ODEbaseSolverRKexplicit_P
-  methods
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    % Ralston's fourth-order method tableau
-    %
-    % 0          | 0          | 0           | 0          | 0
-    % 0.4        | 0.4        | 0           | 0          | 0
-    % 0.45573725 | 0.29697761 | 0.15875964  | 0          | 0
-    % 1          | 0.21810040 | -3.05096516 | 3.83286476 | 0
-    % -----------+---------------------------------------------------
-    %            | 0.17476028 | -0.55148066 | 1.20553560 | 0.17118478
-    %
-    function self = Ralston4_P( )
-      self@ODEbaseSolverRKexplicit_P('Ralston4_P',...
-         [ 0,          0,            0,          0;...
-           0.4,        0,            0,          0;...
-           0.29697761, 0.15875964,   0,          0;...
-           0.21810040, -3.05096516,  3.83286476, 0 ],...
-         [ 0.17476028 , -0.55148066, 1.20553560, 0.17118478 ],...
-         [ 0,           0.4,         0.45573725, 1 ]...
-      );
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
-  end
-end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">Ralston4_P</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ODEbaseSolverRKexplicit_P</span><span class="w"></span>
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% Ralston's fourth-order method tableau</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 0          | 0          | 0           | 0          | 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 0.4        | 0.4        | 0           | 0          | 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 0.45573725 | 0.29697761 | 0.15875964  | 0          | 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">% 1          | 0.21810040 | -3.05096516 | 3.83286476 | 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">% -----------+---------------------------------------------------</span><span class="w"></span>
+<span class="w">    </span><span class="c">%            | 0.17476028 | -0.55148066 | 1.20553560 | 0.17118478</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Ralston4_P</span><span class="p">(</span> <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">ODEbaseSolverRKexplicit_P</span><span class="p">(</span><span class="s">'Ralston4_P'</span><span class="p">,</span><span class="k">...</span><span class="w"></span>
+<span class="w">         </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">0</span><span class="p">,</span><span class="w">            </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">0</span><span class="p">;</span><span class="k">...</span><span class="w"></span>
+<span class="w">           </span><span class="mf">0.4</span><span class="p">,</span><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="w">            </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">0</span><span class="p">;</span><span class="k">...</span><span class="w"></span>
+<span class="w">           </span><span class="mf">0.29697761</span><span class="p">,</span><span class="w"> </span><span class="mf">0.15875964</span><span class="p">,</span><span class="w">   </span><span class="mi">0</span><span class="p">,</span><span class="w">          </span><span class="mi">0</span><span class="p">;</span><span class="k">...</span><span class="w"></span>
+<span class="w">           </span><span class="mf">0.21810040</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">3.05096516</span><span class="p">,</span><span class="w">  </span><span class="mf">3.83286476</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">],</span><span class="k">...</span><span class="w"></span>
+<span class="w">         </span><span class="p">[</span><span class="w"> </span><span class="mf">0.17476028</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">0.55148066</span><span class="p">,</span><span class="w"> </span><span class="mf">1.20553560</span><span class="p">,</span><span class="w"> </span><span class="mf">0.17118478</span><span class="w"> </span><span class="p">],</span><span class="k">...</span><span class="w"></span>
+<span class="w">         </span><span class="p">[</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">           </span><span class="mf">0.4</span><span class="p">,</span><span class="w">         </span><span class="mf">0.45573725</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">]</span><span class="k">...</span><span class="w"></span>
+<span class="w">      </span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

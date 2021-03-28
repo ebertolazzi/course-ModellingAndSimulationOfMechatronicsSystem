@@ -68,63 +68,63 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-odebasesolver-m"></span><h1>Program Listing for File ODEbaseSolver.m<a class="headerlink" href="#program-listing-for-file-odebasesolver-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseSolver.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-odebasesolver-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/ODEbaseSolver.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-classdef ODEbaseSolver &lt; handle
-  properties (SetAccess = protected, Hidden = true)
-    solverName; % should contain the name of the numerical method used
-    odeClass;   % the object storing the ODE
-  end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ODEbaseSolver</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">handle</span><span class="w"></span>
+<span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">solverName</span><span class="p">;</span><span class="w"> </span><span class="c">% should contain the name of the numerical method used</span><span class="w"></span>
+<span class="w">    </span><span class="n">odeClass</span><span class="p">;</span><span class="w">   </span><span class="c">% the object storing the ODE</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-  methods (Abstract)
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  step is a generic advancing step for a generic numerical methods
-    %
-    %  given x0 = x(t0) return the approximation of x(t0+dt)
-    %
-    step( self, x0, t0, dt )
-  end
+<span class="w">  </span><span class="k">methods</span><span class="w"> </span><span class="p">(</span><span class="n">Abstract</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  step is a generic advancing step for a generic numerical methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  given x0 = x(t0) return the approximation of x(t0+dt)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="nb">step</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-  methods
-    function self = ODEbaseSolver( solverName )
-      self.solverName = solverName;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function name = getName( self )
-      name = self.solverName
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function setODE( self, odeClass )
-      self.odeClass = odeClass;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  compute approximate solution on a series of point given by the vector t
-    %  starting at initial point x0
-    %
-    function x = advance( self, t, x0 )
-      x      = zeros(length(x0),length(t));
-      x(:,1) = x0(:);
-      for k=1:length(t)-1
-        x(:,k+1) = self.step( t(k), x(:,k), t(k+1)-t(k) );
-      end
-    end
-  end
-end
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ODEbaseSolver</span><span class="p">(</span> solverName <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">solverName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">solverName</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>name<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getName</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">solverName</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setODE</span><span class="p">(</span> self, odeClass <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">odeClass</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  compute approximate solution on a series of point given by the vector t</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  starting at initial point x0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">advance</span><span class="p">(</span> self, t, x0 <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x0</span><span class="p">(:);</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

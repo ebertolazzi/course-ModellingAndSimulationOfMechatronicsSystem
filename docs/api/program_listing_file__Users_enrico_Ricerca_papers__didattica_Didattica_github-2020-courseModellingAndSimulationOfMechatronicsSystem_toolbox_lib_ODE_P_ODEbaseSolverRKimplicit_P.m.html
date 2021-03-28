@@ -68,127 +68,127 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-odebasesolverrkimplicit-p-m"></span><h1>Program Listing for File ODEbaseSolverRKimplicit_P.m<a class="headerlink" href="#program-listing-for-file-odebasesolverrkimplicit-p-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_ODEbaseSolverRKimplicit_P.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-odebasesolverrkimplicit-p-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolverRKimplicit_P.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-classdef ODEbaseSolverRKimplicit_P &lt; ODEbaseSolver_P
-  properties (SetAccess = protected, Hidden = true)
-    x0;
-    t0;
-    dt;
-    tol;
-    A; % tableau
-    b;
-    c;
-  end
-  methods
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function self = ODEbaseSolverRKimplicit_P( solverName, A, b, c )
-      self@ODEbaseSolver_P( solverName );
-      self.tol = 1e-8;
-      self.A   = A;
-      self.b   = b;
-      self.c   = c;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  for the implicit RK methods
-    %
-    %  x(k+1) = x(k) + sum(j) b(j) * K(k)
-    %
-    %  K(i) = h*f( t(k) + c(i) * dt, x(k) + sum(j) A(i,j) K(j) ), i=1..s
-    %
-    %  define the nonlinear system
-    %
-    %                  / K(1) - h * f( t(k)+c(1)*dt, x(k) + sum(j) A(1,j) K(j) ) \
-    %  residual( K ) = | ....                                                    |
-    %                  \ K(s) - h * f( t(k)+c(s)*dt, x(k) + sum(j) A(s,j) K(j) ) /
-    %
-    %
-    function R = stepResidual( self, K )
-      ns  = length(self.c);
-      nx  = length(self.x0);
-      R   = zeros(ns*nx,1);
-      idx = 1:nx;
-      for i=1:ns
-        tmp = self.x0;
-        jdx = 1:nx;
-        for j=1:ns
-          tmp = tmp + self.A(i,j) * K(jdx);
-          jdx = jdx + nx;
-        end
-        ti     = self.t0 + self.c(i) * self.dt;
-        R(idx) = K(idx) - self.dt * self.odeClass.f( ti, tmp );
-        idx    = idx + nx;
-      end
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %  Jacobian o the residual
-    %
-    %  D residual( K ) / DK
-    %
-    function JR = stepResidualJacobian( self, K )
-      ns  = length(self.c);
-      nx  = length(self.x0);
-      JR  = eye(ns*nx);
-      idx = 1:nx;
-      for i=1:ns
-        tmp = self.x0;
-        jdx = 1:nx;
-        for j=1:ns
-          tmp = tmp + self.A(i,j) * K(jdx);
-          jdx = jdx + nx;
-        end
-        ti = self.t0 + self.c(i) * self.dt;
-        jdx = 1:nx;
-        for j=1:ns
-          JR(idx,jdx) = JR(idx,jdx) - self.dt * self.odeClass.DfDx( ti, tmp );
-          jdx = jdx + nx;
-        end
-        idx = idx + nx;
-      end
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    function K = solveStepByNewton( self )
-      ns = length( self.c );
-      K0 = self.dt * self.odeClass.f( self.t0, self.x0 );
-      K  = repmat( K0(:), ns, 1);
-      fun = @(K) self.stepResidual( K );
-      jac = @(K) self.stepResidualJacobian( K );
-      [K,ierr] = NewtonSolver( fun, jac, K );
-      if ierr ~= 0
-        fprintf( 1, 'solveStepByNewton do not converge ierr = %d\n', ierr );
-      end
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %  Perform an implicit step by solving residual( x, x0 ) = 0
-    %
-    function x1 = step( self, t0, x0, dt )
-      self.t0 = t0;
-      self.x0 = x0;
-      self.dt = dt;
-      ns  = length(self.c);
-      nx  = length(x0);
-      K   = self.solveStepByNewton();
-      x1  = x0 + reshape( K, nx, ns ) * self.b(:);
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ODEbaseSolverRKimplicit_P</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ODEbaseSolver_P</span><span class="w"></span>
+<span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">x0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">t0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">dt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">tol</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">A</span><span class="p">;</span><span class="w"> </span><span class="c">% tableau</span><span class="w"></span>
+<span class="w">    </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ODEbaseSolverRKimplicit_P</span><span class="p">(</span> solverName, A, b, c <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">ODEbaseSolver_P</span><span class="p">(</span><span class="w"> </span><span class="n">solverName</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">tol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1e-8</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">A</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">b</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">c</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  for the implicit RK methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  x(k+1) = x(k) + sum(j) b(j) * K(k)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  K(i) = h*f( t(k) + c(i) * dt, x(k) + sum(j) A(i,j) K(j) ), i=1..s</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  define the nonlinear system</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%                  / K(1) - h * f( t(k)+c(1)*dt, x(k) + sum(j) A(1,j) K(j) ) \</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  residual( K ) = | ....                                                    |</span><span class="w"></span>
+<span class="w">    </span><span class="c">%                  \ K(s) - h * f( t(k)+c(s)*dt, x(k) + sum(j) A(s,j) K(j) ) /</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>R<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">stepResidual</span><span class="p">(</span> self, K <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ns</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">nx</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">R</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">ns</span><span class="o">*</span><span class="n">nx</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ns</span><span class="w"></span>
+<span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">jdx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ns</span><span class="w"></span>
+<span class="w">          </span><span class="n">tmp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">A</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">K</span><span class="p">(</span><span class="n">jdx</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">jdx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">jdx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">ti</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">t0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">c</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">R</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">K</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">f</span><span class="p">(</span><span class="w"> </span><span class="n">ti</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">idx</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Jacobian o the residual</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  D residual( K ) / DK</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>JR<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">stepResidualJacobian</span><span class="p">(</span> self, K <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ns</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">nx</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">JR</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">ns</span><span class="o">*</span><span class="n">nx</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="nb">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ns</span><span class="w"></span>
+<span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">jdx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ns</span><span class="w"></span>
+<span class="w">          </span><span class="n">tmp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">A</span><span class="p">(</span><span class="nb">i</span><span class="p">,</span><span class="nb">j</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">K</span><span class="p">(</span><span class="n">jdx</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">jdx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">jdx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">ti</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">t0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">c</span><span class="p">(</span><span class="nb">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">jdx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="nb">j</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">ns</span><span class="w"></span>
+<span class="w">          </span><span class="n">JR</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">jdx</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">JR</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="n">jdx</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">DfDx</span><span class="p">(</span><span class="w"> </span><span class="n">ti</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">jdx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">jdx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nx</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>K<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">solveStepByNewton</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">ns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">c</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">K0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">f</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">K</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">repmat</span><span class="p">(</span><span class="w"> </span><span class="n">K0</span><span class="p">(:),</span><span class="w"> </span><span class="n">ns</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">fun</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">stepResidual</span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">jac</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">@(</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">stepResidualJacobian</span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">K</span><span class="p">,</span><span class="n">ierr</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">NewtonSolver</span><span class="p">(</span><span class="w"> </span><span class="n">fun</span><span class="p">,</span><span class="w"> </span><span class="n">jac</span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">ierr</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="nb">fprintf</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s">'solveStepByNewton do not converge ierr = %d\n'</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Perform an implicit step by solving residual( x, x0 ) = 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>x1<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span> self, t0, x0, dt <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">t0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">x0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">dt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dt</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">ns</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">c</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">nx</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">K</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">solveStepByNewton</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">x1</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">x0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="w"> </span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">nx</span><span class="p">,</span><span class="w"> </span><span class="n">ns</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">b</span><span class="p">(:);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-end
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

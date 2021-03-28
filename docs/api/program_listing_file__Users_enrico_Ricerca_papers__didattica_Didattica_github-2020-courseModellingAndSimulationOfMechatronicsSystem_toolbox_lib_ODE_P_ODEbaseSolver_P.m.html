@@ -68,111 +68,111 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-odebasesolver-p-m"></span><h1>Program Listing for File ODEbaseSolver_P.m<a class="headerlink" href="#program-listing-for-file-odebasesolver-p-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_ODEbaseSolver_P.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-p-odebasesolver-p-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseSolver_P.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-classdef ODEbaseSolver_P &lt; handle
-  properties (SetAccess = protected, Hidden = true)
-    solverName;      % should contain the name of the numerical method used
-    odeClass;        % the object storing the ODE with invariants
-  end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">ODEbaseSolver_P</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">handle</span><span class="w"></span>
+<span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">solverName</span><span class="p">;</span><span class="w">      </span><span class="c">% should contain the name of the numerical method used</span><span class="w"></span>
+<span class="w">    </span><span class="n">odeClass</span><span class="p">;</span><span class="w">        </span><span class="c">% the object storing the ODE with invariants</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-  methods (Abstract)
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  step is a generic advancing step for a generic numerical methods
-    %
-    %  given x0 = x(t0) return the approximation of x(t0+dt)
-    %
-    step( self, x0, t0, dt )
-  end
+<span class="w">  </span><span class="k">methods</span><span class="w"> </span><span class="p">(</span><span class="n">Abstract</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  step is a generic advancing step for a generic numerical methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  given x0 = x(t0) return the approximation of x(t0+dt)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="nb">step</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-  methods
-    function self = ODEbaseSolver_P( solverName )
-      self.solverName = solverName;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function name = getName( self )
-      name = self.solverName
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function setODE( self, odeClass )
-      self.odeClass = odeClass;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  Solve the problem
-    %
-    %  minimize      1/2 * (x-xtilde)^2
-    %  subject to    h( t, x ) = 0
-    %
-    %  Given the Lagrangian
-    %
-    %  L( x, lambda ) = 1/2 * (x-xtilde)^2 + lambda * h( t, x )
-    %
-    %  solve the problem
-    %
-    %   x + DhDx( t, x )^T lambda = xtilde
-    %   h( t, x ) = 0
-    %
-    %  using the approximation
-    %  { h( t_k, x_k ) + DhDx( t_k, x_k ) Dx + O( dx^2 ) = 0 }
-    %  define the iterative method
-    %
-    %  x_{k+1} = x_k + dx
-    %
-    %  where dx is the solution of the linear system
-    %
-    %  /       I            DhDx( t_k, x_k )^T \ /   dx   \   / xtilde - x_k  \
-    %  |                                       | |        | = |               |
-    %  \ DhDx( t_k, x_k )          0           / \ lambda /   \ -h( t_k, x_k) /
-    %
-    function x = project( self, t, xtilde )
-      [neq,ninv] = self.odeClass.getDim();
-      x = xtilde;
-      if ninv &gt; 0
-        tol = max(1,norm(xtilde,inf))*sqrt(eps);
-        for k=1:10
-          h   = self.odeClass.h( t, x );
-          M   = self.odeClass.DhDx( t, x );
-          Dxl = [ eye(neq), M.'; M, zeros(ninv,ninv) ] \ [ xtilde - x;-h];
-          dx  = Dxl(1:neq);
-          x   = x + dx;
-          if (max(abs(dx)) &lt; tol) &amp;&amp; (max(abs(h)) &lt; tol)
-            break;
-          end
-        end
-      end
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  compute approximate solution on a series of point given by the vector t
-    %  starting at initial point x0
-    %
-    function x = advance( self, t, x0 )
-      x      = zeros(length(x0),length(t));
-      x(:,1) = x0(:);
-      for k=1:length(t)-1
-        % advance
-        xtilde   = self.step( t(k), x(:,k), t(k+1)-t(k) );
-        % project solution to the invariants
-        x(:,k+1) = self.project( t(k+1), xtilde );
-      end
-    end
-  end
-end
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ODEbaseSolver_P</span><span class="p">(</span> solverName <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">solverName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">solverName</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>name<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getName</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">solverName</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setODE</span><span class="p">(</span> self, odeClass <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">odeClass</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Solve the problem</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  minimize      1/2 * (x-xtilde)^2</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  subject to    h( t, x ) = 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Given the Lagrangian</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  L( x, lambda ) = 1/2 * (x-xtilde)^2 + lambda * h( t, x )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  solve the problem</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%   x + DhDx( t, x )^T lambda = xtilde</span><span class="w"></span>
+<span class="w">    </span><span class="c">%   h( t, x ) = 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  using the approximation</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  { h( t_k, x_k ) + DhDx( t_k, x_k ) Dx + O( dx^2 ) = 0 }</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  define the iterative method</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  x_{k+1} = x_k + dx</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  where dx is the solution of the linear system</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  /       I            DhDx( t_k, x_k )^T \ /   dx   \   / xtilde - x_k  \</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  |                                       | |        | = |               |</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  \ DhDx( t_k, x_k )          0           / \ lambda /   \ -h( t_k, x_k) /</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span> self, t, xtilde <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">neq</span><span class="p">,</span><span class="n">ninv</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xtilde</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">ninv</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="n">tol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">norm</span><span class="p">(</span><span class="n">xtilde</span><span class="p">,</span><span class="n">inf</span><span class="p">))</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">eps</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="w"></span>
+<span class="w">          </span><span class="n">h</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">h</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">M</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">DhDx</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">Dxl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">neq</span><span class="p">),</span><span class="w"> </span><span class="n">M</span><span class="p">.</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">ninv</span><span class="p">,</span><span class="n">ninv</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">\</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">xtilde</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="o">-</span><span class="n">h</span><span class="p">];</span><span class="w"></span>
+<span class="w">          </span><span class="n">dx</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Dxl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">neq</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">x</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">          </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  compute approximate solution on a series of point given by the vector t</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  starting at initial point x0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">advance</span><span class="p">(</span> self, t, x0 <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x0</span><span class="p">(:);</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="c">% advance</span><span class="w"></span>
+<span class="w">        </span><span class="n">xtilde</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c">% project solution to the invariants</span><span class="w"></span>
+<span class="w">        </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">project</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">xtilde</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>

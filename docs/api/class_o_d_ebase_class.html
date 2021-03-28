@@ -119,7 +119,7 @@
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
 <dl class="cpp function">
 <dt id="_CPPv4N12ODEbaseClass1fE2in2in2in">
-<span id="_CPPv3N12ODEbaseClass1fE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass1fE2in2in2in"></span><span id="ODEbaseClass::f__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abb6cf02421cbd31153f587740295ab2c"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">f</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass1fE2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N12ODEbaseClass1fE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass1fE2in2in2in"></span><span id="ODEbaseClass::f__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abb6cf02421cbd31153f587740295ab2c"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">f</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass1fE2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Abstract functions. The derived function must define the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> </p>
@@ -128,7 +128,7 @@
 
 <dl class="cpp function">
 <dt id="_CPPv4N12ODEbaseClass4DfDxE2in2in2in">
-<span id="_CPPv3N12ODEbaseClass4DfDxE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDxE2in2in2in"></span><span id="ODEbaseClass::DfDx__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1ab2cc3bd14bcce7f8a9315a8f41c49a7a"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDx</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDxE2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N12ODEbaseClass4DfDxE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDxE2in2in2in"></span><span id="ODEbaseClass::DfDx__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1ab2cc3bd14bcce7f8a9315a8f41c49a7a"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDx</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDxE2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Abstract functions. The derived function must return the jacobian <span class="math notranslate nohighlight">\( \partial f( t, x ) / \partial x \)</span> </p>
@@ -137,7 +137,7 @@
 
 <dl class="cpp function">
 <dt id="_CPPv4N12ODEbaseClass4DfDtE2in2in2in">
-<span id="_CPPv3N12ODEbaseClass4DfDtE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDtE2in2in2in"></span><span id="ODEbaseClass::DfDt__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1a80b915453358bd76ac8f86bb4f9fd541"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDt</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDtE2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N12ODEbaseClass4DfDtE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDtE2in2in2in"></span><span id="ODEbaseClass::DfDt__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1a80b915453358bd76ac8f86bb4f9fd541"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDt</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDtE2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <p>Abstract functions. The derived function must return the jacobian <span class="math notranslate nohighlight">\( \partial f( t, x ) / \partial t \)</span> </p>
@@ -146,40 +146,18 @@
 
 <dl class="cpp function">
 <dt id="_CPPv4N12ODEbaseClass5exactE2in2in2in2in">
-<span id="_CPPv3N12ODEbaseClass5exactE2in2in2in2in"></span><span id="_CPPv2N12ODEbaseClass5exactE2in2in2in2in"></span><span id="ODEbaseClass::exact__in.in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abeb9bdeb2ccc9016fe1fafc0e8665e0b"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">exact</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t0</span></em>, <span class="pre">in</span> <em><span class="pre">x0</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass5exactE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N12ODEbaseClass5exactE2in2in2in2in"></span><span id="_CPPv2N12ODEbaseClass5exactE2in2in2in2in"></span><span id="ODEbaseClass::exact__in.in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abeb9bdeb2ccc9016fe1fafc0e8665e0b"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">exact</span></code><span class="sig-paren">(</span><em><span class="pre">t0</span></em>,<em><span class="pre">x0</span></em>,<em><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass5exactE2in2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
-<p>Abstract functions. The derived function must return the exact solution <span class="math notranslate nohighlight">\( x(t) \)</span> of the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> such that <span class="math notranslate nohighlight">\( x(t_0) = x_0 \)</span>. If exact solution is not available the derived function that return <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
-<p></p>
-<dl class="simple">
-<dt><strong>Parameters</strong></dt>
-<dd>
-<ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code>: matlab sintactic sugar, ignore it </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">t0</span></code>: <span class="math notranslate nohighlight">\( t_0 \)</span> </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">x0</span></code>: <span class="math notranslate nohighlight">\( x_0 \)</span> </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code>: <span class="math notranslate nohighlight">\( t \)</span> </p></li>
-</ul>
-</dd>
-</dl>
-
+<p>Abstract functions. The derived function must return the exact solution <span class="math notranslate nohighlight">\( x(t) \)</span> of the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> such that <span class="math notranslate nohighlight">\( x(t_0) = x_0 \)</span>. If exact solution is not available the derived function that return <code class="docutils literal notranslate"><span class="pre">[]</span></code> </p>
 </dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N12ODEbaseClass12ODEbaseClassE2in">
-<span id="_CPPv3N12ODEbaseClass12ODEbaseClassE2in"></span><span id="_CPPv2N12ODEbaseClass12ODEbaseClassE2in"></span><span id="ODEbaseClass::ODEbaseClass__in"></span><span class="target" id="class_o_d_ebase_class_1a95ef0edd9b840bcfe6b459a44b1405ec"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">ODEbaseClass</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass12ODEbaseClassE2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N12ODEbaseClass12ODEbaseClassE2in"></span><span id="_CPPv2N12ODEbaseClass12ODEbaseClassE2in"></span><span id="ODEbaseClass::ODEbaseClass__in"></span><span class="target" id="class_o_d_ebase_class_1a95ef0edd9b840bcfe6b459a44b1405ec"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">ODEbaseClass</span></code><span class="sig-paren">(</span><em><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass12ODEbaseClassE2in" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt>
-<span class="target" id="class_o_d_ebase_class_1ae4576925165635430fcf1360afdf2f07"></span><code class="sig-name descname"><span class="pre">function</span> <span class="pre">delete</span> <span class="pre">(in</span> <span class="pre">self)</span></code>
-</dt>
-<dd>
-<p>Construct object with stored <code class="docutils literal notranslate"><span class="pre">name</span></code> </p>
-</dd>
 </dl>
 
 </div>

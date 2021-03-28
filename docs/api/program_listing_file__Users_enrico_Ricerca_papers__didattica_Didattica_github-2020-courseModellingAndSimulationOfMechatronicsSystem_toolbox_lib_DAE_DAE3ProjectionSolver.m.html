@@ -68,223 +68,223 @@
 <span id="program-listing-file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-dae-dae3projectionsolver-m"></span><h1>Program Listing for File DAE3ProjectionSolver.m<a class="headerlink" href="#program-listing-for-file-dae3projectionsolver-m" title="Permalink to this headline">¶</a>
 </h1>
 <p>↰ <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3ProjectionSolver.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-dae-dae3projectionsolver-m"><span class="std std-ref">Return to documentation for file</span></a> (<code class="docutils literal notranslate"><span class="pre">/Users/enrico/Ricerca/papers/_didattica/Didattica/github-2020-courseModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE/DAE3ProjectionSolver.m</span></code>)</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>%
-% Matlab code for the Course:
-%
-%     Modelling and Simulation of Mechatronics System
-%
-% by
-% Enrico Bertolazzi
-% Dipartimento di Ingegneria Industriale
-% Universita` degli Studi di Trento
-% email: enrico.bertolazzi@unitn.it
-%
-classdef DAE3ProjectionSolver &lt; handle
-  properties (SetAccess = protected, Hidden = true)
-    solverName; % should contain the name of the numerical method used
-    DAEclass;   % the object storing the DAE
-    RKclass;    % the object storing the RK solver
-  end
+<div class="highlight-MATLAB notranslate">
+<div class="highlight"><pre><span></span><span class="c">%</span><span class="w"></span>
+<span class="c">% Matlab code for the Course:</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">%     Modelling and Simulation of Mechatronics System</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="c">% by</span><span class="w"></span>
+<span class="c">% Enrico Bertolazzi</span><span class="w"></span>
+<span class="c">% Dipartimento di Ingegneria Industriale</span><span class="w"></span>
+<span class="c">% Universita` degli Studi di Trento</span><span class="w"></span>
+<span class="c">% email: enrico.bertolazzi@unitn.it</span><span class="w"></span>
+<span class="c">%</span><span class="w"></span>
+<span class="k">classdef</span><span class="w"> </span><span class="n">DAE3ProjectionSolver</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nb">handle</span><span class="w"></span>
+<span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">solverName</span><span class="p">;</span><span class="w"> </span><span class="c">% should contain the name of the numerical method used</span><span class="w"></span>
+<span class="w">    </span><span class="n">DAEclass</span><span class="p">;</span><span class="w">   </span><span class="c">% the object storing the DAE</span><span class="w"></span>
+<span class="w">    </span><span class="n">RKclass</span><span class="p">;</span><span class="w">    </span><span class="c">% the object storing the RK solver</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
 
-  methods
-    function self = DAE3ProjectionSolver()
-      self.solverName = 'DAE3ProjectionSolver';
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function name = getName( self )
-      name = self.solverName;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function setDAE( self, DAEclass )
-      self.DAEclass = DAEclass;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function setRK( self, RKclass )
-      self.RKclass = RKclass;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %  form the index 1 DAE
-    %  q' = v
-    %  v' = v_dot
-    %  M(t,p) v_dot + Phi_p(t,q)^T lambda = f( t, q, v )
-    %  Phi_q(t,q)v_dot = b( t, q, v )
-    %
-    %  solve the linear system
-    %
-    %  / M(t,q)      Phi_p(t,q)^T \ /   v'   \   / f( t, q, v ) \
-    %  |                          | |        | = |              |
-    %  \ Phi_p(t,q)      0        / \ lambda /   \ b( t, q, v ) /
-    %
-    %  To obtain the ODE
-    %
-    %  q' = v
-    %  v' = v_dot(t,q,v)
-    %
-    function rhs = f( self, t, x )
-      [n,m] = self.DAEclass.getDim();
-      pos   = x(1:n);
-      vel   = x(n+1:end);
-      M     = self.DAEclass.M( t, pos );
-      Phi_q = self.DAEclass.Phi_q( t, pos );
-      f     = self.DAEclass.gforce( t, pos, vel );
-      b     = self.DAEclass.b( t, pos, vel );
-      % solve for v' and lambda
-      vl    = [ M, Phi_q.'; Phi_q, zeros(m,m) ]\[f;b];
-      rhs   = [ vel; vl(1:n) ];
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %  form the index 1 DAE
-    %  q' = v
-    %  v' = v_dot
-    %  M(t,p) v_dot + Phi_p(t,q)^T lambda = f( t, q, v )
-    %  Phi_q(t,q)v_dot = b( t, q, v )
-    %
-    %  solve the linear system
-    %
-    %  / M(t,q)      Phi_p(t,q)^T \ /   v'   \   / f( t, q, v ) \
-    %  |                          | |        | = |              |
-    %  \ Phi_p(t,q)      0        / \ lambda /   \ b( t, q, v ) /
-    %
-    %  To obtain the ODE
-    %
-    %  q' = v
-    %  v' = v_dot(t,q,v)
-    %
-    function Jac = DfDx( self, t, x )
-      [n,m]  = self.DAEclass.getDim();
-      pos    = x(1:n);
-      vel    = x(n+1:end);
-      M      = self.DAEclass.M( t, pos );
-      Phi_q  = self.DAEclass.Phi_q( t, pos );
-      f      = self.DAEclass.gforce( t, pos, vel );
-      b      = self.DAEclass.b( t, pos, vel );
-      % solve for v' and lambda
-      Mat    = [ M, Phi_q.'; Phi_q, zeros(m,m) ];
-      vl     = Mat\[f;b];
-      v_dot  = vl(1:n);
-      lambda = vl(n+1:end);
-      aa     = self.DAEclass.gforce_q( t, pos, vel ) ...
-             - self.DAEclass.W_q( t, pos, v_dot ) ...
-             - self.DAEclass.PhiL_q( t, pos, lambda );
-      bb     = self.DAEclass.b_q( t, pos, vel ) ...
-             - self.DAEclass.PhiV_q( t, pos, v_dot );
-      vl     = Mat\[aa;bb];
-      v_D_q  = vl(1:n,:);
-      aa     = self.DAEclass.gforce_v( t, pos, vel );
-      bb     = self.DAEclass.b_v( t, pos, vel );
-      vl     = Mat\[aa;bb];
-      v_D_v  = vl(1:n,:);
-      Jac    = [ zeros(n,n), eye(n); v_D_q, v_D_v ];
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %  form the index 1 DAE
-    %  q' = v
-    %  M(t,p) v' + Phi_p(t,q)^T lambda = f( t, q, v )
-    %  Phi_q(t,q) v' = b( t, q, v )
-    %
-    %  solve the linear system
-    %
-    %  / M(t,q)      Phi_p(t,q)^T \ /   v'   \   / f( t, q, v ) \
-    %  |                          | |        | = |              |
-    %  \ Phi_p(t,q)      0        / \ lambda /   \ b( t, q, v ) /
-    %
-    %  To obtain lambda
-    %
-    function lbd = lambda( self, t, x )
-      [n,m] = self.DAEclass.getDim();
-      pos   = x(1:n);
-      vel   = x(n+1:end);
-      M     = self.DAEclass.M( t, pos );
-      Phi_q = self.DAEclass.Phi_q( t, pos );
-      f     = self.DAEclass.gforce( t, pos, vel );
-      b     = self.DAEclass.b( t, pos, vel );
-      % solve for v' and lambda
-      vl    = [ M, Phi_q.'; Phi_q, zeros(m,m) ]\[f;b];
-      lbd   = vl(n+1,end);
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  Solve the problem
-    %
-    %  minimize      1/2 * (q-qbar)^2
-    %  subject to    Phi( q, tbar ) = 0
-    %
-    function projected_pos = project_position( self, t, pos )
-      [n,m] = self.DAEclass.getDim();
-      q   = pos;
-      mu  = zeros(m,1);
-      tol = norm(pos,inf)*sqrt(eps);
-      for k=1:10
-        phi = self.DAEclass.Phi( t, q );
-        M   = self.DAEclass.Phi_q( t, q );
-        Dql = [ eye(n), M.'; M, zeros(m,m) ] \ [ (pos-q) - (M.' * mu);-phi];
-        q   = q + Dql(1:n);
-        mu  = mu + Dql(n+1:end);
-        if max(abs(Dql)) &lt; tol
-          break;
-        end
-      end
-      projected_pos = q;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  Solve the problem
-    %
-    %  minimize      1/2 * (v-vbar)^2
-    %  subject to    Phi_q( tbar, q ) v + Phi_t( tbar, t ) = 0
-    %
-    function projected_vel = project_velocity( self, t, pos, vel )
-      [n,m] = self.DAEclass.getDim();
-      A   = self.DAEclass.Phi_q( t, pos );
-      b   = self.DAEclass.Phi_t( t, pos ) + A*vel;
-      vmu = [ eye(n), A.'; A, zeros(m,m) ] \ [ vel; -b ];
-      projected_vel = vmu(1:n);
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  step is a generic advancing step for a generic numerical methods
-    %
-    %  given x0 = x(t0) return the approximation of x(t0+dt)
-    %
-    function x1 = step( self, x0, t0, dt )
-      [n,m] = self.DAEclass.getDim();
-      % advance using RK Method
-      x1    = self.RKclass.step( x0, t0, dt );
-      t1    = t0+dt;
-      % project solution
-      pos   = self.project_position( t1, x1(1:n) );
-      vel   = self.project_velocity( t1, pos, x1(n+1:end) );
-      x1    = [ pos; vel ];
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  compute approximate solution on a series of point given by the vector t
-    %  starting at initial point pos0, vel0
-    %
-    function [ pos, vel, varargout ] = advance( self, t, pos0, vel0 )
-      self.RKclass.setODE( self );
-      [n,m]  = self.DAEclass.getDim();
-      x      = zeros(2*n,length(t));
-      x(:,1) = [pos0(:);vel0(:)];
-      for k=1:length(t)-1
-        x(:,k+1) = self.step( t(k), x(:,k), t(k+1)-t(k) );
-      end
-      pos = x(1:n,:);
-      vel = x(n+1:end,:);
-      % if required compute lambda
-      if nargout &gt; 2
-        lambda = zeros(m,length(t));
-        for k=1:length(t)
-          lambda(:,k) = self.lambda( t(k), x(:,k) );
-        end
-      end
-    end
-  end
-end
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DAE3ProjectionSolver</span><span class="p">()</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">solverName</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'DAE3ProjectionSolver'</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">delete</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>name<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">getName</span><span class="p">(</span> self <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">solverName</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setDAE</span><span class="p">(</span> self, DAEclass <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">DAEclass</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">setRK</span><span class="p">(</span> self, RKclass <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">RKclass</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">RKclass</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  form the index 1 DAE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  q' = v</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  v' = v_dot</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  M(t,p) v_dot + Phi_p(t,q)^T lambda = f( t, q, v )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Phi_q(t,q)v_dot = b( t, q, v )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  solve the linear system</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  / M(t,q)      Phi_p(t,q)^T \ /   v'   \   / f( t, q, v ) \</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  |                          | |        | = |              |</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  \ Phi_p(t,q)      0        / \ lambda /   \ b( t, q, v ) /</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  To obtain the ODE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  q' = v</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  v' = v_dot(t,q,v)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>rhs<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span> self, t, x <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">pos</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">vel</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">M</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">M</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">Phi_q</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">Phi_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">f</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">gforce</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">b</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">b</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c">% solve for v' and lambda</span><span class="w"></span>
+<span class="w">      </span><span class="n">vl</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Phi_q</span><span class="p">.</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="n">Phi_q</span><span class="p">,</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="o">\</span><span class="p">[</span><span class="n">f</span><span class="p">;</span><span class="n">b</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">rhs</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">vel</span><span class="p">;</span><span class="w"> </span><span class="n">vl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  form the index 1 DAE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  q' = v</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  v' = v_dot</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  M(t,p) v_dot + Phi_p(t,q)^T lambda = f( t, q, v )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Phi_q(t,q)v_dot = b( t, q, v )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  solve the linear system</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  / M(t,q)      Phi_p(t,q)^T \ /   v'   \   / f( t, q, v ) \</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  |                          | |        | = |              |</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  \ Phi_p(t,q)      0        / \ lambda /   \ b( t, q, v ) /</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  To obtain the ODE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  q' = v</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  v' = v_dot(t,q,v)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>Jac<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DfDx</span><span class="p">(</span> self, t, x <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">pos</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">vel</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">M</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">M</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">Phi_q</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">Phi_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">f</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">gforce</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">b</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">b</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c">% solve for v' and lambda</span><span class="w"></span>
+<span class="w">      </span><span class="n">Mat</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Phi_q</span><span class="p">.</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="n">Phi_q</span><span class="p">,</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">vl</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">Mat</span><span class="o">\</span><span class="p">[</span><span class="n">f</span><span class="p">;</span><span class="n">b</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">v_dot</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">vl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vl</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">aa</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">gforce_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
+<span class="w">             </span><span class="o">-</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">W_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">v_dot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
+<span class="w">             </span><span class="o">-</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">PhiL_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">bb</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">b_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
+<span class="w">             </span><span class="o">-</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">PhiV_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">v_dot</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">vl</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">Mat</span><span class="o">\</span><span class="p">[</span><span class="n">aa</span><span class="p">;</span><span class="n">bb</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">v_D_q</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">vl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">,:);</span><span class="w"></span>
+<span class="w">      </span><span class="n">aa</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">gforce_v</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">bb</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">b_v</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">vl</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">Mat</span><span class="o">\</span><span class="p">[</span><span class="n">aa</span><span class="p">;</span><span class="n">bb</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">v_D_v</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">vl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">,:);</span><span class="w"></span>
+<span class="w">      </span><span class="n">Jac</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w"> </span><span class="n">v_D_q</span><span class="p">,</span><span class="w"> </span><span class="n">v_D_v</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  form the index 1 DAE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  q' = v</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  M(t,p) v' + Phi_p(t,q)^T lambda = f( t, q, v )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Phi_q(t,q) v' = b( t, q, v )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  solve the linear system</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  / M(t,q)      Phi_p(t,q)^T \ /   v'   \   / f( t, q, v ) \</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  |                          | |        | = |              |</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  \ Phi_p(t,q)      0        / \ lambda /   \ b( t, q, v ) /</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  To obtain lambda</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>lbd<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">lambda</span><span class="p">(</span> self, t, x <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">pos</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">vel</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">M</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">M</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">Phi_q</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">Phi_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">f</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">gforce</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">b</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">b</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c">% solve for v' and lambda</span><span class="w"></span>
+<span class="w">      </span><span class="n">vl</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="n">Phi_q</span><span class="p">.</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="n">Phi_q</span><span class="p">,</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="o">\</span><span class="p">[</span><span class="n">f</span><span class="p">;</span><span class="n">b</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">lbd</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">vl</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Solve the problem</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  minimize      1/2 * (q-qbar)^2</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  subject to    Phi( q, tbar ) = 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>projected_pos<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">project_position</span><span class="p">(</span> self, t, pos <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">q</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">mu</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">tol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span><span class="n">inf</span><span class="p">)</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">eps</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="w"></span>
+<span class="w">        </span><span class="n">phi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">Phi</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">M</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">Phi_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">Dql</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">M</span><span class="p">.</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">\</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="o">-</span><span class="n">q</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">M</span><span class="p">.</span><span class="o">'</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">mu</span><span class="p">);</span><span class="o">-</span><span class="n">phi</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="n">q</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Dql</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">mu</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Dql</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Dql</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="w"></span>
+<span class="w">          </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="n">projected_pos</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  Solve the problem</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  minimize      1/2 * (v-vbar)^2</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  subject to    Phi_q( tbar, q ) v + Phi_t( tbar, t ) = 0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>projected_vel<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">project_velocity</span><span class="p">(</span> self, t, pos, vel <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">A</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">Phi_q</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">b</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">Phi_t</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">vel</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">vmu</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="w"> </span><span class="n">A</span><span class="p">.</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">\</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">vel</span><span class="p">;</span><span class="w"> </span><span class="o">-</span><span class="n">b</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="n">projected_vel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vmu</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  step is a generic advancing step for a generic numerical methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  given x0 = x(t0) return the approximation of x(t0+dt)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>x1<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span> self, x0, t0, dt <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="c">% advance using RK Method</span><span class="w"></span>
+<span class="w">      </span><span class="n">x1</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">RKclass</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">t1</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">t0</span><span class="o">+</span><span class="n">dt</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="c">% project solution</span><span class="w"></span>
+<span class="w">      </span><span class="n">pos</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">project_position</span><span class="p">(</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">vel</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">project_velocity</span><span class="p">(</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">pos</span><span class="p">,</span><span class="w"> </span><span class="n">x1</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">x1</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">pos</span><span class="p">;</span><span class="w"> </span><span class="n">vel</span><span class="w"> </span><span class="s">]</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  compute approximate solution on a series of point given by the vector t</span><span class="w"></span>
+<span class="w">    </span><span class="c">%  starting at initial point pos0, vel0</span><span class="w"></span>
+<span class="w">    </span><span class="c">%</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">[ pos, vel, varargout ] = advance</span><span class="p">(</span> self, t, pos0, vel0 <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">RKclass</span><span class="p">.</span><span class="n">setODE</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">]</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">DAEclass</span><span class="p">.</span><span class="n">getDim</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">pos0</span><span class="p">(:);</span><span class="n">vel0</span><span class="p">(:)];</span><span class="w"></span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="n">pos</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">,:);</span><span class="w"></span>
+<span class="w">      </span><span class="n">vel</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span><span class="p">,:);</span><span class="w"></span>
+<span class="w">      </span><span class="c">% if required compute lambda</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="nb">nargout</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">        </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">lambda</span><span class="p">(:,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">lambda</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
 </pre></div>
 </div>
 </div>
