@@ -9,8 +9,16 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
+%> 
+%> ODE base class describing an ODE
+%>
+%> *Usage*
+%>
+%>      ode = ODE_derived_class() % create an instance of a ODE
+%>      res = ode.f(t,x);
+%>
 classdef ODEbaseClass < handle
-  properties (SetAccess = protected, Hidden = true)
+    properties (SetAccess = protected, Hidden = true)
     name; %> the name of the ODE, used in warning/error messages
   end
 

@@ -10,15 +10,6 @@
 % email: enrico.bertolazzi@unitn.it
 %
 %
-% Compare with results in:
-%
-% https://archimede.dm.uniba.it/~testset/report/chemakzo.pdf
-%
-addpath('../matlab');
-addpath('../matlab/ode');
-addpath('../matlab/ode_lib');
-addpath('../matlab/ode_lib/explicit');
-addpath('../matlab/ode_lib/implicit');
 
 close all;
 %set(0,'DefaultFigureWindowStyle','docked');

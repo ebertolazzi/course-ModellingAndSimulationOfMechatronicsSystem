@@ -14,11 +14,6 @@
 %
 % https://archimede.dm.uniba.it/~testset/report/chemakzo.pdf
 %
-addpath('../matlab');
-addpath('../matlab/ode');
-addpath('../matlab/ode_lib');
-addpath('../matlab/ode_lib/explicit');
-addpath('../matlab/ode_lib/implicit');
 
 close all;
 %set(0,'DefaultFigureWindowStyle','docked');
@@ -65,8 +60,11 @@ omega_H = sol_H(2,:);
 x_H     = ell*sin(theta_H);
 y_H     = -ell*cos(theta_H);
 
+ws = 'docked'
+ws = 'normal'
+
 h = figure();
-set(h,'WindowStyle','docked');
+set(h,'WindowStyle',ws);
 xx = ell*cos(0:pi/100:2*pi);
 yy = ell*sin(0:pi/100:2*pi);
 plot( xx, yy, '-r', 'Linewidth', 1 );
@@ -78,7 +76,7 @@ plot( x_H,  y_H,  '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 title('x,y');
 
 h = figure();
-set(h,'WindowStyle','docked');
+set(h,'WindowStyle',ws);
 
 plot( tt, theta_EE, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 hold on;
@@ -88,7 +86,7 @@ legend({'Explicit Euler', 'Implicit Euler','Heun'});
 title('theta');
 
 h = figure();
-set(h,'WindowStyle','docked');
+set(h,'WindowStyle',ws);
 
 plot( tt, x_EE, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 hold on;
