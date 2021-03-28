@@ -9,44 +9,63 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
+%> 
+%> ODE base class describing an ODE
+%>
+%> *Usage*
+%>
+%>      ode = ODE_derived_class() % create an instance of a ODE
+%>      res = ode.f(t,x);
+%>
 classdef ODEbaseClass < handle
-  properties (SetAccess = protected, Hidden = true)
-    name;
+    properties (SetAccess = protected, Hidden = true)
+    name; %> the name of the ODE, used in warning/error messages
   end
 
   methods (Abstract)
-    %
-    %  Abstract functions defining and ODE
-    %
-    %  x' = f( t, x )
-    %
+    %>
+    %>  Abstract functions. The derived function must define the ODE
+    %>  \f$ x' = f( t, x ) \f$
+    %>
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     f( self, t, x )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  return jacobian Df( t, x ) / Dx
-    %
+    %>
+    %>  Abstract functions. The derived function must return 
+    %>  the jacobian \f$ \partial f( t, x ) / \partial x \f$
+    %>
     DfDx( self, t, x )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  return jacobian Df( t, x ) / Dt
-    %
+    %>
+    %>  Abstract functions. The derived function must return 
+    %>  the jacobian \f$ \partial f( t, x ) / \partial t \f$
+    %>
     DfDt( self, t, x )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    %  return exact solution x(t) such that x(t0) = x0
-    %  if exact solution is not available define the function that return NaN
-    %
+    %>
+    %> Abstract functions. The derived function must return the 
+    %> exact solution \f$ x(t) \f$ of the ODE \f$ x' = f( t, x ) \f$
+    %> such that \f$ x(t_0) = x_0 \f$.
+    %> If exact solution is not available the derived function that return `[]`
+    %>
+    %> \param self matlab sintactic sugar, ignore it
+    %> \param t0   \f$ t_0 \f$
+    %> \param x0   \f$ x_0 \f$
+    %> \param t    \f$ t \f$
+    %>
+    %>
     exact( self, t0, x0, t )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end
 
   methods
     function self = ODEbaseClass( name )
+      %> Construct object with stored `name`
       self.name = name;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function delete( self )
+      %> Delete object
     end
   end
 end

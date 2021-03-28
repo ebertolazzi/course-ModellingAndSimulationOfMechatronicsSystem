@@ -1,0 +1,296 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class ODEbaseClass &#8212; ODE/DAE  documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-treeview/bootstrap-treeview.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class ODEbaseClass_P" href="class_o_d_ebase_class___p.html" />
+    <link rel="prev" title="Class Midpoint_P" href="class_midpoint___p.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_o_d_ebase_class___p.html" title="Class ODEbaseClass_P"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_midpoint___p.html" title="Class Midpoint_P"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="library_root.html" accesskey="U">MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class ODEbaseClass</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-odebaseclass">
+<span id="exhale-class-class-o-d-ebase-class"></span><h1>Class ODEbaseClass<a class="headerlink" href="#class-odebaseclass" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseClass.m.html#file-users-enrico-ricerca-papers-didattica-didattica-github-2020-coursemodellingandsimulationofmechatronicssystem-toolbox-lib-ode-odebaseclass-m"><span class="std std-ref">File ODEbaseClass.m</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">handle</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DAE3baseClassImplicit</span></code> (<a class="reference internal" href="class_d_a_e3base_class_implicit.html#exhale-class-class-d-a-e3base-class-implicit"><span class="std std-ref">Class DAE3baseClassImplicit</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt id="_CPPv412ODEbaseClass">
+<span id="_CPPv312ODEbaseClass"></span><span id="_CPPv212ODEbaseClass"></span><span id="ODEbaseClass"></span><span class="target" id="class_o_d_ebase_class"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ODEbaseClass</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">handle</span><a class="headerlink" href="#_CPPv412ODEbaseClass" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>ODE base class describing an ODE</p>
+<p><em>Usage</em> </p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span> <span class="n">ode</span> <span class="o">=</span> <span class="n">ODE_derived_class</span><span class="p">()</span> <span class="o">%</span> <span class="n">create</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">ODE</span>
+ <span class="n">res</span> <span class="o">=</span> <span class="n">ode</span><span class="p">.</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
+</pre></div>
+</div>
+ 
+<p>Subclassed by <a class="reference internal" href="class_d_a_e3base_class_implicit.html#class_d_a_e3base_class_implicit"><span class="std std-ref">DAE3baseClassImplicit</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N12ODEbaseClass1fE2in2in2in">
+<span id="_CPPv3N12ODEbaseClass1fE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass1fE2in2in2in"></span><span id="ODEbaseClass::f__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abb6cf02421cbd31153f587740295ab2c"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">f</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass1fE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Abstract functions. The derived function must define the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N12ODEbaseClass4DfDxE2in2in2in">
+<span id="_CPPv3N12ODEbaseClass4DfDxE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDxE2in2in2in"></span><span id="ODEbaseClass::DfDx__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1ab2cc3bd14bcce7f8a9315a8f41c49a7a"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDx</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDxE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Abstract functions. The derived function must return the jacobian <span class="math notranslate nohighlight">\( \partial f( t, x ) / \partial x \)</span> </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N12ODEbaseClass4DfDtE2in2in2in">
+<span id="_CPPv3N12ODEbaseClass4DfDtE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDtE2in2in2in"></span><span id="ODEbaseClass::DfDt__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1a80b915453358bd76ac8f86bb4f9fd541"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDt</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em>, <span class="pre">in</span> <em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDtE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Abstract functions. The derived function must return the jacobian <span class="math notranslate nohighlight">\( \partial f( t, x ) / \partial t \)</span> </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N12ODEbaseClass5exactE2in2in2in2in">
+<span id="_CPPv3N12ODEbaseClass5exactE2in2in2in2in"></span><span id="_CPPv2N12ODEbaseClass5exactE2in2in2in2in"></span><span id="ODEbaseClass::exact__in.in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abeb9bdeb2ccc9016fe1fafc0e8665e0b"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">exact</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">self</span></em>, <span class="pre">in</span> <em><span class="pre">t0</span></em>, <span class="pre">in</span> <em><span class="pre">x0</span></em>, <span class="pre">in</span> <em><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass5exactE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Abstract functions. The derived function must return the exact solution <span class="math notranslate nohighlight">\( x(t) \)</span> of the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> such that <span class="math notranslate nohighlight">\( x(t_0) = x_0 \)</span>. If exact solution is not available the derived function that return <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+<p></p>
+<dl class="simple">
+<dt><strong>Parameters</strong></dt>
+<dd>
+<ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">self</span></code>: matlab sintactic sugar, ignore it </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t0</span></code>: <span class="math notranslate nohighlight">\( t_0 \)</span> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x0</span></code>: <span class="math notranslate nohighlight">\( x_0 \)</span> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code>: <span class="math notranslate nohighlight">\( t \)</span> </p></li>
+</ul>
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N12ODEbaseClass12ODEbaseClassE2in">
+<span id="_CPPv3N12ODEbaseClass12ODEbaseClassE2in"></span><span id="_CPPv2N12ODEbaseClass12ODEbaseClassE2in"></span><span id="ODEbaseClass::ODEbaseClass__in"></span><span class="target" id="class_o_d_ebase_class_1a95ef0edd9b840bcfe6b459a44b1405ec"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">ODEbaseClass</span></code><span class="sig-paren">(</span><span class="pre">in</span> <em><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass12ODEbaseClassE2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd></dd>
+</dl>
+
+<dl class="cpp function">
+<dt>
+<span class="target" id="class_o_d_ebase_class_1ae4576925165635430fcf1360afdf2f07"></span><code class="sig-name descname"><span class="pre">function</span> <span class="pre">delete</span> <span class="pre">(in</span> <span class="pre">self)</span></code>
+</dt>
+<dd>
+<p>Construct object with stored <code class="docutils literal notranslate"><span class="pre">name</span></code> </p>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="../index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Class ODEbaseClass</a><ul>
+<li><a class="reference internal" href="#inheritance-relationships">Inheritance Relationships</a><ul>
+<li><a class="reference internal" href="#base-type">Base Type</a></li>
+<li><a class="reference internal" href="#derived-type">Derived Type</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#class-documentation">Class Documentation</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="class_midpoint___p.html"
+                          title="Previous page">&larr; Class Midpoint_P</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="class_o_d_ebase_class___p.html"
+                          title="Next page">&rarr; Class ODEbaseClass_P</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/class_o_d_ebase_class.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_o_d_ebase_class___p.html" title="Class ODEbaseClass_P"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_midpoint___p.html" title="Class Midpoint_P"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="library_root.html" >MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class ODEbaseClass</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Enrico Bertolazzi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
