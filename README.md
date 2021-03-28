@@ -5,7 +5,7 @@ Matlab classes and script for the solution of ODE and DAE.
 
 ## Online Documentation
 
-Available at [https://ebertolazzi.github.io/course-ComputationalMethodsForMechatronix](https://ebertolazzi.github.io/course-ComputationalMethodsForMechatronix)
+Available at [https://ebertolazzi.github.io/course-ModellingAndSimulationOfMechatronicsSystem](https://ebertolazzi.github.io/course-ModellingAndSimulationOfMechatronicsSystem)
 
 Author
 ------

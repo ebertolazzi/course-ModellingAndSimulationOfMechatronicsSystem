@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Course Modelling And Simulation Of Mechatronics System &#8212; ODE/DAE  documentation</title>
+    <title>ODE/DAE library manual &#8212; ODE/DAE  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/bootstrap-treeview/bootstrap-treeview.min.css" />
@@ -38,8 +38,8 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ODE/DAE library manual" href="Manual.html" />
-    <link rel="prev" title="ODE/DAE" href="index.html" /> 
+    <link rel="next" title="Introduction" href="Manual_INTRO.html" />
+    <link rel="prev" title="Course Modelling And Simulation Of Mechatronics System" href="readme.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -54,14 +54,14 @@
           <a href="index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual.html" title="ODE/DAE library manual"
+          <a href="Manual_INTRO.html" title="Introduction"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="ODE/DAE"
+          <a href="readme.html" title="Course Modelling And Simulation Of Mechatronics System"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ODE/DAE  documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">Course Modelling And Simulation Of Mechatronics System</a></li> 
+        <li class="nav-item nav-item-this"><a href="">ODE/DAE library manual</a></li> 
       </ul>
     </div>
     </div>
@@ -72,30 +72,80 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="course-modelling-and-simulation-of-mechatronics-system">
-<h1>Course Modelling And Simulation Of Mechatronics System<a class="headerlink" href="#course-modelling-and-simulation-of-mechatronics-system" title="Permalink to this headline">¶</a>
+  <div class="section" id="ode-dae-library-manual">
+<h1>ODE/DAE library manual<a class="headerlink" href="#ode-dae-library-manual" title="Permalink to this headline">¶</a>
 </h1>
-<p>Toolbox for the course.
-Matlab classes and script for the solution of ODE and DAE.</p>
-<div class="section" id="online-documentation">
-<h2>Online Documentation<a class="headerlink" href="#online-documentation" title="Permalink to this headline">¶</a>
+<div class="section" id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a>
 </h2>
-<p>Available at <a class="reference external" href="https://ebertolazzi.github.io/course-ModellingAndSimulationOfMechatronicsSystem">https://ebertolazzi.github.io/course-ModellingAndSimulationOfMechatronicsSystem</a></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1">
+<a class="reference internal" href="Manual_INTRO.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_INTRO.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_INTRO.html#ode-solvers">ODE solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_INTRO.html#dae-solvers-projection-based">DAE solvers (projection based)</a></li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="Manual_ODE_TEST.html">ODE solve example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST.html#load-ode">Load ODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST.html#instantiate-the-ode">Instantiate the ODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST.html#choose-solver">Choose solver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST.html#integrate">Integrate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST.html#extract-solution">Extract solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST.html#plot-the-solution">Plot the solution</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="author">
 <h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a>
 </h2>
-<p>Enrico Bertolazzi (<script type="text/javascript">document.write(
-    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+<div class="line-block">
+<div class="line">Enrico Bertolazzi <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">znvygb:raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
         function(c){
             return String.fromCharCode(
                 (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
             );
         }
     )
-);</script>)<span class="raw-html-m2r"><br></span>
-Department of Industrial Engineering<span class="raw-html-m2r"><br></span>
-University of Trento</p>
+);</script>
+</div>
+<div class="line">Department of Industrial Engineering</div>
+<div class="line">University of Trento</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a>
+</h2>
+<ol class="arabic">
+<li>
+<p><em>Claus Bendtsen, Per Grove Thomsen</em>,
+<strong>Numerical Solution of Differential Algebraic Equations</strong>,
+Technical report IMM-REP-1999-8,</p>
+<p><a class="reference external" href="https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra">https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra</a></p>
+</li>
+<li>
+<p><em>John C.Butcher</em>,
+<strong>Introduction to Runge–Kutta methods</strong></p>
+<p><a class="reference external" href="https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf">https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf</a></p>
+</li>
+<li>
+<p><em>John C.Butcher</em>,
+<strong>The Numerical Analysis of Ordinary Differential Differential Equations: Runge-Kutta and General Linear Methods</strong>
+Wiley, Chichester (1964)</p>
+<p><a class="reference external" href="https://doi.org/10.1137/1031147">https://doi.org/10.1137/1031147</a></p>
+</li>
+<li>
+<p><em>E. Hairer, G. Wanner</em>,
+<strong>Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems</strong>,
+Springer, Berlin (1991)</p>
+<p><a class="reference external" href="https://www.springer.com/gp/book/9783540604525">https://www.springer.com/gp/book/9783540604525</a></p>
+</li>
+</ol>
 </div>
 </div>
 
@@ -112,9 +162,10 @@ University of Trento</p>
         </a></p><div class="sphinx-toc sphinxlocaltoc">
     <h3><a href="index.html">Page contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Course Modelling And Simulation Of Mechatronics System</a><ul>
-<li><a class="reference internal" href="#online-documentation">Online Documentation</a></li>
+<li><a class="reference internal" href="#">ODE/DAE library manual</a><ul>
+<li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#author">Author</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
 </ul>
 </li>
 </ul>
@@ -122,18 +173,18 @@ University of Trento</p>
   </div>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="index.html"
-                          title="Previous page">&larr; ODE/DAE</a></p>
+    <p class="topless"><a href="readme.html"
+                          title="Previous page">&larr; Course Modelling And Simulation Of Mechatronics System</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="Manual.html"
-                          title="Next page">&rarr; ODE/DAE library manual</a></p>
+    <p class="topless"><a href="Manual_INTRO.html"
+                          title="Next page">&rarr; Introduction</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/readme.rst.txt"
+      <li><a href="_sources/Manual.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -180,14 +231,14 @@ University of Trento</p>
           <a href="index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual.html" title="ODE/DAE library manual"
+          <a href="Manual_INTRO.html" title="Introduction"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="index.html" title="ODE/DAE"
+          <a href="readme.html" title="Course Modelling And Simulation Of Mechatronics System"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ODE/DAE  documentation</a> &#187;</li>
 
-        <li class="nav-item nav-item-this"><a href="">Course Modelling And Simulation Of Mechatronics System</a></li> 
+        <li class="nav-item nav-item-this"><a href="">ODE/DAE library manual</a></li> 
       </ul>
     </div>
     </div>

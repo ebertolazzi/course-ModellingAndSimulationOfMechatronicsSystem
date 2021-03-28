@@ -1,19 +1,17 @@
 ODE/DAE
 =======
 
-Splines is a set of C++ classes (with MATLAB mex interface) which implements various spline interpolation. 
-
 .. toctree::
    :maxdepth: 2
 
    readme.rst
+   Manual.rst
+   Manual_ODE.rst
    api/library_root.rst
 
-Indices and tables
-==================
+Search
+------
 
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 
 License

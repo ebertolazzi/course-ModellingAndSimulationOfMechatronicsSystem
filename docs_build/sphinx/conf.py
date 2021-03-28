@@ -113,7 +113,7 @@ exhale_args = {
         EXTENSION_MAPPING     = .m=C++
         FILE_PATTERNS         = *.m
         FILTER_PATTERNS       = *.m=./m2cpp.pl
-        GENERATE_HTML         = YES
+        GENERATE_HTML         = NO
 ''',
   'kindsWithContentsDirectives': [] # tolgo contents a tutte! (serve per Furo)
 }
