@@ -4,7 +4,7 @@ ODE solve example
 Load ODE
 --------
 
-Consider the ODE:
+Consider the ODE :math:`\sin(x)^2+\dfrac{1}{2}`:
 
 .. math::
 

@@ -7,7 +7,7 @@
     <param.summary>Matlab code for the Course: Modelling and Simulation Mechatronics System (AA 2019/2020)</param.summary>
     <param.description />
     <param.screenshot>${PROJECT_ROOT}/toolbox/logo.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.version>0.1</param.version>
     <param.output>${PROJECT_ROOT}/DAE solver.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -65,7 +65,6 @@
       <param.email />
       <param.company />
       <param.description />
-      <param.version />
       <param.output />
       <param.products.name />
       <param.products.id />
@@ -107,7 +106,7 @@
       <file>${PROJECT_ROOT}/toolbox/helptoc.xml</file>
       <file>${PROJECT_ROOT}/toolbox/info.xml</file>
       <file>${PROJECT_ROOT}/toolbox/lib</file>
-      <file>${PROJECT_ROOT}/toolbox/license.txt</file>
+      <file>${PROJECT_ROOT}/toolbox/license.rst</file>
       <file>${PROJECT_ROOT}/toolbox/logo.png</file>
       <file>${PROJECT_ROOT}/toolbox/setup.m</file>
     </fileset.rootfiles>
@@ -119,7 +118,7 @@
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>/Applications/MATLAB_R2019b.app</root>
+      <root>/Applications/MATLAB_R2020b.app</root>
       <toolboxes />
     </matlab>
     <platform>
@@ -131,7 +130,7 @@
       <vista>false</vista>
       <linux>false</linux>
       <solaris>false</solaris>
-      <osver>10.15.5</osver>
+      <osver>10.15.7</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>maci64</arch>
