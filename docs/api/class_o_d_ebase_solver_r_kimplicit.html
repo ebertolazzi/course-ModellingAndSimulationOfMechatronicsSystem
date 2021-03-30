@@ -37,9 +37,7 @@
     
 
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class ODEbaseSolverRKimplicit_P" href="class_o_d_ebase_solver_r_kimplicit___p.html" />
-    <link rel="prev" title="Class ODEbaseSolverRKexplicit_P" href="class_o_d_ebase_solver_r_kexplicit___p.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -53,15 +51,8 @@
         <li class="right" >
           <a href="../index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_o_d_ebase_solver_r_kimplicit___p.html" title="Class ODEbaseSolverRKimplicit_P"
-             accesskey="N">next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_o_d_ebase_solver_r_kexplicit___p.html" title="Class ODEbaseSolverRKexplicit_P"
-             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="library_root.html" accesskey="U">MATLAB API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Class ODEbaseSolverRKimplicit</a></li> 
       </ul>
     </div>
@@ -86,7 +77,7 @@
 <h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
 </h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ODEbaseSolver</span></code> (<a class="reference internal" href="class_o_d_ebase_solver.html#exhale-class-class-o-d-ebase-solver"><span class="std std-ref">Class ODEbaseSolver</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ODEbaseSolver</span></code></p></li>
 </ul>
 </div>
 <div class="section" id="derived-types">
@@ -109,74 +100,10 @@
 <div class="section" id="class-documentation">
 <h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
 </h2>
-<dl class="cpp class">
-<dt id="_CPPv423ODEbaseSolverRKimplicit">
-<span id="_CPPv323ODEbaseSolverRKimplicit"></span><span id="_CPPv223ODEbaseSolverRKimplicit"></span><span id="ODEbaseSolverRKimplicit"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ODEbaseSolverRKimplicit</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <a class="reference internal" href="class_o_d_ebase_solver.html#_CPPv413ODEbaseSolver" title="ODEbaseSolver"><span class="pre">ODEbaseSolver</span></a><a class="headerlink" href="#_CPPv423ODEbaseSolverRKimplicit" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Subclassed by <a class="reference internal" href="class_crank_nicolson.html#class_crank_nicolson"><span class="std std-ref">CrankNicolson</span></a>, <a class="reference internal" href="class_gauss_legendre4.html#class_gauss_legendre4"><span class="std std-ref">GaussLegendre4</span></a>, <a class="reference internal" href="class_gauss_legendre6.html#class_gauss_legendre6"><span class="std std-ref">GaussLegendre6</span></a>, <a class="reference internal" href="class_implicit_euler.html#class_implicit_euler"><span class="std std-ref">ImplicitEuler</span></a>, <a class="reference internal" href="class_lobatto_i_i_i_a.html#class_lobatto_i_i_i_a"><span class="std std-ref">LobattoIIIA</span></a>, <a class="reference internal" href="class_lobatto_i_i_i_b.html#class_lobatto_i_i_i_b"><span class="std std-ref">LobattoIIIB</span></a>, <a class="reference internal" href="class_lobatto_i_i_i_c.html#class_lobatto_i_i_i_c"><span class="std std-ref">LobattoIIIC</span></a>, <a class="reference internal" href="class_lobatto_i_i_i_c__star.html#class_lobatto_i_i_i_c__star"><span class="std std-ref">LobattoIIIC_star</span></a>, <a class="reference internal" href="class_radau_i_a.html#class_radau_i_a"><span class="std std-ref">RadauIA</span></a>, <a class="reference internal" href="class_radau_i_i_a.html#class_radau_i_i_a"><span class="std std-ref">RadauIIA</span></a></p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit23ODEbaseSolverRKimplicitE2in2in2in2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit23ODEbaseSolverRKimplicitE2in2in2in2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit23ODEbaseSolverRKimplicitE2in2in2in2in"></span><span id="ODEbaseSolverRKimplicit::ODEbaseSolverRKimplicit__in.in.in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1ac2307eb1c473161cef7845c645fe9bfa"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">ODEbaseSolverRKimplicit</span></code><span class="sig-paren">(</span><em><span class="pre">solverName</span></em>,<em><span class="pre">A</span></em>,<em><span class="pre">b</span></em>,<em><span class="pre">c</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit23ODEbaseSolverRKimplicitE2in2in2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit12stepResidualE2in2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit12stepResidualE2in2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit12stepResidualE2in2in"></span><span id="ODEbaseSolverRKimplicit::stepResidual__in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1aa1dd01518d26d2780ec1912e531bde20"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidual</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit12stepResidualE2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit20stepResidualJacobianE2in2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit20stepResidualJacobianE2in2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit20stepResidualJacobianE2in2in"></span><span id="ODEbaseSolverRKimplicit::stepResidualJacobian__in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1a24f874461f338b022e9bad4338d13656"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidualJacobian</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit20stepResidualJacobianE2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit17solveStepByNewtonE2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit17solveStepByNewtonE2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit17solveStepByNewtonE2in"></span><span id="ODEbaseSolverRKimplicit::solveStepByNewton__in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1aa3f46c134974f4d196cdcde74e8e888f"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">solveStepByNewton</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit17solveStepByNewtonE2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit4stepE2in2in2in2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit4stepE2in2in2in2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit4stepE2in2in2in2in"></span><span id="ODEbaseSolverRKimplicit::step__in.in.in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1a756d0d57ebeb59736a8da3a325ac03fd"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">function</span> <code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em><span class="pre">t0</span></em>,<em><span class="pre">x0</span></em>,<em><span class="pre">dt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit4stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit7getNameE2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit7getNameE2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit7getNameE2in"></span><span id="ODEbaseSolverRKimplicit::getName__in"></span><span class="target" id="class_o_d_ebase_solver_1a763011221a3e61796ad944b7a5f3022b"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">getName</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit7getNameE2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit6setODEE2in2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit6setODEE2in2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit6setODEE2in2in"></span><span id="ODEbaseSolverRKimplicit::setODE__in.in"></span><span class="target" id="class_o_d_ebase_solver_1ac7055749661d4a5318333d06c8f08bff"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">setODE</span></code><span class="sig-paren">(</span><em><span class="pre">odeClass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit6setODEE2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N23ODEbaseSolverRKimplicit7advanceE2in2in2in">
-<span id="_CPPv3N23ODEbaseSolverRKimplicit7advanceE2in2in2in"></span><span id="_CPPv2N23ODEbaseSolverRKimplicit7advanceE2in2in2in"></span><span id="ODEbaseSolverRKimplicit::advance__in.in.in"></span><span class="target" id="class_o_d_ebase_solver_1a841a2044d66efdc7082b4bd2027e370e"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">advance</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N23ODEbaseSolverRKimplicit7advanceE2in2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenclass: Cannot find class “ODEbaseSolverRKimplicit” in doxygen xml output for project “ODE/DAE” from directory: ../xml</p>
 </div>
-</dd>
-</dl>
-
 </div>
 </div>
 
@@ -204,16 +131,6 @@
 </li>
 </ul>
 
-  </div>
-  <div class="sphinxprev">
-    <h4>Previous page</h4>
-    <p class="topless"><a href="class_o_d_ebase_solver_r_kexplicit___p.html"
-                          title="Previous page">&larr; Class ODEbaseSolverRKexplicit_P</a></p>
-  </div>
-  <div class="sphinxnext">
-    <h4>Next page</h4>
-    <p class="topless"><a href="class_o_d_ebase_solver_r_kimplicit___p.html"
-                          title="Next page">&rarr; Class ODEbaseSolverRKimplicit_P</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -264,15 +181,8 @@
         <li class="right" >
           <a href="../index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_o_d_ebase_solver_r_kimplicit___p.html" title="Class ODEbaseSolverRKimplicit_P"
-             >next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_o_d_ebase_solver_r_kexplicit___p.html" title="Class ODEbaseSolverRKexplicit_P"
-             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="library_root.html" >MATLAB API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Class ODEbaseSolverRKimplicit</a></li> 
       </ul>
     </div>

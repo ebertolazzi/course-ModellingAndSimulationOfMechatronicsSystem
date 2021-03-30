@@ -19,6 +19,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
     
@@ -86,7 +87,7 @@
 <h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
 </h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ODEbaseSolverRKimplicit</span></code> (<a class="reference internal" href="class_o_d_ebase_solver_r_kimplicit.html#exhale-class-class-o-d-ebase-solver-r-kimplicit"><span class="std std-ref">Class ODEbaseSolverRKimplicit</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DAC_ODEsolverRKimplicit</span></code> (<a class="reference internal" href="class_d_a_c___o_d_esolver_r_kimplicit.html#exhale-class-class-d-a-c-o-d-esolver-r-kimplicit"><span class="std std-ref">Class DAC_ODEsolverRKimplicit</span></a>)</p></li>
 </ul>
 </div>
 </div>
@@ -95,7 +96,7 @@
 </h2>
 <dl class="cpp class">
 <dt id="_CPPv413CrankNicolson">
-<span id="_CPPv313CrankNicolson"></span><span id="_CPPv213CrankNicolson"></span><span id="CrankNicolson"></span><span class="target" id="class_crank_nicolson"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">CrankNicolson</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <a class="reference internal" href="class_o_d_ebase_solver_r_kimplicit.html#_CPPv423ODEbaseSolverRKimplicit" title="ODEbaseSolverRKimplicit"><span class="pre">ODEbaseSolverRKimplicit</span></a><a class="headerlink" href="#_CPPv413CrankNicolson" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv313CrankNicolson"></span><span id="_CPPv213CrankNicolson"></span><span id="CrankNicolson"></span><span class="target" id="class_crank_nicolson"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">CrankNicolson</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <a class="reference internal" href="class_d_a_c___o_d_esolver_r_kimplicit.html#_CPPv423DAC_ODEsolverRKimplicit" title="DAC_ODEsolverRKimplicit"><span class="pre">DAC_ODEsolverRKimplicit</span></a><a class="headerlink" href="#_CPPv413CrankNicolson" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <div class="breathe-sectiondef docutils container">
@@ -104,56 +105,92 @@
 <dt id="_CPPv4N13CrankNicolson13CrankNicolsonEv">
 <span id="_CPPv3N13CrankNicolson13CrankNicolsonEv"></span><span id="_CPPv2N13CrankNicolson13CrankNicolsonEv"></span><span id="CrankNicolson::CrankNicolson"></span><span class="target" id="class_crank_nicolson_1a091a8351cfc51a097c96bab586b51217"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">CrankNicolson</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson13CrankNicolsonEv" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Crank Nicolson</p>
+<p></p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|cc}
+   0 &amp; 0   &amp; 0 \\
+   1 &amp; 1/2 &amp; 1/2 \\
+ \hline
+     &amp; 1/2 &amp; 1/2
+\end{array}\end{split}\]</div>
+
+ 
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N13CrankNicolson12stepResidualE2in2in">
-<span id="_CPPv3N13CrankNicolson12stepResidualE2in2in"></span><span id="_CPPv2N13CrankNicolson12stepResidualE2in2in"></span><span id="CrankNicolson::stepResidual__in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1aa1dd01518d26d2780ec1912e531bde20"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidual</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson12stepResidualE2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N13CrankNicolson12stepResidualE2in2in"></span><span id="_CPPv2N13CrankNicolson12stepResidualE2in2in"></span><span id="CrankNicolson::stepResidual__in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1a16b4a19f1890b3784846a6567e8841d1"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidual</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson12stepResidualE2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Compute the residual <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K}) \)</span>. </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N13CrankNicolson20stepResidualJacobianE2in2in">
-<span id="_CPPv3N13CrankNicolson20stepResidualJacobianE2in2in"></span><span id="_CPPv2N13CrankNicolson20stepResidualJacobianE2in2in"></span><span id="CrankNicolson::stepResidualJacobian__in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1a24f874461f338b022e9bad4338d13656"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidualJacobian</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson20stepResidualJacobianE2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N13CrankNicolson20stepResidualJacobianE2in2in"></span><span id="_CPPv2N13CrankNicolson20stepResidualJacobianE2in2in"></span><span id="CrankNicolson::stepResidualJacobian__in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1ab0e537516ea7ccb2b8864e0d0a5439a7"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidualJacobian</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson20stepResidualJacobianE2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Compute the Jacobian of the residual <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K}) \)</span>:</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial\mathbf{F}(\mathbf{K})}{\partial \mathbf{K}} \]</div>
+. 
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N13CrankNicolson17solveStepByNewtonE2in">
-<span id="_CPPv3N13CrankNicolson17solveStepByNewtonE2in"></span><span id="_CPPv2N13CrankNicolson17solveStepByNewtonE2in"></span><span id="CrankNicolson::solveStepByNewton__in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1aa3f46c134974f4d196cdcde74e8e888f"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">solveStepByNewton</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson17solveStepByNewtonE2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N13CrankNicolson17solveStepByNewtonE2in"></span><span id="_CPPv2N13CrankNicolson17solveStepByNewtonE2in"></span><span id="CrankNicolson::solveStepByNewton__in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1a5095d19f415ba38efb5b01519a2950cb"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">solveStepByNewton</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson17solveStepByNewtonE2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Solve the implicit step <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K})=\mathbf{0} \)</span> by Newton method</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{K}^{\ell+1} = \mathbf{K}^{\ell} - \left(\frac{\partial\mathbf{F}(\mathbf{K}^{\ell})}{\partial \mathbf{K}}\right)^{-1}\mathbf{F}(\mathbf{K}^{\ell}) \]</div>
+. 
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N13CrankNicolson4stepE2in2in2in2in">
-<span id="_CPPv3N13CrankNicolson4stepE2in2in2in2in"></span><span id="_CPPv2N13CrankNicolson4stepE2in2in2in2in"></span><span id="CrankNicolson::step__in.in.in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1a756d0d57ebeb59736a8da3a325ac03fd"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">function</span> <code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em><span class="pre">t0</span></em>,<em><span class="pre">x0</span></em>,<em><span class="pre">dt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson4stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N13CrankNicolson4stepE2in2in2in2in"></span><span id="_CPPv2N13CrankNicolson4stepE2in2in2in2in"></span><span id="CrankNicolson::step__in.in.in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1aa738c774c7b2b971eb8fc9808b378208"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">function</span> <code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em><span class="pre">t0</span></em>,<em><span class="pre">x0</span></em>,<em><span class="pre">dt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson4stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Generic advancing step for a generic numerical methods.</p>
+<p>given x0 = <span class="math notranslate nohighlight">\( x(t_0) \)</span> and a time step dt = <span class="math notranslate nohighlight">\( \Delta t\)</span> return the approximation of <span class="math notranslate nohighlight">\( x(t_0+\Delta t) \)</span> </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N13CrankNicolson7getNameE2in">
-<span id="_CPPv3N13CrankNicolson7getNameE2in"></span><span id="_CPPv2N13CrankNicolson7getNameE2in"></span><span id="CrankNicolson::getName__in"></span><span class="target" id="class_o_d_ebase_solver_1a763011221a3e61796ad944b7a5f3022b"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">getName</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson7getNameE2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N13CrankNicolson7getNameE2in"></span><span id="_CPPv2N13CrankNicolson7getNameE2in"></span><span id="CrankNicolson::getName__in"></span><span class="target" id="class_d_a_c___o_d_esolver_1af0ca8fde9250bdf3a27ad3a5e1cf6b6a"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">getName</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson7getNameE2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>return the name of the numerical method used to advance solution </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N13CrankNicolson6setODEE2in2in">
-<span id="_CPPv3N13CrankNicolson6setODEE2in2in"></span><span id="_CPPv2N13CrankNicolson6setODEE2in2in"></span><span id="CrankNicolson::setODE__in.in"></span><span class="target" id="class_o_d_ebase_solver_1ac7055749661d4a5318333d06c8f08bff"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">setODE</span></code><span class="sig-paren">(</span><em><span class="pre">odeClass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson6setODEE2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N13CrankNicolson6setODEE2in2in"></span><span id="_CPPv2N13CrankNicolson6setODEE2in2in"></span><span id="CrankNicolson::setODE__in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_1a16b8734620fbc3df5b263d885928e2b4"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">setODE</span></code><span class="sig-paren">(</span><em><span class="pre">odeClass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson6setODEE2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>set the ODE class used in the advancing step </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N13CrankNicolson7advanceE2in2in2in">
-<span id="_CPPv3N13CrankNicolson7advanceE2in2in2in"></span><span id="_CPPv2N13CrankNicolson7advanceE2in2in2in"></span><span id="CrankNicolson::advance__in.in.in"></span><span class="target" id="class_o_d_ebase_solver_1a841a2044d66efdc7082b4bd2027e370e"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">advance</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson7advanceE2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N13CrankNicolson7advanceE2in2in2in"></span><span id="_CPPv2N13CrankNicolson7advanceE2in2in2in"></span><span id="CrankNicolson::advance__in.in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_1ac58ee91e51f2b3a0fe979313880b545f"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">advance</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N13CrankNicolson7advanceE2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>compute approximate solution on a series of point given by the vector t = <span class="math notranslate nohighlight">\( (t_0, t_1, \ldots, t_n) \)</span> starting at initial point x0 = <span class="math notranslate nohighlight">\( x_0 \)</span> </p>
+</dd>
 </dl>
 
 </div>

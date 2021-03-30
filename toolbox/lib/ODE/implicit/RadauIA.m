@@ -9,25 +9,28 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef RadauIA < ODEbaseSolverRKimplicit
+classdef RadauIA < DAC_ODEsolverRKimplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    % RadauIA
-    %
-    % 0   | 1/4  1/4
-    % 2/3 | 1/4 4/12
-    % ----+---------
-    %     | 1/4  3/4
-    %
+    %> RadauIA (2 stage order 3)
+    %>
+    %> \rst
+    %> .. math::
+    %>
+    %>    \begin{array}{c|cc}
+    %>       0   & 1/4 & -1/4 \\
+    %>       2/3 & 1/4 & 5/12   \\
+    %>     \hline
+    %>           & 1/4 & 3/4
+    %>    \end{array}
+    %>
+    %> \endrst
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function self = RadauIA()
-      self@ODEbaseSolverRKimplicit('RadauIA',...
-        [1/4,1/4;1/4,4/12],[1/4,3/4],[0;2/3]...
+      self@DAC_ODEsolverRKimplicit('RadauIA',...
+        [1/4,-1/4;1/4,5/12],[1/4,3/4],[0;2/3]...
       );
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end

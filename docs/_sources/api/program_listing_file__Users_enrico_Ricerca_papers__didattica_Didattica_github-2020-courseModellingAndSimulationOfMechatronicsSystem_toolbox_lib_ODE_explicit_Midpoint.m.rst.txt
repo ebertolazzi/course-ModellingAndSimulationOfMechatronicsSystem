@@ -21,23 +21,26 @@ Program Listing for File Midpoint.m
    % Universita` degli Studi di Trento
    % email: enrico.bertolazzi@unitn.it
    %
-   classdef Midpoint < ODEbaseSolverRKexplicit
+   classdef Midpoint < DAC_ODEsolverRKexplicit
      methods
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-       %
-       % Midpoint method tableau
-       %
-       % 0   | 0   0
-       % 1/2 | 1/2 0
-       % ----+------
-       %     | 0   1
-       %
+       %>
+       %> Midpoint method tableau
+       %>
+       %> \rst
+       %> .. math::
+       %>
+       %>    \begin{array}{c|cc}
+       %>       0   & 0   & 0 \\
+       %>       1/2 & 1/2 & 0 \\
+       %>     \hline
+       %>        & 0 & 1
+       %>    \end{array}
+       %>
+       %> \endrst
        function self = Midpoint( )
-         self@ODEbaseSolverRKexplicit('Midpoint',[0,0;1/2,0],[0,1],[0,1/2]);
+         self@DAC_ODEsolverRKexplicit('Midpoint',[0,0;1/2,0],[0,1],[0,1/2]);
        end
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-       function delete( self )
-       end
      end
-   
    end

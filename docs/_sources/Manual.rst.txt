@@ -9,7 +9,8 @@ Contents
     :maxdepth: 4
 
     Manual_INTRO.rst
-    Manual_ODE_TEST.rst
+    Manual_ODE_TEST1.rst
+    Manual_ODE_TEST2.rst
 
 Author
 ------

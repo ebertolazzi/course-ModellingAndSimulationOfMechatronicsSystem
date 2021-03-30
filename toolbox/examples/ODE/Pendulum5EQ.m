@@ -9,14 +9,14 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef Pendulum5EQ < ODEbaseClass
+classdef Pendulum5EQ < DAC_ODEclass
   properties (SetAccess = protected, Hidden = true)
     ell;
     gravity;
   end
   methods
     function self = Pendulum5EQ( ell, gravity )
-      self@ODEbaseClass('Pendulum5E');
+      self@DAC_ODEclass('Pendulum5E');
       self.ell     = ell;
       self.gravity = gravity;
     end
@@ -53,19 +53,40 @@ classdef Pendulum5EQ < ODEbaseClass
       jac(4,2) = -lambda;
       jac(4,5) = -y;
 
-      jac(5,1) = ((4 * lambda * u * x ^ 2) + 0.6e1 * (0.4e1 / 0.3e1 * y * lambda + g) * v * x - (4 * lambda * u * y ^ 2)) / ((x ^ 2 + y ^ 2) ^ 2);
-      jac(5,2) = (8 * lambda * u * x * y - 4 * lambda * v * x ^ 2 + 4 * y ^ 2 * lambda * v + 6 * g * v * y) / (x ^ 2 + y ^ 2) ^ 2;
-      jac(5,3) = -4 * lambda * x / (x ^ 2 + y ^ 2);
-      jac(5,4) = (-4 * y * lambda - 3 * g) / (x ^ 2 + y ^ 2);
-      jac(5,5) = (-4 * x * u - 4 * y * v) / (x ^ 2 + y ^ 2);
+      tmp  = x ^ 2 + y ^ 2;
+      tmp2 = tmp^2;
+      tmp3 = ( 6 * g * v) / tmp2;
+      tmp4 = x ^ 2 - y ^ 2;
+      xy   = x*y;
+
+      jac(5,1) = lambda*( 8 * v * xy + 4 * u * tmp4 ) / tmp2 + tmp3 * x;
+      jac(5,2) = lambda*( 8 * u * xy - 4 * v * tmp4 ) / tmp2 + tmp3 * y;
+      jac(5,3) = -4 * lambda * x / tmp;
+      jac(5,4) = (-4 * y * lambda - 3 * g) / tmp;
+      jac(5,5) = -4*(x * u+y * v) / tmp;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function res = DfDt( self, t, x )
-      res = zeros(5,1);
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function res = exact( self, t0, x0, t )
-      res = [];
+    function plot( self, t, Z )
+      tt = 0:pi/30:2*pi;
+      xx = self.ell*cos(tt);
+      yy = self.ell*sin(tt);
+      hold off;
+      plot(xx,yy,'LineWidth',2,'Color','red');
+      x  = Z(1);
+      y  = Z(2);
+      LL = 1-self.ell/hypot(x,y);
+      x0 = LL*x;
+      y0 = LL*y;
+      hold on;
+      L = 1.5*self.ell;
+      drawLine(-L,0,L,0,'LineWidth',2,'Color','k');
+      drawLine(0,-L,0,L,'LineWidth',2,'Color','k');
+      drawAxes(2,0.25,1,0,0);
+      drawLine(x0,y0,x,y,'LineWidth',8,'Color','b');
+      drawCOG( 0.1*self.ell, x0, y0 );
+      fillCircle( 'r', x, y, 0.1*self.ell );
+      axis([-L L -L L]);
+      axis equal;
     end
   end
 end

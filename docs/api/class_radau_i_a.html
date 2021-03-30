@@ -19,6 +19,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
     
@@ -86,7 +87,7 @@
 <h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
 </h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ODEbaseSolverRKimplicit</span></code> (<a class="reference internal" href="class_o_d_ebase_solver_r_kimplicit.html#exhale-class-class-o-d-ebase-solver-r-kimplicit"><span class="std std-ref">Class ODEbaseSolverRKimplicit</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DAC_ODEsolverRKimplicit</span></code> (<a class="reference internal" href="class_d_a_c___o_d_esolver_r_kimplicit.html#exhale-class-class-d-a-c-o-d-esolver-r-kimplicit"><span class="std std-ref">Class DAC_ODEsolverRKimplicit</span></a>)</p></li>
 </ul>
 </div>
 </div>
@@ -95,7 +96,7 @@
 </h2>
 <dl class="cpp class">
 <dt id="_CPPv47RadauIA">
-<span id="_CPPv37RadauIA"></span><span id="_CPPv27RadauIA"></span><span id="RadauIA"></span><span class="target" id="class_radau_i_a"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">RadauIA</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <a class="reference internal" href="class_o_d_ebase_solver_r_kimplicit.html#_CPPv423ODEbaseSolverRKimplicit" title="ODEbaseSolverRKimplicit"><span class="pre">ODEbaseSolverRKimplicit</span></a><a class="headerlink" href="#_CPPv47RadauIA" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv37RadauIA"></span><span id="_CPPv27RadauIA"></span><span id="RadauIA"></span><span class="target" id="class_radau_i_a"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">RadauIA</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <a class="reference internal" href="class_d_a_c___o_d_esolver_r_kimplicit.html#_CPPv423DAC_ODEsolverRKimplicit" title="DAC_ODEsolverRKimplicit"><span class="pre">DAC_ODEsolverRKimplicit</span></a><a class="headerlink" href="#_CPPv47RadauIA" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <div class="breathe-sectiondef docutils container">
@@ -104,56 +105,92 @@
 <dt id="_CPPv4N7RadauIA7RadauIAEv">
 <span id="_CPPv3N7RadauIA7RadauIAEv"></span><span id="_CPPv2N7RadauIA7RadauIAEv"></span><span id="RadauIA::RadauIA"></span><span class="target" id="class_radau_i_a_1a1cffc8a7489667bf4f129829817b6b4c"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">RadauIA</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA7RadauIAEv" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p><a class="reference internal" href="#class_radau_i_a"><span class="std std-ref">RadauIA</span></a> (2 stage order 3)</p>
+<p></p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|cc}
+   0   &amp; 1/4 &amp; -1/4 \\
+   2/3 &amp; 1/4 &amp; 5/12   \\
+ \hline
+       &amp; 1/4 &amp; 3/4
+\end{array}\end{split}\]</div>
+
+ 
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7RadauIA12stepResidualE2in2in">
-<span id="_CPPv3N7RadauIA12stepResidualE2in2in"></span><span id="_CPPv2N7RadauIA12stepResidualE2in2in"></span><span id="RadauIA::stepResidual__in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1aa1dd01518d26d2780ec1912e531bde20"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidual</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA12stepResidualE2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N7RadauIA12stepResidualE2in2in"></span><span id="_CPPv2N7RadauIA12stepResidualE2in2in"></span><span id="RadauIA::stepResidual__in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1a16b4a19f1890b3784846a6567e8841d1"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidual</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA12stepResidualE2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Compute the residual <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K}) \)</span>. </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7RadauIA20stepResidualJacobianE2in2in">
-<span id="_CPPv3N7RadauIA20stepResidualJacobianE2in2in"></span><span id="_CPPv2N7RadauIA20stepResidualJacobianE2in2in"></span><span id="RadauIA::stepResidualJacobian__in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1a24f874461f338b022e9bad4338d13656"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidualJacobian</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA20stepResidualJacobianE2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N7RadauIA20stepResidualJacobianE2in2in"></span><span id="_CPPv2N7RadauIA20stepResidualJacobianE2in2in"></span><span id="RadauIA::stepResidualJacobian__in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1ab0e537516ea7ccb2b8864e0d0a5439a7"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">stepResidualJacobian</span></code><span class="sig-paren">(</span><em><span class="pre">K</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA20stepResidualJacobianE2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Compute the Jacobian of the residual <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K}) \)</span>:</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial\mathbf{F}(\mathbf{K})}{\partial \mathbf{K}} \]</div>
+. 
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7RadauIA17solveStepByNewtonE2in">
-<span id="_CPPv3N7RadauIA17solveStepByNewtonE2in"></span><span id="_CPPv2N7RadauIA17solveStepByNewtonE2in"></span><span id="RadauIA::solveStepByNewton__in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1aa3f46c134974f4d196cdcde74e8e888f"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">solveStepByNewton</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA17solveStepByNewtonE2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N7RadauIA17solveStepByNewtonE2in"></span><span id="_CPPv2N7RadauIA17solveStepByNewtonE2in"></span><span id="RadauIA::solveStepByNewton__in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1a5095d19f415ba38efb5b01519a2950cb"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">solveStepByNewton</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA17solveStepByNewtonE2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Solve the implicit step <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K})=\mathbf{0} \)</span> by Newton method</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{K}^{\ell+1} = \mathbf{K}^{\ell} - \left(\frac{\partial\mathbf{F}(\mathbf{K}^{\ell})}{\partial \mathbf{K}}\right)^{-1}\mathbf{F}(\mathbf{K}^{\ell}) \]</div>
+. 
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7RadauIA4stepE2in2in2in2in">
-<span id="_CPPv3N7RadauIA4stepE2in2in2in2in"></span><span id="_CPPv2N7RadauIA4stepE2in2in2in2in"></span><span id="RadauIA::step__in.in.in.in"></span><span class="target" id="class_o_d_ebase_solver_r_kimplicit_1a756d0d57ebeb59736a8da3a325ac03fd"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">function</span> <code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em><span class="pre">t0</span></em>,<em><span class="pre">x0</span></em>,<em><span class="pre">dt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA4stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N7RadauIA4stepE2in2in2in2in"></span><span id="_CPPv2N7RadauIA4stepE2in2in2in2in"></span><span id="RadauIA::step__in.in.in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_r_kimplicit_1aa738c774c7b2b971eb8fc9808b378208"></span><em class="property"><span class="pre">virtual</span></em> <span class="pre">function</span> <code class="sig-name descname"><span class="pre">step</span></code><span class="sig-paren">(</span><em><span class="pre">t0</span></em>,<em><span class="pre">x0</span></em>,<em><span class="pre">dt</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA4stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>Generic advancing step for a generic numerical methods.</p>
+<p>given x0 = <span class="math notranslate nohighlight">\( x(t_0) \)</span> and a time step dt = <span class="math notranslate nohighlight">\( \Delta t\)</span> return the approximation of <span class="math notranslate nohighlight">\( x(t_0+\Delta t) \)</span> </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7RadauIA7getNameE2in">
-<span id="_CPPv3N7RadauIA7getNameE2in"></span><span id="_CPPv2N7RadauIA7getNameE2in"></span><span id="RadauIA::getName__in"></span><span class="target" id="class_o_d_ebase_solver_1a763011221a3e61796ad944b7a5f3022b"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">getName</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA7getNameE2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N7RadauIA7getNameE2in"></span><span id="_CPPv2N7RadauIA7getNameE2in"></span><span id="RadauIA::getName__in"></span><span class="target" id="class_d_a_c___o_d_esolver_1af0ca8fde9250bdf3a27ad3a5e1cf6b6a"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">getName</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA7getNameE2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>return the name of the numerical method used to advance solution </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7RadauIA6setODEE2in2in">
-<span id="_CPPv3N7RadauIA6setODEE2in2in"></span><span id="_CPPv2N7RadauIA6setODEE2in2in"></span><span id="RadauIA::setODE__in.in"></span><span class="target" id="class_o_d_ebase_solver_1ac7055749661d4a5318333d06c8f08bff"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">setODE</span></code><span class="sig-paren">(</span><em><span class="pre">odeClass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA6setODEE2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N7RadauIA6setODEE2in2in"></span><span id="_CPPv2N7RadauIA6setODEE2in2in"></span><span id="RadauIA::setODE__in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_1a16b8734620fbc3df5b263d885928e2b4"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">setODE</span></code><span class="sig-paren">(</span><em><span class="pre">odeClass</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA6setODEE2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>set the ODE class used in the advancing step </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N7RadauIA7advanceE2in2in2in">
-<span id="_CPPv3N7RadauIA7advanceE2in2in2in"></span><span id="_CPPv2N7RadauIA7advanceE2in2in2in"></span><span id="RadauIA::advance__in.in.in"></span><span class="target" id="class_o_d_ebase_solver_1a841a2044d66efdc7082b4bd2027e370e"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">advance</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA7advanceE2in2in2in" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv3N7RadauIA7advanceE2in2in2in"></span><span id="_CPPv2N7RadauIA7advanceE2in2in2in"></span><span id="RadauIA::advance__in.in.in"></span><span class="target" id="class_d_a_c___o_d_esolver_1ac58ee91e51f2b3a0fe979313880b545f"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">advance</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N7RadauIA7advanceE2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>compute approximate solution on a series of point given by the vector t = <span class="math notranslate nohighlight">\( (t_0, t_1, \ldots, t_n) \)</span> starting at initial point x0 = <span class="math notranslate nohighlight">\( x_0 \)</span> </p>
+</dd>
 </dl>
 
 </div>

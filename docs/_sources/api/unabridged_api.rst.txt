@@ -29,6 +29,31 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
+   class_d_a_c__base__class.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_d_a_c___o_d_eclass.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_d_a_c___o_d_esolver.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_d_a_c___o_d_esolver_r_kexplicit.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   class_d_a_c___o_d_esolver_r_kimplicit.rst
+
+.. toctree::
+   :maxdepth: 5
+
    class_d_a_e3base_class.rst
 
 .. toctree::
@@ -159,17 +184,7 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
-   class_o_d_ebase_class.rst
-
-.. toctree::
-   :maxdepth: 5
-
    class_o_d_ebase_class___p.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   class_o_d_ebase_solver.rst
 
 .. toctree::
    :maxdepth: 5
@@ -179,22 +194,7 @@ Classes and Structs
 .. toctree::
    :maxdepth: 5
 
-   class_o_d_ebase_solver_implicit.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   class_o_d_ebase_solver_r_kexplicit.rst
-
-.. toctree::
-   :maxdepth: 5
-
    class_o_d_ebase_solver_r_kexplicit___p.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   class_o_d_ebase_solver_r_kimplicit.rst
 
 .. toctree::
    :maxdepth: 5
@@ -290,3 +290,12 @@ Classes and Structs
    :maxdepth: 5
 
    class_s_s_p_r_k3___p.rst
+
+Functions
+*********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   function_save__png_8m_1a3953e50080941768996abba326a949a7.rst

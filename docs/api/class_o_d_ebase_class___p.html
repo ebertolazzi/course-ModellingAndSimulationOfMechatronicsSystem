@@ -19,6 +19,7 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
     
@@ -38,8 +39,8 @@
 
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class ODEbaseSolver" href="class_o_d_ebase_solver.html" />
-    <link rel="prev" title="Class ODEbaseClass" href="class_o_d_ebase_class.html" /> 
+    <link rel="next" title="Class ODEbaseSolver_P" href="class_o_d_ebase_solver___p.html" />
+    <link rel="prev" title="Class Midpoint_P" href="class_midpoint___p.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -54,10 +55,10 @@
           <a href="../index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class_o_d_ebase_solver.html" title="Class ODEbaseSolver"
+          <a href="class_o_d_ebase_solver___p.html" title="Class ODEbaseSolver_P"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class_o_d_ebase_class.html" title="Class ODEbaseClass"
+          <a href="class_midpoint___p.html" title="Class Midpoint_P"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
 
@@ -86,7 +87,7 @@
 <h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
 </h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">handle</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DAC_ODEclass</span></code> (<a class="reference internal" href="class_d_a_c___o_d_eclass.html#exhale-class-class-d-a-c-o-d-eclass"><span class="std std-ref">Class DAC_ODEclass</span></a>)</p></li>
 </ul>
 </div>
 </div>
@@ -95,7 +96,7 @@
 </h2>
 <dl class="cpp class">
 <dt id="_CPPv414ODEbaseClass_P">
-<span id="_CPPv314ODEbaseClass_P"></span><span id="_CPPv214ODEbaseClass_P"></span><span id="ODEbaseClass_P"></span><span class="target" id="class_o_d_ebase_class___p"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ODEbaseClass_P</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">handle</span><a class="headerlink" href="#_CPPv414ODEbaseClass_P" title="Permalink to this definition">¶</a><br>
+<span id="_CPPv314ODEbaseClass_P"></span><span id="_CPPv214ODEbaseClass_P"></span><span id="ODEbaseClass_P"></span><span class="target" id="class_o_d_ebase_class___p"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ODEbaseClass_P</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <a class="reference internal" href="class_d_a_c___o_d_eclass.html#_CPPv412DAC_ODEclass" title="DAC_ODEclass"><span class="pre">DAC_ODEclass</span></a><a class="headerlink" href="#_CPPv414ODEbaseClass_P" title="Permalink to this definition">¶</a><br>
 </dt>
 <dd>
 <div class="breathe-sectiondef docutils container">
@@ -104,14 +105,18 @@
 <dt id="_CPPv4N14ODEbaseClass_P1fE2in2in2in">
 <span id="_CPPv3N14ODEbaseClass_P1fE2in2in2in"></span><span id="_CPPv2N14ODEbaseClass_P1fE2in2in2in"></span><span id="ODEbaseClass_P::f__in.in.in"></span><span class="target" id="class_o_d_ebase_class___p_1ae080ae22066ec5cdc463eb7acfec2eb5"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">f</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14ODEbaseClass_P1fE2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>The derived function must define the r.h.s. of the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> <span class="math notranslate nohighlight">\( x \)</span> are the states of the model described by the ODE </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
 <dt id="_CPPv4N14ODEbaseClass_P4DfDxE2in2in2in">
 <span id="_CPPv3N14ODEbaseClass_P4DfDxE2in2in2in"></span><span id="_CPPv2N14ODEbaseClass_P4DfDxE2in2in2in"></span><span id="ODEbaseClass_P::DfDx__in.in.in"></span><span class="target" id="class_o_d_ebase_class___p_1aa108d688bc6bdf249970a3ff1eb5e034"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDx</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14ODEbaseClass_P4DfDxE2in2in2in" title="Permalink to this definition">¶</a><br>
 </dt>
-<dd></dd>
+<dd>
+<p>The derived function must return the jacobian of the r.h.s. of the ODE: <span class="math notranslate nohighlight">\( \partial f( t, x ) / \partial x \)</span> used only in implicit methods </p>
+</dd>
 </dl>
 
 <dl class="cpp function">
@@ -156,6 +161,50 @@
 <dd></dd>
 </dl>
 
+<dl class="cpp function">
+<dt id="_CPPv4N14ODEbaseClass_P4plotE2in2in2in">
+<span id="_CPPv3N14ODEbaseClass_P4plotE2in2in2in"></span><span id="_CPPv2N14ODEbaseClass_P4plotE2in2in2in"></span><span id="ODEbaseClass_P::plot__in.in.in"></span><span class="target" id="class_d_a_c__base__class_1a2b5d3c39f0c432e890eff105e50e3616"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">plot</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14ODEbaseClass_P4plotE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Abstract functions. The derived function must plot the ODE/DAE model </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N14ODEbaseClass_P12animate_plotE2in2in2in2in2in">
+<span id="_CPPv3N14ODEbaseClass_P12animate_plotE2in2in2in2in2in"></span><span id="_CPPv2N14ODEbaseClass_P12animate_plotE2in2in2in2in2in"></span><span id="ODEbaseClass_P::animate_plot__in.in.in.in.in"></span><span class="target" id="class_d_a_c__base__class_1a84f0fcda8e57db0a96225c7c285b8c75"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">animate_plot</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em>,<em><span class="pre">ms</span></em>,<em><span class="pre">fstep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14ODEbaseClass_P12animate_plotE2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Construct object with stored <code class="docutils literal notranslate"><span class="pre">name</span></code> </p>
+<p>Animate solution</p>
+<p></p>
+<ul class="simple">
+<li><p><em>t</em> vector of sampled time</p></li>
+<li><p><em>x</em> matrix with the solution at sampled time</p></li>
+<li><p><em>ms</em> pause in ms between two plotted frames</p></li>
+<li><p><em>fstep</em> plot every <code class="docutils literal notranslate"><span class="pre">fstep</span></code> frames </p></li>
+</ul>
+
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N14ODEbaseClass_P10make_movieE2in2in2in2in2in">
+<span id="_CPPv3N14ODEbaseClass_P10make_movieE2in2in2in2in2in"></span><span id="_CPPv2N14ODEbaseClass_P10make_movieE2in2in2in2in2in"></span><span id="ODEbaseClass_P::make_movie__in.in.in.in.in"></span><span class="target" id="class_d_a_c__base__class_1a5d7c125ec810c721cadf76658f899df9"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">make_movie</span></code><span class="sig-paren">(</span><em><span class="pre">fname</span></em>,<em><span class="pre">t</span></em>,<em><span class="pre">x</span></em>,<em><span class="pre">fstep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N14ODEbaseClass_P10make_movieE2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Make a movie of the solution</p>
+<p></p>
+<ul class="simple">
+<li><p><em>fname</em> file name where to save movie</p></li>
+<li><p><em>t</em> vector of sampled time</p></li>
+<li><p><em>x</em> matrix with the solution at sampled time</p></li>
+<li><p><em>fstep</em> plot every <code class="docutils literal notranslate"><span class="pre">fstep</span></code> frames </p></li>
+</ul>
+
+</dd>
+</dl>
+
 </div>
 </dd>
 </dl>
@@ -189,13 +238,13 @@
   </div>
   <div class="sphinxprev">
     <h4>Previous page</h4>
-    <p class="topless"><a href="class_o_d_ebase_class.html"
-                          title="Previous page">&larr; Class ODEbaseClass</a></p>
+    <p class="topless"><a href="class_midpoint___p.html"
+                          title="Previous page">&larr; Class Midpoint_P</a></p>
   </div>
   <div class="sphinxnext">
     <h4>Next page</h4>
-    <p class="topless"><a href="class_o_d_ebase_solver.html"
-                          title="Next page">&rarr; Class ODEbaseSolver</a></p>
+    <p class="topless"><a href="class_o_d_ebase_solver___p.html"
+                          title="Next page">&rarr; Class ODEbaseSolver_P</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -247,10 +296,10 @@
           <a href="../index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class_o_d_ebase_solver.html" title="Class ODEbaseSolver"
+          <a href="class_o_d_ebase_solver___p.html" title="Class ODEbaseSolver_P"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="class_o_d_ebase_class.html" title="Class ODEbaseClass"
+          <a href="class_midpoint___p.html" title="Class Midpoint_P"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
 

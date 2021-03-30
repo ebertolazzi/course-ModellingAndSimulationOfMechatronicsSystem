@@ -80,6 +80,31 @@ Files
 .. toctree::
    :maxdepth: 5
 
+   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAC_base_class.m.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_DAC_ODEclass.m.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_DAC_ODEsolver.m.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_DAC_ODEsolverRKexplicit.m.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_DAC_ODEsolverRKimplicit.m.rst
+
+.. toctree::
+   :maxdepth: 5
+
    file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3baseClass.m.rst
 
 .. toctree::
@@ -210,17 +235,7 @@ Files
 .. toctree::
    :maxdepth: 5
 
-   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseClass.m.rst
-
-.. toctree::
-   :maxdepth: 5
-
    file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_ODEbaseClass_P.m.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseSolver.m.rst
 
 .. toctree::
    :maxdepth: 5
@@ -230,22 +245,7 @@ Files
 .. toctree::
    :maxdepth: 5
 
-   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseSolverImplicit.m.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseSolverRKexplicit.m.rst
-
-.. toctree::
-   :maxdepth: 5
-
    file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_ODEbaseSolverRKexplicit_P.m.rst
-
-.. toctree::
-   :maxdepth: 5
-
-   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_ODEbaseSolverRKimplicit.m.rst
 
 .. toctree::
    :maxdepth: 5
@@ -331,6 +331,11 @@ Files
    :maxdepth: 5
 
    file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_RK4_P.m.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_save_png.m.rst
 
 .. toctree::
    :maxdepth: 5

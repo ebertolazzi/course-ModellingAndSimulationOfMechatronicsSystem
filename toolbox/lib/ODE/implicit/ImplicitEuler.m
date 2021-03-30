@@ -9,21 +9,24 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef ImplicitEuler < ODEbaseSolverRKimplicit
+classdef ImplicitEuler < DAC_ODEsolverRKimplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    % Implicit Euler tableau
-    %
-    %  1 | 1
-    % ---+---
-    %    | 1
-    %
+    %> Implicit Euler
+    %>
+    %> \rst
+    %> .. math::
+    %>
+    %>    \begin{array}{c|c}
+    %>       1 & 1 \\
+    %>     \hline
+    %>         & 1
+    %>    \end{array}
+    %>
+    %> \endrst
     function self = ImplicitEuler()
-      self@ODEbaseSolverRKimplicit('ImplicitEuler',1,1,1);
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
+      self@DAC_ODEsolverRKimplicit('ImplicitEuler',1,1,1);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end

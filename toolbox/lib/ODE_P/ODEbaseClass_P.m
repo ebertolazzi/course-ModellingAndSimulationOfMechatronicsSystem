@@ -9,9 +9,8 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef ODEbaseClass_P < handle
+classdef ODEbaseClass_P < DAC_ODEclass
   properties (SetAccess = protected, Hidden = true)
-    name;
     neq;  % number of equations/states
     ninv; % number of invariants (may be 0)
   end
@@ -52,12 +51,9 @@ classdef ODEbaseClass_P < handle
 
   methods
     function self = ODEbaseClass_P( name, neq, ninv )
-      self.name = name;
+      self@DAC_ODEclass( name )
       self.neq  = neq;
       self.ninv = ninv;
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function [neq,ninv] = getDim( self )

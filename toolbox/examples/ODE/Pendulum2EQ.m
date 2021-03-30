@@ -9,15 +9,28 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-%%addpath('../ode_lib');
-classdef Pendulum2EQ < ODEbaseClass
+%> Implementation of the ODE (Pendulum)
+%>
+%> \rst
+%> .. math::
+%> 
+%>   \begin{cases}
+%>      \theta' = \omega & \\
+%>      \omega' = -\displaystyle\frac{g}{\ell}\sin\theta &
+%>   \end{cases}
+%>
+%> \endrst
+%
+classdef Pendulum2EQ < DAC_ODEclass
   properties (SetAccess = protected, Hidden = true)
+    %> ray of the circle (constraint)
     ell;
+    %> gravity constant
     gravity;
   end
   methods
     function self = Pendulum2EQ( ell, gravity )
-      self@ODEbaseClass('Pendulum2EQ');
+      self@DAC_ODEclass('Pendulum2EQ');
       self.ell     = ell;
       self.gravity = gravity;
     end
@@ -42,13 +55,28 @@ classdef Pendulum2EQ < ODEbaseClass
       jac(2,1) = -(g/ell)*cos(theta);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function res = DfDt( self, t, x )
-      res = zeros(2,1);
+    function plot( self, t, Z )
+      theta = Z(1);
+      omega = Z(2);
+      x  = self.ell*sin(theta);
+      y  = -self.ell*cos(theta);
+      x0 = 0;
+      y0 = 0;
+      tt = 0:pi/30:2*pi;
+      xx = self.ell*cos(tt);
+      yy = self.ell*sin(tt);
+      hold off;
+      plot(xx,yy,'LineWidth',2,'Color','red');
+      hold on;
+      L = 1.5*self.ell;
+      drawLine(-L,0,L,0,'LineWidth',2,'Color','k');
+      drawLine(0,-L,0,L,'LineWidth',2,'Color','k');
+      drawAxes(2,0.25,1,0,0);
+      drawLine(x0,y0,x,y,'LineWidth',8,'Color','b');
+      drawCOG( 0.1*self.ell, x0, y0 );
+      fillCircle( 'r', x, y, 0.1*self.ell );
+      axis([-L L -L L]);
+      axis equal;
     end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function res = exact( self, t0, x0, t )
-      res = []; % no exact solution
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end
 end

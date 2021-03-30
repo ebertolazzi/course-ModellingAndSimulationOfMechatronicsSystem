@@ -1,0 +1,360 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ODE solve example 1 &#8212; ODE/DAE  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-treeview/bootstrap-treeview.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    
+     
+        <script src="_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ODE solve example 2" href="Manual_ODE_TEST2.html" />
+    <link rel="prev" title="Introduction" href="Manual_INTRO.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Manual_ODE_TEST2.html" title="ODE solve example 2"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Manual_INTRO.html" title="Introduction"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">ODE/DAE  documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Manual.html" accesskey="U">ODE/DAE library manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ODE solve example 1</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ode-solve-example-1">
+<h1>ODE solve example 1<a class="headerlink" href="#ode-solve-example-1" title="Permalink to this headline">¶</a>
+</h1>
+<div class="section" id="load-ode">
+<h2>Load ODE<a class="headerlink" href="#load-ode" title="Permalink to this headline">¶</a>
+</h2>
+<p>Consider the ODE:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+   \theta' = \omega &amp; \\
+   \omega' = -\displaystyle\frac{g}{\ell}\sin\theta &amp;
+\end{cases}\end{split}\]</div>
+<p>Define the class for the ODE to be integrated.
+In this case the class <code class="docutils literal notranslate"><span class="pre">Pendulum2EQ</span></code> derived from
+the base class <code class="docutils literal notranslate"><span class="pre">DAC_ODEclass</span></code>.
+The following is the contents of the file <cite>Pendulum2EQ.m</cite></p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="k">classdef</span><span class="w"> </span><span class="n">Pendulum2EQ</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DAC_ODEclass</span><span class="w"></span>
+<span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">methods</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Pendulum2EQ</span><span class="p">(</span> ell, gravity <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">ODEbaseClass</span><span class="p">(</span><span class="s">'Pendulum2EQ'</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>ode<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% extract components</span><span class="w"></span>
+<span class="w">      </span><span class="n">theta</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">omega</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c">% get parameters of the ODE</span><span class="w"></span>
+<span class="w">      </span><span class="n">g</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">ell</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">ode</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c">% build rhs</span><span class="w"></span>
+<span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">omega</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">ell</span><span class="p">)</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>jac<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DfDx</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% evaluate Jacobian of rhs.</span><span class="w"></span>
+<span class="w">      </span><span class="c">% Necessary only for implicit solver</span><span class="w"></span>
+<span class="w">      </span><span class="n">theta</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">omega</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">g</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">ell</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">jac</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">ell</span><span class="p">)</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">theta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">y</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">x0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">y0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">tt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">30</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">xx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">tt</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">yy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">tt</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="nb">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'red'</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">L</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.5</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">drawLine</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'k'</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">drawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'k'</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">drawAxes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">drawLine</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'b'</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">drawCOG</span><span class="p">(</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">fillCircle</span><span class="p">(</span><span class="w"> </span><span class="s">'r'</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="nb">axis</span><span class="p">([</span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="n">L</span><span class="p">]);</span><span class="w"></span>
+<span class="w">      </span><span class="n">axis</span><span class="w"> </span><span class="s">equal</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="instantiate-the-ode">
+<h2>Instantiate the ODE<a class="headerlink" href="#instantiate-the-ode" title="Permalink to this headline">¶</a>
+</h2>
+<p>Having <cite>Pendulum2EQ.m</cite> now can instantiate the ODE</p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% load the Pendulum model in the variable ode</span><span class="w"></span>
+<span class="n">ell</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="n">gravity</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">9.81</span><span class="p">;</span><span class="w"></span>
+<span class="n">ode</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">Pendulum2EQ</span><span class="p">(</span><span class="w"> </span><span class="n">ell</span><span class="p">,</span><span class="w"> </span><span class="n">gravity</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="choose-solver">
+<h2>Choose solver<a class="headerlink" href="#choose-solver" title="Permalink to this headline">¶</a>
+</h2>
+<p>Choose <cite>ExplicitEuler</cite> as solver and attach the
+instantiated ode to it.</p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="n">solver</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ExplicitEuler</span><span class="p">();</span><span class="w"> </span><span class="c">% initialize solver</span><span class="w"></span>
+<span class="n">solver</span><span class="p">.</span><span class="n">setODE</span><span class="p">(</span><span class="n">ode</span><span class="p">);</span><span class="w">       </span><span class="c">% Attach ode to the solver</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integrate">
+<h2>Integrate<a class="headerlink" href="#integrate" title="Permalink to this headline">¶</a>
+</h2>
+<p>Select the range and the sam pling point for the numerical solution</p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="n">h</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="mf">0.05</span><span class="p">;</span><span class="w"></span>
+<span class="n">tt</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="n">h</span><span class="p">:</span><span class="n">Tmax</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>setup initial condition</p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="n">theta0</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">pi</span><span class="o">/</span><span class="mi">6</span><span class="p">;</span><span class="w"></span>
+<span class="n">omega0</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ini</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="n">theta0</span><span class="p">;</span><span class="n">omega0</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+<p>compute numerical solution</p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="n">sol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">solver</span><span class="p">.</span><span class="n">advance</span><span class="p">(</span><span class="w"> </span><span class="n">tt</span><span class="p">,</span><span class="w"> </span><span class="n">ini</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>now the matrix <code class="docutils literal notranslate"><span class="pre">sol</span></code> contain the solution.
+The first column contain (theta) the second column
+contains  (omega).</p>
+</div>
+<div class="section" id="extract-solution">
+<h2>Extract solution<a class="headerlink" href="#extract-solution" title="Permalink to this headline">¶</a>
+</h2>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="n">theta</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="mi">1</span><span class="p">,:);</span><span class="w"></span>
+<span class="n">omega</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="mi">2</span><span class="p">,:);</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">ell</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plot-the-solution">
+<h2>Plot the solution<a class="headerlink" href="#plot-the-solution" title="Permalink to this headline">¶</a>
+</h2>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% sample a circle and plot (the constraint)</span><span class="w"></span>
+<span class="n">xx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">100</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">);</span><span class="w"></span>
+<span class="n">yy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">100</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">);</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="w"> </span><span class="n">xx</span><span class="p">,</span><span class="w"> </span><span class="n">yy</span><span class="p">,</span><span class="w"> </span><span class="s">'-r'</span><span class="p">,</span><span class="w"> </span><span class="s">'Linewidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="w"></span>
+<span class="nb">axis</span><span class="w"> </span><span class="n">equal</span><span class="w"></span>
+<span class="nb">plot</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">'-o'</span><span class="p">,</span><span class="w"> </span><span class="s">'MarkerSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s">'Linewidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">'Color'</span><span class="p">,</span><span class="w"> </span><span class="s">'blue'</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'x,y'</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/Manual_ODE_TEST1_fig1.png"><img alt="_images/Manual_ODE_TEST1_fig1.png" class="align-center" src="_images/Manual_ODE_TEST1_fig1.png" style="width: 90%;"></a>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="nb">plot</span><span class="p">(</span><span class="w"> </span><span class="n">tt</span><span class="p">,</span><span class="w"> </span><span class="n">theta</span><span class="p">,</span><span class="w"> </span><span class="s">'-o'</span><span class="p">,</span><span class="w"> </span><span class="s">'MarkerSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s">'Linewidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">'Explicit Euler'</span><span class="p">);</span><span class="w"></span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'theta'</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/Manual_ODE_TEST1_fig2.png"><img alt="_images/Manual_ODE_TEST1_fig2.png" class="align-center" src="_images/Manual_ODE_TEST1_fig2.png" style="width: 90%;"></a>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="nb">plot</span><span class="p">(</span><span class="w"> </span><span class="n">tt</span><span class="p">,</span><span class="w"> </span><span class="n">omega</span><span class="p">,</span><span class="w"> </span><span class="s">'-o'</span><span class="p">,</span><span class="w"> </span><span class="s">'MarkerSize'</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s">'Linewidth'</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">'Explicit Euler'</span><span class="p">);</span><span class="w"></span>
+<span class="nb">title</span><span class="p">(</span><span class="s">'omega'</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/Manual_ODE_TEST1_fig3.png"><img alt="_images/Manual_ODE_TEST1_fig3.png" class="align-center" src="_images/Manual_ODE_TEST1_fig3.png" style="width: 90%;"></a>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="n">ode</span><span class="p">.</span><span class="n">animate_plot</span><span class="p">(</span><span class="w"> </span><span class="n">tt</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/Manual_ODE_TEST1_mov1.mp4"><img alt="_images/Manual_ODE_TEST1_mov1.mp4" class="align-center" src="_images/Manual_ODE_TEST1_mov1.mp4" style="width: 90%;"></a>
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="index.html" title="index">
+          <img class="logo" src="_static/logo.png" alt="Logo"/>
+        </a></p><div class="sphinx-toc sphinxlocaltoc">
+    <h3><a href="index.html">Page contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">ODE solve example 1</a><ul>
+<li><a class="reference internal" href="#load-ode">Load ODE</a></li>
+<li><a class="reference internal" href="#instantiate-the-ode">Instantiate the ODE</a></li>
+<li><a class="reference internal" href="#choose-solver">Choose solver</a></li>
+<li><a class="reference internal" href="#integrate">Integrate</a></li>
+<li><a class="reference internal" href="#extract-solution">Extract solution</a></li>
+<li><a class="reference internal" href="#plot-the-solution">Plot the solution</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div class="sphinxprev">
+    <h4>Previous page</h4>
+    <p class="topless"><a href="Manual_INTRO.html"
+                          title="Previous page">&larr; Introduction</a></p>
+  </div>
+  <div class="sphinxnext">
+    <h4>Next page</h4>
+    <p class="topless"><a href="Manual_ODE_TEST2.html"
+                          title="Next page">&rarr; ODE solve example 2</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/Manual_ODE_TEST1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Manual_ODE_TEST2.html" title="ODE solve example 2"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="Manual_INTRO.html" title="Introduction"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="index.html">ODE/DAE  documentation</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="Manual.html" >ODE/DAE library manual</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ODE solve example 1</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Enrico Bertolazzi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.2.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

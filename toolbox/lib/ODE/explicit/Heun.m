@@ -9,22 +9,26 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef Heun < ODEbaseSolverRKexplicit
+classdef Heun < DAC_ODEsolverRKexplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    % Heun's second-order method tableau
-    %
-    % 0 | 0   0
-    % 1 | 1   0
-    % --+-------
-    %   | 1/2 1/2
-    %
+    %>
+    %> Heun's second-order method
+    %>
+    %> \rst
+    %> .. math::
+    %>
+    %>    \begin{array}{c|cc}
+    %>       0 & 0 & 0 \\
+    %>       1 & 1 & 0 \\
+    %>     \hline
+    %>        & 1/2 & 1/2
+    %>    \end{array}
+    %>
+    %> \endrst
     function self = Heun( )
-      self@ODEbaseSolverRKexplicit('Heun',[0,0;1,0],[1/2,1/2],[0,1]);
+      self@DAC_ODEsolverRKexplicit('Heun',[0,0;1,0],[1/2,1/2],[0,1]);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
   end
 end

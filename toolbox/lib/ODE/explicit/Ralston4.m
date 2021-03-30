@@ -9,21 +9,27 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef Ralston4 < ODEbaseSolverRKexplicit
+classdef Ralston4 < DAC_ODEsolverRKexplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    % Ralston's fourth-order method tableau
-    %
-    % 0          | 0          | 0           | 0          | 0
-    % 0.4        | 0.4        | 0           | 0          | 0
-    % 0.45573725 | 0.29697761 | 0.15875964  | 0          | 0
-    % 1          | 0.21810040 | -3.05096516 | 3.83286476 | 0
-    % -----------+---------------------------------------------------
-    %            | 0.17476028 | -0.55148066 | 1.20553560 | 0.17118478
-    %
+    %>
+    %> Ralston's fourth-order method tableau
+    %>
+    %> \rst
+    %> .. math::
+    %>
+    %>    \begin{array}{c|ccccc}
+    %>       0          & 0          & 0           & 0          & 0 \\
+    %>       0.4        & 0.4        & 0           & 0          & 0 \\
+    %>       0.45573725 & 0.29697761 & 0.15875964  & 0          & 0 \\
+    %>       1          & 0.21810040 & -3.05096516 & 3.83286476 & 0 \\
+    %>     \hline
+    %>        & 0.17476028 & -0.55148066 & 1.20553560 & 0.17118478
+    %>    \end{array}
+    %>
+    %> \endrst
     function self = Ralston4( )
-      self@ODEbaseSolverRKexplicit('Ralston4',...
+      self@DAC_ODEsolverRKexplicit('Ralston4',...
          [ 0,          0,            0,          0;...
            0.4,        0,            0,          0;...
            0.29697761, 0.15875964,   0,          0;...
@@ -33,7 +39,5 @@ classdef Ralston4 < ODEbaseSolverRKexplicit
       );
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
   end
 end

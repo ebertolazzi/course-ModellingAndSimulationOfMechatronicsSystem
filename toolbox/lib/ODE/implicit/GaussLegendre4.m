@@ -9,27 +9,29 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef GaussLegendre4 < ODEbaseSolverRKimplicit
+classdef GaussLegendre4 < DAC_ODEsolverRKimplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    % Gauss–Legendre 4th order
-    %
-    % t = sqrt(3)/6
-    %
-    % 1/2-t | 1/4   1/4-t
-    % 1/2+t | 1/4+t 1/4
-    % ------+-------------
-    %       | 1/2   1/2
-    %
+    %> Gauss–Legendre 4th order
+    %>
+    %> \rst
+    %> .. math::
+    %>
+    %>    \begin{array}{c|cc}
+    %>       1/2-t & 1/4   & 1/4-t \\
+    %>       1/2+t & 1/4+t & 1/4   \\
+    %>     \hline
+    %>             & 1/2 & 1/2
+    %>    \end{array}
+    %>    \qquad t = \displaytyle\frac{\sqrt{3}}{6}
+    %>
+    %> \endrst
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function self = GaussLegendre4()
       t = sqrt(3)/6;
-      self@ODEbaseSolverRKimplicit('GaussLegendre4',...
+      self@DAC_ODEsolverRKimplicit('GaussLegendre4',...
       [1/4,1/4-t;1/4+t,1/4],[1/2,1/2],[1/2-t,1/2+t]);
-    end
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end

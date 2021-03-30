@@ -19,7 +19,6 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
     
@@ -38,9 +37,7 @@
     
 
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class ODEbaseClass_P" href="class_o_d_ebase_class___p.html" />
-    <link rel="prev" title="Class Midpoint_P" href="class_midpoint___p.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -54,15 +51,8 @@
         <li class="right" >
           <a href="../index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_o_d_ebase_class___p.html" title="Class ODEbaseClass_P"
-             accesskey="N">next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_midpoint___p.html" title="Class Midpoint_P"
-             accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="library_root.html" accesskey="U">MATLAB API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Class ODEbaseClass</a></li> 
       </ul>
     </div>
@@ -101,69 +91,10 @@
 <div class="section" id="class-documentation">
 <h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
 </h2>
-<dl class="cpp class">
-<dt id="_CPPv412ODEbaseClass">
-<span id="_CPPv312ODEbaseClass"></span><span id="_CPPv212ODEbaseClass"></span><span id="ODEbaseClass"></span><span class="target" id="class_o_d_ebase_class"></span><em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">ODEbaseClass</span></code> <span class="pre">:</span> <em class="property"><span class="pre">public</span></em> <span class="pre">handle</span><a class="headerlink" href="#_CPPv412ODEbaseClass" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>ODE base class describing an ODE</p>
-<p><em>Usage</em> </p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span> <span class="n">ode</span> <span class="o">=</span> <span class="n">ODE_derived_class</span><span class="p">()</span> <span class="o">%</span> <span class="n">create</span> <span class="n">an</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">ODE</span>
- <span class="n">res</span> <span class="o">=</span> <span class="n">ode</span><span class="p">.</span><span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">);</span>
-</pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenclass: Cannot find class “ODEbaseClass” in doxygen xml output for project “ODE/DAE” from directory: ../xml</p>
 </div>
- 
-<p>Subclassed by <a class="reference internal" href="class_d_a_e3base_class_implicit.html#class_d_a_e3base_class_implicit"><span class="std std-ref">DAE3baseClassImplicit</span></a></p>
-<div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
-<dl class="cpp function">
-<dt id="_CPPv4N12ODEbaseClass1fE2in2in2in">
-<span id="_CPPv3N12ODEbaseClass1fE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass1fE2in2in2in"></span><span id="ODEbaseClass::f__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abb6cf02421cbd31153f587740295ab2c"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">f</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass1fE2in2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Abstract functions. The derived function must define the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N12ODEbaseClass4DfDxE2in2in2in">
-<span id="_CPPv3N12ODEbaseClass4DfDxE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDxE2in2in2in"></span><span id="ODEbaseClass::DfDx__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1ab2cc3bd14bcce7f8a9315a8f41c49a7a"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDx</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDxE2in2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Abstract functions. The derived function must return the jacobian <span class="math notranslate nohighlight">\( \partial f( t, x ) / \partial x \)</span> </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N12ODEbaseClass4DfDtE2in2in2in">
-<span id="_CPPv3N12ODEbaseClass4DfDtE2in2in2in"></span><span id="_CPPv2N12ODEbaseClass4DfDtE2in2in2in"></span><span id="ODEbaseClass::DfDt__in.in.in"></span><span class="target" id="class_o_d_ebase_class_1a80b915453358bd76ac8f86bb4f9fd541"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">DfDt</span></code><span class="sig-paren">(</span><em><span class="pre">t</span></em>,<em><span class="pre">x</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass4DfDtE2in2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Abstract functions. The derived function must return the jacobian <span class="math notranslate nohighlight">\( \partial f( t, x ) / \partial t \)</span> </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N12ODEbaseClass5exactE2in2in2in2in">
-<span id="_CPPv3N12ODEbaseClass5exactE2in2in2in2in"></span><span id="_CPPv2N12ODEbaseClass5exactE2in2in2in2in"></span><span id="ODEbaseClass::exact__in.in.in.in"></span><span class="target" id="class_o_d_ebase_class_1abeb9bdeb2ccc9016fe1fafc0e8665e0b"></span><em class="property"><span class="pre">virtual</span></em> <code class="sig-name descname"><span class="pre">exact</span></code><span class="sig-paren">(</span><em><span class="pre">t0</span></em>,<em><span class="pre">x0</span></em>,<em><span class="pre">t</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass5exactE2in2in2in2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd>
-<p>Abstract functions. The derived function must return the exact solution <span class="math notranslate nohighlight">\( x(t) \)</span> of the ODE <span class="math notranslate nohighlight">\( x' = f( t, x ) \)</span> such that <span class="math notranslate nohighlight">\( x(t_0) = x_0 \)</span>. If exact solution is not available the derived function that return <code class="docutils literal notranslate"><span class="pre">[]</span></code> </p>
-</dd>
-</dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4N12ODEbaseClass12ODEbaseClassE2in">
-<span id="_CPPv3N12ODEbaseClass12ODEbaseClassE2in"></span><span id="_CPPv2N12ODEbaseClass12ODEbaseClassE2in"></span><span id="ODEbaseClass::ODEbaseClass__in"></span><span class="target" id="class_o_d_ebase_class_1a95ef0edd9b840bcfe6b459a44b1405ec"></span><span class="pre">function</span> <code class="sig-name descname"><span class="pre">ODEbaseClass</span></code><span class="sig-paren">(</span><em><span class="pre">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N12ODEbaseClass12ODEbaseClassE2in" title="Permalink to this definition">¶</a><br>
-</dt>
-<dd></dd>
-</dl>
-
-</div>
-</dd>
-</dl>
-
 </div>
 </div>
 
@@ -191,16 +122,6 @@
 </li>
 </ul>
 
-  </div>
-  <div class="sphinxprev">
-    <h4>Previous page</h4>
-    <p class="topless"><a href="class_midpoint___p.html"
-                          title="Previous page">&larr; Class Midpoint_P</a></p>
-  </div>
-  <div class="sphinxnext">
-    <h4>Next page</h4>
-    <p class="topless"><a href="class_o_d_ebase_class___p.html"
-                          title="Next page">&rarr; Class ODEbaseClass_P</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -251,15 +172,8 @@
         <li class="right" >
           <a href="../index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_o_d_ebase_class___p.html" title="Class ODEbaseClass_P"
-             >next</a> &nbsp; &nbsp;</li>
-        <li class="right" >
-          <a href="class_midpoint___p.html" title="Class Midpoint_P"
-             >previous</a> &nbsp; &nbsp;</li>
     <li><a href="../index.html">ODE/DAE  documentation</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="library_root.html" >MATLAB API</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Class ODEbaseClass</a></li> 
       </ul>
     </div>

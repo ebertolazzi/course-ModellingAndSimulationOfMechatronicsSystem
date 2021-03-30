@@ -12,7 +12,7 @@ Inheritance Relationships
 Base Type
 *********
 
-- ``public ODEbaseClass`` (:ref:`exhale_class_class_o_d_ebase_class`)
+- ``public ODEbaseClass``
 
 
 Class Documentation

@@ -21,23 +21,26 @@ Program Listing for File CrankNicolson.m
    % Universita` degli Studi di Trento
    % email: enrico.bertolazzi@unitn.it
    %
-   classdef CrankNicolson < ODEbaseSolverRKimplicit
+   classdef CrankNicolson < DAC_ODEsolverRKimplicit
      methods
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        %
-       % Crank Nicolson tableau
-       %
-       % 0 | 0   0
-       % 1 | 1/2 1/2
-       % --+-------
-       %   | 1/2 1/2
-       %
+       %> Crank Nicolson
+       %>
+       %> \rst
+       %> .. math::
+       %>
+       %>    \begin{array}{c|cc}
+       %>       0 & 0   & 0 \\
+       %>       1 & 1/2 & 1/2 \\
+       %>     \hline
+       %>         & 1/2 & 1/2
+       %>    \end{array}
+       %>
+       %> \endrst
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
        function self = CrankNicolson()
-         self@ODEbaseSolverRKimplicit('CrankNicolson',[0,0;1/2,1/2],[1/2,1/2],[0;1]);
-       end
-       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-       function delete( self )
+         self@DAC_ODEsolverRKimplicit('CrankNicolson',[0,0;1/2,1/2],[1/2,1/2],[0;1]);
        end
        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
      end

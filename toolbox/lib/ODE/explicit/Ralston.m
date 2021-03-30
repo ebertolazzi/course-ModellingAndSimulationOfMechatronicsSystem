@@ -9,23 +9,26 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-classdef Ralston < ODEbaseSolverRKexplicit
+classdef Ralston < DAC_ODEsolverRKexplicit
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    % Ralston tableau
-    % (RK with minimal local truncation error)
-    %
-    %   0 | 0    0
-    % 2/3 | 2/3  0
-    % ----+-------
-    %     | 1/4 3/4
-    %
+    %>
+    %> Ralston (RK with minimal local truncation error)
+    %>
+    %> \rst
+    %> .. math::
+    %>
+    %>    \begin{array}{c|cc}
+    %>       0   & 0   & 0 \\
+    %>       2/3 & 2/3 & 0 \\
+    %>     \hline
+    %>        & 1/4 & 3/4
+    %>    \end{array}
+    %>
+    %> \endrst
     function self = Ralston( )
-      self@ODEbaseSolverRKexplicit('Ralston',[0,0;2/3,0],[1/4,3/4],[0,2/3]);
+      self@DAC_ODEsolverRKexplicit('Ralston',[0,0;2/3,0],[1/4,3/4],[0,2/3]);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function delete( self )
-    end
   end
 end
