@@ -9,18 +9,6 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-%> Implementation of the ODE (Pendulum)
-%>
-%> \rst
-%> .. math::
-%> 
-%>   \begin{cases}
-%>      \theta' = \omega & \\
-%>      \omega' = -\displaystyle\frac{g}{\ell}\sin\theta &
-%>   \end{cases}
-%>
-%> \endrst
-%
 classdef CrankRod4EQ < DAC_ODEclass
   properties (SetAccess = protected, Hidden = true)
     ell;
@@ -42,15 +30,15 @@ classdef CrankRod4EQ < DAC_ODEclass
       L = self.ell;
       
       % extract states
-      x_1 = Z(1);
-      y_1 = Z(2);
-      x_2 = Z(3);
-      y_2 = Z(4);
-      theta = Z(5);
-      u_1 = Z(6);
-      v_1 = Z(7);
-      u_2 = Z(8);
-      v_2 = Z(9);
+      x_1      = Z(1);
+      y_1      = Z(2);
+      x_2      = Z(3);
+      y_2      = Z(4);
+      theta    = Z(5);
+      u_1      = Z(6);
+      v_1      = Z(7);
+      u_2      = Z(8);
+      v_2      = Z(9);
       lambda_1 = Z(10);
       lambda_2 = Z(11);
       lambda_3 = Z(12);
@@ -91,16 +79,16 @@ classdef CrankRod4EQ < DAC_ODEclass
 
 
       % store on output
-      ode = zeros(13,1);
-      ode(1) = res_1;
-      ode(2) = res_2;
-      ode(3) = res_3;
-      ode(4) = res_4;
-      ode(5) = res_5;
-      ode(6) = res_6;
-      ode(7) = res_7;
-      ode(8) = res_8;
-      ode(9) = res_9;
+      ode     = zeros(13,1);
+      ode(1)  = res_1;
+      ode(2)  = res_2;
+      ode(3)  = res_3;
+      ode(4)  = res_4;
+      ode(5)  = res_5;
+      ode(6)  = res_6;
+      ode(7)  = res_7;
+      ode(8)  = res_8;
+      ode(9)  = res_9;
       ode(10) = res_10;
       ode(11) = res_11;
       ode(12) = res_12;
@@ -114,15 +102,15 @@ classdef CrankRod4EQ < DAC_ODEclass
       L = self.ell;
       
       % extract states
-      x_1 = Z(1);
-      y_1 = Z(2);
-      x_2 = Z(3);
-      y_2 = Z(4);
-      theta = Z(5);
-      u_1 = Z(6);
-      v_1 = Z(7);
-      u_2 = Z(8);
-      v_2 = Z(9);
+      x_1      = Z(1);
+      y_1      = Z(2);
+      x_2      = Z(3);
+      y_2      = Z(4);
+      theta    = Z(5);
+      u_1      = Z(6);
+      v_1      = Z(7);
+      u_2      = Z(8);
+      v_2      = Z(9);
       lambda_1 = Z(10);
       lambda_2 = Z(11);
       lambda_3 = Z(12);
@@ -207,30 +195,30 @@ classdef CrankRod4EQ < DAC_ODEclass
       jac_12_12 = 2 * t118;
 
       % store on output
-      jac = zeros(13,13);
-      jac(1,6) = jac_1_6;
-      jac(2,7) = jac_2_7;
-      jac(3,8) = jac_3_8;
-      jac(4,9) = jac_4_9;
-      jac(5,5) = jac_5_5;
-      jac(5,6) = jac_5_6;
-      jac(6,10) = jac_6_10;
-      jac(6,12) = jac_6_12;
-      jac(7,11) = jac_7_11;
-      jac(8,12) = jac_8_12;
-      jac(9,13) = jac_9_13;
-      jac(10,5) = jac_10_5;
-      jac(10,6) = jac_10_6;
+      jac        = zeros(13,13);
+      jac(1,6)   = jac_1_6;
+      jac(2,7)   = jac_2_7;
+      jac(3,8)   = jac_3_8;
+      jac(4,9)   = jac_4_9;
+      jac(5,5)   = jac_5_5;
+      jac(5,6)   = jac_5_6;
+      jac(6,10)  = jac_6_10;
+      jac(6,12)  = jac_6_12;
+      jac(7,11)  = jac_7_11;
+      jac(8,12)  = jac_8_12;
+      jac(9,13)  = jac_9_13;
+      jac(10,5)  = jac_10_5;
+      jac(10,6)  = jac_10_6;
       jac(10,10) = jac_10_10;
       jac(10,11) = jac_10_11;
       jac(10,12) = jac_10_12;
-      jac(11,5) = jac_11_5;
-      jac(11,6) = jac_11_6;
+      jac(11,5)  = jac_11_5;
+      jac(11,6)  = jac_11_6;
       jac(11,10) = jac_11_10;
       jac(11,11) = jac_11_11;
       jac(11,12) = jac_11_12;
-      jac(12,5) = jac_12_5;
-      jac(12,6) = jac_12_6;
+      jac(12,5)  = jac_12_5;
+      jac(12,6)  = jac_12_6;
       jac(12,10) = jac_12_10;
       jac(12,11) = jac_12_11;
       jac(12,12) = jac_12_12;
@@ -244,15 +232,15 @@ classdef CrankRod4EQ < DAC_ODEclass
       L = self.ell;
        
       % extract states
-      x_1 = Z(1);
-      y_1 = Z(2);
-      x_2 = Z(3);
-      y_2 = Z(4);
-      theta = Z(5);
-      u_1 = Z(6);
-      v_1 = Z(7);
-      u_2 = Z(8);
-      v_2 = Z(9);
+      x_1      = Z(1);
+      y_1      = Z(2);
+      x_2      = Z(3);
+      y_2      = Z(4);
+      theta    = Z(5);
+      u_1      = Z(6);
+      v_1      = Z(7);
+      u_2      = Z(8);
+      v_2      = Z(9);
       lambda_1 = Z(10);
       lambda_2 = Z(11);
       lambda_3 = Z(12);

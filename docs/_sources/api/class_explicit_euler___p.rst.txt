@@ -3,7 +3,7 @@
 Class ExplicitEuler_P
 =====================
 
-- Defined in :ref:`file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_ExplicitEuler_P.m`
+- Defined in :ref:`file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_ExplicitEuler_P.m`
 
 
 Inheritance Relationships

@@ -1,0 +1,46 @@
+
+.. _program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_implicit_RadauIIA_P.m:
+
+Program Listing for File RadauIIA_P.m
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_implicit_RadauIIA_P.m>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/implicit/RadauIIA_P.m``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: MATLAB
+
+   %
+   % Matlab code for the Course:
+   %
+   %     Modelling and Simulation of Mechatronics System
+   %
+   % by
+   % Enrico Bertolazzi
+   % Dipartimento di Ingegneria Industriale
+   % Universita` degli Studi di Trento
+   % email: enrico.bertolazzi@unitn.it
+   %
+   classdef RadauIIA_P < ODEbaseSolverRKimplicit_P
+     methods
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %
+       % RadauIIA
+       %
+       % 1/3 | 5/12 -1/12
+       %   1 |  3/4   1/4
+       % ----+-----------
+       %     |  3/4   1/4
+       %
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       function self = RadauIIA_P()
+         self@ODEbaseSolverRKimplicit_P('RadauIIA_P',...
+            [5/12,-1/12;3/4,1/4],[3/4,1/4],[1/3;1]...
+         );
+       end
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       function delete( self )
+       end
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     end
+   end

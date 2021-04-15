@@ -1,0 +1,38 @@
+
+.. _file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_save_png.m:
+
+File save_png.m
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/save_png.m``)
+---------------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_save_png.m.rst
+
+
+
+
+
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_save__png_8m_1a3953e50080941768996abba326a949a7`
+

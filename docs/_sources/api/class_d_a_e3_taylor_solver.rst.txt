@@ -3,7 +3,7 @@
 Class DAE3TaylorSolver
 ======================
 
-- Defined in :ref:`file__Users_enrico_Ricerca_papers__didattica_Didattica_github-2020-courseModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3TaylorSolver.m`
+- Defined in :ref:`file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3TaylorSolver.m`
 
 
 Inheritance Relationships

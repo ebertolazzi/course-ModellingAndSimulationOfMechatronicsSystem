@@ -1,0 +1,38 @@
+
+.. _file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_DAC_ODEsolverRKexplicit.m:
+
+File DAC_ODEsolverRKexplicit.m
+==============================
+
+|exhale_lsh| :ref:`Parent directory <dir__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/DAC_ODEsolverRKexplicit.m``)
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_DAC_ODEsolverRKexplicit.m.rst
+
+
+
+
+
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_class_d_a_c___o_d_esolver_r_kexplicit`
+

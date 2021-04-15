@@ -1,0 +1,51 @@
+
+.. _program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_Ralston4_P.m:
+
+Program Listing for File Ralston4_P.m
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_Ralston4_P.m>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/explicit/Ralston4_P.m``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: MATLAB
+
+   %
+   % Matlab code for the Course:
+   %
+   %     Modelling and Simulation of Mechatronics System
+   %
+   % by
+   % Enrico Bertolazzi
+   % Dipartimento di Ingegneria Industriale
+   % Universita` degli Studi di Trento
+   % email: enrico.bertolazzi@unitn.it
+   %
+   classdef Ralston4_P < ODEbaseSolverRKexplicit_P
+     methods
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %
+       % Ralston's fourth-order method tableau
+       %
+       % 0          | 0          | 0           | 0          | 0
+       % 0.4        | 0.4        | 0           | 0          | 0
+       % 0.45573725 | 0.29697761 | 0.15875964  | 0          | 0
+       % 1          | 0.21810040 | -3.05096516 | 3.83286476 | 0
+       % -----------+---------------------------------------------------
+       %            | 0.17476028 | -0.55148066 | 1.20553560 | 0.17118478
+       %
+       function self = Ralston4_P( )
+         self@ODEbaseSolverRKexplicit_P('Ralston4_P',...
+            [ 0,          0,            0,          0;...
+              0.4,        0,            0,          0;...
+              0.29697761, 0.15875964,   0,          0;...
+              0.21810040, -3.05096516,  3.83286476, 0 ],...
+            [ 0.17476028 , -0.55148066, 1.20553560, 0.17118478 ],...
+            [ 0,           0.4,         0.45573725, 1 ]...
+         );
+       end
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       function delete( self )
+       end
+     end
+   end

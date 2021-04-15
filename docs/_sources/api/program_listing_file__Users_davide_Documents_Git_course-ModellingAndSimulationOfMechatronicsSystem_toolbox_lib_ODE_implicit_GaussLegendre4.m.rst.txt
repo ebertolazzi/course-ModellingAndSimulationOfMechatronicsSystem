@@ -1,0 +1,50 @@
+
+.. _program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_implicit_GaussLegendre4.m:
+
+Program Listing for File GaussLegendre4.m
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_implicit_GaussLegendre4.m>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/implicit/GaussLegendre4.m``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: MATLAB
+
+   %
+   % Matlab code for the Course:
+   %
+   %     Modelling and Simulation of Mechatronics System
+   %
+   % by
+   % Enrico Bertolazzi
+   % Dipartimento di Ingegneria Industriale
+   % Universita` degli Studi di Trento
+   % email: enrico.bertolazzi@unitn.it
+   %
+   classdef GaussLegendre4 < DAC_ODEsolverRKimplicit
+     methods
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %
+       %> Gauss–Legendre 4th order
+       %>
+       %> \rst
+       %> .. math::
+       %>
+       %>    \begin{array}{c|cc}
+       %>       1/2-t & 1/4   & 1/4-t \\
+       %>       1/2+t & 1/4+t & 1/4   \\
+       %>     \hline
+       %>             & 1/2 & 1/2
+       %>    \end{array}
+       %>    \qquad t = \displaytyle\frac{\sqrt{3}}{6}
+       %>
+       %> \endrst
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       function self = GaussLegendre4()
+         t = sqrt(3)/6;
+         self@DAC_ODEsolverRKimplicit('GaussLegendre4',...
+         [1/4,1/4-t;1/4+t,1/4],[1/2,1/2],[1/2-t,1/2+t]);
+       end
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     end
+   end

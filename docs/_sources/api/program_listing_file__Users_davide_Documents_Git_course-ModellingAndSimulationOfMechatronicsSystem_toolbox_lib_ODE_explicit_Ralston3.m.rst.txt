@@ -1,0 +1,50 @@
+
+.. _program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_explicit_Ralston3.m:
+
+Program Listing for File Ralston3.m
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_explicit_Ralston3.m>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE/explicit/Ralston3.m``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: MATLAB
+
+   %
+   % Matlab code for the Course:
+   %
+   %     Modelling and Simulation of Mechatronics System
+   %
+   % by
+   % Enrico Bertolazzi
+   % Dipartimento di Ingegneria Industriale
+   % Universita` degli Studi di Trento
+   % email: enrico.bertolazzi@unitn.it
+   %
+   classdef Ralston3 < DAC_ODEsolverRKexplicit
+     methods
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %
+       %> Ralston's third-order method
+       %>
+       %>
+       %> \rst
+       %> .. math::
+       %>
+       %>    \begin{array}{c|ccc}
+       %>       0   & 0   & 0 & 0 \\
+       %>       1/2 & 1/2 & 0 & 0 \\
+       %>       3/4 & 0   & 3/4 & 0 \\
+       %>     \hline
+       %>        & 2/9 & 1/3 & 4/9
+       %>    \end{array}
+       %>
+       %> \endrst
+       function self = Ralston3( )
+         self@DAC_ODEsolverRKexplicit('Ralston3',...
+            [0,0,0;1/2,0,0;0,3/4,0],[2/9,1/3,4/9],[0,1/2,3/4]...
+         );
+       end
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     end
+   end

@@ -1,0 +1,76 @@
+
+.. _program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_ODEbaseClass_P.m:
+
+Program Listing for File ODEbaseClass_P.m
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_ODEbaseClass_P.m>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/ODEbaseClass_P.m``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: MATLAB
+
+   %
+   % Matlab code for the Course:
+   %
+   %     Modelling and Simulation of Mechatronics System
+   %
+   % by
+   % Enrico Bertolazzi
+   % Dipartimento di Ingegneria Industriale
+   % Universita` degli Studi di Trento
+   % email: enrico.bertolazzi@unitn.it
+   %
+   classdef ODEbaseClass_P < DAC_ODEclass
+     properties (SetAccess = protected, Hidden = true)
+       neq;  % number of equations/states
+       ninv; % number of invariants (may be 0)
+     end
+   
+     methods (Abstract)
+       %
+       %  Abstract functions defining and ODE
+       %
+       %  x' = f( t, x ) + invariants
+       %
+       %  h( t, x ) = 0
+       %
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %  the rhs of the ODE f( t, x )
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       f( self, t, x )
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %  return jacobian Df( t, x ) / Dx
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       DfDx( self, t, x )
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %  return jacobian Df( t, x ) / Dt
+       DfDt( self, t, x )
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       % the invariant/hidden constraints h( t, x ) = 0
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       h( self, t, x )
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %  return jacobian Dh( t, x ) / Dx
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       DhDx( self, t, x )
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %  return jacobian Dh( t, x ) / Dt
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       DhDt( self, t, x )
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+     end
+   
+     methods
+       function self = ODEbaseClass_P( name, neq, ninv )
+         self@DAC_ODEclass( name )
+         self.neq  = neq;
+         self.ninv = ninv;
+       end
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       function [neq,ninv] = getDim( self )
+         neq  = self.neq;
+         ninv = self.ninv;
+       end
+     end
+   end

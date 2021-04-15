@@ -1,0 +1,23 @@
+.. _dir__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE:
+
+
+Directory DAE
+=============
+
+
+|exhale_lsh| :ref:`Parent directory <dir__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+*Directory path:* ``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/DAE``
+
+
+Files
+-----
+
+- :ref:`file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3baseClass.m`
+- :ref:`file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3baseClassImplicit.m`
+- :ref:`file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3ProjectionSolver.m`
+- :ref:`file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_DAE_DAE3TaylorSolver.m`
+
+

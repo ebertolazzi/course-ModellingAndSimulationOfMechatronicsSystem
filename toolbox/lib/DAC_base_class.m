@@ -9,14 +9,6 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-%> 
-%> ODE base class describing an ODE
-%>
-%> *Usage*
-%>
-%>      ode = ODE_derived_class() % create an instance of a ODE
-%>      res = ode.f(t,x);
-%>
 classdef DAC_base_class < handle
   properties (SetAccess = protected, Hidden = true)
     %> the name of the ODE or DAE, used in warning/error messages

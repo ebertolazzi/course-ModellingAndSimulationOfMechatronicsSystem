@@ -1,0 +1,43 @@
+
+.. _program_listing_file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_Midpoint_P.m:
+
+Program Listing for File Midpoint_P.m
+=====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file__Users_davide_Documents_Git_course-ModellingAndSimulationOfMechatronicsSystem_toolbox_lib_ODE_P_explicit_Midpoint_P.m>` (``/Users/davide/Documents/Git/course-ModellingAndSimulationOfMechatronicsSystem/toolbox/lib/ODE_P/explicit/Midpoint_P.m``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: MATLAB
+
+   %
+   % Matlab code for the Course:
+   %
+   %     Modelling and Simulation of Mechatronics System
+   %
+   % by
+   % Enrico Bertolazzi
+   % Dipartimento di Ingegneria Industriale
+   % Universita` degli Studi di Trento
+   % email: enrico.bertolazzi@unitn.it
+   %
+   classdef Midpoint_P < ODEbaseSolverRKexplicit_P
+     methods
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       %
+       % Midpoint method tableau
+       %
+       % 0   | 0   0
+       % 1/2 | 1/2 0
+       % ----+------
+       %     | 0   1
+       %
+       function self = Midpoint_P( )
+         self@ODEbaseSolverRKexplicit_P('Midpoint_P',[0,0;1/2,0],[0,1],[0,1/2]);
+       end
+       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+       function delete( self )
+       end
+     end
+   
+   end
