@@ -1,0 +1,354 @@
+%
+% !TEX root = ../main.tex
+%
+
+\chapter{Resolution and Numerical Integration of Differential Algebraic Equations}
+	\label{ch:overview}
+		As well pointed out in \cite{petzold1982differential} both from theoretical point of view that the numerical, DAEs are much more challenging than ordinary differential equations (ODEs). Some DAEs can be solved using numerical methods for stiff systems but others cannot and they are very sensitive to the step size and this may cause large errors in the solution and numerical instability. For DAEs coming from constrained mechanical systems a fairly general form is the following, 
+		\begin{subequations}
+		\label{eq:generalformequationofmotion}
+			\begin{align}
+				\bm{M}(\bm{q})\ddot{\bm{q}} -\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\lambda &= \bm{n}(\bm{q},\dot{\bm{q}},t),\\
+				\bm{\phi}(\bm{q},t) &= 0
+			\end{align}
+		\end{subequations}
+		where the term $\bm{n}(\bm{q},\dot{\bm{q}},t)\in\mathbb{R}^{n}$ collects all the contributions coming from Coriolis and centrifugal effects, conservative and non-conservative forces, e.g., it may be definite as follows,
+		\begin{equation*}
+			\bm{n}(\bm{q},\dot{\bm{q}},t) = \bm{\tau}-\bm{C}(\bm{q},\dot{\bm{q}})\dot{\bm{q}}-\bm{g}(\bm{q}).
+		\end{equation*}
+		It is well known that the equations of motion for a mechanical system are a system of second order (possibly) non-linear differential equations. However for clarity and for sake of generality  it is useful to consider a \emph{first order representation}. For this purpose let us define $\bm{p}\in\mathbb{R}^{n}$ as \emph{generalized velocities}, i.e.,
+		\begin{equation}
+			\label{eq:firstordersubstitution}
+			\bm{p} := \dot{\bm{q}}.
+		\end{equation}
+		Thus substituting \cref{eq:firstordersubstitution} into \cref{eq:generalformequationofmotion} results, 
+		\begin{subequations}
+		\label{eq:generalequationofmotionfirstorder}
+			\begin{align}
+				\dot{\bm{q}} &= \bm{p}, \\
+				\bm{M}(\bm{q})\dot{\bm{p}} -\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\bm{\lambda} &= \bm{n}(\bm{q},\bm{p},t),\\
+				\bm{\phi}(\bm{q},t) &= 0.
+			\end{align}
+		\end{subequations}
+		Notice that the vector $(\bm{q};\bm{p})\in\mathbb{R}^{2n}$ represents the \emph{state} of a mechanical system, namely the pair \emph{generalized position} and \emph{generalized velocity}.
+		
+		Now a good question is how to solve the problem in \cref{eq:generalequationofmotionfirstorder}, the issue is certainly how to determine the value for the Lagrange multiplier $\bm{\lambda}$. One possible approach is to transform the problem into a system of pure differential equations. In order to do so we need to differentiate the constraint $\bm{\phi}(\bm{q},t)$, this yields to
+		\begin{equation}
+			\label{eq:diffconstraint}
+			\frac{\diff\bm{\phi}}{\diff t} = \frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{p}+\frac{\partial\bm{\phi}}{\partial t}=0.
+		\end{equation}
+		Notice that when constraint does not depend on time \cref{eq:diffconstraint} expresses the intuitive idea that generalized velocity $\bm{p}$ must be orthogonal to constraint's gradient. This provide also the opportunity to notice that constraint $\bm{\phi}(\bm{q},t)$ imposes relationships also at the velocity and acceleration level, e.g., \cref{eq:diffconstraint} restricts the set of feasible velocities. The constraints can we can obtain differentiating the constraint are somehow called \emph{hidden constraints}. Finally notice that \cref{eq:diffconstraint} is still algebraic in the $\bm{p}$ coordinate, thus in order to obtain a differential relationship let us differentiate again,
+		\begin{equation}
+			\label{eq:ddiffconstraint}
+			\frac{\diff^2\bm{\phi}(\bm{q},t)}{\diff t^2} = \frac{\diff}{\diff t}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{p} +\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{\dot{p}}+\frac{\partial^2\bm{\phi}}{\partial t^2}=0.
+		\end{equation}
+		Notice that now \cref{eq:ddiffconstraint} does not impose any algebraic constraint on the state of the mechanical system $(\bm{q};\bm{p})$ . Thus substituting the constraint $\bm{\phi}(\bm{q},t) = 0$ with the one in \cref{eq:ddiffconstraint} results the following modified problem,
+		\begin{subequations}
+		\label{eq:generalequationofmotionfirstorderdiffconstraint}
+			\begin{align}
+				\dot{\bm{q}} &= \bm{p}, \\
+				\bm{M}(\bm{q})\dot{\bm{p}} -\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\bm{\lambda} &= \bm{n}(\bm{q},\bm{p},t),\\
+				-\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{\dot{p}} &= \frac{\diff}{\diff t}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{p} +\frac{\partial^2\bm{\phi}}{\partial t^2} := \bm{m}(\bm{q},\bm{p},t).
+			\end{align}
+		\end{subequations}
+		Here to simplify the notation we introduced the symbol $\bm{m}(\bm{q},\bm{p},t)\in\mathbb{R}^{m}$. However even if the idea of differentiating the constraint seem good, the problem in \cref{eq:mechanicalDAE} and the one in \cref{eq:generalequationofmotionfirstorderdiffconstraint} are \emph{not equivalent}. This difference produces the so called \emph{drift effect} that will be investigated in next section. At the moment let us ignore this complication and continue on the taken path. System of equations in \cref{eq:generalequationofmotionfirstorderdiffconstraint} can be also written in compact matrix notation as,
+		\begin{equation}
+			\label{eq:numericalscheme}
+			\begin{bmatrix}
+				\bm{I} 	&	0		&	0 \\
+				0	& 	\bm{M}(\bm{q}) 	&	-\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal} \\
+				0 	& -\frac{\partial\bm{\phi}}{\partial\bm{q}} & 0\\
+			\end{bmatrix}
+			\begin{bmatrix}
+				\dot{\bm{q}}\\
+				\dot{\bm{p}}\\
+				\bm{\lambda}
+			\end{bmatrix}
+			= 
+			\begin{bmatrix}
+				\bm{p} \\
+				\bm{n}(\bm{q},\bm{p},t) \\
+				\bm{m}(\bm{q},\bm{p},t)
+			\end{bmatrix}.
+		\end{equation}
+		Now it's easy to see that if the matrix on the left hand side of \cref{eq:numericalscheme} is invertible, then we can express the system in explicit form and use this representation to perform numerical simulations. 		
+		It easy to see that the matrix is invertible if and only if the sub-block,
+		\begin{equation*}
+			\begin{bmatrix}
+				\bm{M}(\bm{q}) & -\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal} \\
+				-\frac{\partial\bm{\phi}}{\partial\bm{q}} & 0
+			\end{bmatrix}\in\mathbb{R}^{(n+m)\times(n+m)},
+		\end{equation*}
+		is non-singular (full rank). In order to prove this we can use the rank additivity formula which states the following, 
+		\begin{equation*}
+		 	\rank{\begin{bmatrix}
+		 		\bm{M}(\bm{q}) & -\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal} \\
+		 		-\frac{\partial\bm{\phi}}{\partial\bm{q}} & 0
+		 	\end{bmatrix}} 
+		 	= \rank{\bm{M}(\bm{q})} + \rank{\left( \frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)}.
+		\end{equation*}
+		First recall that matrix $\bm{M}(\bm{q})$ is positive definite (so also non-singular), then $\forall\bm{q}\in\mathbb{R}^{n}, \rank{\bm{M}(\bm{q})} = n$. Thus what is missing is the condition 
+		\begin{equation}
+			\label{eq:compression}
+			\rank{\left( \frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)} = m,
+		\end{equation}
+		which is not generally true. Fortunately assuming the constraints (locally) linearly independent each other, i.e., $\forall\bm{q}\in\mathbb{R}^{n},\forall t$
+		\begin{equation}
+			\label{eq:independentcondition}
+			\rank{\left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\right)} = m, 
+		\end{equation}
+		\cref{eq:compression} holds, matrix in \cref{eq:numericalscheme} is invertible and the overall system can be expressed in \emph{explicit first order form} as follows,
+		\begin{equation*}
+			\begin{bmatrix}
+				\dot{\bm{q}}\\
+				\dot{\bm{p}}\\
+				\bm{\lambda}
+			\end{bmatrix}
+			= 
+			\begin{bmatrix}
+				\bm{I} 	&	0		&	0 \\
+				0	& 	\bm{M}(\bm{q}) 	&	-\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal} \\
+				0 	& -\frac{\partial\bm{\phi}}{\partial\bm{q}} & 0\\
+			\end{bmatrix}^{-1}
+			\begin{bmatrix}
+				\bm{p} \\
+				\bm{n}(\bm{q},\bm{p},t) \\
+				\bm{m}(\bm{q},\bm{p},t)
+			\end{bmatrix}.
+		\end{equation*}
+		An explicit expression for the inverse matrix above can be obtained through tedious calculations and it is shown in \cref{subsec:matrixinverse}. However regardless the specific expression of the solution we want stress a very important point; differentiating the constraint we were able to find an explicit expression for the Lagrange multipliers. For this purpose we differentiated twice and we obtained \cref{eq:ddiffconstraint}. Then isolating the acceleration $\bm{\dot{p}}$ from \cref{eq:generalequationofmotionfirstorder} results,
+		\begin{equation}
+			\label{eq:genvelo}
+			\dot{\bm{p}} = \bm{M}(\bm{q})\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\bm{\lambda}+\bm{M}(\bm{q})^{-1}\bm{n}(\bm{q},\bm{p},t) = 0.	
+		\end{equation}
+		Thus substituting \cref{eq:genvelo} into \cref{eq:ddiffconstraint} results,
+		\begin{equation}
+			\frac{\diff}{\diff t}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{p} + \frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\bm{\lambda}+\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\bm{n}(\bm{q},\bm{p},t)+\frac{\partial^{2}\bm{\phi}}{\partial t^{2}}.
+		\end{equation}
+		Here we recognize the nonsingular matrix in \cref{eq:compression}, therefore an explicit expression for the Lagrange multipliers is the following, 
+		\begin{equation*}
+			\bm{\lambda} = -\left(\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\right)^{-1}\left(\frac{\diff}{\diff t}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{p}+\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{M}(\bm{q})^{-1}\bm{n}(\bm{q},\bm{p},t)+\frac{\partial^{2}\bm{\phi}}{\partial t^{2}}\right). 
+		\end{equation*}
+		Technically Mechanical systems subject to holonomic constraints are systems of differential-algebraic equations (DAEs) of \emph{differential index} 3. The differential index is one plus the number of differentiations of the constraint that are needed in order to be able to eliminate the Lagrange multipliers. Otherwise, equivalently, the number of times that we need to differentiate the constraint in order to obtain a differential equation also for the Lagrange multiplier. 
+		
+	\section{The drift effect}
+		In this section we want investigate the effects of the differentiating process done to transform problem in \cref{eq:generalequationofmotionfirstorder} into problem \cref{eq:generalequationofmotionfirstorderdiffconstraint}. Unfortunately this method is \emph{not} priceless, indeed formally we substitute an algebraic constraint with its second derivative w.r.t time. To better understand the consequences let us consider a fictitious constraint $\widetilde{\bm{\phi}}(\bm{q},t)$ of the form, 
+		\begin{equation}
+			\widetilde{\bm{\phi}}(\bm{q},t) := \bm{\phi}(\bm{q},t)+\bm{a}_0 + \bm{a}_{1}t.
+		\end{equation}
+		It is easy to see that consider a mechanical system subject to constraint $\phi(\bm{q},t)$ or $\widetilde{\bm{\phi}}(\bm{q},t)$ differentiating twice is exactly the same, i.e.,
+		\begin{equation}
+			\frac{\diff^2\bm{\phi}}{\diff t^2} = \frac{\diff^2\widetilde{\bm{\phi}}}{\diff t^2}.
+		\end{equation}    
+		This fact produces the \emph{drift effect}, i.e., the original constraint $\bm{\phi}(\bm{q},t)$ is violated with an error growing with time. This error grows in the best case linearly, but it can be faster due to \emph{numerical} errors. The reason of this behaviour is the term $\bm{a}_{1}t$ which does not have any effect in the formulation (\ref{eq:generalequationofmotionfirstorderdiffconstraint}). Note also that this is not an undesired effect coming from not enough precision of the numerical scheme, but it is intrinsic effect due to substitution of the constraint $\bm{\phi}$ with its second derivative w.r.t time. A simple solution to this undesired effect is the Baumgarte's stabilization that we will discuss in the next section.
+		\begin{example}
+			\label{ex:pendulum2}
+			Continuing \cref{ex:pendulum1} we provide a first order representation for the pendulum; setting $\bm{p} = \dot{\bm{q}}$ results, 
+			\begin{subequations}
+				\begin{align*}
+					\bm{p} = \dot{\bm{q}},\\
+					m\dot{\bm{p}} + mg\bm{e}_{2} = 2\bm{q}\lambda,\\
+					\transp{\bm{q}}\bm{q} - \ell^{2} = 0.
+				\end{align*}
+			\end{subequations}
+			Then in order to eliminate the Lagrange multiplier let us differentiate the constraint, 
+			\begin{equation*}
+				\frac{\diff\phi}{\diff t} = 2\transp{\bm{q}}\bm{p} = 0.
+			\end{equation*}
+			Notice that as expected velocity $\bm{p}$ and position $\bm{q}$ are orthogonal each other. Differentiating again we obtain 
+			\begin{equation*}
+				\frac{\diff^{2}\phi}{\diff t^2} = 2\transp{\dot{\bm{q}}}\bm{p} + 2\transp{\bm{q}}\dot{\bm{p}} = 2\transp{\bm{p}}\bm{p} + 2\transp{\bm{q}}\dot{\bm{p}} = 0.
+			\end{equation*}
+			Now we can write the problem in shape of \cref{eq:numericalscheme}, 
+			\begin{equation}
+				\label{eq:numericalschemependulum}
+				\begin{bmatrix}
+					\bm{I}_{2} 	& 0 & 0 \\
+					0 			& m\bm{I}_{2} & -2\bm{q} \\ 
+					0 			& -2\transp{\bm{q}}  & 0
+				\end{bmatrix}
+				\begin{bmatrix}
+					\dot{\bm{q}} \\
+					\dot{\bm{p}} \\
+					\lambda
+				\end{bmatrix}
+				= 
+				\begin{bmatrix}
+					\bm{p} \\
+					-mg\bm{e}_{2}\\
+					2\transp{\bm{p}}\bm{p}
+				\end{bmatrix},
+			\end{equation}
+		\end{example}
+		where $\bm{I}_{2}\in\mathbb{R}^{2\times 2}$ is the identity matrix of dimension 2. The explicit value for the Lagrange multipliers is the following
+		\begin{equation}
+			\label{eq:explicitlambdapendulum}
+			\lambda = -\frac{m}{2\bm{q}^{\intercal}\bm{q}}\left(\bm{p}^{\intercal}\bm{p}-g\bm{q}^{\intercal}\bm{e}_{2}\right) = -\frac{m}{2\ell^{2}}\left(\bm{p}^{\intercal}\bm{p}-gq_{2}\right). 
+		\end{equation}
+		To better appreciate the drift effect we can simulate \cref{eq:numericalschemependulum} using an ODE solver. The results are showed in \cref{fig:trackingerrosr}.
+		\begin{figure}[htbp]
+			\centering
+			\begin{tikzpicture}
+				\begin{axis}
+					[xmin=-5,xmax=5,ymin=-7.5,ymax=2.5, ytick={-7.5,-5,-2.5,0,2.5,5},grid=both,width=10cm,height=10cm]
+					\draw (axis cs:0,0) circle [black, radius=2.5];
+					\addplot[dotted,samples=10,color=red]table[x=x1,y=y1]{data/nstab.txt};
+				\end{axis}
+			\end{tikzpicture}
+			\caption{Pendulum simulation with drift effect.}
+			\label{fig:trackingerrosr}
+		\end{figure}
+		Simulation has been performed for $50$ seconds with the following parameters, $g = 9.81$, $m=2$, $\ell=2.5$ and initial conditions $\bm{q}_{0} = (0.86; 2.35)\in\mathbb{R}^{2}$, $\dot{\bm{q}}_{0} = \bm{p}_{0} = (0,0)\in\mathbb{R}^{2}$ and $\lambda_{0} = 3.69$, which are all consistent with the constraint and with \cref{eq:explicitlambdapendulum}.
+		
+	\section{Baumgarte's stabilization}
+		A very popular way to stabilize the constraint $\bm{\phi}(\bm{q},t)=0$ and thus avoid the drift effect is using Baumgarte's stabilization, see \cite{baumgarte1972stabilization}. This idea is well presented with other techniques in the survey paper \cite{ascher1995stabilization}. The key idea is to substitute the constraint with a \emph{differential equation} that \emph{asymptotically} satisfies $\bm{\phi}(\bm{q},t)=0$. Obviously this technique is effective only if you are interested in the \emph{long term} behaviour, since during transients the constraint may be violated. Since constrained mechanical systems require to differentiations to eliminate the Lagrange multipliers, we consider a linear second order stable differential equation of the form, 
+		\begin{equation}
+			\label{eq:secondordersystem}
+			\frac{\diff^2 z(t)}{\diff t^2} + 2\xi\omega_{\textnormal{n}}\frac{\diff z(t)}{\diff t} + \omega_{\textnormal{n}}^2z(t) = 0,
+		\end{equation}  
+		where $z(t)\in\mathbb{R}$. In this form we recognize the well known equation for second order linear mechanical or electrical systems, such as the \emph{RLC circuit} or the \emph{mass spring damper}. In these framework $\xi\in\mathbb{R}_{>0}$ is the \emph{damping ratio} and $\omega_{\textnormal{n}}\in\mathbb{R}_{>0}$ is the \emph{natural frequency}. Depending on the value of $\xi$ different cases can arise:
+		\begin{itemize}
+			\item $0<\xi<1$: solution $z$ is \emph{underdamped},
+			\item $\xi=1$: solution $z$ is \emph{critically damped},
+			\item $\xi>1$: solution $z$ is \emph{overdamped}.
+		\end{itemize}
+		The general form for the solution is the following
+		\begin{equation*}
+			z(t) = k_{1}e^{\left(-\xi+\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t} + k_{2}e^{\left(-\xi-\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t}, 
+		\end{equation*}
+		where $k_{1},k_{2}\in\mathbb{R}$ are constants determined by the initial conditions $z_{0} = z(t=0)$ and $\dot{z}_{0} = \dot{z}(t=0)$. Solutions for the different cases can be arranged in different ways, here we show some of them. For a deeper treatment see for example \cite{rao1995mechanical}. Let us start from the underdamped case; solution takes the form
+		\begin{equation}
+			\label{eq:underdamped}
+			z(t) = c_ {1}e^{-\xi\omega_{\textnormal{n}}t}\cos\left({\sqrt{1-\xi^2}\omega_{\textnormal{n}}t-c_{2}}\right),
+		\end{equation}
+		where constants $c_{1},c_{2}\in\mathbb{R}$ are given by, 
+		\begin{subequations}
+			\begin{align*}
+				c_{1} &= \frac{\sqrt{z_{0}^2\omega_{\textnormal{n}}^2+\dot{z}_{0}^2+2z_{0}\dot{z}_{0}\xi\omega_{\textnormal{n}}}}{\sqrt{1-\xi^2}\omega_{\textnormal{n}}}\\
+				c_{2} &= \tan^{-1}\left(\frac{\dot{z}_{0}+\xi\omega_{\textnormal{n}}z_{0}}{x_ {0}\omega_{\textnormal{n}}\sqrt{1-\xi^2}}\right).
+			\end{align*}
+		\end{subequations}
+		As we can observe in \cref{eq:underdamped} solution is a cosine function modulated by a decreasing exponential function. For the critically damped case a linear term appears and the solution takes the form, 
+		\begin{equation}
+			\label{eq:criticallydamped}
+			z(t) = (c_{1}+c_{2}t)e^{-\omega_{\textnormal{n}}t},
+		\end{equation}
+		where $c_{1},c_{2}\in\mathbb{R}$ are given by $c_{1} = z_{0}$ and $c_{2} = \dot{z}_{0}+\omega_{\textnormal{n}}z_{0}$. Finally for the overdamped case the solution takes the form
+		\begin{equation}
+			\label{eq:overdamped}
+			z(t) = c_{1}e^{\left(-\xi+\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t} + c_{2}e^{\left(-\xi-\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t}, 
+		\end{equation}
+		with constants, 
+		\begin{subequations}
+			\begin{align*}
+				c_{1} &= \frac{x_{0}\omega_{\textnormal{n}}\left(\xi+\sqrt{\xi^2-1}\right)+\dot{x}_{0}}{2\omega_{\textnormal{n}}\sqrt{\xi^2-1}},\\
+				c_{2} &= \frac{-x_{0}\omega_{\textnormal{n}}\left(\xi-\sqrt{\xi^2-1}\right)-\dot{x}_{0}}{2\omega_{\textnormal{n}}\sqrt{\xi^2-1}}.
+			\end{align*}
+		\end{subequations}
+		However, regardless of the specific form of the solution, all the three cases satisfy a \emph{global exponential stability} property, i.e., $\forall(z_{0},\dot{z}_{0})\in\mathbb{R}\times\mathbb{R}$ the solution $z(t,z_{0},\dot{z}_{0})$ satisfies
+		\begin{equation*}
+			\lim_{t\rightarrow\infty} z(t,z_{0},\dot{z}_{0}) = 0.
+		\end{equation*}
+		The notation $z(t,z_{0},\dot{z}_{0})$ is just to stress that the solution depends on time but also from initial conditions $(z_{0},\dot{z}_{0})$. This consideration suggests to substitute the constraint $\bm{\phi}(\bm{q},t)$ with an ODE of the form (\ref{eq:secondordersystem}). In this way, despite the initial conditions, the solution will asymptotically satisfies $\bm{\phi}(\bm{q},t)=0$. Thus the explicit \emph{Baumgarte's stabilization} for DAEs of index three takes the form,	
+		\begin{equation*}
+			\frac{\diff^2\bm{\phi}}{\diff t^2} + 2\xi\omega_{\textnormal{n}}\frac{\diff\bm{\phi}}{\diff t} + \omega_{\textnormal{n}}^2\bm{\phi} = 0.
+		\end{equation*}
+		Computing explicitly the terms for mechanical systems the stabilization results,
+		\begin{equation}
+			\frac{\diff}{\diff t}\frac{\partial\bm{\phi}}{\partial\bm{q}}\dot{\bm{q}}+\frac{\partial\bm{\phi}}{\partial\bm{q}}\ddot{\bm{q}}+\frac{\partial^{2}\bm{\phi}}{\partial t^2} + 2\xi\omega_{\textnormal{n}}\frac{\partial\phi}{\partial\bm{q}}\dot{\bm{q}} + 2\xi\omega_{\textnormal{n}}\frac{\partial\bm{\phi}}{\partial t}+\omega_{\textnormal{n}}^2\bm{\phi} = 0.
+		\end{equation}
+		which can be re-arranged in the following form
+		\begin{equation}
+			\label{eq:baumstability}
+			-\frac{\partial\bm{\phi}}{\partial\bm{q}}\dot{\bm{p}} = \frac{\diff}{\diff t}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{p}+\frac{\partial^{2}\bm{\phi}}{\partial t^2} + 2\xi\omega_{\textnormal{n}}\frac{\partial\phi}{\partial\bm{q}}\bm{p} + 2\xi\omega_{\textnormal{n}}\frac{\partial\bm{\phi}}{\partial t}+\omega_{\textnormal{n}}^2\bm{\phi} :=\bm{m}(\bm{q},\bm{p},t).
+		\end{equation}
+		Now \cref{eq:baumstability} can be easy implemented without any modification in \cref{eq:numericalscheme}; indeed it is sufficient to redefine $\bm{m}(\bm{q},\bm{p},t)$ as in \cref{eq:baumstability}. However a question is still open, how can we tune the parameters $\omega_{\textnormal{n}}$ and $\xi$?. Unfortunately there is not general rule, but it is useful to notice that the velocity of convergence to zero of the solution depends on both$\xi$ and $\omega_{\textnormal{n}}$. Therefore it is a good idea to select them in order to obtain an high decay rate compatibly with the \emph{numerical stability}. This means that the dynamics associated to the constraint $\bm{\phi}(\bm{q},t)$ cannot be too fast compared to other ones, otherwise the system could be very hard (stiff) to simulate numerically. Indeed systems where two or more very different time scales are involved are usually called \emph{stiff problems} or \emph{stiff systems}. These may cause some numerical problems, since stiff equations require an integration step extremely small and are numerically unstable. In general it is hard to provide a unique definition of stiffness, but the main idea is that the differential equations includes some terms that can lead to rapid variation in the solution.
+		\begin{example}
+			Continuing \cref{ex:pendulum2} we want use the Baumgarte's technique to stabilize the pendulum. Therefore the idea is to substitute the constraint
+			\begin{equation*}
+				2\bm{p}^{\intercal}\bm{p}+2\bm{q}\dot{\bm{p}} = 0
+			\end{equation*}
+			with
+			\begin{equation*}
+				-2\transp{\bm{q}}\dot{\bm{p}} = 2\transp{\bm{p}}\bm{p} + 4\omega_{\textnormal{n}}\xi\transp{\bm{q}}\bm{p} + \omega_{\textnormal{n}}^{2}(\transp{\bm{q}}\bm{q}-\ell^{2}).
+			\end{equation*}
+			Thus final equations appears as, 
+			\begin{equation}
+				\label{eq:examplewithbaumga}
+				\begin{bmatrix}
+					\bm{I}_{2} 	& 0 & 0 \\
+					0 			& m\bm{I}_{2} & -2\bm{q} \\ 
+					0 			& -2\transp{\bm{q}}  & 0
+				\end{bmatrix}
+				\begin{bmatrix}
+					\dot{\bm{q}} \\
+					\dot{\bm{p}} \\
+					\lambda
+				\end{bmatrix}
+				= 
+				\begin{bmatrix}
+					\bm{p} \\
+					-mg\bm{e}_{2}\\
+					2\transp{\bm{p}}\bm{p} + 4\omega_{\textnormal{n}}\xi\transp{\bm{q}}\bm{p} + \omega_{\textnormal{n}}^{2}(\transp{\bm{q}}\bm{q}-\ell^{2})
+				\end{bmatrix}.
+			\end{equation}
+			Again to appreciate the effects of Baumgarte's stabilization we can simulate \cref{eq:examplewithbaumga} with same parameters as \cref{ex:pendulum2} and stabilization parameters $\xi = 0.8$, $\omega_{\textnormal{n}} = 2$. The result is showed in \cref{fig:trackingerros}.
+			\begin{figure}[htbp]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}
+						[xmin=-3,xmax=3,ymin=-3,ymax=3,grid=both,width=8cm,height=8cm]
+						\draw (axis cs:0,0) circle [black, radius=2.5];
+						\addplot[dotted,samples=10,color=red]table[x=x1,y=y1]{data/stab.txt};
+					\end{axis}
+				\end{tikzpicture}
+				\caption{Pendulum simulation with Baumgarte's stabilization.}
+				\label{fig:trackingerros}
+			\end{figure}
+		\end{example}
+
+	\section{Projection method}
+	Another way to stabilize the constraint $\bm{\phi}(\bm{q},t)=0$ and avoid the drift effect is using the so-called Projection method. The idea is to firstly reduce the index of the DAE, thus obtaining an ODE and the aforementioned \emph{hidden constraints}. Then the resulting ODE can be numerically integrated, leading to a generic intermediate solution $\widetilde{\bm{q}}(t_n)$. This temporary solution is projected to the hidden constraints in order to minimise the error between the numerical integration solution and the actual system constraints, which is a \textit{nonlinear constrained least squares problem} because of the norm chosen. The projection gives the orthogonal projection to the contraints.
+
+It should be noticed that unlike the previously presented Baumgarte's stabilization method this technique is useful and particularly effective if you are interested in the \emph{short term} behaviour, since even during transients the constraint is always satisfied. Different information from the original and reduced system can be used for various projection methods. For example, we can decide to get an advantage by first projecting the ODE solution $\widetilde{\bm{q}}(t_n)$ to the position constraints and than to the velocity constraints.
+
+\begin{example}
+			Continuing \cref{ex:pendulum2} we want use the Projection technique to stabilize the pendulum. The numerical scheme for integrating the reduced DAE is that in \cref{eq:numericalschemependulum}. We want now to project the results of the generic ODE numerical integrator to the following \emph{hidden constraints},
+			\begin{equation*}
+				\frac{\diff\phi}{\diff t} = 2\transp{\bm{q}}\bm{p} = 0.
+			\end{equation*}
+			\begin{equation*}
+				\frac{\diff^{2}\phi}{\diff t^2} = 2\transp{\dot{\bm{q}}}\bm{p} + 2\transp{\bm{q}}\dot{\bm{p}} = 2\transp{\bm{p}}\bm{p} + 2\transp{\bm{q}}\dot{\bm{p}} = 0.
+			\end{equation*}
+			At each time step, the resulting orthogonal projection to the constraints is equal to
+			\begin{equation}
+				\begin{split}
+				\dfrac{1}{2}|| \widetilde{\bm{q}} - \bm{q} ||_2 = \min_{\bm{q}}\\
+					\text{subject to:} \quad \bm{\phi}(\bm{q},t) = \transp{\bm{q}}\bm{q} - \ell^{2} = 0
+				\end{split}
+			\end{equation}
+			for the position coordinates projection, and
+			\begin{equation}
+				\begin{split}
+				\dfrac{1}{2}|| \widetilde{\bm{p}} - \bm{p} ||_2 = \min_{\bm{p}}\\
+					\text{subject to:} \quad \frac{\diff\bm{\phi}}{d\bm{q}}(\bm{q},t)\bm{p} + \frac{\diff\bm{\phi}}{dt}(\bm{q},t)= 0
+				\end{split}
+			\end{equation}
+			for the velocity coordinates projection.
+			\begin{figure}[htbp]
+				\centering
+				\begin{tikzpicture}
+					\begin{axis}
+						[xmin=-3,xmax=3,ymin=-3,ymax=3,grid=both,width=8cm,height=8cm]
+						\draw (axis cs:0,0) circle [black, radius=2.5];
+						\addplot[dotted,samples=10,color=red]table[x=x1,y=y1]{data/stab.txt};
+					\end{axis}
+				\end{tikzpicture}
+				\caption{Pendulum simulation with Projection method.}
+				\label{}
+			\end{figure}
+		\end{example}
+		
+
+		
+		

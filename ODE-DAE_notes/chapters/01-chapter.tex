@@ -2,6 +2,8 @@
 % !TEX root = ../main.tex
 %
 
+\renewcommand{\arraystretch}{1.5}
+
 \chapter{Ordinary Differential Equations}
 \label{ODEs}
 In mathematics, an \textit{ordinary differential equation} is a \textit{differential equation} containing one or more functions of one independent variable and its derivatives. The term \textit{ordinary} is used in contrast with the term \textit{partial} so to specify that the differential equations has only \textit{one} independent variable. This mathematical tool is widely used to describe dynamical systems (physical, social, economical, biological and so on and so forth). The first mathematicians to study and apply ordinary differential equations include important names like Newton, Euler, Leibniz, the Bernoulli family, Riccati, Clairaut and d'Alembert. An example of this kind of equations is probably one of the most known formulas in the world, that is trivially the Newton's second law of motion:
@@ -243,7 +245,7 @@ The generic \textit{explicit Runge-Kutta method} is a one-step method with the r
 where $i=1,\dots,s$. In this method the values $hc_i$ are the quadrature points on the interval $[0, h]$. The values $k_i$ are approximations to function values of the integrand in these points and the values $g i$ constitute approximations to the solution $z(hc_i)$ in the quadrature points. This method uses $s$ intermediate values and is thus called an $s$-stage method.
 
 \begin{definition}[Butcher tableau]
-	It is customary to write Runge-Kutta methods in the form of a \textit{Butcher tableau}, containing only the coefficients of equation \ref{eq::rungekutta} in the following matrix form:
+	It is customary to write Runge-Kutta methods in the form of a \textit{Butcher tableau}, containing only the coefficients of equation \ref{eq::rungekutta_explicit} in the following matrix form:
 	\begin{equation}
 		\begin{array}
 			{c|ccccc}
@@ -277,7 +279,7 @@ The midpoint method is a variation of the explicit Euler method, also known as C
 		1/2 & 1/2 & 0 \\ \hline
 		    & 0   & 1 
 	\end{array}
-	\label{eq::midpoint}
+	\label{eq:midpoint}
 \end{equation}
 
 \paragraph{Heun's method}
@@ -310,7 +312,7 @@ It is a second-order method with two stages and a minimum local error bound.
 	\begin{array}{c|cc}
 		0      & 0      & 0 \\
 		\alpha & \alpha & 0 \\ \hline
-		       & 1-\frac{1}{2\alpha} & \frac{1}{2\alpha}
+		       & 1-\dfrac{1}{2\alpha} & \dfrac{1}{2\alpha}
 	\end{array}
 	\label{eq::generic_second}
 \end{equation}
@@ -371,8 +373,11 @@ With $\alpha \neq 0, 2/3, 1$:
 	\begin{array}{c|ccc}
 		0      & 0      & 0 & 0 \\
 		\alpha & \alpha & 0 & 0 \\
-		1      & 1+\frac{1-\alpha}{\alpha(3\alpha-2)} & -\frac{1-\alpha}{\alpha(3\alpha-2)} & 0 \\ \hline
-		       & \frac{1}{2}-\frac{1}{6\alpha} & \frac{1}{6\alpha(1-\alpha)} & \frac{2-3\alpha}{6\alpha(1-\alpha)}
+		1      & 1+\dfrac{1-\alpha}{\alpha(3\alpha-2)} & -\dfrac{1-\alpha}{\alpha(3\alpha-2)} & 0 
+		\\[1em]
+		\hline
+		\\[-1em]
+		       & \dfrac{1}{2}-\dfrac{1}{6\alpha} & \dfrac{1}{6\alpha(1-\alpha)} & \dfrac{2-3\alpha}{6\alpha(1-\alpha)}
 	\end{array}
 	\label{eq::generic_third}
 \end{equation}
@@ -486,10 +491,11 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Gauss-Legendre second-order method}
 \begin{equation}
 	\begin{array}{c|cc}
-		\frac{1}{2}-\frac{\sqrt3}{6} &         \frac{1}{4}          & \frac{1}{4}-\frac{\sqrt3}{6} \\
-		\frac{1}{2}+\frac{\sqrt3}{6} & \frac{1}{4}+\frac{\sqrt3}{6} &         \frac{1}{4}          \\ \hline
-		                             &         \frac{1}{2}          &         \frac{1}{2}          \\
-		                             &   \frac12+\frac{\sqrt3}{2}   &   \frac12-\frac{\sqrt3}{2}
+		\dfrac{1}{2}-\dfrac{\sqrt3}{6} &         \dfrac{1}{4}          & \dfrac{1}{4}-\dfrac{\sqrt3}{6} \\
+		\dfrac{1}{2}+\dfrac{\sqrt3}{6} & \dfrac{1}{4}+\dfrac{\sqrt3}{6} &         \dfrac{1}{4}          \\[1em]
+		\hline
+		\\[-1em]		                               &         \dfrac{1}{2}          &         \dfrac{1}{2}          \\
+		                               &   \dfrac{1}{2}+\dfrac{\sqrt{3}}{2}   &   \dfrac{1}{2}-\dfrac{\sqrt{3}}{2}
 	\end{array}
 	\label{eq::gauss-legendre_2}
 \end{equation}
@@ -497,11 +503,13 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Gauss-Legendre sixth-order method}
 \begin{equation}
 	\begin{array}{c|ccc}
-		\frac{1}{2} - \frac{\sqrt{15}}{10} &            \frac{5}{36}             & \frac{2}{9}- \frac{\sqrt{15}}{15}  & \frac{5}{36} - \frac{\sqrt{15}}{30} \\
-		           \frac{1}{2}             & \frac{5}{36} + \frac{\sqrt{15}}{24} &            \frac{2}{9}             & \frac{5}{36} - \frac{\sqrt{15}}{24} \\
-		\frac{1}{2} + \frac{\sqrt{15}}{10} & \frac{5}{36} + \frac{\sqrt{15}}{30} & \frac{2}{9} + \frac{\sqrt{15}}{15} &            \frac{5}{36}             \\ \hline
-		                                   &            \frac{5}{18}             &            \frac{4}{9}             &            \frac{5}{18}             \\
-		                                   &              -\frac56               &              \frac83               &              -\frac56
+		\dfrac{1}{2} - \dfrac{\sqrt{15}}{10} &            \dfrac{5}{36}             & \dfrac{2}{9}- \dfrac{\sqrt{15}}{15}  & \dfrac{5}{36} - \dfrac{\sqrt{15}}{30} \\
+		           \dfrac{1}{2}             & \dfrac{5}{36} + \dfrac{\sqrt{15}}{24} &            \dfrac{2}{9}             & \dfrac{5}{36} - \dfrac{\sqrt{15}}{24} \\
+		\dfrac{1}{2} + \dfrac{\sqrt{15}}{10} & \dfrac{5}{36} + \dfrac{\sqrt{15}}{30} & \dfrac{2}{9} + \dfrac{\sqrt{15}}{15} &            \dfrac{5}{36}      \\[1em]
+		\hline
+		\\[-1em]
+		                                   &            \dfrac{5}{18}             &            \dfrac{4}{9}             &            \dfrac{5}{18}             \\
+		                                   &              -\dfrac{5}{6}               &              \dfrac{8}{3}               &              -\dfrac{5}{6}
 	\end{array}
 	\label{eq::gauss-legendre_6}
 \end{equation}
@@ -557,11 +565,13 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Radau IA fifth-order method}
 \begin{equation}
 	\begin{array}{c|ccc}
-		0   & \frac{1}{9} & \frac{-1 - \sqrt{6}}{18} & \frac{-1 + \sqrt{6}}{18} \\
-		\frac{3}{5} - \frac{\sqrt{6}}{10}  & \frac{1}{9} & \frac{11}{45} + \frac{7\sqrt{6}}{360} & \frac{11}{45} - \frac{43\sqrt{6}}{360}\\
-		\frac{3}{5} + \frac{\sqrt{6}}{10} & \frac{1}{9} & \frac{11}{45} + \frac{43\sqrt{6}}{360} & \frac{11}{45} - \frac{7\sqrt{6}}{360}  \\
+		0   & \dfrac{1}{9} & \dfrac{-1 - \sqrt{6}}{18} & \dfrac{-1 + \sqrt{6}}{18} \\
+		\dfrac{3}{5} - \dfrac{\sqrt{6}}{10}  & \dfrac{1}{9} & \dfrac{11}{45} + \dfrac{7\sqrt{6}}{360} & \dfrac{11}{45} - \dfrac{43\sqrt{6}}{360}\\
+		\dfrac{3}{5} + \dfrac{\sqrt{6}}{10} & \dfrac{1}{9} & \dfrac{11}{45} + \dfrac{43\sqrt{6}}{360} & \dfrac{11}{45} - \dfrac{7\sqrt{6}}{360} 
+		\\[1em]
 		\hline
-		& \frac{1}{9} & \frac{4}{9} + \frac{\sqrt{6}}{36} & \frac{4}{9} - \frac{\sqrt{6}}{36}  \\
+		\\[-1em]
+		& \dfrac{1}{9} & \dfrac{4}{9} + \dfrac{\sqrt{6}}{36} & \dfrac{4}{9} - \dfrac{\sqrt{6}}{36}  \\
 	\end{array}
 	\label{eq::radauia}
 \end{equation}
@@ -569,11 +579,13 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Radau II fifth-order method}
 \begin{equation}
 	\begin{array}{c|ccc}
-		\frac{2}{5} - \frac{\sqrt{6}}{10}   & \frac{11}{45} - \frac{7\sqrt{6}}{360} & \frac{37}{225} - \frac{169\sqrt{6}}{1800} & -\frac{2}{225} + \frac{\sqrt{6}}{75} \\
-		\frac{2}{5} + \frac{\sqrt{6}}{10}  & \frac{37}{225} + \frac{169\sqrt{6}}{1800} & \frac{11}{45} + \frac{7\sqrt{6}}{360} & -\frac{2}{225} - \frac{\sqrt{6}}{75}\\
-		1                   & \frac{4}{9} - \frac{\sqrt{6}}{36} & \frac{4}{9} + \frac{\sqrt{6}}{36} & \frac{1}{9}  \\
+		\dfrac{2}{5} - \dfrac{\sqrt{6}}{10}   & \dfrac{11}{45} - \dfrac{7\sqrt{6}}{360} & \dfrac{37}{225} - \dfrac{169\sqrt{6}}{1800} & -\dfrac{2}{225} + \dfrac{\sqrt{6}}{75} \\
+		\dfrac{2}{5} + \dfrac{\sqrt{6}}{10}  & \dfrac{37}{225} + \dfrac{169\sqrt{6}}{1800} & \dfrac{11}{45} + \dfrac{7\sqrt{6}}{360} & -\dfrac{2}{225} - \dfrac{\sqrt{6}}{75}\\
+		1                   & \dfrac{4}{9} - \dfrac{\sqrt{6}}{36} & \dfrac{4}{9} + \dfrac{\sqrt{6}}{36} & \dfrac{1}{9}
+		\\[1em]
 		\hline
-		& \frac{4}{9} - \frac{\sqrt{6}}{36} & \frac{4}{9} + \frac{\sqrt{6}}{36} & \frac{1}{9}  \\
+		\\[-1em]
+		& \dfrac{4}{9} - \dfrac{\sqrt{6}}{36} & \dfrac{4}{9} + \dfrac{\sqrt{6}}{36} & \dfrac{1}{9}  \\
 	\end{array}
 	\label{eq::radauiia}
 \end{equation}

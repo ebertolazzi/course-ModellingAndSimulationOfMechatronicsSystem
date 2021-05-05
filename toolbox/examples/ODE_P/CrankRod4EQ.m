@@ -225,6 +225,156 @@ classdef CrankRod4EQ < DAC_ODEclass
 
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function res = DfDt( self, t, Z )
+      res = zeros(13,1);
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function res__h = h( self, t, Z )
+      
+      g = self.gravity;
+      m = self.m;
+      L = self.ell;
+      
+      % extract states
+      x_1      = Z(1);
+      y_1      = Z(2);
+      x_2      = Z(3);
+      y_2      = Z(4);
+      theta    = Z(5);
+      u_1      = Z(6);
+      v_1      = Z(7);
+      u_2      = Z(8);
+      v_2      = Z(9);
+      lambda_1 = Z(10);
+      lambda_2 = Z(11);
+      lambda_3 = Z(12);
+      lambda_4 = Z(13);
+      
+      % evaluate function
+      t1 = cos(theta);
+      t2 = t1 * L;
+      res__1 = x__1 - t2;
+      t3 = sin(theta);
+      t4 = t3 * L;
+      res__2 = y__1 - t4;
+      res__3 = x__2 - x__1 - t2;
+      res__4 = y__2;
+      res__6 = v__1 + t1 / t3 * u__1;
+      res__7 = u__2 - 2 * u__1;
+      res__8 = v__2;
+      t10 = L * (lambda__1 - lambda__3);
+      t11 = t1 ^ 2;
+      t14 = m * g;
+      t15 = t14 - lambda__2;
+      t20 = u__1 ^ 2;
+      t23 = 0.1e1 / m;
+      t25 = t3 ^ 2;
+      res__10 = 0.1e1 / L / t25 / t3 * t23 * (-t11 * t1 * t10 + t11 * t15 * t4 + m * t20 + t1 * t10 - t15 * t4);
+      res__11 = t23 * (3 * lambda__3 - 2 * lambda__1);
+      res__12 = t23 * (-t14 + lambda__4);
+
+
+      % store on output
+      res__h = zeros(12,1);
+      res__h(1) = res__1;
+      res__h(2) = res__2;
+      res__h(3) = res__3;
+      res__h(4) = res__4;
+      res__h(6) = res__6;
+      res__h(7) = res__7;
+      res__h(8) = res__8;
+      res__h(10) = res__10;
+      res__h(11) = res__11;
+      res__h(12) = res__12;
+
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function jac_hx = DhDx( self, t, Z )
+      
+      g = self.gravity;
+      m = self.m;
+      L = self.ell;
+      
+      % extract states
+      x_1      = Z(1);
+      y_1      = Z(2);
+      x_2      = Z(3);
+      y_2      = Z(4);
+      theta    = Z(5);
+      u_1      = Z(6);
+      v_1      = Z(7);
+      u_2      = Z(8);
+      v_2      = Z(9);
+      lambda_1 = Z(10);
+      lambda_2 = Z(11);
+      lambda_3 = Z(12);
+      lambda_4 = Z(13);
+
+      % evaluate function
+      jac_1_1 = 1;
+      t1 = sin(theta);
+      jac_1_5 = t1 * L;
+      jac_2_2 = 1;
+      t2 = cos(theta);
+      jac_2_5 = -t2 * L;
+      jac_3_1 = -1;
+      jac_3_3 = 1;
+      jac_3_5 = jac_1_5;
+      jac_4_4 = 1;
+      t4 = t1 ^ 2;
+      jac_6_5 = -0.1e1 / t4 * u_1;
+      t7 = 0.1e1 / t1;
+      jac_6_6 = t2 * t7;
+      jac_6_7 = 1;
+      jac_7_6 = -2;
+      jac_7_8 = 1;
+      jac_8_9 = 1;
+      t9 = L * (lambda_1 - lambda_3);
+      t10 = t2 ^ 2;
+      t12 = u_1 ^ 2;
+      t17 = 0.1e1 / m;
+      t19 = t4 ^ 2;
+      t21 = 0.1e1 / L;
+      jac_10_5 = t21 / t19 * t17 * (-3 * t2 * m * t12 + t10 * t9 - t9);
+      jac_10_6 = -2 * t7 / (t10 - 1) * t21 * u_1;
+      jac_10_10 = t2 * t7 * t17;
+      jac_10_11 = t17;
+      jac_10_12 = -jac_10_10;
+      jac_11_10 = -2 * jac_10_11;
+      jac_11_12 = 3 * jac_10_11;
+      jac_12_13 = jac_10_11;
+
+
+      % store on output
+      jac_hx = zeros(12,13);
+      jac_hx(1,1) = jac_1_1;
+      jac_hx(1,5) = jac_1_5;
+      jac_hx(2,2) = jac_2_2;
+      jac_hx(2,5) = jac_2_5;
+      jac_hx(3,1) = jac_3_1;
+      jac_hx(3,3) = jac_3_3;
+      jac_hx(3,5) = jac_3_5;
+      jac_hx(4,4) = jac_4_4;
+      jac_hx(6,5) = jac_6_5;
+      jac_hx(6,6) = jac_6_6;
+      jac_hx(6,7) = jac_6_7;
+      jac_hx(7,6) = jac_7_6;
+      jac_hx(7,8) = jac_7_8;
+      jac_hx(8,9) = jac_8_9;
+      jac_hx(10,5) = jac_10_5;
+      jac_hx(10,6) = jac_10_6;
+      jac_hx(10,10) = jac_10_10;
+      jac_hx(10,11) = jac_10_11;
+      jac_hx(10,12) = jac_10_12;
+      jac_hx(11,10) = jac_11_10;
+      jac_hx(11,12) = jac_11_12;
+      jac_hx(12,13) = jac_12_13;
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function res = DhDt( self, t, vars__ )
+      res = zeros(12,1);
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function plot( self, t, Z )
       
       g = self.gravity;

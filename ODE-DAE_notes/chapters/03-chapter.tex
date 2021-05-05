@@ -2,902 +2,330 @@
 % !TEX root = ../main.tex
 %
 
-\chapter{Linear DAE}
-	\label{ch:linearDAE}
-	\section{Linear Differential Algebraic Equations}
-		In this chapter linear implicit differential equations or DAE s of the form
-		\textbf{}
+\chapter{Differential Algebraic Equations for Mechanics}
+	\label{ch:overview}
+	\section{Overview of Lagrangian Mechanics}
+		\label{sec:overview}
+		Most of the following section is inspired by \cite{arnold1989mathematical} and \cite{marsden2013introduction}, which are advanced classical textbooks on classical mechanics. Mechanics deals with the dynamics of particles, rigid bodies, continuous media and field theories such as electromagnetism, gravity, etc. The foundations were laid by Newton in the $17$th century and since then many generalizations and extensions have been proposed. To date Mechanics has two main point of view, \emph{Lagrangian mechanics} and \emph{Hamiltonian mechanics}. In these notes we will briefly recall some concepts of Lagrangian Mechanics, for insights see \cite{marsden2013introduction}. The Lagrangian formulation of mechanics is based on the observation that there are \emph{variational principles} behind the fundamental laws of force balance, as given by Newton's law $\bm{F}=m\bm{a}$. This principle is called \emph{least action}, or more accurately, the principle of \emph{stationary action}. This principle can be successfully applied to every mechanical system to obtain the equations of motion. The idea is fairly general, since it can be used to derive Newtonian, Lagrangian, and Hamiltonian equations of motion. However, here we will focus only on mechanical systems with a finite number of \emph{degrees of freedom}. For those systems the \emph{configuration} can be  identified through a vector of \emph{generalized coordinates} $\bm{q} := (q_{1}; q_{2}; \dots ;q_{n})\in\mathbb{R}^{n}$, where $n$ is the \emph{minimum} number of \emph{degrees of freedom}. Notice that the choice of vector $\bm{q}$ is not unique. After choosing a ordered set of coordinate $\bm{q}$, it is always possible to express \emph{kinetic} and the \emph{potential} energy as a function of it. Thus let us define $T(\bm{q},\bm{q})$ as the \emph{kinetic energy} and $U(\bm{q},t)$ as the \emph{potential energy}. Roughly we can think $T, U$ as functions whose domain of definition is simply the direct product of Euclidean spaces, i.e., $T:\mathbb{R}^{n}\times\mathbb{R}^{n}\rightarrow\mathbb{R}_{\geq0}$ and $U:\mathbb{R}^{n}\times\mathbb{R}\rightarrow\mathbb{R}$. However this is not completely true, since vector $\bm{q}$ may represent a coordinatization of more abstract surfaces, namely \emph{manifolds}; however (locally) we can think at Euclidean spaces. Once the \emph{energy} of the system has been defined we can introduce the so called \emph{Lagrangian function} $L(\bm{q},\dot{\bm{q}},t)$, whose domain is $L:\mathbb{R}^{n}\times\mathbb{R}^{n}\times\mathbb{R}\rightarrow\mathbb{R}$. In classical Mechanics the Lagrangian is defined as the difference between \emph{kinetic} and \emph{potential} energy, formally
 		\begin{equation}
-			\label{eq:daelinear}
-			\bm{E}\dot{\bm{x}}(t) = \bm{A}\bm{x}(t)+\bm{f}(t)
+			\label{eq:lagrangianfunction}
+			L(\bm{q},\dot{\bm{q}},t) := T(\bm{q},\dot{\bm{q}}) - U(\bm{q},t).
 		\end{equation}
-		are studied. In the simplest case, $\bm{E},\bm{A}\in\mathbb{R}^{n\times n}$ are square constant matrices and $\bm{f}(t):\mathbb{R}\rightarrow\mathbb{R}^{n}$ is some external perturbation independent of $\bm{x}(t)$. Such equations occur for example by linearization of autonomous non-linear problems with respect to constant (or critical) solutions, here $\bm{f}(t)$ is a perturbation that pushes away the solution from the nominal trajectory. Other cases are modelling of  linear electrical circuits, simple mechanical systems or, in general, linear systems with additional linear algebraic  constraints.
-		The first question that we need to answer, regards existence and uniqueness of a solution $\bm{x}(t):\mathbb{R}\rightarrow\mathbb{R}^{n}$.
-		Of course the only interesting case is when $\bm{E}$ is singular (not invertible). Otherwise it is sufficient to invert $\bm{E}$ and the DAE s can be written as a ODE s as follows,
+		\begin{example}
+			\label{ex:nonuniquessofq}
+			Let us consider a very simple example, a free mass point in the plane subject to gravity in the $y$ downward direction, see \cref{fig:examplelagrangian}.
+			\input{pictures/lagrangian_example_point}
+			The kinetic and the potential energy for the system are, 
+			\begin{equation*}
+				T = \frac{1}{2}m(\dot{x}^{2}+\dot{y}^{2}), \quad U = mgy,
+			\end{equation*}
+			thus taking $\bm{q} = (x;y)\in\mathbb{R}^{2}$ as a vector of generalized coordinates the Lagrangian function is of the form 
+			\begin{equation*}
+				L = \frac{1}{2}m\transp{\bm{\dot{q}}}\bm{\dot{q}} - mg\transp{\bm{e}}\bm{q},
+			\end{equation*}
+			where $e_{2}=(0;1)\in\mathbb{R}^{2}$. Nevertheless Cartesian coordinates is not the only possible choice, thus considering \emph{polar} coordinates the following relations hold
+			\begin{subequations}
+				\begin{align*}
+					x &= r\cos{\theta}, & y &= r\sin{\theta}, \\
+					\dot{x} &= \dot{r}\cos{\theta} - r\sin{\theta}\dot{\theta}, & \dot{y} &= \dot{r}\sin{\theta}+r\cos{\theta}\dot{\theta},
+				\end{align*}
+			\end{subequations}
+			where $r\in\mathbb{R}_{\geq 0}$ is the radius and $\theta\in[0,2\pi)$ the angular coordinate. Then taking some steps the kinetic and potential energies can be expressed as, 
+			\begin{equation*}
+				T = \frac{1}{2}m(\dot{r}^{2}+r^{2}\dot{\theta}^{2}), \quad U = mgr\sin{\theta}.
+			\end{equation*}
+			Thus taking $\widetilde{\bm{q}}:=(\widetilde{q}_{1};\widetilde{q}_{2})=(r;\theta)\in\mathbb{R}^{2}$ as generalized coordinates the Lagrangian is
+			\begin{equation}
+				L = \frac{1}{2}m(\dot{\widetilde{q}}_{1}^{2}+\widetilde{q}_{1}^{2}\dot{\widetilde{q}}_{2}^{2}) - mg\widetilde{q}_{1}\sin{\widetilde{q}_{2}}.
+			\end{equation}
+			This simple example shows that the choice of generalized coordinates is not unique but it can be performed according to a criterion of simplicity or utility. As we will see shortly the Lagrangian formulation provides the correct equation of motion despite the chosen reference system. 
+		\end{example}
+		A very related concept in classical mechanics is the \emph{action} $S\in\mathbb{R}$, this is defined as the integral of the Lagrangian function performed between two instants of time $t_{1},t_{2}\in\mathbb{R}$, i.e.,
 		\begin{equation}
-			\label{eq:odelinear}
-			\dot{\bm{x}}(t) = \bm{E}^{-1}\bm{A}\bm{x}(t)+\bm{E}^{-1}\bm{f}(t).
+			\label{eq:actiondefinition}
+			S := \int_{t_{1}}^{t_{2}}L(\bm{q},\dot{\bm{q}},t)\diff t.
 		\end{equation}
-		For \cref{eq:odelinear} it is sufficient to assume $\bm{f}(t)$ piecewise continuous \footnote{Weaker conditions for $\bm{f}(t)$ can be used, for example it is sufficient that $\bm{f}(t)$ is Lebesque measurable.} and existence and uniqueness are ensured, see for example \cite{coddington1955theory}.  
-		Conversely when matrix $\bm{E}$ is singular, it is not a priori clear if the solution exists or not. A singular matrix $\bm{E}$ means that ODE s are mixed with linear algebraic constraints. At this point is important consider some regularity conditions for the pair $(\bm{E},\bm{A})$, as shown in the following example. 
+		Technically speaking the action is a \emph{functional}, i.e., a map that associate to each element of a vector space (usually a space of curves) a scalar. Thus a functional takes curves as input an returns a scalar.
+		\begin{remark}
+			Notice that $S=S(\bm{q})$ should be thought as a function of $\bm{q}(t)$ over the whole time interval $[t_{1},t_{2}]$. From this point onwards we will use the notation $\bm{q}(\cdot)$ to denote the function $\bm{q}$, while $\bm{q}(t)$ will be denote the \emph{value of function} $\bm{q}$ at the point $t$. Clarified this it is very important to stress that $S$ does not depends on $q(t)$ but from $q(\cdot)$ and it is just a number. Thus for every choice of the ``shape'' of curve $\bm{q}(\cdot)$, the action $S$ assumes a different (scalar) value.
+		\end{remark}
 		\begin{example}
-			Consider the DAE s with $\bm{x}(t)=(x_{1}(t);x_{2}(t))\in\mathbb{R}^{2}$, $\bm{f}(t)=0$,$\forall t\in[0,\infty)$ and matrices $\bm{E},\bm{A}$ given by 
-			\begin{equation}
-				 \bm{E} = 
-				 \begin{bmatrix}
-				 	1 & 0 \\
-				 	0 & 0
-				 \end{bmatrix}, \quad
-				 \bm{A} = 
-				 \begin{bmatrix}
-				 	0 & 1 \\
-				 	0 & 0
-				 \end{bmatrix}.
-			\end{equation}
-			This DAE s corresponds to the scalar differential equation $\dot{x}_{1}(t) = x_{2}(t)$. Fixing an initial condition $\bm{x}_{0}=(0;0)\in\mathbb{R}^{2}$ a solution is provided by
-			\begin{equation}
-				\bm{x}(t) = \int_{0}^{t}
-				\begin{bmatrix}
-					x_{2}(\tau) \\
-					\alpha(\tau)
-				\end{bmatrix}
-				\diff\tau,
-			\end{equation}
-			where $\alpha(\tau)$ represents an arbitrary function that satisfies the initial condition.  For example let us consider $\alpha(t) = \sin(t)$ which is compatible with the initial condition ($\sin(0)=0$), then the solution $\bm{x}(t)$ is
-			\begin{equation}
-				\bm{x}(t) = 
-				\begin{bmatrix}
-					-\sin(t) \\
-					-\cos(t)
-				\end{bmatrix}.
-			\end{equation}	
-			Nevertheless other choices are possible, i.e. $\alpha(t) = t$, then the solution is
-			\begin{equation}
-				\bm{x}(t) = 
-				\begin{bmatrix}
-					t^{3}/6\\
-					t^{2}/2
-				\end{bmatrix}.
-			\end{equation}	
-			It is therefore clear that the solution is not unique and that we must assume some regularity assumptions for the pair $(\bm{E},\bm{A})$.
+			Suppose that $\bm{q} = (q_{1};q_{2})\in\mathbb{R}^{2}$, $t_{1} = 0$, $t_{2} = 1$ and $L = q_{1}^{2} + q_{2}^{2}$, thus the action is the following, 
+			\begin{equation*}
+				S = \int_{0}^{1} q_{1}^2 +q_{2}^{2}\diff t.
+			\end{equation*}
+			Take now $\bm{q} = (2;t)$, calculating the value for the action results
+			\begin{equation*}
+				S = \int_{0}^{1} 2^{2} + t^{2}\diff t = \left[4t+\frac{t^{3}}{3}\right]_{0}^{1} = \frac{13}{3}.
+			\end{equation*}
 		\end{example}
-		In order to clarify the existence and uniqueness of a solution for \cref{eq:daelinear} we need the following definition.
-		\begin{definition}
-			Matrix pair $(\bm{E},\bm{A})$ is said to be a \emph{regular pencil} if there exist a scalar $\lambda_{0}\in\mathbb{R}$, such that
+		Similarly as seen in analysis courses you may ask yourself if there exist a curve that minimizes or maximizes the action. The answer has created a new branch of mathematics, i.e., the \emph{calculus of variations}. Calculus of variations concerns the \emph{extremal} of functionals whose domain is an infinite-dimensional space: the space of curves. As we will see shortly the \emph{stationary action principle} simply says that every mechanical system evolves along a curve $\bm{q}(\cdot)$ that is an extremal of the action functional $S$.
+		In order to state more formally the stationary action principle, let us consider an initial time $t_{1}$ and an initial configuration associated to it, $\bm{q}_{1} = \bm{q}(t_{1})$, consider also a final time $t_{2}$ and a final configuration $\bm{q}_{2}=\bm{q}(t_{2})$.
+		\begin{theorem}[Stationary action]
+			\label{th:stationaryaction}
+			Motions of mechanical systems from configuration $\bm{q}_{1}$ to configuration $\bm{q}_{2}$, with $t\in[t_{1},t_{2}]$, coincide with extremals curves of the functional in \cref{eq:actiondefinition}. Or equivalently, for small variations of the curve $\bm{q}(\cdot)$ the action $S$ is stationary, i.e.,
 			\begin{equation}
-				\determinant{\bm{A}-\lambda_{0}\bm{E}} \neq 0.
+				\delta S = 0.
 			\end{equation}
-		\end{definition}
-		\begin{example}
-			The pair of matrices $\bm{E},\bm{A}\in\mathbb{R}^{3\times 3}$ defined below is a non regular (singular) pencil.
-			\begin{equation}
-				\bm{E} = 
-				\begin{bmatrix}
-					1 	& 0 	& 0 \\
-					-2 	& 0 	& 0 \\
-					0 	& -2 	& 0 
-				\end{bmatrix},
-				\quad
-				\bm{A} = 
-				\begin{bmatrix}
-					1 & 0 & 0 \\
-					0 & 1 & 0 \\
-					0 & 0 & 0
-				\end{bmatrix}
-			\end{equation}
-			Since computing the determinant of the pencil is identically zero for every value of $\lambda_{0}\in\mathbb{R}$. 
-			\begin{equation}
-				\textnormal{det}\left(\bm{A}-\lambda_{0}\bm{E}\right) =\textnormal{det} 
-				\left(
-				\begin{bmatrix}
-					1-\lambda_{0} 	& 0 			& 0 \\
-					2\lambda_{0} 	& 1 			& 0 \\
-					0 				& 2\lambda_{0} 	& 0 
-				\end{bmatrix}
-				\right) = 0 
-			\end{equation} 
-		\end{example}
-		The key idea is that if pair $(E,A)$ is a regular pencil, then under an appropriate change of coordinates it is possible to simplify the problem. The idea is made more precise by the following theorem.
-		\begin{theorem}[Weirstrass canonical form]
-			Matrix pair $\bm{E},\bm{A}\in\mathbb{R}^{n\times n}$ is a regular pencil if, and only if, there exist invertible matrices $\bm{P}\in\mathbb{R}^{n\times n}$ and $\bm{Q}\in\mathbb{R}^{n\times n}$ such that
-			\begin{equation}
-			\label{eq:weierstrassform}
-				(\bm{PEQ},\bm{PAQ}) = \left(
-					\begin{bmatrix}
-						\bm{N} & 0 \\
-						0 & \bm{I}
-					\end{bmatrix},
-					\begin{bmatrix}
-					 	\bm{I} & 0 \\
-					 	0 & \bm{J} \\
-					\end{bmatrix}
-				\right),
-			\end{equation}
-			where $\bm{N}$ is an upper triangular nilpotent matrix; $\bm{J}$ is a matrix in Jordan canonical form and $\bm{I}$ is the identity matrix of suitable dimensions.
 		\end{theorem}
-		Just for the convenience of the reader we recall the definition of nilpotent matrix.
-		\begin{definition}
-			A square matrix $\bm{N}$ is said to be nilpotent if there exists an integer $\nu\in\mathbb{N}$ such that $\bm{N}^{\nu} = 0$.
-		\end{definition}
-		\begin{remark}
-			The smallest $\nu$ that satisfies $\bm{N}^{\nu} = 0$ is usually called \emph{degree} of $\bm{N}$. Notice also that any upper triangular matrix with zeros along the main diagonal is nilpotent.
-		\end{remark}
+		Where $\delta$ denotes a small perturbation of the functional $S$ and sometimes it is also called \emph{variational operator}.
 		\begin{example}
-			Matrix $\bm{N}\in\mathbb{R}^{3\times 3}$ as follows is nilpotent with \emph{degree} $\nu = 3$.
-			\begin{equation}
-				\bm{N} = 
-				\begin{bmatrix}
-					0 & 1 & 3 \\
-					0 & 0 & 2 \\
-					0 & 0 & 0
-				\end{bmatrix}, \quad
-				\bm{N}^2 = 
-				\begin{bmatrix}
-					0 & 0 & 2 \\
-					0 & 0 & 0 \\
-					0 & 0 & 0
-				\end{bmatrix}, \quad 
-				\bm{N}^3 =
-				\begin{bmatrix}
-					0 & 0 & 0 \\
-					0 & 0 & 0 \\
-					0 & 0 & 0 
-				\end{bmatrix}
-			\end{equation}
+			The $\delta$ operator can be successfully applied also to ordinary calculus. Let us consider the function $f(x,y) = \cos(x) + y^2$, then a variation of $f$ results
+			\begin{equation*}
+				\delta f = \frac{\partial f}{\partial x}\delta x + \frac{\partial f}{\partial y}\delta y = \begin{pmatrix} \cos{x} & y \end{pmatrix}\begin{pmatrix}\delta x \\ \delta y \end{pmatrix}.
+			\end{equation*} 
+			In this setting stationary points are the ones that satisfies $\delta f = 0$ since for \emph{first order} variation $(\delta x,\delta y)$ the corresponding variation of $f$ is zero. (The surface is locally flat and the variation on $f$ is visible only at the second order). Therefore the stationary points are $(\frac{\pi}{2}+k\pi,0)$ for $k = 1,2,\dots$.
 		\end{example}
-		The decoupling form in \cref{eq:weierstrassform} is called \emph{Weierstrass canonical form}, for further details see \cite{gantmacher1964theory}. Moreover the two matrices have the following structure; 
+		Now let us develop the consequences of this principle. Assuming $L$ regular enough is possible to move the $\delta$ operator under the integral,
 		\begin{equation}
-			\bm{N} = 
-			\begin{bmatrix}
-				\bm{N}_{1} & 0 & \dots & 0 \\
-				0 & \bm{N}_{2} & \dots & 0 \\
-				\vdots & \vdots & \ddots & \vdots\\
-				0 & 0 & \dots & \bm{N}_{n_{1}}	
-			\end{bmatrix},\quad
-			\bm{J} =
-			\begin{bmatrix}
-				\bm{J}_{1} & 0 & \dots & 0 \\
-				0 & \bm{J}_{2} & \dots & 0 \\
-				\vdots & \vdots & \ddots & \vdots\\
-				0 & 0 & \dots & \bm{J}_{n_{2}}.
-			\end{bmatrix}.
-		\end{equation}
-		Here $\bm{N}_{i}$ with $i=1,\dots,n_{1}$ and $\bm{J}_{i}$ with $i=1,\dots,n_{2}$ are Jordan blocks. The blocks $\bm{N}_{i}$ are associated to zero eigenvalues of matrix $\bm{E}$, therefore they appear as follows 
-		\begin{equation}
-			\bm{N}_{i} = 
-			\begin{bmatrix}
-				0 	& 1 	& 			&			&  	\\
-				  	& 0 	& 1 		&			& 	\\
-					&   	& \ddots 	&	\ddots	&  \\
-					&   	& 			& 	\ddots	& 1 \\
-					&		&			&			& 0
-			\end{bmatrix}, \quad i =1,\dots,n_{1}	\\,
-		\end{equation}
-		and the dimension of each block $\bm{N}_{i}$ is equal to the difference between the algebraic and the geometric multiplicity of the corresponding eigenvalue. Conversely blocks $\bm{J}_{i}$ with $i=1,\dots,n_{2}$ are classical Jordan blocks with the following structure, 
-		\begin{equation}	
-			\bm{J}_{k} = 
-				\begin{bmatrix}
-					\lambda_{k} 	& 1 	& 			&			&  	\\
-						& \lambda_{k} 	& 1 		&			& 	\\
-						&   	& \ddots 	&	\ddots	&  \\
-						&   	& 			& 	\ddots	& 1 \\
-						&		&			&			& \lambda_{k}
-				\end{bmatrix}, \quad k =1,\dots,n_{2}	\\.
-		\end{equation}
-		We now sketch a proof for the Weierstrass canonical form. The proof will be constructive and based on a sequential multiplication of non-singular matrices. Here we prove only the sufficiency part, for the necessity see \cite{gantmacher1964theory}.
-		\begin{proof}
-			Let us consider the regular pencil pair $(\bm{E},\bm{A})$, surely we can write $(\bm{E},\bm{A}+\lambda_{0}\bm{E}-\lambda_{0}\bm{E})$. Now let us define the matrix $\bm{T}_{0}=(\bm{A}-\lambda_{0}\bm{E})$, which is non singular by regular pencil assumption. Therefore the quantity $\bm{T}_{0}^{-1}(\bm{E},\bm{A}+\lambda_{0}\bm{E}-\lambda_{0}\bm{E}) = \left(\bm{T}_{0}^{-1}\bm{E},\bm{I}+\lambda_{0}\bm{T}_{0}^{-1}\bm{E}\right)$. Now let us call $\bm{T}_{1}$ the non singular transformation matrix such that $\bm{T}_{1}^{-1}\bm{T}_{0}^{-1}\bm{ET}_{1}$ is in Jordan canonical form. Then the pair $\bm{T}_{1}^{-1}\left(\bm{T}_{0}^{-1}\bm{E},\bm{I}+\lambda_{0}\bm{T}_{0}^{-1}\bm{E}\right)\bm{T}_{1}$ has the following structure, 
-			\begin{equation}
-				\label{eq:structureNJ}
-				\left(
-				\begin{bmatrix}
-					\tilde{\bm{N}} 	& 0 \\
-					0 			& \tilde{\bm{J}}
-				\end{bmatrix},
-				\begin{bmatrix}
-					\bm{I} + \lambda_{0}\tilde{\bm{N}} 	& 0 \\
-					0 							& \bm{I} + \lambda_{0}\tilde{\bm{J}}
-				\end{bmatrix}
-				\right).
-			\end{equation}
-			Here the block $\tilde{\bm{N}}$ is associated to the zero eigenvalues of the singular matrix $\bm{T}_{0}^{-1}\bm{E}$. Therefore $\tilde{\bm{N}}$ is upper triangular with zero elements on the main diagonal. Thanks to this property the matrix $(\bm{I}+\lambda_{0}\tilde{\bm{N}})$ is instead invertible. Therefore we can consider the non singular transformation matrix $\bm{T}_{2}$ defined as follows,
-			\begin{equation}
-				\bm{T}_{2} = 
-				\begin{bmatrix}
-					(\bm{I}+\lambda_{0}\tilde{\bm{N}}) & 0 \\
-					0 & \tilde{\bm{J}}
-				\end{bmatrix}.
-			\end{equation}
-			Now left multiplying \cref{eq:structureNJ} by $\bm{T}_{2}^{-1}$ we obtain the following structure,
-			\begin{equation}
-				\left(
-					\begin{bmatrix}
-						(\bm{I} + \lambda_{0}\tilde{\bm{N}})^{-1}\tilde{\bm{N}} 	& 0 \\
-						0 			& \bm{I}
-					\end{bmatrix},
-					\begin{bmatrix}
-						\bm{I} & 0 \\
-						0 & \tilde{\bm{J}}^{-1}(\bm{I}+\lambda_{0}\tilde{\bm{J}}) 
-					\end{bmatrix}
-				\right).
-			\end{equation}
-			Finally it is sufficient to consider matrices $\bm{T}_{31}$ and $\bm{T}_{32}$ such that $\bm{T}_{31}^{-1}(\bm{I}+\lambda_{0}\tilde{\bm{N}})^{-1}\tilde{\bm{N}}\bm{T}_{31}$ and $\bm{T}_{32}^{-1}\tilde{\bm{J}}^{-1}(\bm{I}+\lambda_{0}\tilde{\bm{J}})\bm{T}_{32}$ are in Jordan canonical form and build matrix $\bm{T}_{3}$ as follows, 
-			\begin{equation}
-				\bm{T}_{3} = 
-				\begin{bmatrix}
-					\bm{T}_{31} & 0 \\
-					0 & \bm{T}_{32}
-				\end{bmatrix}.
-			\end{equation}
-			Thus the final change of coordinates yields,
-			\begin{equation}
-				\bm{T}_{3}^{-1}\left(
-					\begin{bmatrix}
-						(\bm{I} + \lambda_{0}\tilde{\bm{N}})^{-1}\tilde{\bm{N}} 	& 0 \\
-						0 			& \bm{I}
-					\end{bmatrix},
-					\begin{bmatrix}
-						\bm{I} & 0 \\
-						0 & \tilde{\bm{J}}^{-1}(\bm{I}+\lambda_{0}\tilde{\bm{J}}) 
-					\end{bmatrix}
-				\right)\bm{T}_{3} = 
-				\left(
-					\begin{bmatrix}
-						\bm{N} 	& 0 \\
-						0 	& \bm{I}
-					\end{bmatrix},
-					\begin{bmatrix}
-						\bm{I} & 0 \\
-						0 & \bm{J} 
-					\end{bmatrix}
-				\right).
-			\end{equation}
-			It remains to prove that matrix $\bm{N}$ is nilpotent and to do that is sufficient to show that matrix $(\bm{I}+\lambda_{0}\tilde{\bm{N}})^{-1}\tilde{\bm{N}}$ is nilpotent as well. First notice that matrices $(\bm{I}+\lambda_{0}\tilde{\bm{N}})$ and $\tilde{\bm{N}}$ commute since, 
-			\begin{equation}
-				(\bm{I}+\lambda_{0}\tilde{\bm{N}})\tilde{\bm{N}} = \tilde{\bm{N}} + \lambda_{0}\tilde{\bm{N}}^{2} = \tilde{\bm{N}}(\bm{I}+\lambda_{0}\tilde{\bm{N}}).
-			\end{equation} 
-			Then also $(\bm{I}+\lambda_{0}\tilde{\bm{N}})^{-1}$ and $\tilde{\bm{N}}$ commute since, 
-			\begin{equation}
-				(\bm{I}+\lambda_{0}\tilde{\bm{N}})^{-1}\tilde{\bm{N}} = (\bm{I}+\lambda_{0}\tilde{\bm{N}})^{-1}\tilde{\bm{N}}(\bm{I}+\lambda_{0}\tilde{\bm{N}})(\bm{I}+\lambda_{0}\tilde{\bm{N}})^{-1} = \tilde{\bm{N}}(\bm{I}+\lambda_{0}\tilde{\bm{N}})^{-1}
-			\end{equation}
-			where we used the fact that $\tilde{\bm{N}}(\bm{I}+\lambda_{0}\tilde{\bm{N}})=(\bm{I}+\lambda_{0}\tilde{\bm{N}})\tilde{\bm{N}}$. Now since we know that commutative property for these matrices holds, called $\nu$ the index such that $\tilde{\bm{N}}^{\nu}=0$ the following is true
-			\begin{equation}
-				\left[(\bm{I}+\lambda_{0}\tilde{\bm{N}})\tilde{\bm{N}}\right]^{\nu} = (\bm{I}+\lambda_{0}\tilde{\bm{N}})^{\nu}\tilde{\bm{N}}^{\nu}=0,
-			\end{equation} and this complete the proof. Just to summarize, we notice that the overall transformation matrices $(\bm{P},\bm{Q})$ are given by $\bm{P} = (\bm{T}_{0}\bm{T}_{1}\bm{T}_{2}\bm{T}_{3})^{-1}$ and $\bm{Q} = \bm{T}_{1}\bm{T}_{3}$.
-		\end{proof}
-		The Weirstrass canonical form is quite useful since we can re-write system \cref{eq:daelinear} using the transformation matrices $(\bm{P},\bm{Q})$ just introduced, thus
-		\begin{equation}
-				\bm{PEQQ^{-1}}\dot{\bm{x}}(t) = \bm{PAQQ}^{-1}\bm{x}(t)+\bm{Pf}(t).
-		\end{equation}
-		Now considering the following change of coordinates,
-		\begin{subequations}
-			\begin{align}
-				\label{eq:changeofcoordinates}
-				\bm{z}(t) &= \bm{Q}^{-1}\bm{x}(t), \\
-				\bm{g}(t) &= \bm{Pf}(t),
-			\end{align}
-		\end{subequations}
-		we obtain the following equivalent DAE s
-		\begin{equation}
-			\begin{bmatrix}
-				\bm{N} & 0 \\
-				0 & \bm{I}
-			\end{bmatrix}
-			\begin{bmatrix}
-				\dot{\bm{z}}_{1}(t) \\
-				\dot{\bm{z}}_{2}(t)
-			\end{bmatrix} 
-			= 
-			\begin{bmatrix}
-				\bm{I} & 0 \\
-				0 & \bm{J}
-			\end{bmatrix}
-			\begin{bmatrix}
-				\bm{z}_{1}(t) \\
-				\bm{z}_{2}(t)
-			\end{bmatrix}
-			+ 
-			\begin{bmatrix}
-				\bm{g}_{1}(t) \\
-				\bm{g}_{2}(t)
-			\end{bmatrix}.
-		\end{equation}
-		Here we partitioned the $\bm{z}(t)$ and $\bm{g}(t)$ vectors according respectively to the dimensions of  $\bm{J}$ and $\bm{N}$. Obviously $\bm{z}(t) = (\bm{z}_{1}(t);\bm{z}_{2}(t))$ and $\bm{g}(t) = (\bm{g}_{1}(t);\bm{g}_{2}(t))$. It is also interesting, notice that the two sets of equations corresponding to $\bm{z}_{1}(t)$ and $\bm{z}_{2}(t)$ are decoupled
-		\begin{subequations}
-			\begin{align}
-				\label{eq:stillDAE}
-				\bm{N}\dot{\bm{z}}_{1} 	&= \bm{z}_{1} + \bm{g}_{1}(t), \\
-				\dot{\bm{z}}_{2} 	&= \bm{J}\bm{z}_{2} + \bm{g}_{2}(t).
-			\end{align}
-		\end{subequations}
-		It is straightforward to see that the equation associated to $\bm{z}_{2}(t)$ is just an ODE then the unique solution  from the initial condition $\bm{z}_{2}(0)$ is given by
-		\begin{equation}
-			\bm{z}_{2}(t) = e^{\bm{J}t}\bm{z}_{2}(0)+\int_{0}^{t}e^{\bm{J}(t-\tau)}\bm{g}_{2}(\tau)\diff\tau,\quad \forall t\geq 0,
-		\end{equation}
-		(for further details see for example \cite{hespanha2009linear}). \cref{eq:stillDAE} is instead again a DAE, but since matrix $N$ is nilpotent we can manipulate it. It is convenient to re-write \cref{eq:stillDAE} as
-		\begin{equation}
-			\label{eq:subsitself}
-			\bm{z}_{1}(t) = \bm{N}\dot{\bm{z}}_{1}(t) - \bm{g}_{1}(t).
-		\end{equation}
-		Now substituting \cref{eq:subsitself} inside itself and 
-		differentiating yields,
-		\begin{subequations}
-			\begin{align*}
-				\bm{z}_{1}(t) &= \bm{N}\frac{\diff}{\diff t}\left[\bm{N}\dot{\bm{z}}_{1}(t)-\bm{g}_{1}(t)\right]-\bm{g}_{1}(t) = \bm{N}^{2}\frac{\diff^{2}\bm{z}_{1}(t)}{\diff t^{2}}-\bm{N}\frac{\diff \bm{g}_{1}(t)}{\diff t}-\bm{g}_{1}(t) \\
-				  &= \bm{N}^{2}\frac{\diff^{2}}{\diff t^{2}}\left[\bm{N}\dot{\bm{z}}_{1}(t)-\bm{g}_{1}(t)\right]-\bm{N}\frac{\diff \bm{g}_{1}(t)}{\diff t}-\bm{g}_{1}(t) = \bm{N}^3\frac{\diff^{3}\bm{z}_{1}(t)}{\diff t^{3}}-\bm{N}^2\frac{\diff^{2} \bm{g}_{1}(t)}{\diff t^{2}}-\dots \\
-				  &\vdots \\
-				  & = \bm{N}^{\nu}\frac{\diff^{\nu}\bm{z}_{1}(t)}{\diff t^{\nu}} - \bm{N}^{\nu-1}\frac{\diff^{\nu-1} \bm{g}_{1}(t)}{\diff t^{\nu-1}}-\dots-\bm{N}\frac{\diff \bm{g}_{1}(t)}{\diff t} - \bm{g}_{1}(t),
-			\end{align*}
-		\end{subequations}
-		establishing differential properties of the solutions. Notice that the procedure stops when we reach the degree $\nu$ of matrix $\bm{N}$, indeed $\bm{N}^{\nu} = 0$ and we may find a unique solution expressed as a finite summation of increasing derivatives of $\bm{g}(t)$ as follows:
-		\begin{equation}
-			\bm{z}_{1}(t) = -\sum_{k=0}^{\nu-1}\bm{N}^{k}\frac{\diff^{k} \bm{g}_{1}(t)}{\diff t^{k}}.
+			\label{eq:actionvariation}
+			\delta S = \int_{t_{1}}^{t_{2}}\delta L(\bm{q},\dot{\bm{q}},t) \diff t = \int_{t_{1}}^{t_{2}}\frac{\partial L}{\partial \bm{q}}\delta \bm{q} + \frac{\partial L}{\partial \dot{\bm{q}}}\delta\dot{\bm{q}} \diff t.  
 		\end{equation}
 		\begin{remark}
-			Sometimes index $\nu$ is also called \emph{Kronecker index}. Notice also that $\nu$ is the number of times that we differentiated function $\bm{g}_{1}(t)$ in order to obtain the solution $\bm{z}_{1}(t)$.
+			Notice that variations are performed at \emph{fixed time}, therefore the generic variation $\delta L(\bm{q}(t),\bm{\dot{q}}(t),t) = \frac{\partial L}{\partial\bm{q}}\delta \bm{q}+\frac{\partial L}{\partial\bm{\dot{q}}}\delta\bm{\dot{q}}$ and not $\delta L(\bm{q}(t),\bm{\dot{q}}(t),t)\neq\frac{\partial L}{\partial\bm{q}}\delta \bm{q}+\frac{\partial L}{\partial\bm{\dot{q}}}\delta\bm{\dot{q}}+\frac{\partial L}{\partial t}\delta t$. Moreover we must think at the $\dot{\bm{q}}$ variable as independent of $\bm{q}$, since it can be proven that for small variations those quantities are uncorrelated each other.
 		\end{remark}
-		Finally we are ready to express the unique solution to the original problem in \cref{eq:daelinear}. It is sufficient to invert the change of coordinates in \cref{eq:changeofcoordinates} and we obtain
+		Now it is useful to consider the following equality that directly follows from integration by part,
 		\begin{equation}
-			\label{eq:solutionDAE}
-			\bm{x}(t) = \bm{Q}\bm{z}(t) = \bm{Q}
-			\begin{bmatrix}
-				-\sum_{k=0}^{\nu-1}\bm{N}^{k}\frac{\diff^{k} \bm{g}_{1}(t)}{\diff t^{k}} \\
-				e^{\bm{J}t}\bm{z}_{2}(0)+\int_{0}^{t}e^{\bm{J}(t-\tau)}\bm{g}_{2}(\tau)\diff\tau
-			\end{bmatrix}
+			\label{eq:intbypart}
+			\frac{\partial L}{\partial\dot{\bm{q}}}\delta\dot{\bm{q}} = \frac{\diff}{\diff t}\left(\frac{\partial L}{\partial\dot{\bm{q}}}\delta \bm{q}\right)-\frac{\diff}{\diff t}\frac{\partial L}{\partial \bm{\dot{q}}}\delta \bm{q},
 		\end{equation}
+		then substituting \cref{eq:intbypart} into \cref{eq:actionvariation} results,
+		\begin{subequations}
+			\begin{align}
+				\delta S 
+				&= \int_{t_{1}}^{t_{2}}\frac{\diff}{\diff t}\left(\frac{\partial L}{\partial\dot{\bm{q}}}\delta \bm{q}\right)-\frac{\diff}{\diff t}\frac{\partial L}{\partial \bm{q}}\delta \bm{q} + \frac{\partial L}{\partial \bm{q}}\delta \bm{q}\diff t \\
+				\label{eq:deltaS}
+				&= \left[\frac{\partial L}{\partial\dot{\bm{q}}}\delta \bm{q}\right]_{t_{1}}^{t_{2}}+\int_{t_{1}}^{t_{2}}\left(\frac{\partial L}{\partial \bm{q}}-\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}\right)\delta \bm{q}\diff t \\
+				&= \int_{t_{1}}^{t_{2}}\left(\frac{\partial L}{\partial \bm{q}}-\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}\right)\delta \bm{q}\diff t = 0
+			\end{align}
+		\end{subequations}
 		\begin{remark}
-			Notice that the initial condition $\bm{z}_{1}(0)$ cannot be chosen freely, but has to satisfy the following,
-			\begin{equation}
-				\bm{z}_{1}(0) = -\sum_{k=0}^{\nu-1}\bm{N}^{k}\frac{\diff^{k}\bm{g}_{1}(0)}{\diff t^{k}}.
-			\end{equation}
-			Therefore also the initial condition $\bm{x}_{0}=\bm{x}(t=0)$ for \cref{eq:daelinear} cannot be chosen completely freely. This intuitively expresses the fact that also the initial condition has to be consistent with constrains expressed by $\bm{E}$.
+			In developing passage (\ref{eq:deltaS}) we used $\left[\frac{\partial L}{\partial\dot{\bm{q}}}\delta \bm{q}\right]_{t_{1}}^{t_{2}} = 0$, since variations $\delta\bm{q}(t_{1}) = \delta\bm{q}(t_{2})$ are assumed to be zero because we fixed \emph{a priori} initial and final conditions $\bm{q}_{1}$,$\bm{q}_{2}$. The concept is graphically illustrated in fig. (\ref{fig:variations}), where a set of possible variations is considered but all are vanishing at the endpoints.
 		\end{remark}
-		Summarizing what we discussed we have the following,
+		\input{pictures/variations.tex}
+		We are now ready to further simplify \cref{eq:deltaS} using the \emph{fundamental lemma of calculus of variations}, which adapted for our purposes states the following:
+		\begin{lemma}[Fundamental lemma of calculus of variations]
+			\label{lem:foundamentallemma}
+			Let $S$ be a \emph{differentiable} (in variational sense) functional, then if
+			\begin{equation}
+				\int_{t_{1}}^{t_{2}}\left(\frac{\partial L}{\partial \bm{q}}-\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}\right)\delta \bm{q}\diff t = 0,
+			\end{equation}
+			for any smooth variation $\delta\bm{q}$ with $\delta\bm{q}_{1}=\delta\bm{q}_{2}=0$, then, 
+			\begin{equation}
+				\label{eq:euleroequations}
+				\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}^{\intercal}-\frac{\partial L}{\partial \bm{q}}^{\intercal} = 0.
+			\end{equation}
+		\end{lemma}	
+		The \cref{eq:euleroequations} are called \emph{Euler-Lagrange} equations and they provide the equations of motions for mechanical systems. Roughly speaking \cref{lem:foundamentallemma} states that since the variation $\delta\bm{q}$ is arbitrary, the only way to zeroing the action's variation $\delta S$ is to satisfy Euler-Lagrange equations. Thus we can collect our results in the following theorem.
 		\begin{theorem}
-			Problem in \cref{eq:daelinear} with initial condition $\bm{x}_{0} = \bm{x}(t=0)$ has a solution if the following conditions holds:
-			\begin{itemize}
-				\item function $\bm{f}(t)$ is piece-wise continuous,
-				\item the pair $(\bm{E,A})$ is a regular pencil,
-				\item the initial condition $\bm{x}_{0}$ satisfies 
-				$\bm{x}_{0} = \bm{Q}\begin{bmatrix} -\sum_{k=0}^{\nu-1}\bm{N}^{k}\frac{\diff^{k} \bm{g}_{1}(0)}{\diff t^{k}} \\ \bm{z}_{2}(0) \end{bmatrix}$.
-			\end{itemize}
-			Moreover the corresponding solutions is given by \cref{eq:solutionDAE}.
+			\label{th:minimalaction}
+			The curve $q:t\mapsto q(t)$, for $t\in[t_{1},t_{2}]$, is an extremal of the functional $S$ on the space of curves passing through the points $\bm{q}(t_{1}) =\bm{q}_{1}$ and $\bm{q}(t_{2}) = \bm{q}_{2}$, if and only if
+			\begin{equation}
+				\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}^{\intercal}-\frac{\partial L}{\partial \bm{q}}^{\intercal} = 0.
+			\end{equation}
 		\end{theorem}
-	\section{Review of Gaussian Elimination}
-		The Weirstrass canonical form is very useful from the theoretical point of view, however is computationally demanding, because it requires to go through several Jordan canonical forms. A numerical more efficient algorithm to reduce a DAE to an ODE is presented in the next section. The idea is to use the celebrated Gauss's elimination method combined with differentiation in order to perform the desired reduction. Before doing so, we want recall some elementary concepts and definitions useful for the purpose. 
-		\begin{definition}
-			Given a matrix $\bm{M}\in\mathbb{R}^{n\times m}$ we call elementary operations the followings,
-			\begin{itemize}
-				\item permutation of two rows (resp. columns),
-				\item linear combinations of rows (resp. columns). 
-			\end{itemize} 
-		\end{definition}
-		These operations can be also regarded as matrix multiplications.
-		\begin{definition}
-			A non-singular matrix $\bm{P}(i,j)\in\left\lbrace0,1\right\rbrace^{n\times n}$ (resp. $\bm{P}(i,j)\in\left\lbrace0,1\right\rbrace^{m\times m}$) is said to be a rows (resp. columns) permutation matrix if it is obtained by the identity matrix $\bm{I}\in\mathbb{R}^{n\times n}$ (resp. $\bm{I}\in\mathbb{R}^{m\times m}$) exchanging the column $i$ with column $j$.
-		\end{definition}
-		Permutation matrices have the following remarkable properties,
-		\begin{itemize}
-			\item $\bm{P}(i,j)^{-1} = \bm{P}(i,j)^{\intercal}$, therefore $\bm{P}(i,j)$ is an orthogonal matrix.
-			\item $\bm{P}(i,j)^{2}=\bm{I}$, therefore $\bm{P}(i,j)$ is an involution matrix.
-			\item $\bm{P}(i,j)\bm{M}$ exchanges row $i$ with row $j$. 
-			\item $\bm{MP}(i,j)$ exchanges column $i$ with column $j$.
-		\end{itemize}
+		The key idea of \cref{th:minimalaction} is that a curve $\bm{q}(\cdot)$ in order to be a stationary point for the action $S$, must satisfy the Euler-Lagrange equations, and therefore according to \cref{th:stationaryaction} Euler-Lagrange equations provide the equations of motion for mechanical systems. Notice also that the variational approach is \emph{coordinate free}, meaning that, Euler-Lagrange equations describe the motion regardless the chosen set of coordinates. Indeed the condition for a curve to be an extremal of a functional does not depend on the choice of coordinate systems.
 		\begin{example}
-			Consider the following permutation matrix $\bm{P}(1,2)\in\left\lbrace 1,0\right\rbrace^{3\times 3}$ and a matrix $\bm{M}\in\mathbb{R}^{3\times 3}$ then $\bm{P}(1,2)\bm{M}$ exchanges rows $(1,2)$ of matrix $\bm{M}$.
+			Considering the free mass point in \cref{ex:nonuniquessofq} the equations of motions in the Cartesian coordinates are
 			\begin{equation}
-			 	\bm{P}(1,2)\bm{M} = 
-			 	\begin{bmatrix}
-			 		0 & 1 & 0 \\
-			 		1 & 0 & 0 \\
-			 		0 & 0 & 1 
-			 	\end{bmatrix}
-			 	\begin{bmatrix}
-			 		1 & 2 & 3 \\
-			 		4 & 5 & 6 \\
-			 		7 & 8 & 9
-			 	\end{bmatrix}
-			 	= 
-			 	\begin{bmatrix}
-			 		4 & 5 & 6 \\
-			 		1 & 2 & 3 \\
-			 		7 & 8 & 9
-			 	\end{bmatrix}
+				\label{eq:cartesiancoordinates}
+				\frac{\diff}{\diff t}\frac{\partial L}{\partial\bm{\dot{q}}}^{\intercal} - \frac{\partial L}{\partial\bm{q}}^{\intercal} = m\ddot{\bm{q}} + mg\bm{e}_{2} = 0,
 			\end{equation}
-			In the same way $\bm{MP}(1,2)$ exchanges columns $(1,2)$ of matrix $\bm{M}$,
-			\begin{equation}
-			 	\bm{MP}(1,2) = 
-			 	\begin{bmatrix}
-			 		1 & 2 & 3 \\
-			 		4 & 5 & 6 \\
-			 		7 & 8 & 9
-			 	\end{bmatrix}
-			 	\begin{bmatrix}
-			 		0 & 1 & 0 \\
-			 		1 & 0 & 0 \\
-			 		0 & 0 & 1 
-			 	\end{bmatrix}
-			 	= 
-			 	\begin{bmatrix}
-			 		2 & 1 & 3 \\
-			 		5 & 4 & 6 \\
-			 		8 & 7 & 9
-			 	\end{bmatrix}
-			\end{equation}
-			
-		\end{example}
-		In analogous way it is possible to define a matrix that performs linear combinations of rows (resp. columns). These matrices are a special class of Frobenius matrices and usually are called elementary matrices. 
-		\begin{definition}
-			A matrix $\bm{F}(i,j,\alpha)\in\mathbb{R}^{n\times n}$ (resp. $\bm{F}(i,j,\alpha)\in\mathbb{R}^{m\times m}$) is said to be a rows (resp. columns) elementary matrix if it has the following structure,
-			\begin{equation}
-				\bm{F}(i,j,\alpha) =
-				\begin{bmatrix}
-					1  		& 	\dots 	& 0 		& \dots 	& 0 		& \dots 	& 0 \\
-					\vdots 	&	\ddots	& \vdots 	& 			& \vdots	& 			& \vdots \\
-					0		& 	\dots	& 1			& 			& 0			& 			& 0 \\
-					\vdots	& 			& \vdots 	& \ddots 	& \vdots 	& 			& \vdots \\ 	
-					0		& \dots		& \alpha 	& \dots		& 1			& \dots		& 0 \\
-					\vdots	& 			& \vdots	& 			& \vdots	& \ddots	& \vdots \\
-					0 		& \dots		& 0			& \dots		& 0			& \dots 	& 1
-				\end{bmatrix}
-			\end{equation}
-			with the $(i,j)$ element equal to $\alpha$.	
-		\end{definition}
+			while in polar coordinates,
+			\begin{subequations}
+				\begin{align}
+					\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\widetilde{q}_{1}}} - \frac{\partial L}{\partial\widetilde{q}_{1}} &= m\ddot{\widetilde{q}}_{1} +  mg\sin{\widetilde{q}_{2}}, \\
+					\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\widetilde{q}_{2}}} - \frac{\partial L}{\partial\widetilde{q}_{2}} &= m\widetilde{q}_{1}^{2}\ddot{\widetilde{q}}_{2} +  2m\widetilde{q}_{1}\dot{\widetilde{q}}_{1}\dot{\widetilde{q}}_{2} + mg\widetilde{q}_{1}\cos{\widetilde{q}_{2}} = 0.
+				\end{align}
+				\label{eq:polarcoordinates}
+			\end{subequations}
+			Solutions $q(\cdot)$ and $\widetilde{q}(\cdot)$ respectively solutions of \cref{eq:cartesiancoordinates} and \cref{eq:polarcoordinates} describe the same motion in the plane, just in different coordinate systems.
+		\end{example} 
+		Nevertheless as presented so far the Euler-Lagrange approach has a big limitation, since $L$ depends only on kinetic and potential energy, we can describe only systems subject to forces that admit a potential function $U$, i.e., \emph{conservative systems}. Luckily the Euler-Lagrange approach can be extended to \emph{nonconservative forces} using the \emph{D'Alembert's principle}, thus \cref{eq:euleroequations} is modified as follows
+		\begin{equation}
+			\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}^{\intercal}-\frac{\partial L}{\partial \bm{q}}^{\intercal} = \bm{\tau},
+		\end{equation}
+		where $\bm{\tau}\in\mathbb{R}^{n}$ is a vector of \emph{generalized} non conservative forces.
+		
+	\section{Mechanical equations of motion}	
+		Although Euler-Lagrange equations are very general is often useful to consider an explicit representation for mechanical systems with some special properties. For this purpose we will assume that the kinetic energy $T(\bm{q},\dot{\bm{q}})$ has a very special structure, i.e., is a quadratic form in the generalized velocities $\dot{\bm{q}}$. This is not a very restrictive assumption since every mechanical system with  a finite number of degrees of freedom owns a quadratic kinetic energy. From this simple assumption a lot of interesting properties can be derived; for a good survey see \cite{siciliano2009robotics}. An explicit expression for kinetic energy is
+		\begin{equation}
+			T(\bm{q},\dot{\bm{q}}) = \frac{1}{2}\sum_{j=1}^{n}\sum_{k=1}^{n}m_{jk}(\bm{q})\dot{q}_{j}\dot{q}_{k} = \frac{1}{2}\dot{\bm{q}}^{\intercal}\bm{M}(\bm{q})\dot{\bm{q}},
+		\end{equation}
+		where $\bm{M}(\bm{q})\in\mathbb{R}^{n\times n}$ is a symmetric positive definite matrix, usually called \emph{mass matrix}. The entries $m_{jk}(\bm{q})\in\bm{M}(\bm{q})$, for $j,k=1,\dots,n$ are \emph{generalized masses} and \emph{generalized inertias}.
 		\begin{remark}
-			An elementary matrix $\bm{F}(i,j,\alpha)\in\mathbb{R}^{n\times n}$ (resp. $\bm{F}(i,j,\alpha)\in\mathbb{R}^{m\times m}$) is equal to the identity matrix of dimension $n$ (resp. $m$) for all the entries except the $(i,j)$ position which is equal to $\alpha$. 
+			The matrix $\bm{M}(\bm{q})$ is symmetric since the quadratic form associated to a matrix only depends on symmetric part.
 		\end{remark}
-		Combination matrices have the following remarkable properties:
-		\begin{itemize}
-			\item $\bm{F}(i,j,\alpha)\bm{M}$ add the row $j$ multiplied by $\alpha$ to row $i$,
-			\item $\bm{MF}(i,j,\alpha)$ add the column $i$ multiplied by $\alpha$ to column $j$.
-		\end{itemize}
-		\begin{theorem}
-			\label{th:gausssimply}
-			Given a matrix $\bm{M}\in\mathbb{R}^{n\times m}$ with $n\leq m$ and $\textnormal{rank}~\bm{M} = r\leq n$, there exist a pair of non singular matrices, $\bm{L}\in\mathbb{R}^{n\times n}$ and $\bm{U}\in\mathbb{R}^{m\times m}$ such that,
-			\begin{equation}
-				\bm{LMU} = 
-				\begin{bmatrix}
-					\bm{\Lambda} & 0 \\
-					0 		& 0
-				\end{bmatrix},
-			\end{equation}
-			with $\bm{\Lambda}\in\mathbb{R}^{r\times r}$ a non singular diagonal  matrix. Blocks of zeros have dimensions compatible with the partitioning.
-		\end{theorem}
-		\begin{proof}
-			The proof is quite algorithmic and based on sequentially Gauss's eliminations. We define $\bm{M}^{(k)}$ the matrix $\bm{M}$ at the $k$ iteration. Parenthesis are used to stress out that $\bm{M}^{(k)}$ is not the matrix $\bm{M}$ to the power $k$. So let us initialize the algorithm with $\bm{M}^{(1)} = \bm{M}$ and $k=1$. Now the idea is to look for the firs non zero element inside the minor $\bm{M}(k\dots n, k\dots m)$; obviously at the first iteration we are exploring all the entries. Suppose to move first along rows and next along columns; then unless the matrix is completely full of zeros we will find a pair of indices such that $m^{(k)}_{pq}\neq 0$. Then the idea is to move this non zero element in the $(k,k)$ position. This can be done with a rows and columns permutations as follows, 
-			\begin{equation}
-				\overline{\bm{M}}^{(k)} = \bm{P}(k,p)\bm{M}^{(k)}\bm{P}(q,k).
-			\end{equation} 
-			Notice that the $\overline{m}^{(k)}_{k,k} = m^{k}_{p,q}$, roughly speaking the non zero element in position $(p,q)$ of matrix $\bm{M}^{(k)}$ is moved to the $(k,k)$ position of matrix $\overline{\bm{M}}^{(k)}$. Now we can use this non zero element to set to zero all the element along the $k$ column and the $k$ row. This can be done using a composition of linear combination matrices. Specifically the matrix $\overline{\bm{L}}^{(k)}\in\mathbb{R}^{n\times n}$ defined as follows is designed to set to zero all the elements in the indices range $(k\dots n, k\dots k)$,
-			\begin{equation}
-				\begin{split}
-					\overline{\bm{L}}^{(k)} &= \bm{F}\left(k+1,k,-\frac{\overline{m}_{k+1,k}}{\overline{m}_{k,k}}\right)\dots \bm{F}\left(n-1,k,-\frac{\overline{m}_{n-1,k}}{\overline{m}_{k,k}}\right)\bm{F}\left(n,k,-\frac{\overline{m}_{n,k}}{\overline{m}_{k,k}}\right) \\
-					&= \prod_{h=k+1}^{n} \bm{F}\left(h,k,-\frac{\overline{m}_{h,k}}{\overline{m}_{k,k}}\right)
-				\end{split}.
-			\end{equation}
-			The same operation can be performed along columns, in this case matrix $\overline{\bm{U}}^{(k)}$ performs linear combinations to set to zero all the element in the indices range $(k\dots k, k\dots m)$, 
-			\begin{equation}
-				\begin{split}
-					\overline{\bm{U}}^{(k)} &= \bm{F}\left(k,k+1,-\frac{\overline{m}_{k,k+1}}{\overline{m}_{k,k}}\right)\dots \bm{F}\left(k,n-1,-\frac{\overline{m}_{k,n-1}}{\overline{m}_{k,k}}\right)\bm{F}\left(k,n,-\frac{\overline{m}_{k,n}}{\overline{m}_{k,k}}\right) \\
-					&= \prod_{h=k+1}^{m} \bm{F}\left(k,h,-\frac{\overline{m}_{k,h}}{\overline{m}_{k,k}}\right).
-				\end{split}
-			\end{equation}
-			Now just for notational convenience  let us define the following quantities, 
-			\begin{subequations}
-				\begin{align}
-					\bm{L}^{(k)} &= \overline{\bm{L}}^{(k)}\bm{P}(k,p), \\
-					\bm{U}^{(k)} &= \bm{P}(q,k)\overline{\bm{U}}^{(k)}.
-				\end{align}
-			\end{subequations}
-			Then using simultaneously the two matrices $\bm{L}^{(k)}\in\mathbb{R}^{n\times n}$ and $\bm{U}^{(k)}\in\mathbb{R}^{m\times m}$ we can set to zero all the elements along the $k$ row and the $k$ column, obviously except the $(k,k)$ position. Then the matrix $M$ at next iteration is given by,
-			\begin{equation}
-				\bm{M}^{(k+1)} = \bm{L}^{(k)}\bm{M}^{(k)}\bm{U}^{(k)}.
-			\end{equation}
-			Is now easy to see that iterating the process; after exactly $r$ iterations, matrix $\bm{M}^{(r+1)}\in\mathbb{R}^{n\times m}$ has exactly the following structure,
-			\begin{equation}
-				\bm{M}^{(r+1)} = 
-				\begin{bmatrix}
-					\bm{\Lambda} & 0 \\
-					0 		& 0 
-				\end{bmatrix}.
-			\end{equation}
-			Moreover the matrices $\bm{L}\in\mathbb{R}^{n\times n}$ and $\bm{U}\in\mathbb{R}^{m\times m}$ that realize that structure are given by, 
-			\begin{subequations}
-				\begin{align}
-					\bm{L} &= \bm{L}^{(r)}\bm{L}^{(r-1)}\dots\bm{L}^{(1)}, \\
-					\bm{U} &= \bm{U}^{(1)}\bm{U}^{(2)}\dots \bm{U}^{(r)}.
-				\end{align}
-			\end{subequations}
-			Notice also that $\bm{L}$ and $\bm{U}$ are non singular since are obtained through product of non singular matrices. 
-		\end{proof}
-		To make things clear we propose the following example of the algorithm.
-		\begin{example}
-			Let us consider the matrix $\bm{M}\in\mathbb{R}^{3\times 4}$ with $\textnormal{rank}~\bm{M} = r = 2$ defined as follows,
-			\begin{equation}
-				\bm{M} = 
-				\begin{bmatrix}
-					0 & 0 & 1 & 0 \\
-					0 & 2 & 0 & 0 \\
-					0 & 4 & 2 & 0
- 				\end{bmatrix}.
-			\end{equation}
-			First of all we set $\bm{M}^{(1)} = \bm{M}$ and $k=1$ and we look for the firs non zero element starting from position $(k,k) = (1,1)$ and moving along the first column and then along the second and so forth. At the first iteration the first non zero element is in the position $(p,q) = (2,2)$, so the following permutation matrices $\bm{P}(1,2)\in\left\lbrace0,1 \right\rbrace^{3\times 3}$ and $\bm{P}(2,1)\in\left\lbrace 0,1 \right\rbrace^{4\times 4}$ provide a way to move it in the $(1,1)$ position. 
-			\begin{equation}
-					\overline{\bm{M}}^{(1)} = \bm{P}(1,2)\bm{M}^{(1)}\bm{P}(2,1) = 
-					\begin{bmatrix}
-						0 & 1 & 0 \\
-						1 & 0 & 0 \\
-						0 & 0 & 1 \\
-					\end{bmatrix}
-					\bm{M}^{(1)}
-					\begin{bmatrix}
-						0 & 1 & 0 & 0 \\
-						1 & 0 & 0 & 0 \\
-						0 & 0 & 1 & 0 \\
-						0 & 0 & 0 & 1
-					\end{bmatrix} \\
-					=  
-					\begin{bmatrix}
-						2 & 0 & 0 & 0 \\
-						0 & 0 & 1 & 0 \\
-						4 & 0 & 2 & 0 \\
-					\end{bmatrix}
-			\end{equation}
-			Now we need to set to zero all the non zero elements in column and row $1$, and the non only non zero element is $\overline{m}_{3,1}^{(1)} = 4$. Therefore the row combination matrix $\bm{C}(3,1,-4/2)\in\mathbb{R}^{3\times 3}$ reaches the goal,
-			\begin{equation}
-				\begin{split}
-					\bm{M}^{(2)} 	&= \bm{C}(3,1,-4/2)\overline{\bm{M}}^{(1)}  
-					\begin{bmatrix}
-						1 	& 	0 	& 0 \\
-						0 	& 	1 	& 0 \\
-						-2 	& 	0 	& 1
-					\end{bmatrix} 
-					\begin{bmatrix}
-						2 & 0 & 0 & 0 \\
-						0 & 0 & 1 & 0 \\
-						4 & 0 & 2 & 0 \\
-					\end{bmatrix}
-					=
-					\begin{bmatrix}
-						2 & 0 & 0 & 0 \\
-						0 & 0 & 1 & 0 \\
-						0 & 0 & 2 & 0
-					\end{bmatrix}
-				\end{split}
-			\end{equation}
-			Now  $k=2$ and we perform again a search for the first non zero element in $\bm{M}^{(2)}$. The answer is $(p,q)=(2,3)$ so we can use again permutation matrices, $\bm{P}(2,2) = I\in\left\lbrace0,1 \right\rbrace^{3\times 3}$ and $\bm{P}(3,1)\in\left\lbrace0,1 \right\rbrace^{4\times 4}$.
-			\begin{equation}
-				\overline{\bm{M}}^{(2)} = \bm{M}^{(2)}\bm{P}(3,1) = 							\begin{bmatrix}
-					2 & 0 & 0 & 0 \\
-					0 & 0 & 1 & 0 \\
-					0 & 0 & 2 & 0
-				\end{bmatrix}
-				\begin{bmatrix}
-     				1 & 0 & 0 & 0 \\
-     				0 & 0 & 1 & 0 \\
-     				0 & 1 & 0 & 0 \\
-     				0 & 0 & 0 & 1 
-				\end{bmatrix}
-				= 
-				\begin{bmatrix}
-					2 & 0 & 0 & 0 \\
-					0 & 1 & 0 & 0 \\
-					0 & 2 & 0 & 0 
-				\end{bmatrix}
-			\end{equation}
-			Finally we can use the rows combination matrix $\bm{C}(3,2,-2/1)\in\mathbb{R}^{3\times 3}$ to complete the procedure,
-			\begin{equation}
-				\bm{M}^{(3)} = \bm{C}(3,2,-2/1)\overline{\bm{M}}^{(2)} = 
-				\begin{bmatrix}
-					1 & 0  & 0 \\
-					0 & 1  & 0 \\
-					0 & -2 & 1
-				\end{bmatrix}
-				\begin{bmatrix}
-					2 & 0 & 0 & 0 \\
-					0 & 1 & 0 & 0 \\
-					0 & 2 & 0 & 0 
-				\end{bmatrix}
-				= 
-				\begin{bmatrix}
-					2 & 0 & 0 & 0 \\
-					0 & 1 & 0 & 0 \\
-					0 & 0 & 0 & 0 
-				\end{bmatrix}
-			\end{equation}
-			Here obviously the diagonal block $\bm{\Lambda}\in\mathbb{R}^{2\times 2} = \textnormal{diag}(2,1)$. Notice also that is now clear that the rank of matrix $M$ is equal $r = 2$.
-		\end{example}
-	\section{Gauss like method to compute DAEs' index}
-		We are finally ready to discuss why \cref{th:gausssimply} is useful in computing the index of a DAE, and how it can be used to transform a generic linear DAE into an ODE. So let us consider a generic linear DAE in the form shown in \cref{eq:daelinear}, and we notice that can be also written as, 
-		\begin{equation}
-			\label{eq:computationalDAE}
-			\begin{bmatrix}
-				\bm{E} & -\bm{A} 
-			\end{bmatrix}
-			\begin{bmatrix}
-				\dot{\bm{x}} \\
-				\bm{x}
-			\end{bmatrix}
-			= \bm{f}.
-		\end{equation}
-		Just for notational brevity we dropped the time dependency. Here matrix $\begin{bmatrix}\bm{E} & -\bm{A}\end{bmatrix}\in\mathbb{R}^{n\times 2n}$. Let us call
-		\begin{equation}
-			\textnormal{rank}~\bm{E} =: r \leq n.
-		\end{equation}
-		Then let us consider a pair of matrices $\bm{L}^{(0)}\in\mathbb{R}^{n\times n}$ and $\bm{U}^{(0)}\in\mathbb{R}^{n\times n}$ such that,
+		We are now interested in developing an explicit representation for the equations of motion associated to mechanical systems with a \emph{quadratic} kinetic energy. In order to do so we need to perform some tedious calculations. Let us start from Euler-Lagrange equations in \cref{eq:euleroequations}, the term $\frac{\diff}{\diff t}\frac{\partial L}{\partial \dot{q}_{i}}$ appears as
 		\begin{equation*}
-			\bm{U}^{(0)}\bm{E}\bm{L}^{(0)} = \bm{E}^{(0)} = 
-			\begin{bmatrix}
-				\bm{\Lambda}^{(0)} 	& 0 \\
-				0 				& 0 
-			\end{bmatrix}.
+			\frac{\diff}{\diff t}\frac{\partial L}{\partial \dot{q}_{i}} = \frac{\diff}{\diff t}\frac{\partial T}{\partial \dot{q}_{i}} = \frac{\diff}{\diff t}\frac{\partial}{\partial\dot{q}_{i}}\left(\frac{1}{2}\sum_{j=1}^{n}\sum_{k=1}^{n}m_{jk}(\bm{q})\dot{q}_{j}\dot{q}_{k}\right).
 		\end{equation*}
-		As done in the previous section we used the superscript $^{(0)}$ to indicate the iteration number; it will be clear soon that this number is also the Kronecker index of the DAE. Notice that at this first iteration $\bm{\Lambda}^{(0)}\in\mathbb{R}^{r\times r}$. If $r=n$ then we done since the DAE has index $\nu = 0$ and matrix $\bm{E}$ was full rank and invertible. If $r<n$ it is convenient introduce the following change of coordinates, 
-		\begin{equation}
-			\begin{bmatrix}
-				\dot{\bm{x}}^{(0)} \\
-				\bm{x}^{(0)} 
-			\end{bmatrix}
-			=
-			\begin{bmatrix}
-				\bm{U}^{(0)} & 0 \\
-				0 & \bm{I} 
-			\end{bmatrix}^{-1}
-			\begin{bmatrix}
-				\dot{\bm{x}} \\
-				\bm{x}
-			\end{bmatrix},
-		\end{equation}
-		and also the matrix $\bm{A}^{(0)}$ and vector $\bm{f}^{(0)}$ as follows,
+		for $i = 1,\dots,n$. Then exploiting the linearity of summation we can exchange the order between partial derivative and the sum, so that 
 		\begin{subequations}
-			\begin{align*}
-				\bm{A}^{(0)} 	&:= -\bm{L}^{(0)}\bm{A},\\
-				\bm{f}^{(0)} 	&:= \bm{L}^{(0)}\bm{f}.
-			\end{align*}
-		\end{subequations}
-		Let us consider to multiply on the left-hand side \cref{eq:computationalDAE} by $\bm{L}^{(0)}$. Then we obtain the following equivalent form,
-		\begin{equation*}
-			\begin{split}
-				\bm{L}^{(0)}
-				\begin{bmatrix}
-					\bm{E} & -\bm{A} 
-				\end{bmatrix}
-				\begin{bmatrix}
-					\bm{U}^{(0)} & 0 \\
-					0 & \bm{I} 
-				\end{bmatrix}
-				\begin{bmatrix}
-					\bm{U}^{(0)} & 0 \\
-					0 & \bm{I} 
-				\end{bmatrix}^{-1}
-				\begin{bmatrix}
-					\dot{\bm{x}} \\
-					\bm{x}
-				\end{bmatrix}
-				&= 
-				\begin{bmatrix}
-					\bm{L}^{(0)}\bm{EU}^{(0)} & \bm{L}^{(0)}\bm{A}
-				\end{bmatrix}
-				\begin{bmatrix}
-					\dot{\bm{x}}^{(0)}\\
-					\bm{x}^{(0)}
-				\end{bmatrix} \\
-				&= 
-				\begin{bmatrix}
-					\bm{E}^{(0)} & \bm{A}^{(0)}
-				\end{bmatrix}
-				\begin{bmatrix}
-					\dot{\bm{x}}^{(0)} \\
-					\bm{x}^{(0)} \\
-				\end{bmatrix}
-				=
-				\bm{f}^{(0)}(t)
-			\end{split}
-		\end{equation*}
-		Now notice that matrix $\begin{bmatrix}\bm{E}^{(0)} & \bm{A}^{(0)}\end{bmatrix}\in\mathbb{R}^{n\times 2n}$ has the following special structure, 
-		\begin{equation}
-			\label{eq:specialDAE}
-			\begin{bmatrix}
-				\bm{\Lambda}^{(0)}	& 0 & \bm{A}_{11}^{(0)} 	& \bm{A}_{12}^{(0)} \\
-				0 					& 0 & \bm{A}_{21}^{(0)}  	& \bm{A}_{22}^{(0)}
-			\end{bmatrix}
-			\begin{bmatrix}
-				\dot{\bm{x}}_{1}^{(0)}\\
-				\dot{\bm{x}}_{2}^{(0)}\\
-				\bm{x}_{1}^{(0)}\\
-				\bm{x}_{2}^{(0)} \\
-			\end{bmatrix}
-			= 
-			\begin{bmatrix}
-				\bm{f}_{1}^{(0)}\\
-				\bm{f}_{2}^{(0)}
-			\end{bmatrix}.
-		\end{equation}
-		Obviously \cref{eq:specialDAE} can be also written as a couple of matrix equations as follows,
-		\begin{subequations}
+			\label{eq:blekinetic}
 			\begin{align}
-				\label{eq:diffpartDAE}
-				\bm{\Lambda}^{(0)}\dot{\bm{x}}_{1}^{(0)} + \bm{A}_{11}^{(0)}\bm{x}_{1}^{(0)} + \bm{A}_{12}^{(0)}\bm{x}_2^{(0)} &= \bm{f}_{1}^{(0)}, \\
-				\label{eq:algebraicpartDAE}
-				\bm{A}_{21}^{(0)}\bm{x}_{1}^{(0)} + \bm{A}_{22}^{(0)}\bm{x}_{2}^{(0)} &= \bm{f}_{2}^{(0)},
+				\frac{\diff}{\diff t}\frac{\partial L}{\partial \dot{q}_{i}} &= \frac{\diff}{\diff t}\left(\frac{1}{2}\sum_{j=1}^{n}\sum_{k=1}^{n}m_{jk}(\bm{q})\frac{\partial\dot{q}_{j}}{\partial\dot{q}_{i}}\dot{q}_{k}+\frac{1}{2}\sum_{j=1}^{n}\sum_{k=1}^{n}m_{jk}(\bm{q})\dot{q}_{j}\frac{\partial\dot{q}_{k}}{\partial\dot{q}_{i}}\right) \\
+				&=\frac{\diff}{\diff t}\left(\frac{1}{2}\sum_{k=1}^{n}m_{ik}(\bm{q})\dot{q}_{k}+\frac{1}{2}\sum_{j=1}^{n}m_{ji}(\bm{q})\dot{q}_{j}\right) = \frac{\diff}{\diff t}\left(\sum_{j=1}^{n}m_{ij}(\bm{q})\dot{q}_{j}\right).
 			\end{align}
 		\end{subequations}
-		where $\dot{\bm{x}}_{1}^{(0)},\bm{x}_{1}^{(0)}\in\mathbb{R}^{r}$, $\dot{\bm{x}}_{2}^{(0)},\bm{x}_{2}^{(0)}\in\mathbb{R}^{n-r}$ and $\bm{x}^{(0)} = [\bm{x}_{1}^{(0)}; \bm{x}_{2}^{(0)}]$. Notice that \cref{eq:diffpartDAE} is a ODE since $\bm{\Lambda}^{(0)}$ is invertible, on the contrary \cref{eq:algebraicpartDAE} is a pure algebraic equation. Therefore in these coordinates the differential and the algebraic components of the DAE are decoupled. We now differentiate with respect to time \cref{eq:algebraicpartDAE} and we obtain the following, 
+		In last passage we used the fact that $\frac{\partial\dot{q}_{j}}{\partial\dot{q}_{i}} = 1$ for $i = j$ and $0$ otherwise, and the same holds for $\frac{\partial\dot{q}_{k}}{\partial\dot{q}_{i}}$, moreover we also used the symmetry $m_{ij}(\bm{q})=m_{ji}(\bm{q})$ for $i,j = 1,\dots,n$. Finally deriving with respect to time results, 
 		\begin{equation}
-			\label{eq:constrafterdiff}
-			\bm{A}_{21}^{(0)}\dot{\bm{x}}_{1}^{(0)} + \bm{A}_{22}^{(0)}\dot{\bm{x}}_{2}^{(0)} = \dot{\bm{f}}_{2}^{(0)}.
-		\end{equation} 
-		Writing now \cref{eq:constrafterdiff} with \cref{eq:diffpartDAE} in matrix form we obtain the following, 
-		\begin{equation}
-			\label{eq:DAEafterfirstdiff}
-			\begin{bmatrix}
-				\bm{\Lambda}^{(0)}	& 0 				& \bm{A}_{11}^{(0)} 	& \bm{A}_{12}^{(0)} \\
-				\bm{A}_{21}^{(0)}	& \bm{A}_{22}^{(0)}	& 0 					& 0    
-			\end{bmatrix}
-			\begin{bmatrix}
-				\dot{\bm{x}}_{1}^{(0)}\\
-				\dot{\bm{x}}_{2}^{(0)} \\
-				\bm{x}_{1}^{(0)}\\
-				\bm{x}_{2}^{(0)}\\
-			\end{bmatrix}
-			= 
-			\begin{bmatrix}
-				\bm{v}_{1}^{(0)}\\
-				\dot{\bm{f}}_{2}^{(0)}
-			\end{bmatrix}.
+			\label{eq:firstparteulerlagrange}
+			\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{q}_{i}} = \sum_{j=1}^{n}m_{ij}(\bm{q})\ddot{q}_{j} + \sum_{j=1}^{n}\sum_{k=1}^{n}\frac{\partial m_{ij}(\bm{q})}{\partial q_{k}}\dot{q}_{k}\dot{q}_{j}.
 		\end{equation}
-		As we can observe the differentiation w.r.t time of the algebraic constraints in the matrix representation produces just a shift to the left of the two blocks $\bm{A}_{21}^{(0)}$, $\bm{A}_{22}^{(0)}$. Notice also this shift increases the rank of the left block as it is clearly stated below,
+		The obtained expression in \cref{eq:firstparteulerlagrange} is just a part of the Euler-Lagrange equations; considering then the term $\frac{\partial L}{\partial q_{i}}$, for $i=1,\dots,n$, results 
 		\begin{equation}
-				\textnormal{rank}~
-				\begin{bmatrix}
-					\bm{\Lambda}^{(0)} 	& 0 \\
-					0 					& 0 
-				\end{bmatrix} <
-				\textnormal{rank}~
-				\begin{bmatrix}
-					\bm{\Lambda}^{(0)}	& 0 \\
-					\bm{A_{21}}^{(0)}	& \bm{A_{22}}^{(0)}
-				\end{bmatrix}
+			\label{eq:secondparteulerlagrange}
+			\frac{\partial L}{\partial q_{i}} = \frac{1}{2} \sum_{j=1}^{n}\sum_{k=1}^{n}\frac{\partial m_{jk}(\bm{q})}{\partial q_{i}}\dot{q}_{k}\dot{q}_{j} -\frac{\partial U(\bm{q},t)}{\partial q_{i}}.
 		\end{equation}
-		Now we can apply again \cref{th:gausssimply} and find a pair of matrices $\bm{L}^{(1)}\in\mathbb{R}^{n\times n}$ and $\bm{U}^{(1)}\in\mathbb{R}^{n\times n}$ such that,
+		In order to obtain a more compact representation let us define 
 		\begin{equation*}
-			\bm{U}^{(1)}
-			\begin{bmatrix}
-				\bm{\Lambda}^{(0)}	& 0 \\
-				\bm{A}_{21}^{(0)}	& \bm{A}_{22}^{(0)}
-			\end{bmatrix}
-			\bm{L}^{(1)} 
-			= \bm{E}^{(1)} = 
-			\begin{bmatrix}
-				\bm{\Lambda}^{(1)} 	& 0 \\
-				0 					& 0 
-			\end{bmatrix},
+			g_{i}(\bm{q}) := \frac{\partial U(\bm{q},t)}{\partial q_{i}},
 		\end{equation*}
-		and perform another change of coordinates as follows,
+		for $i=1,\dots,n$ and the associate vector $\bm{g}(\bm{q}):=(g_{1}(\bm{q});\dots;g_{n}(\bm{q}))\in\mathbb{R}^{n}$. Combining together \cref{eq:firstparteulerlagrange} and \cref{eq:secondparteulerlagrange}, the overall equations of motion written componentwise result,
+		\begin{equation}
+			\label{eq:lageqbla}
+			\sum_{j=1}^{n}m_{ij}(\bm{q})\ddot{q}_{j} + \sum_{j=1}^{n}\sum_{k=1}^{n}\frac{\partial m_{ij}(\bm{q})}{\partial q_{k}}\dot{q}_{j}\dot{q}_{k} -\frac{1}{2}\sum_{j=1}^{n}\sum_{k=1}^{n}\frac{\partial m_{jk}(\bm{q})}{\partial q_{i}}\dot{q}_{j}\dot{q}_{k}+g_{i}(\bm{q}) = \tau_{i},
+		\end{equation}
+		for $i=1,\dots,n$. As it is clear from \cref{eq:lageqbla} there is a quadratic term in the generalized velocities $\dot{q}_{j}\dot{q}_{k}$, therefore it is convenient to introduce the symbol $h_{ijk}(\bm{q})\in\mathbb{R}$, with $i,j,k = 1,\dots,n$, defined as
+		\begin{equation}
+			\label{eq:lagsymbols}
+			h_{ijk}(\bm{q}) := \frac{\partial m_{ij}(\bm{q})}{\partial q_{k}}-\frac{1}{2}\frac{\partial m_{jk}(\bm{q})}{\partial q_{i}}. 
+		\end{equation}
+		Thus substituting \cref{eq:lagsymbols} into \cref{eq:lageqbla} the equations of motion result in the more compact representations
+		\begin{equation}
+			\label{eq:equationofmotioncomponent}
+			\sum_{j=1}^{n}m_{ij}(\bm{q})\ddot{q}_{i} + \sum_{j=1}^{n}\sum_{k=1}^{n}h_{ijk}(\bm{q})\dot{q}_{j}\dot{q}_{k} + g_{i}(\bm{q}) = \tau_{i},
+		\end{equation}
+		for $i=1,\dots,n$. Now let us analyse \cref{eq:equationofmotioncomponent} to provide a physical interpretation of the different terms:
+		\begin{itemize}
+			\item The coefficients $m_{ii}(\bm{q})$, with $i =1,\dots,n$, represent the generalized masses associated to the $i$-th degree of freedom.
+			\item The coefficients  $m_{ij}(\bm{q})$, with $i,j =1,\dots,n$ but $i\neq j$, represent the \emph{inertia forces} induced by the $j$-th degree of freedom over the $i$-th. 
+			\item The quadratic terms $h_{ijj}\dot{q}_{j}^{2}$, with $j = 1,\dots,n$, represent \emph{centrifugal effect} induced on the $i$-th degree of freedom by the $j$-th. Notice that the $i$-th degree of freedom does not induce any centrifugal effect on itself, i.e., $h_{iii}$ = 0.
+			\item The terms $h_{ijj}\dot{q}_{j}\dot{q}_{k}$, with $j,k=1,\dots,n$ but $i\neq j$ represents the \emph{Coriolis} effects induced on the degree of freedom $i$-th by velocities of degrees of freedom $j$-th and $k$-th.
+			\item The terms $g_{i}(\bm{q})$, with $i=1,\dots,n$, represent the \emph{conservative generalized forces} acting on the $i$-th degree of freedom.
+		\end{itemize}
+		At this point it is very useful to rewrite the equations of motion (\ref{eq:equationofmotioncomponent}) in a compact matrix notation as follows:
+		\begin{equation}
+			\bm{M}(\bm{q})\ddot{\bm{q}} + \bm{C}(\bm{q},\dot{\bm{q}})\dot{\bm{q}} + \bm{g}(\bm{q}) = \bm{\tau},
+		\end{equation}
+		where $\bm{C}(\bm{q},\dot{\bm{q}})$ is a suitable matrix that takes into account the centrifugal and the Coriolis effects. The choice of this matrix is not unique, since it is sufficient that the elements $c_{ij}$ satisfies the relation
+		\begin{equation}
+			\sum_{j=1}^{n}c_{ij}(\bm{q})\dot{q}_{j} = \sum_{j=1}^{n}\sum_{k=1}^{n}h_{ijk}(\bm{q})\dot{q}_{j}\dot{q}_{k}.
+		\end{equation}
+		Nevertheless a very common choice is to set the elements $c_{ij}(\bm{q})\in\bm{C}(\bm{q},\dot{\bm{q}})$ as
+		\begin{equation}
+			\label{eq:coriolismatrixdefinition}
+			c_{ij}(\bm{q}) = \sum_{k=1}^{n}c_{ijk}(\bm{q})\dot{q}_{k},
+		\end{equation}
+		with $i,j=1,\dots,n$. Here the symbol $c_{ijk}(\bm{q})\in\mathbb{R}$ is called \emph{Christoffel symbols of the first type} and it is defined as
+		\begin{equation}
+			c_{ijk}(\bm{q}) = \frac{1}{2}\left(\frac{\partial m_{ij}(\bm{q})}{\partial q_{k}}+\frac{\partial m_{ik}(\bm{q})}{\partial q_{j}}-\frac{\partial m_{jk}(\bm{q})}{\partial q_{i}}\right).
+		\end{equation}
+		Notice that thanks to the symmetry of $\bm{M}(\bm{q})$ the following remarkable property of indici exchange holds,
+		\begin{equation}
+			c_{ijk}(\bm{q}) = c_{ikj}(\bm{q}).
+		\end{equation}
+		Moreover, if the Coriolis-centrifugal matrix $C(\bm{q},\dot{\bm{q}})$ is chosen according to \cref{eq:coriolismatrixdefinition}, then the following matrix
+		\begin{equation}
+			\dot{\bm{M}}(\bm{q})-2\bm{C}(\bm{q},\dot{\bm{q}}),
+		\end{equation}
+		is skew symmetric. This property is sometimes useful to synthesize control algorithms for mechanical systems.
+		
+	\section{Euler-Lagrange equations with redundant coordinates}
+		What we developed until now holds for systems with a \emph{minimum set of coordinates}. Nevertheless for many real systems is quite hard to write directly kinetic and potential energy using a small set of coordinates. A more common approach is to introduce more generalized coordinates than necessary and then add constraints. This fact provides the motivation to investigate the equations of motions for mechanical systems using a non-minimum set of generalized coordinates. For this purpose let us consider that vector $\bm{q}\in\mathbb{R}^{n}$ \emph{does not} represent a minimum set of coordinates. Therefore in order to correctly represent the system we need to impose some constraints. A set of constrain equations can be formally thought as a vectorial function of the form $\bm{\phi}:\mathbb{R}^{n}\times\mathbb{R}\rightarrow\mathbb{R}^{m}$ where $m$ is the number of constrains. The type of constraints equations that we consider are \emph{holomic}, meaning that they depend only on generalized coordinates $\bm{q}$ and possibly time $t$. Holomic constrains can be expressed in the following general form,
+		\begin{equation}
+			\label{eq:constraintsequations}
+			\bm{\phi}(\bm{q},t) = 0.
+		\end{equation}
+		\begin{remark}
+			The total number of degrees of freedom for the system is not $n-m$, unless some regularity for $\bm{\phi}(\bm{q},t)$ is assumed. Technically if $\forall\bm{q}\in\mathbb{R}^{n}$, $\forall t\in\mathbb{R}$ the $\rank{\frac{\partial\bm{\phi}(\bm{q},t)}{\partial \bm{q}}} = m$, then constraints are globally linearly independent each other and the system owns exactly $n-m$ degrees of freedom. Trivially we implicitly assumed that $\bm{\phi}$ is differentiable.
+		\end{remark}
+		Now our aim is to derive the equations of motions for a constrained mechanical systems described by a Lagrangian function $L(\bm{q},\dot{\bm{q}},t)$ and subject to constrain equation $\bm{\phi}(\bm{q},t)=0$. In order to do so, we can use the technique of Lagrange multipliers on functional spaces. So let us define the \emph{modified action} $\bar{S}\in\mathbb{R}$ as 
+		\begin{equation}
+			\label{eq:modifiedaction}
+			\bar{S} := \int_{t_{1}}^{t_{2}}L(\bm{q},\dot{\bm{q}},t)+\bm{\lambda}^{\intercal}\bm{\phi}(\bm{q},t)\diff t. 
+		\end{equation}
+		Here $\lambda\in\mathbb{R}^{m}$ is a time dependent vector of \emph{Lagrange multipliers}. The following result is fundamental for our purpose.
+		\begin{theorem}[Stationary action for constrained systems]
+			Motion of mechanical systems from configuration $\bm{q}_{1}$ to configuration $\bm{q}_{2}$, with $t\in[t_{1}; t_{2}]$, coincide with extremals curves of the functional (\ref{eq:modifiedaction}). Or equivalently, for small variations of the curve $\bm{q}(\cdot)$ the modified action $\bar{S}$ is stationary, i.e.,
+			\begin{equation*}
+				\delta\bar{S} = 0.
+			\end{equation*}
+		\end{theorem}
+		\begin{remark}
+			Notice that we implicitly assumed that initial and final configuration $\bm{q}_{1}$, $\bm{q}_{2}$ are consistent with constrain equations, i.e., $\bm{\phi}(\bm{q}_{1},t_{1}) = \bm{\phi}(\bm{q}_{2},t_{2})= 0$.
+		\end{remark}
+		Thus we can think to perform variation as done before for systems with a minimal set of coordinates, but there is a difference, since now $\bar{S}$ also depends on the Lagrange multipliers. Therefore the variational operator $\delta$ performs variations on $\bm{q}$, $\bm{\dot{q}}$ and $\bm{\lambda}$. The result is the following,
 		\begin{subequations}
-			\label{eq:secondchangeofcoordinates}
-			\begin{align*}
+			\begin{align}
+				\label{eq:variationmodifiedaction}
+				\delta\bar{S} &= \int_{t_{1}}^{t_{2}}\delta L(\bm{q},\dot{\bm{q}},t)+\delta\bm{\lambda}^{\intercal}\bm{\phi}(\bm{q},t)+\bm{\lambda}^{\intercal}\delta\bm{\phi}(\bm{q},t)\diff t\\
+				&=  \int_{t_{1}}^{t_{2}}\left(\frac{\partial L}{\partial\bm{q}} - \frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}+\bm{\lambda}^{\intercal}\frac{\partial\bm{\phi}}{\partial\bm{q}}\right)\delta\bm{q} + +\delta\bm{\lambda}^{\intercal}\bm{\phi}(\bm{q},t)\diff t + \left[\frac{\partial L}{\partial\dot{\bm{q}}}\delta\bm{q} \right]_{t_{1}}^{t_{2}}\\
+				&=\int_{t_{1}}^{t_{2}}
 				\begin{bmatrix}
-					\dot{\bm{x}}^{(1)} \\
-					\bm{x}^{(1)} 
+					\frac{\partial L}{\partial\bm{q}} - \frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}} + \bm{\lambda}^{\intercal}\frac{\partial\bm{\phi}}{\partial\bm{q}} & \bm{\phi}^{\intercal}
 				\end{bmatrix}
-				&=
 				\begin{bmatrix}
-					\bm{U}^{(1)} & 0 \\
-					0 & \bm{I} 
-				\end{bmatrix}^{-1}
-				\begin{bmatrix}
-					\dot{\bm{x}}^{(0)} \\
-					\bm{x}^{(0)}
-				\end{bmatrix}, \\
-				\bm{A}^{(1)} 		&= \bm{L}^{(1)}\bm{A}^{(0)}, \\
-				\bm{f}^{(1)} 		&= \bm{L}^{(0)}
-				\begin{bmatrix}
-					\bm{f}_{1}^{(0)} \\
-					\dot{\bm{f}}_{2}^{(0)}
-				\end{bmatrix}.
-			\end{align*}
+					\delta\bm{q} \\
+					\delta\bm{\lambda}
+				\end{bmatrix} \diff t = 0,
+			\end{align}
+		\end{subequations} 
+		again we used that endpoints variations $\delta\bm{q}_{1} = \delta\bm{q}_{2} = 0$. Finally applying the fundamental lemma of calculus of variations \cref{eq:variationmodifiedaction}, results
+		\begin{subequations}
+			\label{eq:mechanicalDAE}
+			\begin{align}
+				\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}^{\intercal}-\frac{\partial L}{\partial \bm{q}}^{\intercal} &= \frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\bm{\lambda}, \\
+				\bm{\phi}(\bm{q},t) &= 0.
+			\end{align}
 		\end{subequations}
-		Please notice that the definition of $\bm{f}^{(1)}$ contains part of the field $\bm{f}^{(0)}$ but also some derivatives of it. Now we can left multiply \cref{eq:DAEafterfirstdiff} by $\bm{L}^{(1)}$  and use the change of coordinates NO QUESTO NON VA BENE SEGNO - defined in \cref{eq:secondchangeofcoordinates}. So finally we reach the following form, 
-		\begin{equation}
-			\begin{bmatrix}
-				\bm{E}^{(1)} & \bm{A}^{(1)} 
-			\end{bmatrix}
-			\begin{bmatrix}
-				\dot{\bm{x}}^{(1)} \\
-				\bm{x}^{(1)}
-			\end{bmatrix} = \bm{f}^{(1)}.
-		\end{equation}
-		Here matrix $\begin{bmatrix}\bm{E}^{(1)} & \bm{A}^{(1)}\end{bmatrix}$ as seen before has the following structure, 
-		\begin{equation}
-			\begin{bmatrix}
-				\bm{E}^{(1)} & \bm{A}^{(1)}
-			\end{bmatrix}
-			=
-			\begin{bmatrix}
-				\bm{\Lambda}^{(1)} 	& 0 & \bm{A}_{11}^{(1)} & \bm{A}_{12}^{(1)}  \\
-				0 					& 0 & \bm{A}_{21}^{(1)} & \bm{A}_{22}^{(1)}
-			\end{bmatrix}.
-		\end{equation}
-		It is important to point out that the dimensions of matrix $\bm{\Lambda}^{(1)}$ are greater than the ones of matrix $\bm{\Lambda}^{(0)}$, formally
-		\begin{equation}
-			\textnormal{dim}~\bm{\Lambda}^{(1)} > \textnormal{dim}~\bm{\Lambda}^{(0)}.
-		\end{equation}
-		It is therefore clear that at each iteration (derivation) of the constraints the dimensions of $\bm{\Lambda}^{(k)}$, for $k = 1, \dots, \nu$ increases until $\textnormal{dim}~\bm{\Lambda}^{(\nu)} = n$ and the matrix $\begin{bmatrix}\bm{E}^{(\nu)} & \bm{A}^{(\nu)}\end{bmatrix}$ coincide with $ \begin{bmatrix}\bm{\Lambda}^{(\nu)} & \bm{A}^{(\nu)}\end{bmatrix}$. At this point the matrix $\bm{\Lambda}^{(\nu)}\in\mathbb{R}^{n\times n}$ is full rank and then the DAE can be easily transformed into an ODE.
-		\begin{equation}
-			\bm{\Lambda}^{(\nu)}\dot{\bm{x}}^{(\nu)}+ \bm{A}^{(\nu)}\bm{x}^{(\nu)} = \bm{f}^{(\nu)}.
-		\end{equation}
-		The minimum integer such that $\textnormal{dim}~\bm{\Lambda}^{(\nu)} = n$ is the Kronecker index (or differential index) of the DAE.
+		The equations (\ref{eq:mechanicalDAE}) describe the motion of a mechanical system subject to holomic constraints. Note that the term $\frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\bm{\lambda}$ plays the role of a constrain generalized force which pushes the system to satisfy the constraints $\bm{\phi}(\bm{q},t) = 0$. Unfortunately problem in \cref{eq:mechanicalDAE} is completely different from the one in \cref{eq:euleroequations}, since it is a mixture of \emph{differential} and \emph{algebraic} equations, formally a \emph{Differential Algebraic Equation} (DAE). Moreover, apparently \cref{eq:mechanicalDAE}, does not provide any way to determine the value of the Lagrange multipliers. Similarly in presence of external non-conservative generalized forces the equation of motions for a constrained mechanical system are modified as follows,
+		\begin{subequations}
+			\begin{align}
+				\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\bm{q}}}^{\intercal}-\frac{\partial L}{\partial \bm{q}}^{\intercal} &= \frac{\partial\bm{\phi}}{\partial\bm{q}}^{\intercal}\bm{\lambda}+\bm{\tau},\\
+				\bm{\phi}(\bm{q},t) &= 0,
+			\end{align}
+		\end{subequations}
+		again with $\tau\in\mathbb{R}^{n}$ a vector of generalized non-conservative forces.
 		\begin{example}
-			Consider the following set of linear differential equation, 
+			\label{ex:pendulum1}
+			Let us consider a simple mechanical example, the pendulum, see \cref{fig:pendulum}. 
+			\input{pictures/pendulum.tex}
+			Pendulum own one-degree of freedom and taking the angular coordinate $\theta\in[0,2\pi)$ as generalized coordinate, the following relationships with $(x,y)\in\mathbb{R}^{2}$ hold, 
+			\begin{equation*}
+					x = \ell\sin{\theta}, \quad y = -\ell\cos{\theta}.
+			\end{equation*}
+			Thus kinetic and potential energy can be expressed as, 
+			\begin{equation*}
+				T(\theta) = \frac{1}{2}m(\dot{x}^{2}+\dot{y}^{2}) = \frac{1}{2}m\ell^{2}\dot{\theta}^{2},\quad U(\theta) = gmy = -gm\ell\cos{\theta}, 
+			\end{equation*}
+			while the Lagrangian for the system results, 
+			\begin{equation*}
+				L = \frac{1}{2}m\ell^{2}\dot{\theta}^{2} + gm\ell\cos{\theta}.
+			\end{equation*}
+			Using the Euler-Lagrange equations in \cref{eq:euleroequations} yields to
+			\begin{equation*}
+				\frac{\diff}{\diff t}\frac{\partial L}{\partial\dot{\theta}}-\frac{\partial L}{\partial\theta} = m\ell^{2}\ddot{\theta} + mg\ell\sin{\theta} = 0,
+			\end{equation*}
+			which can be simplified to
+			\begin{equation*}
+				\ddot{\theta} = -\frac{g}{\ell}\sin{\theta}.
+			\end{equation*}
+			Now suppose we want to describe the pendulum using a set of redundant coordinates, e.g., \emph{natural coordinates}. For this aim let us define the generalized coordinate $\bm{q} = (x;y)\in\mathbb{R}^{2}$. The associated Lagrangian function takes the form, 
+			\begin{equation*}
+				L = \frac{1}{2}m\transp{\dot{\bm{q}}}\bm{\dot{q}} - mg\transp{\bm{e}}_{2}\bm{q},
+			\end{equation*}
+			where $\bm{e}_{2}\in\mathbb{R}^{2}$ is the second vector of the natural basis, roughly speaking the vector $\bm{e}_{2} = (0;1)\in\mathbb{R}^{2}$. Obviously now we need to introduce some constraint equation in order to force mass $m$ to slide over the circle, i.e., 
+			\begin{equation*}
+				\phi(\bm{q}) = x^{2}+y^{2} - \ell^{2} = \transp{\bm{q}}\bm{q}-\ell^{2} = 0.
+			\end{equation*}
+			Using then \cref{eq:mechanicalDAE} the resultant system of equations is the following, 
 			\begin{subequations}
-				\begin{align}
-					\dot{x}_{1}(t) + \dot{x}_{2}(t) + \dot{x}_{3}(t) &= 2x_{1}(t) + x_{3}(t) + t, \\
-					\dot{x}_{1}(t) + \dot{x}_{2}(t) + \dot{x}_{3}(t) &= x_{1}(t) + x_{2}(t) + t^{3}, \\
-					0 &= x_{1}(t) + x_{2}(t) + x_{3}(t) + \sin{t},
-				\end{align}
+				\begin{align*}
+					m\ddot{\bm{q}} + mg\bm{e}_{2} &= 2\bm{q}\lambda, \\
+					\transp{\bm{q}}\bm{q}-\ell^{2} &= 0.
+				\end{align*}
 			\end{subequations}
-			that we can write in a more compact matrix form as follows,
-			\begin{equation}
-				\begin{bmatrix}
-					1 & 1 & 1 \\
-					1 & 1 & 1 \\
-					0 & 0 & 0
-				\end{bmatrix}
-				\begin{bmatrix}
-					\dot{x}_{1}(t)\\
-					\dot{x}_{2}(t)\\
-					\dot{x}_{3}(t)
-				\end{bmatrix}
-				= 
-				\begin{bmatrix}
-					2 & 0 & 1\\
-					1 & 1 & 0\\
-					1 & 1 & 1
-				\end{bmatrix}
-				\begin{bmatrix}
-					x_{1}(t) \\
-					x_{2}(t) \\
-					x_{3}(t)
-				\end{bmatrix}
-				+
-				\begin{bmatrix}
-					t \\
-					t^3 \\
-					\sin{t}
-				\end{bmatrix}.
-			\end{equation}
-			Which corresponds to the usual form $E\dot{x}(t) = Ax(t) + f(t)$ obvious meaning for the symbols. Now consider to form the matrix $\begin{bmatrix}E & A & f(t) \end{bmatrix}\in\mathbb{R}^{n\times 2 n+1}$ in such a way that, 
-			\begin{equation}
-				\begin{bmatrix}
-					E & A & f(t)
-				\end{bmatrix}
-				\begin{bmatrix}
-					\dot{x}(t) \\
-					- x(t) \\
-					-1 
-				\end{bmatrix}
-				= 0
-			\end{equation}
-			First it is necessary to check if the  pair $(E,A)$ is a regular pencil, 
-			\begin{equation}
-				\textnormal{det}(A-\lambda_{0}E) = \textnormal{det}~
-				\begin{bmatrix}
-					2-\lambda_{0} 	&  -\lambda_{0} 	&	  1-\lambda_{0} \\ 
-					1-\lambda_{0} 	&  1-\lambda_{0}  	&  -\lambda_{0} \\
-					1 				& 1 				& 1
-				\end{bmatrix} = 2
-			\end{equation}
-			the determinant is different from zero, so the pair $(E,A)$ is a regular pencil.
-			
-			
-			Now it is easy to manipulate the following equations
-			\begin{equation}
-				\begin{bmatrix}
-					1 & 1 & 1 & 2 & 0 & 1 & t\\
-					1 & 1 & 1 & 1 & 1 & 0 & t^3\\
-					0 & 0 & 0 & 1 & 1 & 1 & \sin{t}\\
-				\end{bmatrix}
-			\end{equation}
 		\end{example}
 		

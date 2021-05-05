@@ -43,11 +43,16 @@ If index is reduced, we obtain the ODE:
     v_1' = \dfrac{\lambda_2 - mg}{m} & \\
     u_2' = \dfrac{\lambda_3}{m} & \\
     v_2' = \dfrac{\lambda_4 - mg}{m}  & \\
-    \lambda_1' = -\dfrac{1}{\ell^2\sin(\theta_1)^4(4\cos(\theta_1))^2 - 5)}\dots & \\
-    \lambda_2' = -\dfrac{1}{\ell^2\sin(\theta_1)^3(4\cos(\theta_1))^2 - 5)}\dots & \\
-    \lambda_3' = -\dfrac{1}{\ell^2\sin(\theta_1)^4(4\cos(\theta_1))^2 - 5)}\dots & \\
+    \lambda_1' = -\dfrac{1}{\ell^2\sin(\theta_1)^4(4\cos(\theta_1))^2 - 5)} 3u_1(L(\lambda_1 + \lambda_3)\cos(\theta_1)^5 + L\sin(\theta_1)\cos(\theta_1)^4\lambda_2 + L(\lambda_1 - \dots & \\
+    \qquad 5\lambda_3)\cos(\theta_1)^3 + (-2L\sin(\theta_1)\lambda_2 - 3u_1^2m)\cos(\theta_1)^2 - 2L(\lambda_1 - 2\lambda_3)\cos(\theta_1) + L\sin(\theta_1)\lambda_2) & \\
+    \lambda_2' = -\dfrac{1}{\ell^2\sin(\theta_1)^3(4\cos(\theta_1))^2 - 5)} (L(\lambda_1 + \lambda_3)\cos(\theta_1)^4 + L\sin(\theta_1)\cos(\theta_1)^3\lambda_2 + \dots & \\
+    \qquad 14(\lambda_1 - (8\lambda_3)/7)L\cos(\theta_1)^2 + (-L\sin(\theta_1)\lambda_2 - 15u_1^2m)\cos(\theta_1) - 15L(\lambda_1 - \lambda_3))u_1 & \\
+    \lambda_3' = -\dfrac{1}{\ell^2\sin(\theta_1)^4(4\cos(\theta_1))^2 - 5)} 2u_1(L(\lambda_1 + \lambda_3)\cos(\theta_1)^5 + L\sin(\theta_1)cos(\theta_1)^4\lambda_2 + L(\lambda_1 - \dots & \\
+    \qquad 5\lambda_3)\cos(\theta_1)^3 + (-2L\sin(\theta_1)\lambda_2 - 3u_1^2m)\cos(\theta_1)^2 - 2L(\lambda_1 - 2\lambda_3)\cos(\theta_1) + L\sin(\theta_1)\lambda_2) & \\
     \lambda_4' = 0 & \\
-    \lambda_5' = -\dfrac{1}{\ell^2\sin(\theta_1)^3\cos(\theta_1)(4\cos(\theta_1))^2 - 5)}\dots &
+    \lambda_5' = -\dfrac{1}{\ell^2\sin(\theta_1)^3\cos(\theta_1)(4\cos(\theta_1))^2 - 5)} 2u_1(L(\lambda_1 - \lambda_3)\cos(\theta_1)^5 + L\sin(\theta_1)(\lambda_2 - \dots & \\
+    \qquad 2\lambda_5)\cos(\theta_1)^4 + L(\lambda_1 - \lambda_3/2)\cos(\theta_1)^3 + (-2(\lambda_2 - (9\lambda_5)/4)L\sin(\theta_1) - 3u_1^2m)\cos(\theta_1)^2 - & \\
+    \qquad 2(\lambda_1 - (3\lambda_3)/4)L\cos(\theta_1) + L\sin(\theta_1)(\lambda_2 - (5\lambda_5)/2)) & \\
   \end{cases}
 
 Define the class for the ODE to be integrated.

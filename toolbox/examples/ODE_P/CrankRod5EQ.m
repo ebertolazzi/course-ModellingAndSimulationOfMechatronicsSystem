@@ -9,17 +9,6 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-%> Implementation of the ODE (Pendulum)
-%>
-%> \rst
-%> .. math::
-%> 
-%>   \begin{cases}
-%>      \theta' = \omega & \\
-%>      \omega' = -\displaystyle\frac{g}{\ell}\sin\theta &
-%>   \end{cases}
-%>
-%> \endrst
 %
 classdef CrankRod5EQ < DAC_ODEclass
   properties (SetAccess = protected, Hidden = true)
@@ -267,6 +256,227 @@ classdef CrankRod5EQ < DAC_ODEclass
       jac(15,13) = jac_15_13;
       jac(15,15) = jac_15_15;
     
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function res = DfDt( self, t, Z )
+      res = zeros(15,1);
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function res__ = h( self, t, Z )
+      
+      g = self.gravity;
+      m = self.m;
+      L = self.ell;
+      
+      % extract states
+      x_1      = Z(1);
+      y_1      = Z(2);
+      x_2      = Z(3);
+      y_2      = Z(4);
+      theta    = Z(5);
+      u_1      = Z(6);
+      v_1      = Z(7);
+      u_2      = Z(8);
+      v_2      = Z(9);
+      lambda_1 = Z(10);
+      lambda_2 = Z(11);
+      lambda_3 = Z(12);
+      lambda_4 = Z(13);
+      
+      % evaluate function
+      t1 = cos(theta__1);
+      res__1 = -t1 * L + x__1;
+      t3 = sin(theta__1);
+      t4 = t3 * L;
+      res__2 = y__1 - t4;
+      t5 = cos(theta__2);
+      t6 = t5 * L;
+      res__3 = x__2 - x__1 - t6;
+      res__4 = y__2;
+      t7 = sin(theta__2);
+      res__5 = (t3 - t7) * L;
+      t9 = 0.1e1 / t3;
+      t10 = t9 * u__1;
+      res__7 = t1 * t10 + v__1;
+      res__8 = -t7 * t10 - u__1 + u__2;
+      res__9 = v__2;
+      res__10 = -t9 * (-t5 + t1) * u__1;
+      t16 = lambda__1 - lambda__3;
+      t17 = t16 * L;
+      t18 = t1 ^ 2;
+      t20 = t18 * t1 * t17;
+      t21 = m * g;
+      t22 = t21 - lambda__2;
+      t27 = u__1 ^ 2;
+      t28 = m * t27;
+      t30 = 0.1e1 / m;
+      t32 = t3 ^ 2;
+      t36 = 0.1e1 / L / t32 / t3;
+      res__12 = t36 * t30 * (t18 * t22 * t4 + t1 * t17 - t22 * t4 - t20 + t28);
+      t39 = L * (lambda__1 - 2 * lambda__3);
+      t41 = t5 * t28;
+      res__13 = t36 * t30 * (t3 * (t18 * t39 - t39 + t41) + (-t1 * t28 + t18 * t17 - t17) * t7);
+      res__14 = t30 * (-t21 + lambda__4);
+      res__15 = t36 * t30 * (t20 - t18 * t16 * t6 + t1 * (t41 - t17) + t16 * t6 + (t3 * t7 - 1) * t28);
+
+
+      % store on output
+      res__ = zeros(15,1);
+      res__(1) = res__1;
+      res__(2) = res__2;
+      res__(3) = res__3;
+      res__(4) = res__4;
+      res__(5) = res__5;
+      res__(7) = res__7;
+      res__(8) = res__8;
+      res__(9) = res__9;
+      res__(10) = res__10;
+      res__(12) = res__12;
+      res__(13) = res__13;
+      res__(14) = res__14;
+      res__(15) = res__15;
+
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function jac__ = DhDx( self, t, Z )
+      
+      g = self.gravity;
+      m = self.m;
+      L = self.ell;
+      
+      % extract states
+      x_1      = Z(1);
+      y_1      = Z(2);
+      x_2      = Z(3);
+      y_2      = Z(4);
+      theta    = Z(5);
+      u_1      = Z(6);
+      v_1      = Z(7);
+      u_2      = Z(8);
+      v_2      = Z(9);
+      lambda_1 = Z(10);
+      lambda_2 = Z(11);
+      lambda_3 = Z(12);
+      lambda_4 = Z(13);
+
+      % evaluate function
+      jac__1_1 = 1;
+      t1 = sin(theta__1);
+      jac__1_5 = t1 * L;
+      jac__2_2 = 1;
+      t2 = cos(theta__1);
+      t3 = t2 * L;
+      jac__2_5 = -t3;
+      jac__3_1 = -1;
+      jac__3_3 = 1;
+      t4 = sin(theta__2);
+      jac__3_6 = t4 * L;
+      jac__4_4 = 1;
+      jac__5_5 = t3;
+      t5 = cos(theta__2);
+      t6 = t5 * L;
+      jac__5_6 = -t6;
+      t7 = t1 ^ 2;
+      t8 = 0.1e1 / t7;
+      t9 = t8 * u__1;
+      jac__7_5 = -t9;
+      t10 = 0.1e1 / t1;
+      jac__7_7 = t2 * t10;
+      jac__7_8 = 1;
+      t11 = t2 * t4;
+      jac__8_5 = t11 * t9;
+      t12 = t10 * u__1;
+      jac__8_6 = -t5 * t12;
+      jac__8_7 = -t4 * t10 - 1;
+      jac__8_9 = 1;
+      jac__9_10 = 1;
+      t15 = t2 * t5;
+      jac__10_5 = -t8 * (t15 - 1) * u__1;
+      jac__10_6 = -t4 * t12;
+      t20 = t5 - t2;
+      jac__10_7 = t10 * t20;
+      t21 = lambda__1 - lambda__3;
+      t22 = t21 * L;
+      t23 = t2 ^ 2;
+      t24 = t23 * t22;
+      t25 = u__1 ^ 2;
+      t26 = t25 * m;
+      t27 = t2 * t26;
+      t30 = 0.1e1 / m;
+      t32 = t7 ^ 2;
+      t34 = 0.1e1 / L;
+      t35 = t34 / t32;
+      jac__12_5 = t35 * t30 * (t24 - 3 * t27 - t22);
+      jac__12_7 = -2 * t10 / (t23 - 1) * t34 * u__1;
+      jac__12_11 = t2 * t10 * t30;
+      jac__12_12 = t30;
+      jac__12_13 = -jac__12_11;
+      t44 = t23 * t2 * t21;
+      t46 = t4 * t25;
+      t53 = t1 * m;
+      t54 = t53 * t5 * t25;
+      jac__13_5 = t35 * jac__12_12 * (-t44 * jac__3_6 + 2 * m * t23 * t46 + t2 * (t21 * t4 * L - 2 * t54) + t4 * t26);
+      t61 = t24 - t27 - t22;
+      t68 = t34 / t7 / t1;
+      jac__13_6 = t68 * jac__12_12 * (-t53 * t46 + t5 * t61);
+      jac__13_7 = 2 * t68 * (t5 * t1 - t11) * u__1;
+      t74 = t4 * t10 * jac__12_12;
+      jac__13_11 = -jac__12_12 - t74;
+      jac__13_13 = 2 * jac__12_12 + t74;
+      jac__14_14 = jac__12_12;
+      t77 = t5 * t26;
+      t82 = t1 * t4;
+      jac__15_5 = t35 * jac__14_14 * (t44 * t6 + t23 * (-2 * t77 - t22) + t2 * (-t21 * t6 - 2 * t25 * (t82 - 0.3e1 / 0.2e1) * m) - t77 + t22);
+      jac__15_6 = t68 * jac__14_14 * (t61 * t4 + t54);
+      jac__15_7 = 2 * t68 * (t82 + t15 - 1) * u__1;
+      jac__15_11 = t10 * jac__14_14 * t20;
+      jac__15_13 = -t10 * jac__14_14 * t20;
+
+
+      % store on output
+      jac__ = zeros(15,15);
+      jac__(1,1) = jac__1_1;
+      jac__(1,5) = jac__1_5;
+      jac__(2,2) = jac__2_2;
+      jac__(2,5) = jac__2_5;
+      jac__(3,1) = jac__3_1;
+      jac__(3,3) = jac__3_3;
+      jac__(3,6) = jac__3_6;
+      jac__(4,4) = jac__4_4;
+      jac__(5,5) = jac__5_5;
+      jac__(5,6) = jac__5_6;
+      jac__(7,5) = jac__7_5;
+      jac__(7,7) = jac__7_7;
+      jac__(7,8) = jac__7_8;
+      jac__(8,5) = jac__8_5;
+      jac__(8,6) = jac__8_6;
+      jac__(8,7) = jac__8_7;
+      jac__(8,9) = jac__8_9;
+      jac__(9,10) = jac__9_10;
+      jac__(10,5) = jac__10_5;
+      jac__(10,6) = jac__10_6;
+      jac__(10,7) = jac__10_7;
+      jac__(12,5) = jac__12_5;
+      jac__(12,7) = jac__12_7;
+      jac__(12,11) = jac__12_11;
+      jac__(12,12) = jac__12_12;
+      jac__(12,13) = jac__12_13;
+      jac__(13,5) = jac__13_5;
+      jac__(13,6) = jac__13_6;
+      jac__(13,7) = jac__13_7;
+      jac__(13,11) = jac__13_11;
+      jac__(13,13) = jac__13_13;
+      jac__(14,14) = jac__14_14;
+      jac__(15,5) = jac__15_5;
+      jac__(15,6) = jac__15_6;
+      jac__(15,7) = jac__15_7;
+      jac__(15,11) = jac__15_11;
+      jac__(15,13) = jac__15_13;
+
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function res = DhDt( self, t, vars__ )
+      res = zeros(15,1);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function plot( self, t, Z )

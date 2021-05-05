@@ -40,9 +40,13 @@ If index is reduced, we obtain the ODE:
     v_1'       = \dfrac{\lambda_2 - mg}{m} & \\
     u_2'       = \dfrac{\lambda_3}{m} & \\
     v_2'       = \dfrac{\lambda_4 - mg}{m}  & \\
-    \lambda_1' = -\dfrac{1}{\ell^2\sin(\theta)^4(4\cos(\theta))^2 - 5)}\dots & \\
+    \lambda_1' = -\dfrac{1}{\ell^2\sin(\theta)^4(4\cos(\theta))^2 - 5)} (3 u_1) (L (\lambda_1 + \lambda_3)\cos(\theta)^5 + L\cos(\theta)^4\sin(\theta)\lambda_2 + L(\lambda_1 - \dots & \\
+    \qquad 5\lambda_3)\cos(\theta)^3 + (-(2\lambda_2)L\sin(\theta) - (3u_1^2)m)\cos(\theta)^2 - (2L)(\lambda_1 - 2\lambda_3)\cos(\theta) + \lambda_2L\sin(\theta)) & \\
     \lambda_2' = -\dfrac{1}{\ell^2\sin(\theta)^3(4\cos(\theta))^2 - 5)}\dots & \\
-    \lambda_3' = -\dfrac{1}{\ell^2\sin(\theta)^4(4\cos(\theta))^2 - 5)}\dots & \\
+    \qquad u_1(L(\lambda_1 + \lambda_3)\cos(\theta)^4 + L\cos(\theta)^3\sin(\theta)\lambda_2 + (14L)(\lambda_1 - (8\lambda_3)/7)\cos(\theta)^2 + \dots & \\
+    \qquad (-\lambda_2L\sin(\theta) - (15u_1^2)m)\cos(\theta) - (15L)(\lambda_1 - \lambda_3)) & \\
+    \lambda_3' = -\dfrac{1}{\ell^2\sin(\theta)^4(4\cos(\theta))^2 - 5)} (2 u_1)(L(\lambda_1 + \lambda_3)\cos(\theta)^5 + L\cos(\theta)^4\sin(\theta)\lambda_2 + L(\lambda_1 - \dots & \\
+    \qquad 5\lambda_3)\cos(\theta)^3 + (-(2\lambda_2) L \sin(\theta) - (3 u_1^2)m)\cos(\theta)^2 - 2L(\lambda_1 - 2\lambda_3) \cos(\theta) + \lambda_2 L \sin(\theta)) & \\
     \lambda_4' = 0 &
   \end{cases}
 
