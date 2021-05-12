@@ -1,94 +1,26 @@
 # -*- coding: utf-8 -*-
-
-# pip3 install exhale
-# pip3 install breathe
-# pip3 install m2r2
-# pip3 install sphinxcontrib-email
-# pip3 install cloud_sptheme
-
 import os
-#import guzzle_sphinx_theme
-
-# The master toctree document.
-master_doc = 'index'
+from pathlib import Path
 
 # -- Project information -----------------------------------------------------
+exec(open("../project_common.py").read())
 
-project   = 'ODE/DAE'
-copyright = '2021, Enrico Bertolazzi'
-author    = ':email:`Enrico Bertolazzi <enrico.bertolazzi@unitn.it>`'
-version   = os.popen('git describe --tags').read()
 
-#rst_epilog =
-#rst_prolog =
+rst_prolog = ".. |xml| replace:: %s\n" % (project)
 
-# Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+extensions.append('breathe');
+extensions.append('exhale');
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
-
-# The `extensions` list should already be in here from `sphinx-quickstart`
-extensions = [
-  'breathe',
-  'exhale',
-  'm2r2',          # funziona!
-  # standard sphinx extensions
-  'sphinx.ext.autodoc',
-  'sphinx.ext.todo',
-
-  # 3rd party extensions
-  #'sphinxcontrib.fulltoc',
-  'sphinx.ext.viewcode',  # mainly to make sure layout works properly
-
-  # cloud's extensions
-  'cloud_sptheme',
-  'cloud_sptheme.ext.autodoc_sections',
-  'cloud_sptheme.ext.relbar_links',
-  'cloud_sptheme.ext.escaped_samp_literals',
-  'cloud_sptheme.ext.issue_tracker',
-  'cloud_sptheme.ext.table_styling',
-  #'cloud_sptheme.ext.role_index',  # NOTE: used only to provide example role index
-
-  #'sphinx.ext.doctest',
-  #'sphinx.ext.coverage',
-  'sphinx.ext.mathjax',
-  #'sphinx.ext.ifconfig',
-  #'sphinx.ext.githubpages',
-  #'sphinx.ext.intersphinx',
-  #'sphinx.ext.graphviz',
-  #'sphinx.ext.inheritance_diagram',
-  #'guzzle_sphinx_theme',
-  #'sphinx_typo3_theme',
-  'sphinxcontrib.email',
-  'sphinxcontrib.matlab'
-]
-
-source_suffix = ['.rst', '.md']
-
-# Setup the breathe extension
 breathe_projects = {
-  project: "../xml"
+  "doc_matlab": "_doxygen/"+"doc_matlab/xml-matlab",
 }
-breathe_default_project = project
 
-# Setup the exhale extension
-exhale_args = {
-  # These arguments are required
-  "containmentFolder":     "./api",
-  "rootFileName":          "library_root.rst",
-  "rootFileTitle":         "MATLAB API",
-  "doxygenStripFromPath":  "..",
-  # Suggested optional arguments
-  "createTreeView":        True,
-  # TIP: if using the sphinx-bootstrap-theme, you need
-  "treeViewIsBootstrap": True,
-  "exhaleExecutesDoxygen": True,
-  #"exhaleDoxygenStdin":    "INPUT = ../../src"
-  "exhaleDoxygenStdin":
-'''
+breathe_default_project = "doc_matlab"
+
+dir_path_matlab = os.path.dirname(os.path.realpath(__file__))+"../../../toolbox/lib"
+dir_path_matlab = Path(dir_path_matlab).resolve()
+
+doxygen_common_stdin = """
         EXTRACT_ALL         = YES
         SOURCE_BROWSER      = YES
         EXTRACT_STATIC      = YES
@@ -97,11 +29,12 @@ exhale_args = {
         GRAPHICAL_HIERARCHY = YES
         HAVE_DOT            = YES
         QUIET               = NO
-        INPUT               = ../../toolbox/lib
         GENERATE_TREEVIEW   = YES
+        SHORT_NAMES         = YES
+        IMAGE_PATH          = ../images
 
         XML_PROGRAMLISTING    = YES
-        RECURSIVE             = YES
+        RECURSIVE             = NO
         FULL_PATH_NAMES       = YES
         ENABLE_PREPROCESSING  = YES
         MACRO_EXPANSION       = YES
@@ -111,87 +44,33 @@ exhale_args = {
         INLINE_INHERITED_MEMB = YES
         EXTRACT_PRIVATE       = YES
         PREDEFINED           += protected=private
-        EXTENSION_MAPPING     = .m=C++
-        FILE_PATTERNS         = *.m
-        FILTER_PATTERNS       = *.m=./m2cpp.pl
         GENERATE_HTML         = NO
-''',
-  "lexerMapping": { r".*\.m": "MATLAB" }
+"""
+
+doc_matlab = {
+    'verboseBuild':          True,
+    "rootFileName":          "root.rst",
+    "createTreeView":        True,
+    "exhaleExecutesDoxygen": True,
+    "doxygenStripFromPath":  str(dir_path_matlab),
+    "exhaleDoxygenStdin":   '''
+        INPUT               = ../../src_matlab_interface
+        PREDEFINED         += protected=private
+        XML_OUTPUT          = xml-matlab
+        FILE_PATTERNS       = GenericContainerMatlabInterface.*
+'''+doxygen_common_stdin,
+    "containmentFolder":    os.path.realpath('./api-matlab'),
+    "rootFileTitle":        "MATLAB API",
 }
 
-
-# Tell sphinx what the primary language being documented is.
-primary_domain = 'cpp'
-
-# Tell sphinx what the pygments highlight language should be.
-highlight_language = 'cpp'
-
-html_theme = 'cloud'
-html_logo  = '../logo.png'
-
-email_automode = True
-autodoc_member_order = 'bysource'
-
-html_theme_options = {
-  "lighter_header_decor" : False,
-  "borderless_decor"     : False,
-  "bodyfont"             : "Arial, sans-serif",
-  "headfont"             : "Arial, sans-serif",
-
-  #styling for document body
-  "bgcolor"         : "#f8f8f8",
-  "linkcolor"       : "#006906",
-
-  #styling for document headers
-  "headlinkcolor"   : "#327438",
-
-  #styling for section headers
-  "sectiontextcolor"  : "inherit",
-  "sectionbgcolor"    : "#75c47c",
-  "sectiontrimcolor"  : "rgba(0,0,0,.1)",
-  "rubricbgcolor"     : "#d2e7d0",
-  ##"rubric_trim_color" : "rgba(0,0,0,0.05)",
-
-  "object_default_color"   : "#e4e4e4",
-  "object_function_color"  : "#eefbff",
-  "object_class_color"     : "#fff3df",
-  "object_attribute_color  : "#ffd5ff",
-  ##"object_exception_color  : "#e9ffd0",
-
-  #styling for footer / html background
-  "footerbgcolor" : "#6f6700", ## #565B57",
-
-  #styling for sidebar
-  "sidebarbgcolor"   : "#ededed",
-  "sidebarlinkcolor" : "#006906",
-  "sidebarhighcolor" : "#FFF5DD",
-  "bodytrimcolor"    : "rgba(0,0,0,.15)",
-
-  #styling for top & bottom relbars
-  "relbarbgcolor" : "#57A75E",
-
-  # code blocks
-  "codebgcolor"   : "#e8ffe6", #"#d6d6d6",
-  "codetrimcolor" : "#129100", #"rgba(0,0,0,.15)",
-
-  # admonitions
-  "admonition_note_color"       : "#D9E4F1",
-  "admonition_warning_color"    : "#EBC5A7",
-  "admonition_seealso_color"    : "#eeeeee",
-  "admonition_deprecated_color" : "#ffebab",
-  "admonition_todo_color"       : "#eeeeee",
-
-  # inline literals
-  "quotebgcolor"   : "rgba(0,0,0,.06)",
-  "quotetrimcolor" : "transparent",
-
-  # index page
-  "index_category_color" : "#999999"
+exhale_projects_args = {
+  "doc_matlab": doc_matlab
 }
 
-# https://github.com/sphinx-contrib/matlabdomain
-this_dir = os.path.dirname(os.path.abspath(__file__))
-matlab_src_dir = os.path.abspath(os.path.join(this_dir, '../../toolbox/lib'))
-#matlab_src_encoding
-#matlab_keep_package_prefix
-autodoc_member_order = 'bysource'
+#cpp_index_common_prefix = ['GC_namespace::']
+
+# If false, no module index is generated.
+html_domain_indices = True
+
+# If false, no index is generated.
+html_use_index = True

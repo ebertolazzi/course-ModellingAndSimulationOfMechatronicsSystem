@@ -7,18 +7,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ODE/DAE library manual &#8212; ODE/DAE  documentation</title>
+    <title>ODE/DAE library manual &#8212; ODE/DAE v0.1-7-g80959bd
+</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/bootstrap-treeview/bootstrap-treeview.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script src="_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
 
     
     
@@ -39,7 +41,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Introduction" href="Manual_INTRO.html" />
-    <link rel="prev" title="Course Modelling And Simulation Of Mechatronics System" href="readme.html" /> 
+    <link rel="prev" title="ODE/DAE" href="index.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -57,9 +59,9 @@
           <a href="Manual_INTRO.html" title="Introduction"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="readme.html" title="Course Modelling And Simulation Of Mechatronics System"
+          <a href="index.html" title="ODE/DAE"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">ODE/DAE  documentation</a> &#187;</li>
+    <li><a href="index.html">ODE/DAE</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">ODE/DAE library manual</a></li> 
       </ul>
@@ -129,13 +131,15 @@
 </li>
 </ul>
 </div>
-</div>
 <div class="section" id="author">
-<h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a>
-</h2>
+<h3>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a>
+</h3>
 <div class="line-block">
-<div class="line">Enrico Bertolazzi <script type="text/javascript">document.write(
-    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">znvygb:raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+<div class="line">Enrico Bertolazzi</div>
+<div class="line">Dipartimento di Ingegneria Industriale</div>
+<div class="line">Università degli Studi di Trento</div>
+<div class="line">email: <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
         function(c){
             return String.fromCharCode(
                 (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
@@ -144,8 +148,9 @@
     )
 );</script>
 </div>
-<div class="line">Department of Industrial Engineering</div>
-<div class="line">University of Trento</div>
+<div class="line">homepage: <a class="reference external" href="https://e.bertolazzi.dii.unitn.it">https://e.bertolazzi.dii.unitn.it</a>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="references">
@@ -153,27 +158,41 @@
 </h2>
 <ol class="arabic">
 <li>
-<p><em>Claus Bendtsen, Per Grove Thomsen</em>,
-<strong>Numerical Solution of Differential Algebraic Equations</strong>,
-Technical report IMM-REP-1999-8,</p>
-<p><a class="reference external" href="https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra">https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra</a></p>
+<div class="line-block">
+<div class="line">
+<em>Claus Bendtsen, Per Grove Thomsen</em>,</div>
+<div class="line">
+<strong>Numerical Solution of Differential Algebraic Equations</strong>,</div>
+<div class="line">Technical report IMM-REP-1999-8,</div>
+<div class="line"><a class="reference external" href="https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra">https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra</a></div>
+</div>
 </li>
 <li>
-<p><em>John C.Butcher</em>,
-<strong>Introduction to Runge–Kutta methods</strong></p>
-<p><a class="reference external" href="https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf">https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf</a></p>
+<div class="line-block">
+<div class="line">
+<em>John C.Butcher</em>,</div>
+<div class="line"><strong>Introduction to Runge–Kutta methods</strong></div>
+<div class="line"><a class="reference external" href="https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf">https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf</a></div>
+</div>
 </li>
 <li>
-<p><em>John C.Butcher</em>,
-<strong>The Numerical Analysis of Ordinary Differential Differential Equations: Runge-Kutta and General Linear Methods</strong>
-Wiley, Chichester (1964)</p>
-<p><a class="reference external" href="https://doi.org/10.1137/1031147">https://doi.org/10.1137/1031147</a></p>
+<div class="line-block">
+<div class="line">
+<em>John C.Butcher</em>,</div>
+<div class="line"><strong>The Numerical Analysis of Ordinary Differential Differential Equations: Runge-Kutta and General Linear Methods</strong></div>
+<div class="line">Wiley, Chichester (1964)</div>
+<div class="line"><a class="reference external" href="https://doi.org/10.1137/1031147">https://doi.org/10.1137/1031147</a></div>
+</div>
 </li>
 <li>
-<p><em>E. Hairer, G. Wanner</em>,
-<strong>Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems</strong>,
-Springer, Berlin (1991)</p>
-<p><a class="reference external" href="https://www.springer.com/gp/book/9783540604525">https://www.springer.com/gp/book/9783540604525</a></p>
+<div class="line-block">
+<div class="line">
+<em>E. Hairer, G. Wanner</em>,</div>
+<div class="line">
+<strong>Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems</strong>,</div>
+<div class="line">Springer, Berlin (1991)</div>
+<div class="line"><a class="reference external" href="https://www.springer.com/gp/book/9783540604525">https://www.springer.com/gp/book/9783540604525</a></div>
+</div>
 </li>
 </ol>
 </div>
@@ -189,35 +208,7 @@ Springer, Berlin (1991)</p>
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
           <img class="logo" src="_static/logo.png" alt="Logo"/>
-        </a></p><div class="sphinx-toc sphinxlocaltoc">
-    <h3><a href="index.html">Page contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#">ODE/DAE library manual</a><ul>
-<li><a class="reference internal" href="#contents">Contents</a></li>
-<li><a class="reference internal" href="#author">Author</a></li>
-<li><a class="reference internal" href="#references">References</a></li>
-</ul>
-</li>
-</ul>
-
-  </div>
-  <div class="sphinxprev">
-    <h4>Previous page</h4>
-    <p class="topless"><a href="readme.html"
-                          title="Previous page">&larr; Course Modelling And Simulation Of Mechatronics System</a></p>
-  </div>
-  <div class="sphinxnext">
-    <h4>Next page</h4>
-    <p class="topless"><a href="Manual_INTRO.html"
-                          title="Next page">&rarr; Introduction</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/Manual.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
+        </a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
@@ -228,6 +219,17 @@ Springer, Berlin (1991)</p>
     </div>
 </div>
 <script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="index.html">Table of Contents</a></h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ODE/DAE library manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contents">Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
+</ul>
+</div>
         </div>
       </div>
     
@@ -264,9 +266,9 @@ Springer, Berlin (1991)</p>
           <a href="Manual_INTRO.html" title="Introduction"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="readme.html" title="Course Modelling And Simulation Of Mechatronics System"
+          <a href="index.html" title="ODE/DAE"
              >previous</a> &nbsp; &nbsp;</li>
-    <li><a href="index.html">ODE/DAE  documentation</a> &#187;</li>
+    <li><a href="index.html">ODE/DAE</a> &#187;</li>
 
         <li class="nav-item nav-item-this"><a href="">ODE/DAE library manual</a></li> 
       </ul>

@@ -1,4 +1,5 @@
 Icon?
+.DS_Store
 
 *.gz
 *.aux
@@ -8,3 +9,5 @@ docs_build/html
 docs_build/xml
 docs_build/sphinx/_build
 docs_build/sphinx/api
+docs_build/sphinx/_doxygen
+docs_build/sphinx/api-matlab
