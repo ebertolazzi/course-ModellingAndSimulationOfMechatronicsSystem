@@ -14,8 +14,14 @@
 %>
 %> *Usage*
 %>
+%> \rst
+%>
+%> .. code-block:: matlab
+%>
 %>      ode = ODE_derived_class() % create an instance of a ODE
 %>      res = ode.f(t,x);
+%>
+%> \endrst
 %>
 classdef DAC_ODEclass < DAC_base_class
   % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -37,8 +43,8 @@ classdef DAC_ODEclass < DAC_base_class
   end
   % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   methods
-    function self = DAC_ODEclass( name )
-      self@DAC_base_class( name )
+    function self = DAC_ODEclass( name, neq )
+      self@DAC_base_class( name, neq )
     end
   end
 end

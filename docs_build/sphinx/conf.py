@@ -34,7 +34,7 @@ doxygen_common_stdin = """
         IMAGE_PATH          = ../images
 
         XML_PROGRAMLISTING    = YES
-        RECURSIVE             = NO
+        RECURSIVE             = YES
         FULL_PATH_NAMES       = YES
         ENABLE_PREPROCESSING  = YES
         MACRO_EXPANSION       = YES
@@ -54,13 +54,16 @@ doc_matlab = {
     "exhaleExecutesDoxygen": True,
     "doxygenStripFromPath":  str(dir_path_matlab),
     "exhaleDoxygenStdin":   '''
-        INPUT               = ../../src_matlab_interface
+        INPUT               = ../../toolbox/lib
         PREDEFINED         += protected=private
         XML_OUTPUT          = xml-matlab
-        FILE_PATTERNS       = GenericContainerMatlabInterface.*
+        EXTENSION_MAPPING   = .m=C++
+        FILE_PATTERNS       = *.m
+        FILTER_PATTERNS     = *.m=./m2cpp.pl
 '''+doxygen_common_stdin,
     "containmentFolder":    os.path.realpath('./api-matlab'),
     "rootFileTitle":        "MATLAB API",
+    "lexerMapping": { r".*\.m": "MATLAB" }
 }
 
 exhale_projects_args = {

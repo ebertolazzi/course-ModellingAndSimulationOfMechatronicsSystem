@@ -11,7 +11,6 @@
 %
 classdef ODEbaseClass_P < DAC_ODEclass
   properties (SetAccess = protected, Hidden = true)
-    neq;  % number of equations/states
     ninv; % number of invariants (may be 0)
   end
 
@@ -51,8 +50,7 @@ classdef ODEbaseClass_P < DAC_ODEclass
 
   methods
     function self = ODEbaseClass_P( name, neq, ninv )
-      self@DAC_ODEclass( name )
-      self.neq  = neq;
+      self@DAC_ODEclass( name, neq )
       self.ninv = ninv;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

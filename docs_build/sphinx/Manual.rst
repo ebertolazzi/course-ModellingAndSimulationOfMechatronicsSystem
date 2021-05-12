@@ -8,6 +8,7 @@ Contents
 .. toctree::
     :maxdepth: 4
 
+    Manual_TOOLBOX.rst
     Manual_INTRO.rst
     Manual_ODE_TEST1.rst
     Manual_ODE_TEST2.rst

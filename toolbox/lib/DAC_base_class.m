@@ -11,8 +11,14 @@
 %
 classdef DAC_base_class < handle
   properties (SetAccess = protected, Hidden = true)
+    %>
     %> the name of the ODE or DAE, used in warning/error messages
+    %>
     name;
+    %>
+    %> The number of equations of the ODE/DAE
+    %>
+    neq;
   end
 
   methods (Abstract)
@@ -25,9 +31,14 @@ classdef DAC_base_class < handle
   end
 
   methods
-    function self = DAC_base_class( name )
+    function self = DAC_base_class( name, neq )
       %> Construct object with stored `name`
       self.name = name;
+      self.neq  = neq;
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function neq = getNeq( self )
+      neq = self.neq;
     end
     %>
     %> Animate solution
