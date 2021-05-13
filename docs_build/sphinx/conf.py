@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 import os
+import sys
 from pathlib import Path
 
 # -- Project information -----------------------------------------------------
 exec(open("../project_common.py").read())
 
+sys.path.append(os.path.abspath("./_ext"))
 
 rst_prolog = ".. |xml| replace:: %s\n" % (project)
 
 extensions.append('breathe');
 extensions.append('exhale');
+extensions.append('maple')
 
 breathe_projects = {
   "doc_matlab": "_doxygen/"+"doc_matlab/xml-matlab",

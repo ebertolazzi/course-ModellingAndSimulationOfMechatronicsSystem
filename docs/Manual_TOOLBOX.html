@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-9-g8f73332
+    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-9-g2da9320
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -86,7 +86,7 @@ which shuold simplify the develop of DAE integrator.</p>
 </h2>
 <p>In the <em>MAPLE</em> worksheet load the scripts</p>
 <div class="highlight-maple notranslate">
-<div class="highlight"><pre><span></span>read("{path}/DAE-toolbox.maplet");
+<div class="highlight"><pre><span></span><span class="nf">read</span><span class="p">(</span><span class="s">"{path}/DAE-toolbox.maplet"</span><span class="p">)</span><span class="o">;</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">{path}</span></code> is the relative or absolute path where
@@ -119,18 +119,18 @@ hopefully simplify DAE manipulation.</p>
 <p>Extends diff to works with function as derivation argument.
 In practice if you try to differentiate</p>
 <div class="highlight-maple notranslate">
-<div class="highlight"><pre><span></span>&gt; fun := sin(x(t));
-&gt; diff(sin(x(t)),x(t));
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">fun</span> <span class="o">:=</span> <span class="nf">sin</span><span class="p">(</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">sin</span><span class="p">(</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span><span class="o">,</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span><span class="o">;</span>
 </pre></div>
 </div>
 <p>you get an error because <em>MAPLE</em> expect a symbol
 not a function as second argument.
 However <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> work</p>
 <div class="highlight-maple notranslate">
-<div class="highlight"><pre><span></span>&gt; fun := sin(x(t));
-&gt; DIFF(sin(x(t)),x(t));
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">fun</span> <span class="o">:=</span> <span class="nf">sin</span><span class="p">(</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="nf">DIFF</span><span class="p">(</span><span class="nf">sin</span><span class="p">(</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span><span class="o">,</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span><span class="o">;</span>
 
-  cos( x(t))
+  <span class="nf">cos</span><span class="p">(</span> <span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>returning the correct answer.</p>
@@ -143,7 +143,7 @@ However <code class="docutils literal notranslate"><span class="pre">DIFF</span>
 or multivariate functions.
 The syntax is</p>
 <div class="highlight-maple notranslate">
-<div class="highlight"><pre><span></span>&gt; JACOBIAN(FUN,PARS);
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">JACOBIAN</span><span class="p">(</span><span class="nv">FUN</span><span class="o">,</span><span class="nv">PARS</span><span class="p">)</span><span class="o">;</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">FUN</span></code> is a list of expressions, a single expression
@@ -152,14 +152,14 @@ The map <code class="docutils literal notranslate"><span class="pre">FUN</span><
 a list of parameters.
 The parameters can be also functions.</p>
 <div class="highlight-maple notranslate">
-<div class="highlight"><pre><span></span>&gt; FUN  := &lt;x^2+y(t),y(t)*cos(x*y(t))&gt;:
-&gt; PARS := [x,y(t)]:
-&gt; JACOBIAN(FUN,PARS);
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">FUN</span>  <span class="o">:=</span> <span class="o">&lt;</span><span class="nv">x</span><span class="o">^</span><span class="m">2</span><span class="o">+</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">*</span><span class="nf">cos</span><span class="p">(</span><span class="nv">x</span><span class="o">*</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span><span class="o">&gt;:</span>
+<span class="o">&gt;</span> <span class="nv">PARS</span> <span class="o">:=</span> <span class="p">[</span><span class="nv">x</span><span class="o">,</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)]</span><span class="o">:</span>
+<span class="o">&gt;</span> <span class="nf">JACOBIAN</span><span class="p">(</span><span class="nv">FUN</span><span class="o">,</span><span class="nv">PARS</span><span class="p">)</span><span class="o">;</span>
 
-         [       2 x                         1                ]
-         [                                                    ]
-         [     2                                              ]
-         [-y(t)  sin(x y(t))  cos(x y(t)) - y(t) x sin(x y(t))]
+         <span class="p">[</span>       <span class="m">2</span> <span class="nv">x</span>                         <span class="m">1</span>                <span class="p">]</span>
+         <span class="p">[</span>                                                    <span class="p">]</span>
+         <span class="p">[</span>     <span class="m">2</span>                                              <span class="p">]</span>
+         <span class="p">[</span><span class="o">-</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span>  <span class="nf">sin</span><span class="p">(</span><span class="nv">x</span> <span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span>  <span class="nf">cos</span><span class="p">(</span><span class="nv">x</span> <span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">))</span> <span class="o">-</span> <span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span> <span class="nv">x</span> <span class="nf">sin</span><span class="p">(</span><span class="nv">x</span> <span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">))]</span>
 </pre></div>
 </div>
 </div>
@@ -181,7 +181,7 @@ such that</p>
 <p>The routine return also the rank of the matrix  <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>.
 Usage exaple:</p>
 <div class="highlight-maple notranslate">
-<div class="highlight"><pre><span></span>&gt; K, L, r := Kernel_build( E );
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">K</span><span class="o">,</span> <span class="nv">L</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">Kernel_build</span><span class="p">(</span> <span class="no">E</span> <span class="p">)</span><span class="o">;</span>
 </pre></div>
 </div>
 <p>The algorithm use Gaussian elimination
@@ -304,7 +304,7 @@ lokk at <code class="file docutils literal notranslate"><span class="pre">DAE-to
 <p>That has index reduced by one.
 The command usage is the following</p>
 <div class="highlight-maple notranslate">
-<div class="highlight"><pre><span></span>&gt; E2, G2, A2, r := DAE_reduce_index_by_1( E1, G1, A1, Dvars );
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">E2</span><span class="o">,</span> <span class="nv">G2</span><span class="o">,</span> <span class="nv">A2</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">DAE_reduce_index_by_1</span><span class="p">(</span> <span class="nv">E1</span><span class="o">,</span> <span class="nv">G1</span><span class="o">,</span> <span class="nv">A1</span><span class="o">,</span> <span class="nv">Dvars</span> <span class="p">)</span><span class="o">;</span>
 </pre></div>
 </div>
 <p>where</p>
@@ -427,7 +427,7 @@ is done internally.</p></li>
 </tr>
 </tbody>
 </table>
-<p>the result <code class="docutils literal notranslate"><span class="pre">res</span></code> is a maple table that cotains</p>
+<p>the result <code class="docutils literal notranslate"><span class="pre">res</span></code> is a maple table that contains</p>
 <table class="colwidths-given docutils align-default" id="id2" style="width: 90%">
 <caption>
 <span class="caption-text">Table contents</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a>
