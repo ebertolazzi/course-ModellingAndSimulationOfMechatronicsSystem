@@ -130,9 +130,10 @@ using ``Kernel_build`` transform the DAE to
   \end{array}\right.
 
 separating the algebraic part into :math:`\mathbf{g}_2(\mathbf{x},t)`.
-Usage:
 
-.. code-block::
+*Usage:*
+
+.. code-block:: maple
 
   > E1, G1, G2, r := DAE_separate_algebraic( E, G ): # r = rank or E
 
@@ -146,7 +147,7 @@ In this case you must also pass the list of
 differential variables to transform (internally)
 to the form :math:`\mathbf{E}(\mathbf{x},t) \mathbf{x}' = \mathbf{g}(\mathbf{x},t)`
 
-.. code-block::
+.. code-block:: maple
 
   > E1, G1, G2, r := DAE_separate_algebraic_bis( EQNS, DVARS ): # r = rank or E
 
@@ -435,5 +436,3 @@ F_TO_MATLAB
 
 JF_TO_MATLAB
 ~~~~~~~~~~~~
-
-.. include:: author.rst

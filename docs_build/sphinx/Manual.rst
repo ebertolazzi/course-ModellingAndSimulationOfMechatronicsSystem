@@ -1,6 +1,6 @@
 
-ODE/DAE library manual
-======================
+ODE/DAE library manuals
+=======================
 
 Contents
 --------
@@ -8,12 +8,9 @@ Contents
 .. toctree::
     :maxdepth: 4
 
-    Manual_TOOLBOX.rst
     Manual_INTRO.rst
-    Manual_ODE_TEST1.rst
-    Manual_ODE_TEST2.rst
-    Manual_ODE_CrankRod4EQ.rst
-    Manual_ODE_CrankRod5EQ.rst
+    Manual_TOOLBOX.rst
+    Manual_EXAMPLES.rst
 
 .. include:: author.rst
 

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-9-g2da9320
+    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-10-g1ae0107
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -41,8 +41,8 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="Manual_INTRO.html" />
-    <link rel="prev" title="ODE/DAE library manual" href="Manual.html" /> 
+    <link rel="next" title="ODE/DAE library examples" href="Manual_EXAMPLES.html" />
+    <link rel="prev" title="Introduction" href="Manual_INTRO.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -57,14 +57,14 @@
           <a href="index.html" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual_INTRO.html" title="Introduction"
+          <a href="Manual_EXAMPLES.html" title="ODE/DAE library examples"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual.html" title="ODE/DAE library manual"
+          <a href="Manual_INTRO.html" title="Introduction"
              accesskey="P">previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ODE/DAE</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="Manual.html" accesskey="U">ODE/DAE library manual</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Manual.html" accesskey="U">ODE/DAE library manuals</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">DAE-Toolbox</a></li> 
       </ul>
     </div>
@@ -109,7 +109,6 @@ hopefully simplify DAE manipulation.</p>
 <li><p><a class="reference internal" href="#dae3-get-ode-and-invariants-full" id="id11">DAE3_get_ODE_and_invariants_full</a></p></li>
 <li><p><a class="reference internal" href="#f-to-matlab" id="id12">F_TO_MATLAB</a></p></li>
 <li><p><a class="reference internal" href="#jf-to-matlab" id="id13">JF_TO_MATLAB</a></p></li>
-<li><p><a class="reference internal" href="#author" id="id14">Author</a></p></li>
 </ul>
 </div>
 <div class="section" id="diff">
@@ -201,10 +200,10 @@ expressions.</p>
 \mathbf{E}_1(\mathbf{x},t) \mathbf{x}' &amp;=&amp; \mathbf{g}_1(\mathbf{x},t) \\[1em]
 \mathbf{0} &amp;=&amp; \mathbf{g}_2(\mathbf{x},t)
 \end{array}\right.\end{split}\]</div>
-<p>separating the algebraic part into <span class="math notranslate nohighlight">\(\mathbf{g}_2(\mathbf{x},t)\)</span>.
-Usage:</p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>&gt; E1, G1, G2, r := DAE_separate_algebraic( E, G ): # r = rank or E
+<p>separating the algebraic part into <span class="math notranslate nohighlight">\(\mathbf{g}_2(\mathbf{x},t)\)</span>.</p>
+<p><em>Usage:</em></p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">E1</span><span class="o">,</span> <span class="nv">G1</span><span class="o">,</span> <span class="nv">G2</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">DAE_separate_algebraic</span><span class="p">(</span> <span class="no">E</span><span class="o">,</span> <span class="nv">G</span> <span class="p">)</span><span class="o">:</span> <span class="nv">#</span> <span class="nv">r</span> <span class="o">=</span> <span class="nv">rank</span> <span class="ow">or</span> <span class="no">E</span>
 </pre></div>
 </div>
 <p>Notice that the routine return also the rank
@@ -215,8 +214,8 @@ of differential equations.
 In this case you must also pass the list of
 differential variables to transform (internally)
 to the form <span class="math notranslate nohighlight">\(\mathbf{E}(\mathbf{x},t) \mathbf{x}' = \mathbf{g}(\mathbf{x},t)\)</span></p>
-<div class="highlight-cpp notranslate">
-<div class="highlight"><pre><span></span>&gt; E1, G1, G2, r := DAE_separate_algebraic_bis( EQNS, DVARS ): # r = rank or E
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">E1</span><span class="o">,</span> <span class="nv">G1</span><span class="o">,</span> <span class="nv">G2</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">DAE_separate_algebraic_bis</span><span class="p">(</span> <span class="nv">EQNS</span><span class="o">,</span> <span class="nv">DVARS</span> <span class="p">)</span><span class="o">:</span> <span class="nv">#</span> <span class="nv">r</span> <span class="o">=</span> <span class="nv">rank</span> <span class="ow">or</span> <span class="no">E</span>
 </pre></div>
 </div>
 </div>
@@ -542,28 +541,6 @@ with in addition</p>
 <a class="toc-backref" href="#id13">JF_TO_MATLAB</a><a class="headerlink" href="#jf-to-matlab" title="Permalink to this headline">¶</a>
 </h3>
 </div>
-<div class="section" id="author">
-<h3>
-<a class="toc-backref" href="#id14">Author</a><a class="headerlink" href="#author" title="Permalink to this headline">¶</a>
-</h3>
-<div class="line-block">
-<div class="line">Enrico Bertolazzi</div>
-<div class="line">Dipartimento di Ingegneria Industriale</div>
-<div class="line">Università degli Studi di Trento</div>
-<div class="line">email: <script type="text/javascript">document.write(
-    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
-        function(c){
-            return String.fromCharCode(
-                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
-            );
-        }
-    )
-);</script>
-</div>
-<div class="line">homepage: <a class="reference external" href="https://e.bertolazzi.dii.unitn.it">https://e.bertolazzi.dii.unitn.it</a>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -591,7 +568,7 @@ with in addition</p>
 <div class="sphinx-toc sphinxglobaltoc">
 <h3><a href="index.html">Table of Contents</a></h3>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="Manual.html">ODE/DAE library manual</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="Manual.html">ODE/DAE library manuals</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="Manual.html#contents">Contents</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Manual.html#references">References</a></li>
 </ul>
@@ -632,14 +609,14 @@ with in addition</p>
           <a href="index.html" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual_INTRO.html" title="Introduction"
+          <a href="Manual_EXAMPLES.html" title="ODE/DAE library examples"
              >next</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual.html" title="ODE/DAE library manual"
+          <a href="Manual_INTRO.html" title="Introduction"
              >previous</a> &nbsp; &nbsp;</li>
     <li><a href="index.html">ODE/DAE</a> &#187;</li>
 
-          <li class="nav-item nav-item-1"><a href="Manual.html" >ODE/DAE library manual</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="Manual.html" >ODE/DAE library manuals</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">DAE-Toolbox</a></li> 
       </ul>
     </div>

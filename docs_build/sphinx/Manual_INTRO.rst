@@ -1,4 +1,3 @@
-
 Introduction
 ============
 
@@ -23,6 +22,7 @@ ODE solvers
   A list of already implemented available in the library is the following:
 
   .. list-table:: Available explicit solvers
+    :width: 80%
 
     * - *ExplicitEuler*
       - *MidPoint*
@@ -43,6 +43,7 @@ ODE solvers
 - **ODEbaseSolverRKimplicit**
 
   .. list-table:: Available implicit solvers
+    :width: 80%
 
     * - *ImplicitEuler*
       - *CrankNicolson*
@@ -75,6 +76,7 @@ The same classes with _P at the end are the
   A list of already implemented available in the library is the following:
 
   .. list-table:: Available explicit solvers
+    :width: 80%
 
     * - *ExplicitEuler_P*
       - *MidPoint_P*
@@ -96,6 +98,7 @@ The same classes with _P at the end are the
 
 
   .. list-table:: Available implicit solvers
+    :width: 80%
 
     * - *ImplicitEuler_P*
       - *CrankNicolson_P*
