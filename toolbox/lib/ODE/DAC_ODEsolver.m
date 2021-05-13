@@ -63,7 +63,14 @@ classdef DAC_ODEsolver < handle
       end
       x      = zeros(neq,length(t));
       x(:,1) = x0(:);
-      for k=1:length(t)-1
+      pp     = 0;
+      nn     = length(t)-1;
+      for k=1:nn
+        newpp = ceil(100*k/nn);
+        if newpp > pp+4
+          pp = newpp;
+          fprintf('%3d%%\n',pp);
+        end
         x(:,k+1) = self.step( t(k), x(:,k), t(k+1)-t(k) );
       end
     end

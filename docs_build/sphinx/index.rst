@@ -1,5 +1,5 @@
-ODE/DAE
-=======
+ODE/DAE Toolbox
+===============
 
 | Code for the course *Modelling And Simulation Of Mechatronics System*.
 | Github page of the course `here <https://github.com/ebertolazzi/course-ModellingAndSimulationOfMechatronicsSystem>`__

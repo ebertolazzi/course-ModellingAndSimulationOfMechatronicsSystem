@@ -4,9 +4,18 @@ DAE-Toolbox
 The *DAE-toolbox* is a small collection of *MAPLE* scripts
 which shuold simplify the develop of DAE integrator.
 
+.. raw:: html
 
-Load script
------------
+  <style>
+  #table-of-contents { line-height: 25%; padding: 0px 0px 30px 0px; border: 0; }
+  </style>
+
+.. contents:: Table of Contents
+    :local:
+    :depth: 3
+
+Load toolbox script
+-------------------
 
 In the *MAPLE* worksheet load the scripts
 
@@ -17,18 +26,8 @@ In the *MAPLE* worksheet load the scripts
 where ``{path}`` is the relative or absolute path where
 the script ``DAE-toolbox.maplet`` is located.
 
-At this point you ca use a rseries of scripts which
+At this point you can use a series of scripts which
 hopefully simplify DAE manipulation.
-
-.. raw:: html
-
-  <style>
-  #table-of-contents { line-height: 25%; padding: 0px 0px 30px 0px; border: 0; }
-  </style>
-
-.. contents:: Table of Contents
-    :local:
-    :depth: 3
 
 DIFF
 ~~~~
@@ -339,13 +338,13 @@ and
 .. math::
 
   \dfrac{\mathrm{d}}{\mathrm{d}t}\mathbf{a}(\mathbf{q},\mathbf{v},t)=
-  \mathbf{\Phi}_q(\mathbf{q},t)\dot{\mathbf{v}}-\mathbf{b}(\mathbf{q},\mathbf{v},t)
+  \mathbf{\Phi}_q(\mathbf{q},t)\dot{\mathbf{v}}-\mathbf{g}(\mathbf{q},\mathbf{v},t)
 
 where
 
 .. math::
 
-  \mathbf{b}(\mathbf{q},\mathbf{v},t) = -\dfrac{\mathrm{d}}{\mathrm{d}t}\mathbf{a}(\mathbf{q},\mathbf{v},t)|_{\mathbf{v}=\mathrm{fixed}}
+  \mathbf{g}(\mathbf{q},\mathbf{v},t) = -\dfrac{\mathrm{d}}{\mathrm{d}t}\mathbf{a}(\mathbf{q},\mathbf{v},t)|_{\mathbf{v}=\mathrm{fixed}}
 
 *USAGE:*
 
@@ -364,7 +363,7 @@ where
   * - ``Phi``
     - :math:`\mathbf{\Phi}(\mathbf{q},t)`
   * - ``f``
-    - :math:`\mathbf{\Phi}(\mathbf{q},t)`
+    - :math:`\mathbf{f}(\mathbf{q},\mathbf{v},t)`
   * - ``qvars``
     - :math:`\mathbf{q}=[q_1(t),q_2(t),\ldots,q_n(t)]`
   * - ``vvars``
@@ -398,8 +397,8 @@ the result ``res`` is a maple table that contains
     - :math:`\mathbf{a}(\mathbf{q},\mathbf{v},t)=\mathbf{\Phi}_q(\mathbf{q},t)\dot{\mathbf{v}}-\mathbf{b}(\mathbf{q},\mathbf{v},t)`
   * - ``res["A_rhs"]``
     - :math:`-\mathbf{\Phi}_t(\mathbf{q},t)`
-  * - ``res["b"]``
-    - :math:`\mathbf{b}(\mathbf{q},\mathbf{v},t)`
+  * - ``res["g"]``
+    - :math:`\mathbf{g}(\mathbf{q},\mathbf{v},t)`
   * - ``res["bigVAR"]``
     - :math:`[\dot{v}_1(t),\dot{v}_2(t),\ldots,\dot{v}_n(t),\lambda_1(t),\lambda_2(t),\ldots,\lambda_m(t)]`,
   * - ``res["bigM"]``
@@ -430,6 +429,29 @@ with in addition
     - :math:`[\boldsymbol{\eta}_{\mathbf{q}}(\mathbf{q},\mathbf{v},\boldsymbol{\mu},t),\boldsymbol{\eta}_{\mathbf{v}}(\mathbf{q},\mathbf{v},\boldsymbol{\mu},t)]`
   * - ``res["JbigRHS"]``
     - :math:`\left[\begin{array}{cc}\mathbf{f}_{\mathbf{q}}(\mathbf{q},\mathbf{v},t) & \mathbf{f}_{\mathbf{v}}(\mathbf{q},\mathbf{v},t)  \\ \mathbf{b}_{\mathbf{q}}(\mathbf{q},\mathbf{v},t) & \mathbf{b}_{\mathbf{v}}(\mathbf{q},\mathbf{v},t) \end{array}\right]`
+
+DAE3_get_ODE_and_invariants_stab
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The extended version of the call ``DAE3_get_ODE_and_invariants_full``
+
+.. code-block::
+
+  res := DAE3_get_ODE_and_invariants_full( Mass, Phi, f, qvars, vvars, lvars )
+
+return the same table of ``DAE3_get_ODE_and_invariants_full``
+with in addition the stabilized constraints with Baumgarte technique.
+
+.. list-table:: Table contents
+  :width: 90%
+  :widths: 25 75
+
+  * - ``res["h"]``
+    - :math:`\mathbf{h}(\mathbf{q},\mathbf{v},t)=\mathbf{g}(\mathbf{q},\mathbf{v},t)-2\eta\mathbf{a}(\mathbf{q},\mathbf{v},t)-\omega^2\mathbf{\Phi}(\mathbf{q},t)`
+  * - ``res["bigRHS_stab"]``
+    - :math:`\left[\begin{array}{c}\mathbf{f}(\mathbf{q},\mathbf{v},t) \\ \mathbf{h}(\mathbf{q},\mathbf{v},t)\end{array}\right]`
+  * - ``res["JbigRHS_stab"]``
+    - The jacobian of ``res["bigRHS_stab"]``
 
 F_TO_MATLAB
 ~~~~~~~~~~~

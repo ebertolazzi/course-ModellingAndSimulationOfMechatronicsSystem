@@ -224,8 +224,7 @@ end proc:
 DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
   local tbl, n, m, f, q_D, v_D, v_dot,
         ODE_POS, ODE_VEL, 
-        Phi_P, Phi_t, A, A_rhs, b, bigM, bigRHS, bigVAR;
-
+        Phi_P, Phi_t, A, A_rhs, g, bigM, bigRHS, bigVAR;
 
   if type(f_in,'Vector') then
     f := f_in;
@@ -254,12 +253,12 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
 
   Phi_P, A_rhs := GenerateMatrix(convert(A,list),vvars);
   # hidden invariant Phi_P v__d - g(q,v,t)
-  Phi_P, b := GenerateMatrix(diff(convert(A,list),t),v_D);
+  Phi_P, g := GenerateMatrix(diff(convert(A,list),t),v_D);
 
   # big linear system
   bigM   := <<Mass,Phi_P>|<Transpose(Phi_P),Matrix(m,m)>>;
-  bigRHS := <f,g>;
-  bigVAR := [op(v_D),op(lvars)];
+  bigRHS := convert(<f,subs(ODE_POS,g)>,Vector);
+  bigVAR := [op(v_dot),op(lvars)];
   # return the computed block
   return table([
     "PVARS"   = qvars,
@@ -272,7 +271,8 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
     "Phi_P"   = Phi_P,
     "A_rhs"   = A_rhs,
     "A"       = A,
-    "b"       = subs(ODE_POS,b),
+    "f"       = f,
+    "g"       = subs(ODE_POS,g),
     "bigVAR"  = bigVAR,
     "bigM"    = bigM,
     "bigRHS"  = bigRHS
@@ -286,15 +286,24 @@ DAE3_get_ODE_and_invariants_full := proc( Mass, Phi, f, qvars, vvars, lvars )
   n := nops( qvars );
   m := RowDimension( Phi );
 
-  bigETA := tbl["bigM"].<seq(mu||i,i=1..n+m)>;
+  bigETA := convert(tbl["bigM"].<seq(mu||i,i=1..n+m)>,Vector);
 
   tbl["bigETA"]  := bigETA;
-  tbl["JbigETA"] := JACOBIAN(convert(bigETA,list),[op(qvars),op(vvars)]);
-  tbl["JbigRHS"] := JACOBIAN(convert(tbl["bigRHS"],list),[op(qvars),op(vvars)]);
+  tbl["JbigETA"] := JACOBIAN(bigETA,[op(qvars),op(vvars)]);
+  tbl["JbigRHS"] := JACOBIAN(tbl["bigRHS"],[op(qvars),op(vvars)]);
 
   # return the computed block
   return tbl;
 end proc:
+# 
+DAE3_get_ODE_and_invariants_baumgarte := proc( Mass, Phi, f_in, qvars, vvars, lvars )
+  local tbl;
+  tbl                 := DAE3_get_ODE_and_invariants_full( Mass, Phi, f_in, qvars, vvars, lvars );
+  tbl["h"]            := tbl["g"]-2*eta*omega*tbl["A"]-omega^2*Phi;
+  tbl["bigRHS_stab"]  := convert(<tbl["f"] ,tbl["h"] >,Vector);
+  tbl["JbigRHS_stab"] := JACOBIAN(tbl["bigRHS_stab"],[op(qvars),op(vvars)]);
+  return tbl;
+end:
 # Code Generation
 F_TO_MATLAB := proc( F_in, vars, name )
   local i, F, str, LST, vals, vv, ind;
@@ -336,13 +345,13 @@ JF_TO_MATLAB := proc( JF, vars, name )
     for j from 1 to NC do
       val := simplify(JF[i,j]);
       if evalb(val <> 0) then
-        LST := [op(LST), convert("jac__"||i||_||j,symbol) = val];
-        pat := cat(pat,sprintf("%s  jac__%s(%d,%d) = jac__%d_%d;\n",ind,name,i,j,i,j));
+        LST := [op(LST), convert("res__"||i||_||j,symbol) = val];
+        pat := cat(pat,sprintf("%s  res__%s(%d,%d) = res__%d_%d;\n",ind,name,i,j,i,j));
       end;
     end;
   end;
   str := CodeGeneration[Matlab](LST,optimize=true,coercetypes=false,deducetypes=false,output=string);
-  printf("%sfunction jac__%s = %s( self, t, vars__ )\n",ind,name,name);
+  printf("%sfunction res__%s = %s( self, t, vars__ )\n",ind,name,name);
   printf("\n%s  %% extract states\n",ind);
   for i from 1 to nops(vars) do
     printf("%s  %s = vars__(%d);\n",ind,convert(vars[i],string),i);
@@ -350,7 +359,7 @@ JF_TO_MATLAB := proc( JF, vars, name )
   printf("\n%s  %% evaluate function\n",ind);
   printf("%s  %s\n",ind,StringTools[SubstituteAll]( str, "\n", cat("\n  ",ind) ));
   printf("%s  %% store on output\n",ind);
-  printf("%s  jac__%s = zeros(%d,%d);\n",ind,name,NR,NC);
+  printf("%s  res__%s = zeros(%d,%d);\n",ind,name,NR,NC);
   printf("%s",pat);
   printf("%send\n",ind);
 end proc:

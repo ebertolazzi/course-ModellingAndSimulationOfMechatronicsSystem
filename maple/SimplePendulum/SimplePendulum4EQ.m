@@ -14,12 +14,19 @@ classdef SimplePendulum4EQ < DAC_ODEclass
     ell;
     mass;
     gravity;
+    % baumgarte stabilization
+    omega;
+    eta;
+    npos;
   end
   methods (Access = private)
     function res__bigRHS = bigRHS( self, t, vars__ )
       % extract parameters
-      g = self.gravity;
-      m = self.mass;
+      g     = self.gravity;
+      m     = self.mass;
+      L     = self.ell;
+      omega = self.omega;
+      eta   = self.eta;
 
       % extract states
       x = vars__(1);
@@ -29,9 +36,13 @@ classdef SimplePendulum4EQ < DAC_ODEclass
     
       % evaluate function
       res__2 = -m * g;
-      t2     = u ^ 2;
-      t3     = v ^ 2;
-      res__3 = -2 * t2 - 2 * t3;
+      t2 = L ^ 2;
+      t3 = x ^ 2;
+      t4 = y ^ 2;
+      t6 = omega ^ 2;
+      t14 = u ^ 2;
+      t16 = v ^ 2;
+      res__3 = t6 * (t2 - t3 - t4) - 4 * eta * (u * x + v * y) * omega - 2 * t14 - 2 * t16;
 
       % store on output
       res__bigRHS    = zeros(3,1);
@@ -39,7 +50,11 @@ classdef SimplePendulum4EQ < DAC_ODEclass
       res__bigRHS(3) = res__3;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function jac__JbigRHS = JbigRHS( self, t, vars__ )
+    function res__JbigRHS = JbigRHS( self, t, vars__ )
+      % extract parameters
+      omega = self.omega;
+      eta   = self.eta;
+
       % extract states
       x = vars__(1);
       y = vars__(2);
@@ -47,16 +62,22 @@ classdef SimplePendulum4EQ < DAC_ODEclass
       v = vars__(4);
 
       % evaluate function
-      jac__3_3 = -4 * u;
-      jac__3_4 = -4 * v;
+      t1 = omega * eta;
+      t4 = omega ^ 2;
+      res__3_1 = -4 * u * t1 - 2 * x * t4;
+      res__3_2 = -4 * v * t1 - 2 * y * t4;
+      res__3_3 = -4 * x * t1 - 4 * u;
+      res__3_4 = -4 * y * t1 - 4 * v;
       
       % store on output
-      jac__JbigRHS      = zeros(3,4);
-      jac__JbigRHS(3,3) = jac__3_3;
-      jac__JbigRHS(3,4) = jac__3_4;
+      res__JbigRHS = zeros(3,4);
+      res__JbigRHS(3,1) = res__3_1;
+      res__JbigRHS(3,2) = res__3_2;
+      res__JbigRHS(3,3) = res__3_3;
+      res__JbigRHS(3,4) = res__3_4;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function jac__bigM = bigM( self, t, vars__ )
+    function res__bigM = bigM( self, t, vars__ )
       % extract parameters
       g = self.gravity;
       m = self.mass;
@@ -68,21 +89,21 @@ classdef SimplePendulum4EQ < DAC_ODEclass
       v = vars__(4);
     
       % evaluate function
-      jac__1_1 = m;
-      jac__1_3 = 2 * x;
-      jac__2_2 = m;
-      jac__2_3 = 2 * y;
-      jac__3_1 = jac__1_3;
-      jac__3_2 = jac__2_3;
+      res__1_1 = m;
+      res__1_3 = 2 * x;
+      res__2_2 = m;
+      res__2_3 = 2 * y;
+      res__3_1 = res__1_3;
+      res__3_2 = res__2_3;
 
       % store on output
-      jac__bigM      = zeros(3,3);
-      jac__bigM(1,1) = jac__1_1;
-      jac__bigM(1,3) = jac__1_3;
-      jac__bigM(2,2) = jac__2_2;
-      jac__bigM(2,3) = jac__2_3;
-      jac__bigM(3,1) = jac__3_1;
-      jac__bigM(3,2) = jac__3_2;
+      res__bigM      = zeros(3,3);
+      res__bigM(1,1) = res__1_1;
+      res__bigM(1,3) = res__1_3;
+      res__bigM(2,2) = res__2_2;
+      res__bigM(2,3) = res__2_3;
+      res__bigM(3,1) = res__3_1;
+      res__bigM(3,2) = res__3_2;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function res__bigETA = bigETA( self, t, vars__, mu )
@@ -108,7 +129,7 @@ classdef SimplePendulum4EQ < DAC_ODEclass
       res__bigETA(3) = res__3;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function jac__JbigETA = JbigETA( self, t, vars__, mu )
+    function res__JbigETA = JbigETA( self, t, vars__, mu )
       % extract states
       x = vars__(1);
       y = vars__(2);
@@ -120,88 +141,85 @@ classdef SimplePendulum4EQ < DAC_ODEclass
       mu3 = mu(3);
 
       % evaluate function
-      jac__1_1 = 2 * mu3;
-      jac__2_2 = jac__1_1;
-      jac__3_1 = 2 * mu1;
-      jac__3_2 = 2 * mu2;
+      res__1_1 = 2 * mu3;
+      res__2_2 = res__1_1;
+      res__3_1 = 2 * mu1;
+      res__3_2 = 2 * mu2;
       
       % store on output
-      jac__JbigETA      = zeros(3,4);
-      jac__JbigETA(1,1) = jac__1_1;
-      jac__JbigETA(2,2) = jac__2_2;
-      jac__JbigETA(3,1) = jac__3_1;
-      jac__JbigETA(3,2) = jac__3_2;
+      res__JbigETA      = zeros(3,4);
+      res__JbigETA(1,1) = res__1_1;
+      res__JbigETA(2,2) = res__2_2;
+      res__JbigETA(3,1) = res__3_1;
+      res__JbigETA(3,2) = res__3_2;
     end
   end
 
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function self = SimplePendulum4EQ( mass, ell, gravity )
+      % call the constructor of the basic class
       self@DAC_ODEclass('SimplePendulum4EQ',4);
+      % setup of the parmater of the ODE
       self.mass    = mass;
       self.ell     = ell;
       self.gravity = gravity;
+      self.eta     = 0;
+      self.omega   = 0;
+      self.npos    = 2;
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function setBaumgarte( self, eta, omega )
+      self.eta   = eta;
+      self.omega = omega;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function res__rhs = f( self, t, vars__ )
-      % extract states
-      x = vars__(1);
-      y = vars__(2);
-      u = vars__(3);
-      v = vars__(4);
-
-      % evaluate u__d, v__d
-      RHS  = self.bigRHS( t, vars__ );
-      M    = self.bigM( t, vars__ );
-      SOL  = M\RHS;
-      u__d = SOL(1);
-      v__d = SOL(2);
+      npos = self.npos;
+      %
+      %       / f(q,v,t) \
+      % RHS = |          |
+      %       \ g(q,v,t) /
+      %
+      RHS = self.bigRHS( t, vars__ );
+      %
+      %
+      %        / M(q,v,t)  Phi_q(q,t)^T \
+      % BIGM = |                        |
+      %        \ Phi_q(q,t)     0       /
+      %
+      BIGM = self.bigM( t, vars__ );
+      SOL  = BIGM\RHS;
     
       % evaluate function
-      res__1 = u;
-      res__2 = v;
-      res__3 = u__d;
-      res__4 = v__d;
-
-      % store on output
-      res__rhs = zeros(4,1);
-      res__rhs(1) = res__1;
-      res__rhs(2) = res__2;
-      res__rhs(3) = res__3;
-      res__rhs(4) = res__4;
+      res__rhs = zeros(2*npos,1);
+      res__rhs(1:npos)        = vars__(npos+1:2*npos);
+      res__rhs(npos+1:2*npos) = SOL(1:npos);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function jac = DfDx( self, t, vars__ )
-      % extract states
-      x = vars__(1);
-      y = vars__(2);
-      u = vars__(3);
-      v = vars__(4);
-
-      % evaluate u__d, v__d
       %
-      %  M(p) v' = RHS(p,v)
+      %       / f(q,v,t) \
+      % RHS = |          |
+      %       \ g(q,v,t) /
       %
       RHS = self.bigRHS( t, vars__ );
-      M   = self.bigM( t, vars__ );
-      SOL = M\RHS;
+      %
+      %
+      %        / M(q,v,t)  Phi_q(q,t)^T \
+      % BIGM = |                        |
+      %        \ Phi_q(q,t)     0       /
+      %
+      BIGM = self.bigM( t, vars__ );
 
-      u__d   = SOL(1);
-      v__d   = SOL(2);
-      lambda = SOL(3);
-
-      vdot   = [u__d,v__d,lambda];
-
-      %ETA  = self.bigETA( t, vars__, vdot );
-      JETA = self.JbigETA( t, vars__, vdot );
+      SOL  = BIGM\RHS;
+      JETA = self.JbigETA( t, vars__, SOL );
       JRHS = self.JbigRHS( t, vars__ );
-      
-      % find jacobian of u__d, v__d
-      JM = M\(JRHS-JETA);
+      JM   = BIGM\(JRHS-JETA);
       
       % combine all jacobians
-      jac = [ zeros(2,2) eye(2); JM(1:2,:) ];
-
+      npos = self.npos;
+      jac  = [ zeros(npos,npos) eye(npos); JM(1:npos,:) ];
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function plot( self, t, vars__ )
@@ -228,6 +246,7 @@ classdef SimplePendulum4EQ < DAC_ODEclass
       drawCOG( 0.1*self.ell, x0, y0 );
       fillCircle( 'r', x, y, 0.1*self.ell );
       axis([-L L -L L]);
+      title(sprintf('time=%g',t));
       axis equal;
     end
   end

@@ -21,15 +21,13 @@ gravity = 9.81;
 ode     = SimplePendulum4EQ( mass, ell, gravity );
 
 % initialize solver
-solver_1 = Heun();
-solver_2 = Heun3();
+solver = Ralston4();
 
-NAMES = {'Heun', 'Heun3'};
+NAMES = {'circle','Ralston4'};
 
-solver_1.setODE(ode);
-solver_2.setODE(ode);
+solver.setODE(ode);
 
-Tmax = 20;
+Tmax = 10;
 h    = 0.1;
 tt   = 0:h:Tmax;
 % setup initial condition
@@ -37,47 +35,38 @@ theta0 = pi/3;
 omega0 = 0;
 x0     = ell*sin(theta0);
 y0     = -ell*cos(theta0);
-u0     = 0;
+u0     = 0.1;
 v0     = 0;
 
 ini = [x0;y0;u0;v0];
 fprintf('advance with ODE\n');
-sol_1 = solver_1.advance( tt, ini );
-sol_2 = solver_2.advance( tt1, ini );
+sol = solver.advance( tt, ini );
 fprintf('done\n');
 
-x_1 = sol_1(1,:);
-y_1 = sol_1(2,:);
-
-x_2 = sol_2(1,:);
-y_2 = sol_2(2,:);
+x = sol(1,:);
+y = sol(2,:);
 
 h = figure();
 set(h,'WindowStyle','docked');
 xx = ell*cos(0:pi/100:2*pi);
 yy = ell*sin(0:pi/100:2*pi);
-plot( x_1, y_1, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+plot( xx, yy, '-', 'Linewidth', 2, 'Color', 'black' );
 hold on
-plot( x_2, y_2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-plot( xx, yy, '-', 'Linewidth', 1, 'Color', 'black' );
+plot( x, y, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 axis equal
-legend({NAMES{:},'constraint'});
+legend({NAMES{2:end},'constraint'});
 title('x,y');
 
 h = figure();
 set(h,'WindowStyle','docked');
 
-plot( tt, x_1, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-hold on;
-plot( tt1, x_2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-legend(NAMES);
+plot( tt, x, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+legend(NAMES{2:end});
 title('x');
 
 h = figure();
 set(h,'WindowStyle','docked');
 
-plot( tt, y_1, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-hold on;
-plot( tt1, y_2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-legend(NAMES);
+plot( tt, y, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+legend(NAMES{2:end});
 title('y');

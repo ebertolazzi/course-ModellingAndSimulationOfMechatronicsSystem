@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-12-g31c4718
+    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-12-g806fb3b
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -80,8 +80,33 @@
 </h1>
 <p>The <em>DAE-toolbox</em> is a small collection of <em>MAPLE</em> scripts
 which shuold simplify the develop of DAE integrator.</p>
-<div class="section" id="load-script">
-<h2>Load script<a class="headerlink" href="#load-script" title="Permalink to this headline">¶</a>
+<style>
+#table-of-contents { line-height: 25%; padding: 0px 0px 30px 0px; border: 0; }
+</style>
+<div class="contents local topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li>
+<p><a class="reference internal" href="#load-toolbox-script" id="id5">Load toolbox script</a></p>
+<ul>
+<li><p><a class="reference internal" href="#diff" id="id6">DIFF</a></p></li>
+<li><p><a class="reference internal" href="#jacobian" id="id7">JACOBIAN</a></p></li>
+<li><p><a class="reference internal" href="#kernel-build" id="id8">Kernel_build</a></p></li>
+<li><p><a class="reference internal" href="#dae-separate-algebraic" id="id9">DAE_separate_algebraic</a></p></li>
+<li><p><a class="reference internal" href="#dae-make-semi-explicit" id="id10">DAE_make_semi_explicit</a></p></li>
+<li><p><a class="reference internal" href="#dae-reduce-index-by-1" id="id11">DAE_reduce_index_by_1</a></p></li>
+<li><p><a class="reference internal" href="#dae3-get-ode-and-invariants" id="id12">DAE3_get_ODE_and_invariants</a></p></li>
+<li><p><a class="reference internal" href="#dae3-get-ode-and-invariants-full" id="id13">DAE3_get_ODE_and_invariants_full</a></p></li>
+<li><p><a class="reference internal" href="#dae3-get-ode-and-invariants-stab" id="id14">DAE3_get_ODE_and_invariants_stab</a></p></li>
+<li><p><a class="reference internal" href="#f-to-matlab" id="id15">F_TO_MATLAB</a></p></li>
+<li><p><a class="reference internal" href="#jf-to-matlab" id="id16">JF_TO_MATLAB</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="load-toolbox-script">
+<h2>
+<a class="toc-backref" href="#id5">Load toolbox script</a><a class="headerlink" href="#load-toolbox-script" title="Permalink to this headline">¶</a>
 </h2>
 <p>In the <em>MAPLE</em> worksheet load the scripts</p>
 <div class="highlight-maple notranslate">
@@ -90,29 +115,11 @@ which shuold simplify the develop of DAE integrator.</p>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">{path}</span></code> is the relative or absolute path where
 the script <code class="docutils literal notranslate"><span class="pre">DAE-toolbox.maplet</span></code> is located.</p>
-<p>At this point you ca use a rseries of scripts which
+<p>At this point you can use a series of scripts which
 hopefully simplify DAE manipulation.</p>
-<style>
-#table-of-contents { line-height: 25%; padding: 0px 0px 30px 0px; border: 0; }
-</style>
-<div class="contents local topic" id="table-of-contents">
-<p class="topic-title">Table of Contents</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#diff" id="id4">DIFF</a></p></li>
-<li><p><a class="reference internal" href="#jacobian" id="id5">JACOBIAN</a></p></li>
-<li><p><a class="reference internal" href="#kernel-build" id="id6">Kernel_build</a></p></li>
-<li><p><a class="reference internal" href="#dae-separate-algebraic" id="id7">DAE_separate_algebraic</a></p></li>
-<li><p><a class="reference internal" href="#dae-make-semi-explicit" id="id8">DAE_make_semi_explicit</a></p></li>
-<li><p><a class="reference internal" href="#dae-reduce-index-by-1" id="id9">DAE_reduce_index_by_1</a></p></li>
-<li><p><a class="reference internal" href="#dae3-get-ode-and-invariants" id="id10">DAE3_get_ODE_and_invariants</a></p></li>
-<li><p><a class="reference internal" href="#dae3-get-ode-and-invariants-full" id="id11">DAE3_get_ODE_and_invariants_full</a></p></li>
-<li><p><a class="reference internal" href="#f-to-matlab" id="id12">F_TO_MATLAB</a></p></li>
-<li><p><a class="reference internal" href="#jf-to-matlab" id="id13">JF_TO_MATLAB</a></p></li>
-</ul>
-</div>
 <div class="section" id="diff">
 <h3>
-<a class="toc-backref" href="#id4">DIFF</a><a class="headerlink" href="#diff" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id6">DIFF</a><a class="headerlink" href="#diff" title="Permalink to this headline">¶</a>
 </h3>
 <p>Extends diff to works with function as derivation argument.
 In practice if you try to differentiate</p>
@@ -135,7 +142,7 @@ However <code class="docutils literal notranslate"><span class="pre">DIFF</span>
 </div>
 <div class="section" id="jacobian">
 <h3>
-<a class="toc-backref" href="#id5">JACOBIAN</a><a class="headerlink" href="#jacobian" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id7">JACOBIAN</a><a class="headerlink" href="#jacobian" title="Permalink to this headline">¶</a>
 </h3>
 <p>Do the same job as for <code class="docutils literal notranslate"><span class="pre">DIFF</span></code> but for map
 or multivariate functions.
@@ -163,7 +170,7 @@ The parameters can be also functions.</p>
 </div>
 <div class="section" id="kernel-build">
 <h3>
-<a class="toc-backref" href="#id6">Kernel_build</a><a class="headerlink" href="#kernel-build" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id8">Kernel_build</a><a class="headerlink" href="#kernel-build" title="Permalink to this headline">¶</a>
 </h3>
 <p>Give a (possibly rectangular) matrix <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>
 the routine compute two matrices  <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> and  <span class="math notranslate nohighlight">\(\mathbf{L}\)</span>
@@ -188,7 +195,7 @@ expressions.</p>
 </div>
 <div class="section" id="dae-separate-algebraic">
 <h3>
-<a class="toc-backref" href="#id7">DAE_separate_algebraic</a><a class="headerlink" href="#dae-separate-algebraic" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id9">DAE_separate_algebraic</a><a class="headerlink" href="#dae-separate-algebraic" title="Permalink to this headline">¶</a>
 </h3>
 <p>Given a DAE in the form</p>
 <div class="math notranslate nohighlight">
@@ -220,7 +227,7 @@ to the form <span class="math notranslate nohighlight">\(\mathbf{E}(\mathbf{x},t
 </div>
 <div class="section" id="dae-make-semi-explicit">
 <h3>
-<a class="toc-backref" href="#id8">DAE_make_semi_explicit</a><a class="headerlink" href="#dae-make-semi-explicit" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id10">DAE_make_semi_explicit</a><a class="headerlink" href="#dae-make-semi-explicit" title="Permalink to this headline">¶</a>
 </h3>
 <p>Given DAE passed as a list of differential equations
 build a new DAE in semi explicit form.
@@ -285,7 +292,7 @@ lokk at <code class="file docutils literal notranslate"><span class="pre">DAE-to
 </div>
 <div class="section" id="dae-reduce-index-by-1">
 <h3>
-<a class="toc-backref" href="#id9">DAE_reduce_index_by_1</a><a class="headerlink" href="#dae-reduce-index-by-1" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id11">DAE_reduce_index_by_1</a><a class="headerlink" href="#dae-reduce-index-by-1" title="Permalink to this headline">¶</a>
 </h3>
 <p>Given a DAE in the form (you che put in this form using <code class="docutils literal notranslate"><span class="pre">DAE_separate_algebraic</span></code>)</p>
 <div class="math notranslate nohighlight">
@@ -341,7 +348,7 @@ is done internally.</p></li>
 </div>
 <div class="section" id="dae3-get-ode-and-invariants">
 <h3>
-<a class="toc-backref" href="#id10">DAE3_get_ODE_and_invariants</a><a class="headerlink" href="#dae3-get-ode-and-invariants" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id12">DAE3_get_ODE_and_invariants</a><a class="headerlink" href="#dae3-get-ode-and-invariants" title="Permalink to this headline">¶</a>
 </h3>
 <p>Given an index-3 DAE of the form</p>
 <div class="math notranslate nohighlight">
@@ -380,10 +387,10 @@ is done internally.</p></li>
 <p>and</p>
 <div class="math notranslate nohighlight">
 \[\dfrac{\mathrm{d}}{\mathrm{d}t}\mathbf{a}(\mathbf{q},\mathbf{v},t)=
-\mathbf{\Phi}_q(\mathbf{q},t)\dot{\mathbf{v}}-\mathbf{b}(\mathbf{q},\mathbf{v},t)\]</div>
+\mathbf{\Phi}_q(\mathbf{q},t)\dot{\mathbf{v}}-\mathbf{g}(\mathbf{q},\mathbf{v},t)\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{b}(\mathbf{q},\mathbf{v},t) = -\dfrac{\mathrm{d}}{\mathrm{d}t}\mathbf{a}(\mathbf{q},\mathbf{v},t)|_{\mathbf{v}=\mathrm{fixed}}\]</div>
+\[\mathbf{g}(\mathbf{q},\mathbf{v},t) = -\dfrac{\mathrm{d}}{\mathrm{d}t}\mathbf{a}(\mathbf{q},\mathbf{v},t)|_{\mathbf{v}=\mathrm{fixed}}\]</div>
 <p><em>USAGE:</em></p>
 <div class="highlight-cpp notranslate">
 <div class="highlight"><pre><span></span><span class="nl">res</span> <span class="p">:</span><span class="o">=</span> <span class="n">DAE3_get_ODE_and_invariants</span><span class="p">(</span> <span class="n">Mass</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">qvars</span><span class="p">,</span> <span class="n">vvars</span><span class="p">,</span> <span class="n">lvars</span> <span class="p">)</span>
@@ -409,7 +416,7 @@ is done internally.</p></li>
 </tr>
 <tr class="row-odd">
 <td><p><code class="docutils literal notranslate"><span class="pre">f</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(\mathbf{\Phi}(\mathbf{q},t)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{q},\mathbf{v},t)\)</span></p></td>
 </tr>
 <tr class="row-even">
 <td><p><code class="docutils literal notranslate"><span class="pre">qvars</span></code></p></td>
@@ -476,8 +483,8 @@ is done internally.</p></li>
 <td><p><span class="math notranslate nohighlight">\(-\mathbf{\Phi}_t(\mathbf{q},t)\)</span></p></td>
 </tr>
 <tr class="row-odd">
-<td><p><code class="docutils literal notranslate"><span class="pre">res["b"]</span></code></p></td>
-<td><p><span class="math notranslate nohighlight">\(\mathbf{b}(\mathbf{q},\mathbf{v},t)\)</span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">res["g"]</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathbf{g}(\mathbf{q},\mathbf{v},t)\)</span></p></td>
 </tr>
 <tr class="row-even">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["bigVAR"]</span></code></p></td>
@@ -496,7 +503,7 @@ is done internally.</p></li>
 </div>
 <div class="section" id="dae3-get-ode-and-invariants-full">
 <h3>
-<a class="toc-backref" href="#id11">DAE3_get_ODE_and_invariants_full</a><a class="headerlink" href="#dae3-get-ode-and-invariants-full" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id13">DAE3_get_ODE_and_invariants_full</a><a class="headerlink" href="#dae3-get-ode-and-invariants-full" title="Permalink to this headline">¶</a>
 </h3>
 <p>The extended version of the call <code class="docutils literal notranslate"><span class="pre">DAE3_get_ODE_and_invariants</span></code></p>
 <div class="highlight-cpp notranslate">
@@ -530,14 +537,49 @@ with in addition</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="dae3-get-ode-and-invariants-stab">
+<h3>
+<a class="toc-backref" href="#id14">DAE3_get_ODE_and_invariants_stab</a><a class="headerlink" href="#dae3-get-ode-and-invariants-stab" title="Permalink to this headline">¶</a>
+</h3>
+<p>The extended version of the call <code class="docutils literal notranslate"><span class="pre">DAE3_get_ODE_and_invariants_full</span></code></p>
+<div class="highlight-cpp notranslate">
+<div class="highlight"><pre><span></span><span class="nl">res</span> <span class="p">:</span><span class="o">=</span> <span class="n">DAE3_get_ODE_and_invariants_full</span><span class="p">(</span> <span class="n">Mass</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">qvars</span><span class="p">,</span> <span class="n">vvars</span><span class="p">,</span> <span class="n">lvars</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>return the same table of <code class="docutils literal notranslate"><span class="pre">DAE3_get_ODE_and_invariants_full</span></code>
+with in addition the stabilized constraints with Baumgarte technique.</p>
+<table class="colwidths-given docutils align-default" id="id4" style="width: 90%">
+<caption>
+<span class="caption-text">Table contents</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a>
+</caption>
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<tbody>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">res["h"]</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathbf{h}(\mathbf{q},\mathbf{v},t)=\mathbf{g}(\mathbf{q},\mathbf{v},t)-2\eta\mathbf{a}(\mathbf{q},\mathbf{v},t)-\omega^2\mathbf{\Phi}(\mathbf{q},t)\)</span></p></td>
+</tr>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">res["bigRHS_stab"]</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\left[\begin{array}{c}\mathbf{f}(\mathbf{q},\mathbf{v},t) \\ \mathbf{h}(\mathbf{q},\mathbf{v},t)\end{array}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">res["JbigRHS_stab"]</span></code></p></td>
+<td><p>The jacobian of <code class="docutils literal notranslate"><span class="pre">res["bigRHS_stab"]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="f-to-matlab">
 <h3>
-<a class="toc-backref" href="#id12">F_TO_MATLAB</a><a class="headerlink" href="#f-to-matlab" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id15">F_TO_MATLAB</a><a class="headerlink" href="#f-to-matlab" title="Permalink to this headline">¶</a>
 </h3>
 </div>
 <div class="section" id="jf-to-matlab">
 <h3>
-<a class="toc-backref" href="#id13">JF_TO_MATLAB</a><a class="headerlink" href="#jf-to-matlab" title="Permalink to this headline">¶</a>
+<a class="toc-backref" href="#id16">JF_TO_MATLAB</a><a class="headerlink" href="#jf-to-matlab" title="Permalink to this headline">¶</a>
 </h3>
 </div>
 </div>
@@ -552,7 +594,7 @@ with in addition</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
-          <img class="logo" src="_static/logo.png" alt="Logo"/>
+          <img class="logo" src="_static/logo_new.png" alt="Logo"/>
         </a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -569,7 +611,7 @@ with in addition</p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Manual_INTRO.html">Introduction</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DAE-Toolbox</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#load-script">Load script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-toolbox-script">Load toolbox script</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Manual_EXAMPLES.html">ODE/DAE library examples</a></li>
