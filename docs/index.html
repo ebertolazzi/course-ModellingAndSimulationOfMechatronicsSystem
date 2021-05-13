@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ODE/DAE &#8212; ODE/DAE v0.1-10-g1ae0107
+    <title>ODE/DAE &#8212; ODE/DAE v0.1-12-g31c4718
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -40,7 +40,7 @@
 
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ODE/DAE library manuals" href="Manual.html" /> 
+    <link rel="next" title="Introduction" href="Manual_INTRO.html" /> 
         <meta name="viewport" content="width=device-width, initial-scale=1">
   </head><body>
     <div class="relbar-top">
@@ -55,7 +55,7 @@
           <a href="#" title="Table Of Contents"
              accesskey="C">toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual.html" title="ODE/DAE library manuals"
+          <a href="Manual_INTRO.html" title="Introduction"
              accesskey="N">next</a> &nbsp; &nbsp;</li>
     <li><a href="#">ODE/DAE</a> &#187;</li>
 
@@ -73,12 +73,31 @@
   <div class="section" id="ode-dae">
 <h1>ODE/DAE<a class="headerlink" href="#ode-dae" title="Permalink to this headline">¶</a>
 </h1>
+<div class="line-block">
+<div class="line">Code for the course <em>Modelling And Simulation Of Mechatronics System</em>.</div>
+<div class="line">Github page of the course <a class="reference external" href="https://github.com/ebertolazzi/course-ModellingAndSimulationOfMechatronicsSystem">here</a>
+</div>
+</div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1">
-<a class="reference internal" href="Manual.html">ODE/DAE library manuals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="Manual.html#contents">Contents</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Manual.html#references">References</a></li>
+<a class="reference internal" href="Manual_INTRO.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_INTRO.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_INTRO.html#ode-solvers">ODE solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_INTRO.html#dae-solvers-projection-based">DAE solvers (projection based)</a></li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="Manual_TOOLBOX.html">DAE-Toolbox</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_TOOLBOX.html#load-script">Load script</a></li>
+</ul>
+</li>
+<li class="toctree-l1">
+<a class="reference internal" href="Manual_EXAMPLES.html">ODE/DAE library examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST1.html">ODE solve example 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_TEST2.html">ODE solve example 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_CrankRod4EQ.html">ODE solve example 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Manual_ODE_CrankRod5EQ.html">ODE solve example 4</a></li>
 </ul>
 </li>
 <li class="toctree-l1">
@@ -90,30 +109,97 @@
 </li>
 </ul>
 </div>
-<div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a>
+<div class="section" id="author">
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a>
 </h2>
-<p>Copyright (c) 2020, Enrico Bertolazzi</p>
-<p>Redistribution and use in source and binary forms,
-with or without modification, are permitted provided
-that the following conditions are met:</p>
-<ol class="arabic simple">
-<li><p>Redistributions of source code must retain the above
-copyright notice, this list of conditions and the
-following disclaimer.</p></li>
-<li><p>Redistributions in binary form must reproduce the
-above copyright notice, this list of conditions and
-the following disclaimer in the documentation and/or
-other materials provided with the distribution.</p></li>
-<li><p>Neither the name of the copyright holder nor the
-names of its contributors may be used to endorse
-or promote products derived from this software
-without specific prior written permission.</p></li>
+<div class="line-block">
+<div class="line">Enrico Bertolazzi</div>
+<div class="line">Dipartimento di Ingegneria Industriale</div>
+<div class="line">Università degli Studi di Trento</div>
+<div class="line">email: <script type="text/javascript">document.write(
+    "<n pynff=\"ersrerapr rkgreany\" uers=\"znvygb:raevpb\056oregbynmmv%40havga\056vg\">raevpb<fcna>\056<\057fcna>oregbynmmv<fcna>\100<\057fcna>havga<fcna>\056<\057fcna>vg<\057n>".replace(/[a-zA-Z]/g,
+        function(c){
+            return String.fromCharCode(
+                (c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26
+            );
+        }
+    )
+);</script>
+</div>
+<div class="line">homepage: <a class="reference external" href="https://e.bertolazzi.dii.unitn.it">https://e.bertolazzi.dii.unitn.it</a>
+</div>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a>
+</h3>
+<ol class="arabic">
+<li>
+<div class="line-block">
+<div class="line">
+<em>Claus Bendtsen, Per Grove Thomsen</em>,</div>
+<div class="line">
+<strong>Numerical Solution of Differential Algebraic Equations</strong>,</div>
+<div class="line">Technical report IMM-REP-1999-8,</div>
+<div class="line"><a class="reference external" href="https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra">https://scholar.google.it/citations?user=P1s91j0AAAAJ&amp;hl=en&amp;oi=sra</a></div>
+</div>
+</li>
+<li>
+<div class="line-block">
+<div class="line">
+<em>John C.Butcher</em>,</div>
+<div class="line"><strong>Introduction to Runge–Kutta methods</strong></div>
+<div class="line"><a class="reference external" href="https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf">https://www.math.auckland.ac.nz/~butcher/ODE-book-2008/Tutorials/RK-methods.pdf</a></div>
+</div>
+</li>
+<li>
+<div class="line-block">
+<div class="line">
+<em>John C.Butcher</em>,</div>
+<div class="line"><strong>The Numerical Analysis of Ordinary Differential Differential Equations: Runge-Kutta and General Linear Methods</strong></div>
+<div class="line">Wiley, Chichester (1964)</div>
+<div class="line"><a class="reference external" href="https://doi.org/10.1137/1031147">https://doi.org/10.1137/1031147</a></div>
+</div>
+</li>
+<li>
+<div class="line-block">
+<div class="line">
+<em>E. Hairer, G. Wanner</em>,</div>
+<div class="line">
+<strong>Solving Ordinary Differential Equations II: Stiff and Differential-Algebraic Problems</strong>,</div>
+<div class="line">Springer, Berlin (1991)</div>
+<div class="line"><a class="reference external" href="https://www.springer.com/gp/book/9783540604525">https://www.springer.com/gp/book/9783540604525</a></div>
+</div>
+</li>
 </ol>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS
-AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED
+</div>
+<div class="section" id="license">
+<h3>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a>
+</h3>
+<div class="highlight-none notranslate">
+<div class="highlight"><pre><span></span>Copyright (c) 2020, Enrico Bertolazzi
+
+Redistribution and use in source and binary forms,
+with or without modification, are permitted provided
+that the following conditions are met:
+
+1. Redistributions of source code must retain the above
+   copyright notice, this list of conditions and the
+   following disclaimer.
+
+2. Redistributions in binary form must reproduce the
+   above copyright notice, this list of conditions and
+   the following disclaimer in the documentation and/or
+   other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the
+   names of its contributors may be used to endorse
+   or promote products derived from this software
+   without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS 
+AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
 WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A 
 PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
 THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
 DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
@@ -123,7 +209,10 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -151,7 +240,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 <div class="sphinx-toc sphinxglobaltoc">
 <h3><a href="#">Table of Contents</a></h3>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Manual.html">ODE/DAE library manuals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_INTRO.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_TOOLBOX.html">DAE-Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Manual_EXAMPLES.html">ODE/DAE library examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-matlab/root.html">MATLAB API</a></li>
 </ul>
 </div>
@@ -188,7 +279,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
           <a href="#" title="Table Of Contents"
              >toc</a> &nbsp; &nbsp;</li>
         <li class="right" >
-          <a href="Manual.html" title="ODE/DAE library manuals"
+          <a href="Manual_INTRO.html" title="Introduction"
              >next</a> &nbsp; &nbsp;</li>
     <li><a href="#">ODE/DAE</a> &#187;</li>
 
