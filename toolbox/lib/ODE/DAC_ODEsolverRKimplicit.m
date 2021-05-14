@@ -77,7 +77,7 @@ classdef DAC_ODEsolverRKimplicit < DAC_ODEsolver
     %>
     function self = DAC_ODEsolverRKimplicit( solverName, A, b, c )
       self@DAC_ODEsolver( solverName );
-      self.tol = 1e-8;
+      self.tol = 1e-10;
       self.A   = A;
       self.b   = b;
       self.c   = c;
@@ -90,19 +90,23 @@ classdef DAC_ODEsolverRKimplicit < DAC_ODEsolver
     %> Compute the residual \f$ \mathbf{F}(\mathbf{K}) \f$.
     %>
     function R = stepResidual( self, K )
-      ns  = length(self.c);
-      nx  = length(self.x0);
+      t0  = self.t0;
+      x0  = self.x0;
+      A   = self.A;
+      c   = self.c;
+      dt  = self.dt;
+      ns  = length(c);
+      nx  = length(x0);
       R   = zeros(ns*nx,1);
       idx = 1:nx;
       for i=1:ns
-        tmp = self.x0;
+        tmp = x0;
         jdx = 1:nx;
         for j=1:ns
-          tmp = tmp + self.A(i,j) * K(jdx);
+          tmp = tmp + A(i,j) * K(jdx);
           jdx = jdx + nx;
         end
-        ti     = self.t0 + self.c(i) * self.dt;
-        R(idx) = K(idx) - self.dt * self.odeClass.f( ti, tmp );
+        R(idx) = K(idx) - dt * self.odeClass.f( t0 + c(i) * dt, tmp );
         idx    = idx + nx;
       end
     end
@@ -113,21 +117,26 @@ classdef DAC_ODEsolverRKimplicit < DAC_ODEsolver
     %> \f[ \frac{\partial\mathbf{F}(\mathbf{K})}{\partial \mathbf{K}} \f].
     %>
     function JR = stepResidualJacobian( self, K )
-      ns  = length(self.c);
-      nx  = length(self.x0);
+      t0  = self.t0;
+      x0  = self.x0;
+      A   = self.A;
+      c   = self.c;
+      dt  = self.dt;
+      ns  = length(c);
+      nx  = length(x0);
       JR  = eye(ns*nx);
       idx = 1:nx;
       for i=1:ns
-        tmp = self.x0;
+        tmp = x0;
         jdx = 1:nx;
         for j=1:ns
-          tmp = tmp + self.A(i,j) * K(jdx);
+          tmp = tmp + A(i,j) * K(jdx);
           jdx = jdx + nx;
         end
-        ti = self.t0 + self.c(i) * self.dt;
+        ti  = t0 + c(i) * dt;
         jdx = 1:nx;
         for j=1:ns
-          JR(idx,jdx) = JR(idx,jdx) - self.dt * self.odeClass.DfDx( ti, tmp );
+          JR(idx,jdx) = JR(idx,jdx) - dt * A(i,j)*self.odeClass.DfDx( ti, tmp );
           jdx = jdx + nx;
         end
         idx = idx + nx;
@@ -158,10 +167,10 @@ classdef DAC_ODEsolverRKimplicit < DAC_ODEsolver
       self.t0 = t0;
       self.x0 = x0;
       self.dt = dt;
-      ns  = length(self.c);
-      nx  = length(x0);
-      K   = self.solveStepByNewton();
-      x1  = x0 + reshape( K, nx, ns ) * self.b(:);
+      ns = length(self.c);
+      nx = length(x0);
+      K  = self.solveStepByNewton();
+      x1 = x0 + reshape( K, nx, ns ) * self.b(:);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   end

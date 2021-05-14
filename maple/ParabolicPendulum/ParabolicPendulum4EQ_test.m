@@ -18,16 +18,19 @@ close all;
 mass    = 1;
 gravity = 9.81;
 ode     = ParabolicPendulum4EQ( mass, gravity );
+eta     = 0.5;
+omega   = 1;
+ode.setBaumgarte( eta, omega );
 
 % initialize solver
-solver = CrankNicolson();
+solver = GaussLegendre6();
 
-NAMES = {'CrankNicolson'};
+NAMES = {'GaussLegendre6'};
 
 solver.setODE(ode);
 
-Tmax = 435;
-h    = 0.05;
+Tmax = 10;
+h    = 0.1;
 tt   = 0:h:Tmax;
 % setup initial condition
 theta0 = pi/3;
@@ -42,8 +45,9 @@ fprintf('advance with ODE\n');
 sol = solver.advance( tt, ini );
 fprintf('done\n');
 
-%ms = 10;
-%ode.animate_plot( tt, sol, ms, 4 );
+%
+ms = 10;
+ode.animate_plot( tt, sol, ms, 10 );
 
 x = sol(1,:);
 y = sol(2,:);

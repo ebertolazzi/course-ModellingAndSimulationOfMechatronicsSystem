@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program Listing for File GaussLegendre6.m &#8212; ODE/DAE v0.1-12-g806fb3b
+    <title>Program Listing for File GaussLegendre6.m &#8212; ODE/DAE v0.1-13-g5ced9db
 </title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -92,27 +92,34 @@
 <span class="w">    </span><span class="c">%&gt; .. math::</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;    \begin{array}{c|ccc}</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;       1/2-t &amp; w     &amp; z-t &amp; w-t/3\\</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;       1/2   &amp; w+r   &amp; z   &amp; w-r \\</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;       1/2+t &amp; w+t/3 &amp; z+t &amp; w \\</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;       1/2-t &amp; w     &amp; z-t_2 &amp; w-t_4\\</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;       1/2   &amp; w+t_3 &amp; z     &amp; w-t_3 \\</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;       1/2+t &amp; w+t_4 &amp; z+t_2 &amp; w \\</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;     \hline</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;        &amp; 5/18 &amp; 4/9 &amp; 5/18</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;    \end{array}</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;    \quad t = \displaystyle\frac{\sqrt{15}}{10}</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;    \quad r = \displaystyle\frac{\sqrt{15}}{24}</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;    \quad w = \displaystyle\frac{5}{36}</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;    \quad z = \displaystyle\frac{2}{9}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    \quad t   = \displaystyle\frac{\sqrt{15}}{10}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    \quad t_2 = \displaystyle\frac{\sqrt{15}}{15}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    \quad t_3 = \displaystyle\frac{\sqrt{15}}{24}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    \quad t_4 = \displaystyle\frac{\sqrt{15}}{30}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    \quad w   = \displaystyle\frac{5}{36}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    \quad z   = \displaystyle\frac{2}{9}</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; \endrst</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">GaussLegendre6</span><span class="p">()</span><span class="w"></span>
 <span class="w">      </span><span class="n">t</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">tt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">24</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">t2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">15</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">t3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">24</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">t4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">/</span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">w</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="o">/</span><span class="mi">36</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">z</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="o">/</span><span class="mi">9</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">DAC_ODEsolverRKimplicit</span><span class="p">(</span><span class="s">'GaussLegendre6'</span><span class="p">,</span><span class="k">...</span><span class="w"></span>
-<span class="w">        </span><span class="p">[</span><span class="n">w</span><span class="p">,</span><span class="n">z</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="o">-</span><span class="n">t</span><span class="o">/</span><span class="mi">3</span><span class="p">;</span><span class="n">w</span><span class="o">+</span><span class="n">tt</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">w</span><span class="o">-</span><span class="n">tt</span><span class="p">;</span><span class="n">w</span><span class="o">+</span><span class="n">t</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="n">z</span><span class="o">+</span><span class="n">t</span><span class="p">,</span><span class="n">w</span><span class="p">],</span><span class="k">...</span><span class="w"></span>
-<span class="w">        </span><span class="p">[</span><span class="mi">5</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span><span class="mi">4</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="o">/</span><span class="mi">18</span><span class="p">],[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="p">]</span><span class="k">...</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w">    </span><span class="n">z</span><span class="o">-</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="o">-</span><span class="n">t4</span><span class="p">;</span><span class="w"> </span><span class="k">...</span><span class="w"></span>
+<span class="w">          </span><span class="n">w</span><span class="o">+</span><span class="n">t3</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">,</span><span class="w">    </span><span class="n">w</span><span class="o">-</span><span class="n">t3</span><span class="p">;</span><span class="w">  </span><span class="k">...</span><span class="w"></span>
+<span class="w">          </span><span class="n">w</span><span class="o">+</span><span class="n">t4</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="o">+</span><span class="n">t2</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="p">],</span><span class="w">   </span><span class="k">...</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="mi">5</span><span class="o">/</span><span class="mi">18</span><span class="p">,</span><span class="mi">4</span><span class="o">/</span><span class="mi">9</span><span class="p">,</span><span class="mi">5</span><span class="o">/</span><span class="mi">18</span><span class="p">],</span><span class="w">     </span><span class="k">...</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="o">+</span><span class="n">t</span><span class="p">]</span><span class="w">    </span><span class="k">...</span><span class="w"></span>
 <span class="w">      </span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>

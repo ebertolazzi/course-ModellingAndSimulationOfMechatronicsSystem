@@ -44,7 +44,7 @@ classdef ParabolicPendulum4EQ < DAC_ODEclass
       res__3 = t13 * (-t7 + t6 * (2 * y - 1) - t11 + 1) - 8 * omega * eta * (t6 * x * u - t6 * v / 2 - (y - 0.1e1 / 0.2e1) * u * x + v * y / 2) - 12 * t6 * t1 + 8 * u * v * x + t1 * (4 * y - 2) - 2 * t36;
   
       % store on output
-      res__bigRHS = zeros(3,1);
+      res__bigRHS    = zeros(3,1);
       res__bigRHS(1) = res__1;
       res__bigRHS(2) = res__2;
       res__bigRHS(3) = res__3;
