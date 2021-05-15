@@ -107,7 +107,7 @@ classdef DAC_ODEsolver < handle
     %>
     function x = project( self, t, xtilde )
       % get number of equations and number of invariants 
-      [neq,ninv] = self.odeClass.getDim();
+      [neq,ninv] = self.odeClass.getDims();
       x = xtilde;
       if ninv > 0
         tol = max(1,norm(xtilde,inf))*sqrt(eps);
@@ -137,6 +137,7 @@ classdef DAC_ODEsolver < handle
     %> - `x0` initial point
     %> - `optional1` if true apply projection to invariants at each step
     %> - `optional2` if true activate vebose mode and print advancing messages
+    %> - `optional3` maxabs, if \f$ || \mathbf{x} ||_{\infty} \f$ is greater than maxabs computation is interrupted
     %>
     %> return a matrix `length(x0) x length(t)` with the solution.
     %>
@@ -147,7 +148,7 @@ classdef DAC_ODEsolver < handle
     %> .. code-block:: matlab
     %>
     %>    sol = obj.advance( t, x0 );
-    %>    plot( t, sol(1,:) ); % plot teh first component of the solution
+    %>    plot( t, sol(1,:) ); % plot the first component of the solution
     %>
     %>    % advance with projection on invariants activated
     %>    sol = obj.advance( t, x0, true );
@@ -172,6 +173,11 @@ classdef DAC_ODEsolver < handle
       else
         verbose = false;
       end
+      if nargin > 5
+        maxabs = varargin{3};
+      else
+        maxabs = 1e3;
+      end
       x      = zeros(neq,length(t));
       x(:,1) = x0(:);
       pp     = 0;
@@ -189,11 +195,17 @@ classdef DAC_ODEsolver < handle
           % advance solution
           xtilde = self.step( t(k), x(:,k), DT );
           % project solution to the invariants
-          x(:,k+1) = self.project( t(k+1), xtilde );
+          xnew = self.project( t(k+1), xtilde );
         else
           % advance solution
-          x(:,k+1) = self.step( t(k), x(:,k), DT );
+          xnew = self.step( t(k), x(:,k), DT );
         end
+        xinf = norm(xnew,inf);
+        if xinf > maxabs
+          fprintf('At t(%d)=%g ||x||_inf = %g, computation interrupted\n',k,t(k),xinf);
+          break;
+        end
+        x(:,k+1) = xnew;
       end
     end
   end

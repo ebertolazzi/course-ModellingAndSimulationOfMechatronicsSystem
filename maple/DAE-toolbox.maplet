@@ -24,7 +24,10 @@ JACOBIAN := proc( F_in, vars )
   elif type(F_in,Vector) then
     nr := Dimension(F_in);
     F  := F_in;
-  else
+  elif type(F_in,Matrix) then
+    nr, nc := Dimension(F_in);
+    if nc = 1 then      F := convert(F_in,Vector);
+    else      error "JACOBIAN first argument is a %d x %d matrix, expect column matrix", nr, nc;    end  else
     error "JACOBIAN expect as first argument a list or a Vector or an algebraic expression";
   end;
   nc  := nops(vars);
@@ -223,7 +226,7 @@ end proc:
 # 
 DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
   local tbl, n, m, f, q_D, v_D, v_dot,
-        ODE_POS, ODE_VEL, 
+        ODE_POS, ODE_VEL, tmp,
         Phi_P, Phi_t, A, A_rhs, g, bigM, bigRHS, bigVAR;
 
   if type(f_in,'Vector') then
@@ -253,9 +256,12 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
 
   Phi_P, A_rhs := GenerateMatrix(convert(A,list),vvars);
   # hidden invariant Phi_P v__d - g(q,v,t)
-  Phi_P, g := GenerateMatrix(diff(convert(A,list),t),v_D);
+  tmp, g := GenerateMatrix(diff(convert(A,list),t),v_D);
 
-  # big linear system
+  if tb_dae_debug then
+    print("DAE3_get_ODE_and_invariants: Phi_P, tmp",Phi_P, tmp);
+  end;
+  # big linear system
   bigM   := <<Mass,Phi_P>|<Transpose(Phi_P),Matrix(m,m)>>;
   bigRHS := convert(<f,subs(ODE_POS,g)>,Vector);
   bigVAR := [op(v_dot),op(lvars)];
