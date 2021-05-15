@@ -30,7 +30,9 @@ classdef Pendulum2EQ < DAC_ODEclass
   end
   methods
     function self = Pendulum2EQ( ell, gravity )
-      self@DAC_ODEclass('Pendulum2EQ');
+      neq  = 2;
+      ninv = 0;
+      self@DAC_ODEclass('Pendulum2EQ',neq,ninv);
       self.ell     = ell;
       self.gravity = gravity;
     end
@@ -53,6 +55,12 @@ classdef Pendulum2EQ < DAC_ODEclass
       jac      = zeros(2,2);
       jac(1,2) = 1;
       jac(2,1) = -(g/ell)*cos(theta);
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function h( self, t, Z )
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function DhDx( self, t, Z )
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function plot( self, t, Z )

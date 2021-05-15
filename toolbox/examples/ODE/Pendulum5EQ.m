@@ -16,7 +16,9 @@ classdef Pendulum5EQ < DAC_ODEclass
   end
   methods
     function self = Pendulum5EQ( ell, gravity )
-      self@DAC_ODEclass('Pendulum5E');
+      neq  = 5;
+      ninv = 0;
+      self@DAC_ODEclass('Pendulum5E',neq,ninv);
       self.ell     = ell;
       self.gravity = gravity;
     end
@@ -64,6 +66,14 @@ classdef Pendulum5EQ < DAC_ODEclass
       jac(5,3) = -4 * lambda * x / tmp;
       jac(5,4) = (-4 * y * lambda - 3 * g) / tmp;
       jac(5,5) = -4*(x * u+y * v) / tmp;
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % no invariants, use dummy function
+    function h( self, t, Z )
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    % no invariants, use dummy function
+    function DhDx( self, t, Z )
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function plot( self, t, Z )

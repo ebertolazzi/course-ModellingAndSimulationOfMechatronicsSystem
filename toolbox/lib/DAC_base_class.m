@@ -16,9 +16,13 @@ classdef DAC_base_class < handle
     %>
     name;
     %>
-    %> The number of equations of the ODE/DAE
+    %> The number of equations of the ODE
     %>
     neq;
+    %>
+    %> The number of invariants/contrainys of the ODE
+    %>
+    ninv;
   end
 
   methods (Abstract)
@@ -31,14 +35,20 @@ classdef DAC_base_class < handle
   end
 
   methods
-    function self = DAC_base_class( name, neq )
+    function self = DAC_base_class( name, neq, ninv )
       %> Construct object with stored `name`
       self.name = name;
       self.neq  = neq;
+      self.ninv = ninv;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function neq = getNeq( self )
       neq = self.neq;
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function [neq,ninv] = getDims( self )
+      neq  = self.neq;
+      ninv = self.ninv;
     end
     %>
     %> Animate solution

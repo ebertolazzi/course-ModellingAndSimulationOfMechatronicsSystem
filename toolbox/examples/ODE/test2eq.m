@@ -26,7 +26,9 @@ classdef test2eq < DAC_ODEclass
   end
   methods
     function self = test2eq()
-      self@DAC_ODEclass('text2eq',2);
+      neq  = 2;
+      ninv = 0;
+      self@DAC_ODEclass('text2eq',neq,ninv);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function ode = f( self, t, Z )
@@ -39,6 +41,12 @@ classdef test2eq < DAC_ODEclass
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function jac = DfDx( self, t, Z )
       jac = [ 1, 1; -1, 1];
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function ode = h( self, t, Z )
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function jac = DhDx( self, t, Z )
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function res = exact( self, t )

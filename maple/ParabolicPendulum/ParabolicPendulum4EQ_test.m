@@ -19,18 +19,18 @@ mass    = 1;
 gravity = 9.81;
 ode     = ParabolicPendulum4EQ( mass, gravity );
 eta     = 0.5;
-omega   = 1;
+omega   = 10;
 ode.setBaumgarte( eta, omega );
 
 % initialize solver
-solver = GaussLegendre6();
+solver = ImplicitEuler();
 
-NAMES = {'GaussLegendre6'};
+NAMES = {'ImplicitEuler'};
 
 solver.setODE(ode);
 
 Tmax = 10;
-h    = 0.1;
+h    = 0.025;
 tt   = 0:h:Tmax;
 % setup initial condition
 theta0 = pi/3;
