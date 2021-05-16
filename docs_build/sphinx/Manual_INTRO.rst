@@ -1,7 +1,7 @@
 Introduction
 ============
 
-Library for the course ....
+Library for the course *Modelling And Simulation Of Mechatronics System*
 
 Installation
 ------------
@@ -13,11 +13,11 @@ and follows the instruction.
 ODE solvers
 -----------
 
-- **ODEbaseClass**
+- **DAC_ODEclass**
   base class to define the Ordinary Differential equation to be integrated
-- **ODEbaseSolver**
+- **DAC_ODEsolver**
   base class to define the solver for ODE
-- **ODEbaseSolverRKexplicit**
+- **DAC_ODEsolverRKexplicit**
   base class to define the explicit Runge Kutta solver.
   A list of already implemented available in the library is the following:
 
@@ -40,7 +40,7 @@ ODE solvers
       -
       -
 
-- **ODEbaseSolverRKimplicit**
+- **DAC_ODEsolverRKimplicit**
 
   .. list-table:: Available implicit solvers
     :width: 80%
@@ -57,56 +57,3 @@ ODE solvers
       - *RadauIIA*
       -
       -
-
-
-DAE solvers (projection based)
-------------------------------
-
-The same classes with _P at the end are the
-
-- **ODEbaseClass_P**
-   class to define the ODE with hidden constraints (invariants)
-
-- **ODEbaseSolver_P**
-  base class to define the solver for ODE with hidden constraints (invariants)
-
-- **ODEbaseSolverRKexplicit_P**
-
-  base class to define the explicit Runge Kutta solver with projection to the hidden constraints.
-  A list of already implemented available in the library is the following:
-
-  .. list-table:: Available explicit solvers
-    :width: 80%
-
-    * - *ExplicitEuler_P*
-      - *MidPoint_P*
-      - *Collatz_P*
-    * - *Heun_P*
-      - *Heun3_P*
-      -
-    * - *Ralston_P*
-      - *Ralston3_P*
-      - *Ralston4_P*
-    * - *RK3_8_P*
-      - *RK3_P*
-      - *RK4_P*
-    * - *SSPRK3_P*
-      -
-      -
-
-- **ODEbaseSolverRKimplicit_P**
-
-
-  .. list-table:: Available implicit solvers
-    :width: 80%
-
-    * - *ImplicitEuler_P*
-      - *CrankNicolson_P*
-    * - *GaussLegendre4_P*
-      - *GaussLegendre6_P*
-    * - *LobattoIIIA_P*
-      - *LobattoIIIB_P*
-    * - *LobattoIIIC_P*
-      - *LobattoIIIC_star_P*
-    * - *RadauIA_P*
-      - *RadauIIA_P*
