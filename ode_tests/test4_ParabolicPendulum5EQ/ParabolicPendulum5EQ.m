@@ -240,40 +240,7 @@ classdef ParabolicPendulum5EQ < DAC_ODEclass
     function plot( self, t, vars__ )
       x = vars__(1);
       y = vars__(2);
-
-      % extract states
-      hold off;
-      drawAxes( 2, 0.25, 3, 0, 0 );
-      hold on;
-      % plot constraint
-      xx = -1.3:0.1:1.3;
-      yy = xx.^2;
-      plot( xx, yy, 'LineWidth', 2, 'Color', 'blue' );
-      plot( [0,0], [-1.1,1.6], 'LineWidth', 2, 'Color','blue' );
-      xx = -1:0.01:1;
-      plot( xx, xx.^2+sqrt(1-xx.^2), '-', 'Linewidth', 1, 'Color','green' );
-      plot( xx, xx.^2-sqrt(1-xx.^2), '-', 'Linewidth', 1, 'Color','cyan' );      % get mass position
-
-      plot( [0,x,x], [x^2,x^2,y], 'LineWidth',1,'Color','black' );
-
-      % evaluate middle point and direction
-      xm = x/2;
-      ym = (x^2+y)/2;
-      L  = 2*hypot( x, x^2-y );
-      dx = x/L;
-      dy = (x^2-y)/L;
-
-      x0 = xm-dx;
-      y0 = ym-dy;
-      x1 = xm+dx;
-      y1 = ym+dy;
-
-      plot( [x0,x1], [y0,y1], 'LineWidth', 4, 'Color', 'red' );
-      fillCircle( 'red', x0, y0, 0.05 );
-      fillCircle( 'blue', x1, y1, 0.05 );
-      fillCircle( 'black', x, y, 0.05 );
-      title(sprintf('time=%g',t));
-      axis equal;
+      ParabolicPendulumPlot(t,x,y);
     end
   end
 end
