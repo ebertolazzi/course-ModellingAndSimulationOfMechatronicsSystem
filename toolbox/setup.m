@@ -9,9 +9,8 @@ addpath('lib/ODE/implicit');
 %addpath('lib/ODE_P');
 %addpath('lib/ODE_P/explicit');
 %addpath('lib/ODE_P/implicit');
-
-addpath('examples/ODE');
-addpath('examples/ODE_P');
-addpath('examples/DAE');
+%addpath('examples/ODE');
+%addpath('examples/ODE_P');
+%addpath('examples/DAE');
 
 cd(old_dir);

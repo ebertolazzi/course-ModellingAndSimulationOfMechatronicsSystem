@@ -26,8 +26,12 @@ JACOBIAN := proc( F_in, vars )
     F  := F_in;
   elif type(F_in,Matrix) then
     nr, nc := Dimension(F_in);
-    if nc = 1 then      F := convert(F_in,Vector);
-    else      error "JACOBIAN first argument is a %d x %d matrix, expect column matrix", nr, nc;    end  else
+    if nc = 1 then
+      F := convert(F_in,Vector);
+    else
+      error "JACOBIAN first argument is a %d x %d matrix, expect column matrix", nr, nc;
+    end
+  else
     error "JACOBIAN expect as first argument a list or a Vector or an algebraic expression";
   end;
   nc  := nops(vars);
@@ -224,25 +228,42 @@ end proc:
 # Index 3 DAE
 # Special routine for index 3 DAE
 # 
-DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
+DAE3_get_ODE_and_invariants := proc( Mass, Phi_in, f_in, qvars, vvars, lvars )
   local tbl, n, m, f, q_D, v_D, v_dot,
         ODE_POS, ODE_VEL, tmp,
-        Phi_P, Phi_t, A, A_rhs, g, bigM, bigRHS, bigVAR;
+        Phi, Phi_P, Phi_t, A, A_rhs, g, bigM, bigRHS, bigVAR;
 
   if type(f_in,'Vector') then
     f := f_in;
   else
     f := convert(f_in,Vector);
   end;
+  if type(Phi_in,'Vector') then
+    Phi := Phi_in;
+  else
+    Phi := convert(Phi_in,Vector);
+  end;
+
+  n, m:= Dimension( Mass );
+  if n <> m or n <> nops(vvars) then
+    print("DAE3_get_ODE_and_invariants: mass marrix must be square and of the same size of the length of vvars", Mass, vvars);
+  end;
 
   n := nops( qvars );
-  m := RowDimension( Phi );
+  m := Dimension( Phi );
 
+  if n <> nops(vvars) then
+    print("DAE3_get_ODE_and_invariants: qvars and vvars must have the same length", qvars, vvars);
+  end;
+
+  if m <> nops(lvars) then
+    print("DAE3_get_ODE_and_invariants: lvars must have the same length the number of constraints", lvars, Phi);
+  end;
   # differential variables
   q_D := map( diff, qvars, t );
   v_D := map( diff, vvars, t );
 
-  # definition of variablse "derivative of velocities"
+  # definition of variable "derivative of velocities"
   v_dot := map( map( cat, map2( op, 0, vvars ), __d ), (t) );
 
   # ode position part q' = v
@@ -261,12 +282,15 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
   if tb_dae_debug then
     print("DAE3_get_ODE_and_invariants: Phi_P, tmp",Phi_P, tmp);
   end;
-  # big linear system
+
+  # big linear system
   bigM   := <<Mass,Phi_P>|<Transpose(Phi_P),Matrix(m,m)>>;
   bigRHS := convert(<f,subs(ODE_POS,g)>,Vector);
   bigVAR := [op(v_dot),op(lvars)];
   # return the computed block
   return table([
+    "m"       = m,
+    "n"       = n,
     "PVARS"   = qvars,
     "VVARS"   = vvars,
     "LVARS"   = lvars,
@@ -274,6 +298,7 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi, f_in, qvars, vvars, lvars )
     "ODE_RHS" = [op(map(rhs,ODE_POS)),op(map(rhs,ODE_VEL))],
     "ODE_POS" = ODE_POS,
     "ODE_VEL" = ODE_VEL,
+    "Phi"     = Phi,
     "Phi_P"   = Phi_P,
     "A_rhs"   = A_rhs,
     "A"       = A,
@@ -289,8 +314,8 @@ DAE3_get_ODE_and_invariants_full := proc( Mass, Phi, f, qvars, vvars, lvars )
 
   tbl := DAE3_get_ODE_and_invariants( Mass, Phi, f, qvars, vvars, lvars );
 
-  n := nops( qvars );
-  m := RowDimension( Phi );
+  n := tbl["n"];
+  m := tbl["m"];
 
   bigETA := convert(tbl["bigM"].<seq(mu||i,i=1..n+m)>,Vector);
 
@@ -305,7 +330,7 @@ end proc:
 DAE3_get_ODE_and_invariants_baumgarte := proc( Mass, Phi, f_in, qvars, vvars, lvars )
   local tbl;
   tbl                 := DAE3_get_ODE_and_invariants_full( Mass, Phi, f_in, qvars, vvars, lvars );
-  tbl["h"]            := tbl["g"]-2*eta*omega*tbl["A"]-omega^2*Phi;
+  tbl["h"]            := tbl["g"]-2*eta*omega*tbl["A"]-omega^2*tbl["Phi"];
   tbl["bigRHS_stab"]  := convert(<tbl["f"] ,tbl["h"] >,Vector);
   tbl["JbigRHS_stab"] := JACOBIAN(tbl["bigRHS_stab"],[op(qvars),op(vvars)]);
   return tbl;

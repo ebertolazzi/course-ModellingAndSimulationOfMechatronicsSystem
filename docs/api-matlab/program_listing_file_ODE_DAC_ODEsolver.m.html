@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program Listing for File DAC_ODEsolver.m &#8212; ODE/DAE v0.1-13-g5ced9db
+    <title>Program Listing for File DAC_ODEsolver.m &#8212; ODE/DAE v0.1-17-g119a4a8
 </title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -99,8 +99,9 @@
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; Generic advancing step for a generic numerical methods.</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt; given x0 = \f$ x(t_0) \f$ and a time step dt = \f$ \Delta t\f$</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt; return the approximation of \f$ x(t_0+\Delta t) \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Given `x0` = \f$ \mathbf{x}(t_0) \f$ and an advancing</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; time step `dt` = \f$ \Delta t\f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; return the approximation of \f$ \mathbf{x}(t_0+\Delta t) \f$.</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="nb">step</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">t0</span><span class="p">,</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
@@ -125,26 +126,159 @@
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt; Compute approximate solution on a series of point given by the</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt; vector `t` = \f$ (t_0, t_1, \ldots, t_n) \f$</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt; starting at initial point `x0` =  \f$ x_0 \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Solve the problem</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">advance</span><span class="p">(</span> self, t, x0 <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \left\{\begin{array}{ll}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  \textrm{minimize}   &amp;  \frac{1}{2}\left(\mathbf{x}-\widetilde{\mathbf{x}}\right)^2 \\[1em]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;  \textrm{subject to} &amp;  \mathbf{h}( t, \mathbf{x} ) = \mathbf{0}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \end{array}\right. \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Given the Lagrangian</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; L( \mathbf{x}, \boldsymbol{\lambda} ) =</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \frac{1}{2}\left(\mathbf{x}-\widetilde{\mathbf{x}}\right)^2+</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \boldsymbol{\lambda} \cdot \mathbf{h}( t, \mathbf{x} )</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Solve the problem</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \left\{\begin{array}{rcl}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \mathbf{x}+\dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \boldsymbol{\lambda} &amp;=&amp; \widetilde{\mathbf{x}}\\[1em]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \mathbf{h}(t,\mathbf{x}) &amp;=&amp; \mathbf{0}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \end{array}\right. \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; **Solution algorithm**</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Using the Taylor expansion</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \mathbf{h}( t, \mathbf{x} ) +</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} \delta\mathbf{x}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; + \mathcal{O}\left( ||\delta\mathbf{x}||^2 \right) = \mathbf{0}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; define the iterative method</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \mathbf{x}_{k+1} = \mathbf{x}_k + \delta\mathbf{x} \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; where \f$ \delta\mathbf{x} \f$ is the solution of the linear system</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \left[\begin{array}{cc}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \mathbf{I} &amp; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T \\[1em]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}  &amp; \mathbf{0}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \end{array}\right]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \left[\begin{array}{c}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \delta\mathbf{x} \\[1em]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \boldsymbol{\lambda}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \end{array}\right]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; =</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \left[\begin{array}{c}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \widetilde{\mathbf{x}}-\mathbf{x}_k \\[1em]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; -\mathbf{h}(t_k,\mathbf{x}_k)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span> self, t, xtilde <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% get number of equations and number of invariants</span><span class="w"></span>
+<span class="w">      </span><span class="p">[</span><span class="n">neq</span><span class="p">,</span><span class="n">ninv</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">getDims</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xtilde</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">ninv</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">        </span><span class="n">tol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">norm</span><span class="p">(</span><span class="n">xtilde</span><span class="p">,</span><span class="n">inf</span><span class="p">))</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">eps</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="w"></span>
+<span class="w">          </span><span class="c">%</span><span class="w"></span>
+<span class="w">          </span><span class="c">%  /       I       DhDx( t_k, x_k )^T \ /   dx   \   / xtilde - x_k  \</span><span class="w"></span>
+<span class="w">          </span><span class="c">%  |                                  | |        | = |               |</span><span class="w"></span>
+<span class="w">          </span><span class="c">%  \ DhDx( t_k, x_k )     0           / \ lambda /   \ -h( t_k, x_k) /</span><span class="w"></span>
+<span class="w">          </span><span class="n">h</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">h</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">M</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">DhDx</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">Dxl</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nb">eye</span><span class="p">(</span><span class="n">neq</span><span class="p">),</span><span class="w"> </span><span class="n">M</span><span class="p">.</span><span class="o">'</span><span class="p">;</span><span class="w"> </span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">ninv</span><span class="p">,</span><span class="n">ninv</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">\</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">xtilde</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="o">-</span><span class="n">h</span><span class="p">];</span><span class="w"></span>
+<span class="w">          </span><span class="n">dx</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Dxl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">neq</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="n">x</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dx</span><span class="p">;</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">dx</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">tol</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">          </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Compute approximate solution on a series of point given by the</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; vector `t` = \f$ [t_0, t_1, \ldots, t_n] \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; starting at initial point `x0` =  \f$ x_0 \f$.</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; - `t` vector of sampling points</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; - `x0` initial point</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; - `optional1` if true apply projection to invariants at each step</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; - `optional2` if true activate vebose mode and print advancing messages</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; - `optional3` maxabs, if \f$ || \mathbf{x} ||_{\infty} \f$ is greater than maxabs computation is interrupted</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; return a matrix `length(x0) x length(t)` with the solution.</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; **Usage**</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \rst</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; .. code-block:: matlab</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    sol = obj.advance( t, x0 );</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    plot( t, sol(1,:) ); % plot the first component of the solution</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    % advance with projection on invariants activated</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    sol = obj.advance( t, x0, true );</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    % advance with projection on invariants inactiva and verbose</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;    sol = obj.advance( t, x0, false, true );</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \endrst</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">advance</span><span class="p">(</span> self, t, x0, varargin <span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">neq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">odeClass</span><span class="p">.</span><span class="n">getNeq</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">neq</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span><span class="w"></span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'length(x0) = %d expected %d\n'</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span><span class="n">neq</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="nb">nargin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">        </span><span class="n">do_projection</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{</span><span class="mi">1</span><span class="p">};</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="n">do_projection</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="nb">nargin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">        </span><span class="n">verbose</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{</span><span class="mi">2</span><span class="p">};</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="n">verbose</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">end</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="nb">nargin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+<span class="w">        </span><span class="n">maxabs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">varargin</span><span class="p">{</span><span class="mi">3</span><span class="p">};</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span><span class="w"></span>
+<span class="w">        </span><span class="n">maxabs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1e3</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
 <span class="w">      </span><span class="n">x</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="n">neq</span><span class="p">,</span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w"></span>
 <span class="w">      </span><span class="n">x</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x0</span><span class="p">(:);</span><span class="w"></span>
 <span class="w">      </span><span class="n">pp</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">nn</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">nn</span><span class="w"></span>
-<span class="w">        </span><span class="n">newpp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ceil</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="n">nn</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">newpp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pp</span><span class="o">+</span><span class="mi">4</span><span class="w"></span>
-<span class="w">          </span><span class="n">pp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newpp</span><span class="p">;</span><span class="w"></span>
-<span class="w">          </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">'%3d%%\n'</span><span class="p">,</span><span class="n">pp</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">verbose</span><span class="w"></span>
+<span class="w">          </span><span class="n">newpp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">ceil</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">k</span><span class="o">/</span><span class="n">nn</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">newpp</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">pp</span><span class="o">+</span><span class="mi">4</span><span class="w"></span>
+<span class="w">            </span><span class="n">pp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">newpp</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">'%3d%%\n'</span><span class="p">,</span><span class="n">pp</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="k">end</span><span class="w"></span>
 <span class="w">        </span><span class="k">end</span><span class="w"></span>
-<span class="w">        </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">DT</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">do_projection</span><span class="w"></span>
+<span class="w">          </span><span class="c">% advance solution</span><span class="w"></span>
+<span class="w">          </span><span class="n">xtilde</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">DT</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="c">% project solution to the invariants</span><span class="w"></span>
+<span class="w">          </span><span class="n">xnew</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">project</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">xtilde</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">          </span><span class="c">% advance solution</span><span class="w"></span>
+<span class="w">          </span><span class="n">xnew</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">DT</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">xinf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">norm</span><span class="p">(</span><span class="n">xnew</span><span class="p">,</span><span class="n">inf</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">xinf</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxabs</span><span class="w"></span>
+<span class="w">          </span><span class="nb">fprintf</span><span class="p">(</span><span class="s">'At t(%d)=%g ||x||_inf = %g, computation interrupted\n'</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">t</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="n">xinf</span><span class="p">);</span><span class="w"></span>
+<span class="w">          </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">end</span><span class="w"></span>
+<span class="w">        </span><span class="n">x</span><span class="p">(:,</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">xnew</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>

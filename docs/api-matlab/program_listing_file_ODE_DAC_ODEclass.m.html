@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program Listing for File DAC_ODEclass.m &#8212; ODE/DAE v0.1-13-g5ced9db
+    <title>Program Listing for File DAC_ODEclass.m &#8212; ODE/DAE v0.1-17-g119a4a8
 </title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -100,24 +100,50 @@
 <span class="w">  </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"> </span><span class="p">(</span><span class="n">Abstract</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;  The derived function must define the r.h.s. of the ODE</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;  \f$ x' = f( t, x ) \f$</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;  \f$ x \f$ are the states of the model described by the ODE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Abstract functions defining and ODE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \mathbf{x}' = \mathbf{f}( t, \mathbf{x} ) \quad\oplus\quad [\textrm{invariants}] \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; invariants are of the form</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \mathbf{h}( t, \mathbf{x} ) = \mathbf{0} \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; The derived function must define the r.h.s. of the ODE</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f$ \mathbf{f}( t, \mathbf{x} ) \f$ where</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f$ \mathbf{x} \f$ are the states of the model described by the ODE.</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="n">f</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;  The derived function must return</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;  the jacobian of the r.h.s. of the ODE:</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;  \f$ \partial f( t, x ) / \partial x \f$</span><span class="w"></span>
-<span class="w">    </span><span class="c">%&gt;  used only in implicit methods</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; The derived function must return</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; the jacobian of the r.h.s. of the ODE:</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \partial \mathbf{f}( t, \mathbf{x} ) / \partial \mathbf{x} \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Used only in implicit methods</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="n">DfDx</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; The invariant/hidden constraints</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f$ \mathbf{h}( t, \mathbf{x} ) = \mathbf{0} \f$</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="n">h</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; The derived function must return</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; the jacobian of the hidden constraints of the ODE:</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f[ \partial \mathbf{h}( t, \mathbf{x} ) / \partial \mathbf{x} \f]</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; Used only in projection method</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="n">DhDx</span><span class="p">(</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DAC_ODEclass</span><span class="p">(</span> name, neq <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">DAC_base_class</span><span class="p">(</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">neq</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DAC_ODEclass</span><span class="p">(</span> name, neq, ninv <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">DAC_base_class</span><span class="p">(</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">neq</span><span class="p">,</span><span class="w"> </span><span class="n">ninv</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
