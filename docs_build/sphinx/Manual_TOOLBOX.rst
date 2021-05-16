@@ -391,6 +391,8 @@ the result ``res`` is a maple table that contains
     - The r.h.s for the ODE part: position equations
   * - ``res["ODE_VEL"]``
     - The r.h.s for the ODE part: velocity equations
+  * - ``res["Phi"]``
+    - The vector ot the constraints :math:`\mathbf{\Phi}(\mathbf{q},t)`
   * - ``res["Phi_P"]``
     - Partial derivative of the constraints :math:`\mathbf{\Phi}_q(\mathbf{q},t)`
   * - ``res["A"]``

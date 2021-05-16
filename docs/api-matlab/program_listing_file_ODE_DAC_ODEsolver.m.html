@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Program Listing for File DAC_ODEsolver.m &#8212; ODE/DAE v0.1-17-g119a4a8
+    <title>Program Listing for File DAC_ODEsolver.m &#8212; ODE/DAE v0.1-20-ga7d4c7d
 </title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -156,6 +156,7 @@
 <span class="w">    </span><span class="c">%&gt; \f[ \mathbf{h}( t, \mathbf{x} ) +</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} \delta\mathbf{x}</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; + \mathcal{O}\left( ||\delta\mathbf{x}||^2 \right) = \mathbf{0}</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \f]</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; define the iterative method</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
@@ -176,6 +177,7 @@
 <span class="w">    </span><span class="c">%&gt; \left[\begin{array}{c}</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; \widetilde{\mathbf{x}}-\mathbf{x}_k \\[1em]</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; -\mathbf{h}(t_k,\mathbf{x}_k)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; \end{array}\right]</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt; \f]</span><span class="w"></span>
 <span class="w">    </span><span class="c">%&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span> self, t, xtilde <span class="p">)</span><span class="w"></span>
