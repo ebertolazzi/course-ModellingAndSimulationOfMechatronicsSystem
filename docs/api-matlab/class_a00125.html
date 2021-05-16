@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Class Midpoint &#8212; ODE/DAE v0.1-17-g119a4a8
+    <title>Class Midpoint &#8212; ODE/DAE v0.1-19-g27841c8
 </title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/cloud.css" type="text/css" />
@@ -178,12 +178,17 @@
 <p>Using the Taylor expansion</p>
 <p></p>
 <div class="math notranslate nohighlight">
-\[ \mathbf{h}( t, \mathbf{x} ) + \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} \delta\mathbf{x} + \mathcal{O}\left( ||\delta\mathbf{x}||^2 \right) = \mathbf{0} define the iterative method \f[ \mathbf{x}_{k+1} = \mathbf{x}_k + \delta\mathbf{x} \]</div>
+\[ \mathbf{h}( t, \mathbf{x} ) + \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} \delta\mathbf{x} + \mathcal{O}\left( ||\delta\mathbf{x}||^2 \right) = \mathbf{0} \]</div>
+
+<p>define the iterative method</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{x}_{k+1} = \mathbf{x}_k + \delta\mathbf{x} \]</div>
 
 <p>where <span class="math notranslate nohighlight">\( \delta\mathbf{x} \)</span> is the solution of the linear system</p>
 <p></p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \left[\begin{array}{cc} \mathbf{I} &amp; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T \\[1em] \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} &amp; \mathbf{0} \end{array}\right] \left[\begin{array}{c} \delta\mathbf{x} \\[1em] \boldsymbol{\lambda} \end{array}\right] = \left[\begin{array}{c} \widetilde{\mathbf{x}}-\mathbf{x}_k \\[1em] -\mathbf{h}(t_k,\mathbf{x}_k) \end{split}\]</div>
+\[\begin{split} \left[\begin{array}{cc} \mathbf{I} &amp; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T \\[1em] \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} &amp; \mathbf{0} \end{array}\right] \left[\begin{array}{c} \delta\mathbf{x} \\[1em] \boldsymbol{\lambda} \end{array}\right] = \left[\begin{array}{c} \widetilde{\mathbf{x}}-\mathbf{x}_k \\[1em] -\mathbf{h}(t_k,\mathbf{x}_k) \end{array}\right] \end{split}\]</div>
  
 </dd>
 </dl>

@@ -24,7 +24,7 @@ classdef GaussLegendre4 < DAC_ODEsolverRKimplicit
     %>     \hline
     %>             & 1/2 & 1/2
     %>    \end{array}
-    %>    \qquad t = \displaytyle\frac{\sqrt{3}}{6}
+    %>    \qquad t = \dfrac{\sqrt{3}}{6}
     %>
     %> \endrst
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

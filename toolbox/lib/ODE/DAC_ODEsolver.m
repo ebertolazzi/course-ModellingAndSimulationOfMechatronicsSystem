@@ -83,6 +83,7 @@ classdef DAC_ODEsolver < handle
     %> \f[ \mathbf{h}( t, \mathbf{x} ) +
     %> \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} \delta\mathbf{x}
     %> + \mathcal{O}\left( ||\delta\mathbf{x}||^2 \right) = \mathbf{0}
+    %> \f]
     %>
     %> define the iterative method
     %>
@@ -103,6 +104,7 @@ classdef DAC_ODEsolver < handle
     %> \left[\begin{array}{c}
     %> \widetilde{\mathbf{x}}-\mathbf{x}_k \\[1em]
     %> -\mathbf{h}(t_k,\mathbf{x}_k)
+    %> \end{array}\right]
     %> \f]
     %>
     function x = project( self, t, xtilde )

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-17-g119a4a8
+    <title>DAE-Toolbox &#8212; ODE/DAE v0.1-19-g27841c8
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -471,30 +471,34 @@ is done internally.</p></li>
 <td><p>The r.h.s for the ODE part: velocity equations</p></td>
 </tr>
 <tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">res["Phi"]</span></code></p></td>
+<td><p>The vector ot the constraints <span class="math notranslate nohighlight">\(\mathbf{\Phi}(\mathbf{q},t)\)</span></p></td>
+</tr>
+<tr class="row-odd">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["Phi_P"]</span></code></p></td>
 <td><p>Partial derivative of the constraints <span class="math notranslate nohighlight">\(\mathbf{\Phi}_q(\mathbf{q},t)\)</span></p></td>
 </tr>
-<tr class="row-odd">
+<tr class="row-even">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["A"]</span></code></p></td>
 <td><p><span class="math notranslate nohighlight">\(\mathbf{a}(\mathbf{q},\mathbf{v},t)=\mathbf{\Phi}_q(\mathbf{q},t)\dot{\mathbf{v}}-\mathbf{b}(\mathbf{q},\mathbf{v},t)\)</span></p></td>
 </tr>
-<tr class="row-even">
+<tr class="row-odd">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["A_rhs"]</span></code></p></td>
 <td><p><span class="math notranslate nohighlight">\(-\mathbf{\Phi}_t(\mathbf{q},t)\)</span></p></td>
 </tr>
-<tr class="row-odd">
+<tr class="row-even">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["g"]</span></code></p></td>
 <td><p><span class="math notranslate nohighlight">\(\mathbf{g}(\mathbf{q},\mathbf{v},t)\)</span></p></td>
 </tr>
-<tr class="row-even">
+<tr class="row-odd">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["bigVAR"]</span></code></p></td>
 <td><p><span class="math notranslate nohighlight">\([\dot{v}_1(t),\dot{v}_2(t),\ldots,\dot{v}_n(t),\lambda_1(t),\lambda_2(t),\ldots,\lambda_m(t)]\)</span>,</p></td>
 </tr>
-<tr class="row-odd">
+<tr class="row-even">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["bigM"]</span></code></p></td>
 <td><p><span class="math notranslate nohighlight">\(\left[\begin{array}{cc}\mathbf{M}(\mathbf{q},\mathbf{v},t) &amp; \mathbf{\Phi}_q(\mathbf{q},t)^T \\ \mathbf{\Phi}_q(\mathbf{q},t) &amp; \mathbf{0}\end{array}\right]\)</span></p></td>
 </tr>
-<tr class="row-even">
+<tr class="row-odd">
 <td><p><code class="docutils literal notranslate"><span class="pre">res["bigRHS"]</span></code></p></td>
 <td><p><span class="math notranslate nohighlight">\(\left[\begin{array}{c}\mathbf{f}(\mathbf{q},\mathbf{v},t) \\ \mathbf{b}(\mathbf{q},\mathbf{v},t)\end{array}\right]\)</span></p></td>
 </tr>
