@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; ODE/DAE v0.1-22-g4467395
+    <title>Introduction &#8212; ODE/DAE v0.2-1-ga425578
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -77,7 +77,7 @@
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a>
 </h1>
-<p>Library for the course ….</p>
+<p>Library for the course <em>Modelling And Simulation Of Mechatronics System</em></p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a>
 </h2>
@@ -89,12 +89,12 @@ and follows the instruction.</p>
 <h2>ODE solvers<a class="headerlink" href="#ode-solvers" title="Permalink to this headline">¶</a>
 </h2>
 <ul>
-<li><p><strong>ODEbaseClass</strong>
+<li><p><strong>DAC_ODEclass</strong>
 base class to define the Ordinary Differential equation to be integrated</p></li>
-<li><p><strong>ODEbaseSolver</strong>
+<li><p><strong>DAC_ODEsolver</strong>
 base class to define the solver for ODE</p></li>
 <li>
-<p><strong>ODEbaseSolverRKexplicit</strong>
+<p><strong>DAC_ODEsolverRKexplicit</strong>
 base class to define the explicit Runge Kutta solver.
 A list of already implemented available in the library is the following:</p>
 <table class="docutils align-default" id="id1" style="width: 80%">
@@ -136,7 +136,7 @@ A list of already implemented available in the library is the following:</p>
 </table>
 </li>
 <li>
-<p><strong>ODEbaseSolverRKimplicit</strong></p>
+<p><strong>DAC_ODEsolverRKimplicit</strong></p>
 <table class="docutils align-default" id="id2" style="width: 80%">
 <caption>
 <span class="caption-text">Available implicit solvers</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a>
@@ -165,99 +165,6 @@ A list of already implemented available in the library is the following:</p>
 <td><p><em>RadauIIA</em></p></td>
 <td></td>
 <td></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</div>
-<div class="section" id="dae-solvers-projection-based">
-<h2>DAE solvers (projection based)<a class="headerlink" href="#dae-solvers-projection-based" title="Permalink to this headline">¶</a>
-</h2>
-<p>The same classes with _P at the end are the</p>
-<ul>
-<li>
-<dl class="simple">
-<dt><strong>ODEbaseClass_P</strong></dt>
-<dd>
-<p>class to define the ODE with hidden constraints (invariants)</p>
-</dd>
-</dl>
-</li>
-<li><p><strong>ODEbaseSolver_P</strong>
-base class to define the solver for ODE with hidden constraints (invariants)</p></li>
-<li>
-<p><strong>ODEbaseSolverRKexplicit_P</strong></p>
-<p>base class to define the explicit Runge Kutta solver with projection to the hidden constraints.
-A list of already implemented available in the library is the following:</p>
-<table class="docutils align-default" id="id3" style="width: 80%">
-<caption>
-<span class="caption-text">Available explicit solvers</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a>
-</caption>
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<tbody>
-<tr class="row-odd">
-<td><p><em>ExplicitEuler_P</em></p></td>
-<td><p><em>MidPoint_P</em></p></td>
-<td><p><em>Collatz_P</em></p></td>
-</tr>
-<tr class="row-even">
-<td><p><em>Heun_P</em></p></td>
-<td><p><em>Heun3_P</em></p></td>
-<td></td>
-</tr>
-<tr class="row-odd">
-<td><p><em>Ralston_P</em></p></td>
-<td><p><em>Ralston3_P</em></p></td>
-<td><p><em>Ralston4_P</em></p></td>
-</tr>
-<tr class="row-even">
-<td><p><em>RK3_8_P</em></p></td>
-<td><p><em>RK3_P</em></p></td>
-<td><p><em>RK4_P</em></p></td>
-</tr>
-<tr class="row-odd">
-<td><p><em>SSPRK3_P</em></p></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>ODEbaseSolverRKimplicit_P</strong></p>
-<table class="docutils align-default" id="id4" style="width: 80%">
-<caption>
-<span class="caption-text">Available implicit solvers</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a>
-</caption>
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="row-odd">
-<td><p><em>ImplicitEuler_P</em></p></td>
-<td><p><em>CrankNicolson_P</em></p></td>
-</tr>
-<tr class="row-even">
-<td><p><em>GaussLegendre4_P</em></p></td>
-<td><p><em>GaussLegendre6_P</em></p></td>
-</tr>
-<tr class="row-odd">
-<td><p><em>LobattoIIIA_P</em></p></td>
-<td><p><em>LobattoIIIB_P</em></p></td>
-</tr>
-<tr class="row-even">
-<td><p><em>LobattoIIIC_P</em></p></td>
-<td><p><em>LobattoIIIC_star_P</em></p></td>
-</tr>
-<tr class="row-odd">
-<td><p><em>RadauIA_P</em></p></td>
-<td><p><em>RadauIIA_P</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -293,7 +200,6 @@ A list of already implemented available in the library is the following:</p>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ode-solvers">ODE solvers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dae-solvers-projection-based">DAE solvers (projection based)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Manual_TOOLBOX.html">DAE-Toolbox</a></li>
