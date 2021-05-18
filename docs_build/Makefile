@@ -5,6 +5,7 @@ build:
 
 install:
 	@rm -rf ../docs/*; cp -a sphinx/_build/html/. ../docs
+	@touch ../docs/.nojekyll
 
 clean:
 	@rm -rf xml
