@@ -14,6 +14,10 @@ classdef CrankRod4EQ < DAC_ODEclass
     ell;
     m;
     gravity;
+    % baumgarte stabilization
+    omega;
+    eta;
+    npos;
   end
   methods
     function self = CrankRod4EQ( ell, m, gravity )
@@ -24,7 +28,7 @@ classdef CrankRod4EQ < DAC_ODEclass
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function ode = f( self, t, Z )
-      
+      % extract parameters
       g = self.gravity;
       m = self.m;
       L = self.ell;
@@ -375,12 +379,11 @@ classdef CrankRod4EQ < DAC_ODEclass
       res = zeros(12,1);
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function plot( self, t, Z )
-      
+    function res = DhDx( self, t, vars__ )
       g = self.gravity;
       m = self.m;
       L = self.ell;
-       
+      
       % extract states
       x_1      = Z(1);
       y_1      = Z(2);
@@ -396,27 +399,69 @@ classdef CrankRod4EQ < DAC_ODEclass
       lambda_3 = Z(12);
       lambda_4 = Z(13);
 
-      % plot
-      x_0 = 0;
-      y_0 = 0;
-      xc1 = L*cos(0:pi/100:2*pi);
-      yc1 = L*sin(0:pi/100:2*pi);
-      hold off;
-      plot( xc1, yc1, '-r', 'Linewidth', 1 );
-      hold on
-      axis_lim = L*2.5;
-      xc2 = -axis_lim:0.05:axis_lim;
-      yc2 = 0.0*(-axis_lim:0.05:axis_lim);
-      plot( xc2, yc2, '-r', 'Linewidth', 1 );
-      axis equal
-      drawLine( x_0, y_0, x_1, y_1, 'LineWidth', 8, 'Color', 'r' );
-      drawLine( x_1, y_1, x_2, y_2, 'LineWidth', 8, 'Color', 'r' );
-      drawCOG(0.1*self.ell,x_0,y_0);
-      fillCircle( 'b', x_1, y_1, 0.1*self.ell );
-      fillCircle( 'b', x_2, y_2, 0.1*self.ell );
-      xlim([ -axis_lim axis_lim ]);
-      ylim([ -axis_lim axis_lim ]);
-      title('x,y');
+      % evaluate function
+      jac_1_1 = 1;
+      t1 = sin(theta);
+      jac_1_5 = t1 * L;
+      jac_2_2 = 1;
+      t2 = cos(theta);
+      jac_2_5 = -t2 * L;
+      jac_3_1 = -1;
+      jac_3_3 = 1;
+      jac_3_5 = jac_1_5;
+      jac_4_4 = 1;
+      t4 = t1 ^ 2;
+      jac_6_5 = -0.1e1 / t4 * u_1;
+      t7 = 0.1e1 / t1;
+      jac_6_6 = t2 * t7;
+      jac_6_7 = 1;
+      jac_7_6 = -2;
+      jac_7_8 = 1;
+      jac_8_9 = 1;
+      t9 = L * (lambda_1 - lambda_3);
+      t10 = t2 ^ 2;
+      t12 = u_1 ^ 2;
+      t17 = 0.1e1 / m;
+      t19 = t4 ^ 2;
+      t21 = 0.1e1 / L;
+      jac_10_5 = t21 / t19 * t17 * (-3 * t2 * m * t12 + t10 * t9 - t9);
+      jac_10_6 = -2 * t7 / (t10 - 1) * t21 * u_1;
+      jac_10_10 = t2 * t7 * t17;
+      jac_10_11 = t17;
+      jac_10_12 = -jac_10_10;
+      jac_11_10 = -2 * jac_10_11;
+      jac_11_12 = 3 * jac_10_11;
+      jac_12_13 = jac_10_11;
+
+
+      % store on output
+      jac_hx = zeros(12,13);
+      jac_hx(1,1) = jac_1_1;
+      jac_hx(1,5) = jac_1_5;
+      jac_hx(2,2) = jac_2_2;
+      jac_hx(2,5) = jac_2_5;
+      jac_hx(3,1) = jac_3_1;
+      jac_hx(3,3) = jac_3_3;
+      jac_hx(3,5) = jac_3_5;
+      jac_hx(4,4) = jac_4_4;
+      jac_hx(6,5) = jac_6_5;
+      jac_hx(6,6) = jac_6_6;
+      jac_hx(6,7) = jac_6_7;
+      jac_hx(7,6) = jac_7_6;
+      jac_hx(7,8) = jac_7_8;
+      jac_hx(8,9) = jac_8_9;
+      jac_hx(10,5) = jac_10_5;
+      jac_hx(10,6) = jac_10_6;
+      jac_hx(10,10) = jac_10_10;
+      jac_hx(10,11) = jac_10_11;
+      jac_hx(10,12) = jac_10_12;
+      jac_hx(11,10) = jac_11_10;
+      jac_hx(11,12) = jac_11_12;
+      jac_hx(12,13) = jac_12_13;
+    end
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    function plot( self, t, Z )
+      CrankRod4EQPlot( t, Z(1), Z(2), Z(3), Z(4), self.L1, self.L2 );
     end
   end
 end
