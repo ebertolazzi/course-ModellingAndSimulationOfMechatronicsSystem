@@ -73,24 +73,42 @@ classdef Pendulum5EQ < DAC_ODEclass
       lambda = vars__(5);
 
       % evaluate function
-      res__1_1 = u;
-      res__2_1 = v;
+      res__1_3 = 1;
+      res__2_4 = 1;
       t1 = 0.1e1 / m;
-      res__3_1 = -lambda * t1 * x;
-      res__4_1 = t1 * (-m * g - y * lambda);
-      t17 = x ^ 2;
-      t18 = y ^ 2;
-      res__5_1 = 0.1e1 / (t17 + t18) * (-3 * v * g * m - 4 * lambda * u * x - 4 * lambda * v * y);
+      res__3_1 = -lambda * t1;
+      res__3_5 = -t1 * x;
+      res__4_2 = res__3_1;
+      res__4_5 = -t1 * y;
+      t5 = v * g;
+      t9 = x ^ 2;
+      t13 = y ^ 2;
+      t17 = v * lambda;
+      t22 = t9 + t13;
+      t23 = t22 ^ 2;
+      t24 = 0.1e1 / t23;
+      res__5_1 = t24 * (-4 * u * t13 * lambda + 4 * u * t9 * lambda + 6 * m * x * t5 + 8 * x * y * t17);
+      res__5_2 = t24 * (8 * lambda * x * y * u + 6 * m * y * t5 + 4 * t13 * t17 - 4 * t9 * t17);
+      t37 = 0.1e1 / t22;
+      res__5_3 = -4 * lambda * t37 * x;
+      res__5_4 = t37 * (-3 * m * g - 4 * y * lambda);
+      res__5_5 = t37 * (-4 * x * u - 4 * y * v);
       
       % store on output
-      res__DfDx = zeros(5,1);
-      res__DfDx(1,1) = res__1_1;
-      res__DfDx(2,1) = res__2_1;
+      res__DfDx = zeros(5,5);
+      res__DfDx(1,3) = res__1_3;
+      res__DfDx(2,4) = res__2_4;
       res__DfDx(3,1) = res__3_1;
-      res__DfDx(4,1) = res__4_1;
+      res__DfDx(3,5) = res__3_5;
+      res__DfDx(4,2) = res__4_2;
+      res__DfDx(4,5) = res__4_5;
       res__DfDx(5,1) = res__5_1;
-
+      res__DfDx(5,2) = res__5_2;
+      res__DfDx(5,3) = res__5_3;
+      res__DfDx(5,4) = res__5_4;
+      res__DfDx(5,5) = res__5_5;
     end
+
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function res__h = h( self, t, vars__ )
       m   = self.mass;
@@ -190,7 +208,7 @@ classdef Pendulum5EQ < DAC_ODEclass
       drawCOG( 0.1*self.ell, x0, y0 );
       fillCircle( 'r', x, y, 0.1*self.ell );
       axis([-L L -L L]);
-      title(sprintf('time=%g',t));
+      title(sprintf('time=%5.2f',t));
       axis equal;
     end
   end

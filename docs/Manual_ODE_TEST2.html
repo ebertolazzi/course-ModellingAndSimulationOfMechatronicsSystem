@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ODE solve example 2 &#8212; ODE/DAE v0.2-4-g5e75e86
+    <title>ODE solve example 2 &#8212; ODE/DAE v0.2-5-g30b6d35
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -79,6 +79,7 @@
   <div class="section" id="ode-solve-example-2">
 <h1>ODE solve example 2<a class="headerlink" href="#ode-solve-example-2" title="Permalink to this headline">¶</a>
 </h1>
+<a class="reference internal image-reference" href="_images/simple-pendulum.svg"><img alt="_images/simple-pendulum.svg" class="align-center" src="_images/simple-pendulum.svg" width="25%"></a>
 <div class="section" id="load-ode">
 <h2>Load ODE<a class="headerlink" href="#load-ode" title="Permalink to this headline">¶</a>
 </h2>
@@ -91,98 +92,608 @@
    v' = -\lambda y - g&amp; \\
    \lambda' = -\displaystyle\frac{4\lambda(xu+yv)+3vg}{x^2+y^2}; &amp;
 \end{cases}\end{split}\]</div>
+</div>
+<div class="section" id="maple">
+<h2>MAPLE<a class="headerlink" href="#maple" title="Permalink to this headline">¶</a>
+</h2>
+<p>Load maple toolbox</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">read</span><span class="p">(</span><span class="s">"{PATH}/DAE-toolbox.maplet"</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Define ODE and constranints</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">EQ1</span> <span class="o">:=</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nv">t</span><span class="p">)</span><span class="o">=</span><span class="nf">u</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="nv">EQ2</span> <span class="o">:=</span> <span class="nf">diff</span><span class="p">(</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nv">t</span><span class="p">)</span><span class="o">=</span><span class="nf">v</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="nv">EQ3</span> <span class="o">:=</span> <span class="nv">m</span><span class="o">*</span><span class="nf">diff</span><span class="p">(</span><span class="nf">u</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nv">t</span><span class="p">)</span><span class="o">+</span><span class="nf">lambda</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">*</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">=</span><span class="m">0</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="nv">EQ4</span> <span class="o">:=</span> <span class="nv">m</span><span class="o">*</span><span class="nf">diff</span><span class="p">(</span><span class="nf">v</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nv">t</span><span class="p">)</span><span class="o">+</span><span class="nf">lambda</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">*</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">=-</span><span class="nv">m</span><span class="o">*</span><span class="nv">g</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="nv">ALG</span> <span class="o">:=</span> <span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="o">+</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">^</span><span class="m">2</span><span class="o">=</span><span class="nv">ell</span><span class="o">^</span><span class="m">2</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Define variables (and differential of its)</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">VARS</span>  <span class="o">:=</span> <span class="p">[</span><span class="nf">x</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nf">y</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nf">u</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nf">v</span><span class="p">(</span><span class="nv">t</span><span class="p">)</span><span class="o">,</span><span class="nf">lambda</span><span class="p">(</span><span class="nv">t</span><span class="p">)]</span><span class="o">;</span>
+<span class="o">&gt;</span> <span class="nv">DVARS</span> <span class="o">:=</span> <span class="nf">map</span><span class="p">(</span><span class="nv">diff</span><span class="o">,</span><span class="nv">VARS</span><span class="o">,</span><span class="nv">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use toolbox to separate differential and algebraic
+part and build the matrix <code class="docutils literal notranslate"><span class="pre">E</span></code> for differetial part of the DAE.</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">E1</span><span class="o">,</span> <span class="nv">G1</span><span class="o">,</span> <span class="nv">A1</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">DAE_separate_algebraic_bis</span><span class="p">(</span> <span class="p">[</span><span class="nv">EQ</span><span class="o">||</span><span class="p">(</span><span class="m">1.</span><span class="o">.</span><span class="m">4</span><span class="p">)</span><span class="o">,</span><span class="nv">ALG</span><span class="p">]</span><span class="o">,</span> <span class="nv">DVARS</span> <span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Reduce by 1 the index</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">E2</span><span class="o">,</span> <span class="nv">G2</span><span class="o">,</span> <span class="nv">A2</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">DAE_reduce_index_by_1</span><span class="p">(</span> <span class="nv">E1</span><span class="o">,</span> <span class="nv">G1</span><span class="o">,</span> <span class="nv">A1</span><span class="o">,</span> <span class="nv">DVARS</span> <span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Reduce (again) by 1 the index</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">E3</span><span class="o">,</span> <span class="nv">G3</span><span class="o">,</span> <span class="nv">A3</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">DAE_reduce_index_by_1</span><span class="p">(</span> <span class="nv">E2</span><span class="o">,</span> <span class="nv">G2</span><span class="o">,</span> <span class="nv">A2</span><span class="o">,</span> <span class="nv">DVARS</span> <span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Reduce (one more) by 1 the index</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">E4</span><span class="o">,</span> <span class="nv">G4</span><span class="o">,</span> <span class="nv">A4</span><span class="o">,</span> <span class="nv">r</span> <span class="o">:=</span> <span class="nf">DAE_reduce_index_by_1</span><span class="p">(</span> <span class="nv">E3</span><span class="o">,</span> <span class="nv">G3</span><span class="o">,</span> <span class="nv">A3</span><span class="o">,</span> <span class="nv">DVARS</span> <span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Now is an ODE, 3 index reduction appllyied,
+original DAE of index 3.</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">RHS</span> <span class="o">:=</span> <span class="nf">collect</span><span class="p">(</span><span class="nf">simplify</span><span class="p">(</span><span class="nf">LinearSolve</span><span class="p">(</span> <span class="nv">E4</span><span class="o">,</span> <span class="nv">G4</span> <span class="p">))</span><span class="o">,</span><span class="p">[</span><span class="nv">m</span><span class="o">,</span><span class="nv">lambda</span><span class="p">])</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Build Jacobian of RHS of ODE:</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">JODE</span> <span class="o">:=</span> <span class="nf">map</span><span class="p">(</span><span class="nv">simplify</span><span class="o">,</span><span class="nf">JACOBIAN</span><span class="p">(</span><span class="nv">RHS_ODE</span><span class="o">,</span><span class="nv">VARS</span><span class="p">))</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>Build the map with the hidden constraints and its Jacobian:</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">A</span> <span class="o">:=</span> <span class="o">&lt;</span><span class="nv">A1</span><span class="o">,</span><span class="nv">A2</span><span class="o">,</span><span class="nv">A3</span><span class="o">&gt;;</span>
+<span class="o">&gt;</span> <span class="nv">JA</span> <span class="o">:=</span> <span class="nf">map</span><span class="p">(</span><span class="nv">simplify</span><span class="o">,</span><span class="nf">JACOBIAN</span><span class="p">(</span><span class="nv">A</span><span class="o">,</span><span class="nv">VARS</span><span class="p">))</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="matlab-class-definition">
+<h2>MATLAB Class definition<a class="headerlink" href="#matlab-class-definition" title="Permalink to this headline">¶</a>
+</h2>
 <p>Define the class for the ODE to be integrated.
 In this case the class <code class="docutils literal notranslate"><span class="pre">Pendulum5EQ</span></code> derived from
 the base class <code class="docutils literal notranslate"><span class="pre">DAC_ODEclass</span></code>.
 The following is the contents of the file <cite>Pendulum5EQ.m</cite></p>
-<div class="highlight-matlab notranslate">
+<div class="highlight-matlab notranslate"><table class="highlighttable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span></pre></div></td>
+<td class="code">
 <div class="highlight"><pre><span></span><span class="k">classdef</span><span class="w"> </span><span class="n">Pendulum5EQ</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DAC_ODEclass</span><span class="w"></span>
 <span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">mass</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Pendulum5EQ</span><span class="p">(</span> ell, gravity <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">DAC_ODEclass</span><span class="p">(</span><span class="s">'Pendulum5E'</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Pendulum5EQ</span><span class="p">(</span> mass, ell, gravity <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% call the constructor of the basic class</span><span class="w"></span>
+<span class="w">      </span><span class="n">neq</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">ninv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">DAC_ODEclass</span><span class="p">(</span><span class="s">'Pendulum5EQ'</span><span class="p">,</span><span class="n">neq</span><span class="p">,</span><span class="n">ninv</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="c">% setup of the parmater of the ODE</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">mass</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">mass</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>ode<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">x</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">y</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">u</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">v</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">g</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">ell</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">ode</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">lambda</span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">lambda</span><span class="o">*</span><span class="n">y</span><span class="o">-</span><span class="n">g</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">u</span><span class="o">+</span><span class="n">y</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">v</span><span class="o">*</span><span class="n">g</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span>^<span class="mi">2</span><span class="o">+</span><span class="n">y</span>^<span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>res__f<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% ....</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span>jac<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DfDx</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">x</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">y</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">u</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">v</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">g</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">ell</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">lambda</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">lambda</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">      </span><span class="n">tmp</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">tmp2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">tmp</span>^<span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">tmp3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tmp2</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">tmp4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">xy</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">xy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tmp4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tmp2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmp3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">lambda</span><span class="o">*</span><span class="p">(</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">xy</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tmp4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tmp2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tmp3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="o">+</span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>res__DfDx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DfDx</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% ....</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
-<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">tt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">30</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">xx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">tt</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">yy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">tt</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="nb">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'red'</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">x</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">y</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">LL</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">/</span><span class="nb">hypot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">x0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">LL</span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">y0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">LL</span><span class="o">*</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">L</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.5</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">drawLine</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'k'</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">drawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'k'</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">drawAxes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">drawLine</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'b'</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">drawCOG</span><span class="p">(</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="n">fillCircle</span><span class="p">(</span><span class="w"> </span><span class="s">'r'</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="nb">axis</span><span class="p">([</span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="n">L</span><span class="p">]);</span><span class="w"></span>
-<span class="w">      </span><span class="n">axis</span><span class="w"> </span><span class="s">equal</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>res__h<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% ....</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span>res__DhDx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DhDx</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% ....</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">% ....</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="k">end</span><span class="w"></span>
 </pre></div>
+</td>
+</tr></table></div>
+<p>To define the methods you need the MAPLE
+substitution (make a function <code class="docutils literal notranslate"><span class="pre">fun(x)</span></code> as the symbol <code class="docutils literal notranslate"><span class="pre">fun</span></code>)</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nv">REMOVE_T</span> <span class="o">:=</span> <span class="nf">map</span><span class="p">(</span><span class="nv">x</span><span class="o">-&gt;</span><span class="nv">x</span><span class="o">=</span><span class="nf">op</span><span class="p">(</span><span class="m">0</span><span class="o">,</span><span class="nv">x</span><span class="p">)</span><span class="o">,</span><span class="nv">VARS</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<div class="section" id="method-f-t-x">
+<h3>Method f(t,x)<a class="headerlink" href="#method-f-t-x" title="Permalink to this headline">¶</a>
+</h3>
+<p>Implementation of RHS of ODE.
+Use maple command</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">F_TO_MATLAB</span><span class="p">(</span> <span class="o">&lt;</span><span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">RHS</span><span class="p">)</span><span class="o">&gt;,</span> <span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">VARS</span><span class="p">)</span><span class="o">,</span> <span class="s">"f"</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>The lines 3-12 which remap model parameters
+are not automatically generated.</p>
+<div class="highlight-matlab notranslate"><table class="highlighttable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td>
+<td class="code">
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>res__f<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">m</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">mass</span><span class="p">;</span><span class="w"></span>
+<span class="hll"><span class="w">  </span><span class="n">ell</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">g</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="hll"><span class="w">  </span><span class="c">% extract states</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">x</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">y</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">u</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">v</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+</span><span class="hll">
+</span><span class="w">  </span><span class="c">% evaluate function</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1e1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">t17</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t18</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1e1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">t17</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t18</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">% store on output</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__f</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__f</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__f</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__4</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__f</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__5</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</td>
+</tr></table></div>
+</div>
+<div class="section" id="method-dfdx-t-x">
+<h3>Method DfDx(t,x)<a class="headerlink" href="#method-dfdx-t-x" title="Permalink to this headline">¶</a>
+</h3>
+<p>Implementation of Jacobians of RHS of ODE.
+Use maple command</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">JF_TO_MATLAB</span><span class="p">(</span> <span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">JODE</span><span class="p">)</span><span class="o">,</span> <span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">VARS</span><span class="p">)</span><span class="o">,</span> <span class="s">"DfDx"</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>The lines 3-12 which remap model parameters
+are not automatically generated.</p>
+<div class="highlight-matlab notranslate"><table class="highlighttable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span></pre></div></td>
+<td class="code">
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>res__DfDx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DfDx</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="hll"><span class="w">  </span><span class="n">m</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">mass</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">ell</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">g</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+</span>
+<span class="w">  </span><span class="c">% extract states</span><span class="w"></span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">% evaluate function</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__1_3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__2_4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1e1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3_5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">t1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__4_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__4_5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">t1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t9</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t13</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t17</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t22</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t13</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t23</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t22</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t24</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1e1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">t23</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__5_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t13</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t9</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t17</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__5_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t13</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t17</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t9</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t17</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">t37</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1e1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">t22</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__5_3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t37</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__5_4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t37</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__5_5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t37</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">% store on output</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__1_3</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__2_4</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_5</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__4_2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__4_5</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__5_1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__5_2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__5_3</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__5_4</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DfDx</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__5_5</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</td>
+</tr></table></div>
+</div>
+<div class="section" id="method-h-t-x">
+<h3>Method h(t,x)<a class="headerlink" href="#method-h-t-x" title="Permalink to this headline">¶</a>
+</h3>
+<p>Implementation of hidden constraints:
+Use maple command</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">F_TO_MATLAB</span><span class="p">(</span> <span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">A</span><span class="p">)</span><span class="o">,</span> <span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">VARS</span><span class="p">)</span><span class="o">,</span> <span class="s">"h"</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>The lines 3-12 which remap model parameters
+are not automatically generated.</p>
+<div class="highlight-matlab notranslate"><table class="highlighttable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td>
+<td class="code">
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>res__h<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="hll"><span class="w">  </span><span class="n">m</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">mass</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">ell</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">g</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+</span>
+<span class="w">  </span><span class="c">% extract states</span><span class="w"></span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">% evaluate function</span><span class="w"></span>
+<span class="w">  </span><span class="n">t1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t3</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t8</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">u</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t9</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1e1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t8</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t9</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">t2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">% store on output</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__h</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__h</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__h</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</td>
+</tr></table></div>
+</div>
+<div class="section" id="method-dhdx-t-x">
+<h3>Method DhDx(t,x)<a class="headerlink" href="#method-dhdx-t-x" title="Permalink to this headline">¶</a>
+</h3>
+<p>Implementation of jacobian of hidden constraints:
+Use maple command</p>
+<div class="highlight-maple notranslate">
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="nf">JF_TO_MATLAB</span><span class="p">(</span> <span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">JA</span><span class="p">)</span><span class="o">,</span> <span class="nf">subs</span><span class="p">(</span><span class="nv">REMOVE_T</span><span class="o">,</span><span class="nv">VARS</span><span class="p">)</span><span class="o">,</span> <span class="s">"DhDx"</span><span class="p">)</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>The lines 3-12 which remap model parameters
+are not automatically generated.</p>
+<div class="highlight-matlab notranslate"><table class="highlighttable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td>
+<td class="code">
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>res__DhDx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DhDx</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="hll"><span class="w">  </span><span class="n">m</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">mass</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">ell</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+</span><span class="hll"><span class="w">  </span><span class="n">g</span><span class="w">   </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
+</span>
+<span class="w">  </span><span class="c">% extract states</span><span class="w"></span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">lambda</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">% evaluate function</span><span class="w"></span>
+<span class="w">  </span><span class="n">t1</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__1_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t2</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__1_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__2_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__2_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__2_3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__2_4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t3</span><span class="w">       </span><span class="p">=</span><span class="w"> </span><span class="mf">0.1e1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3_1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3_2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">lambda</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3_3</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">u</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3_4</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">v</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t13</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">t14</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span>^<span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__3_5</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t13</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t14</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="c">% store on output</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__1_1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__1_2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__2_1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__2_2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__2_3</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__2_4</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_1</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_2</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_3</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_4</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">res__DhDx</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">res__3_5</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</td>
+</tr></table></div>
+</div>
+<div class="section" id="method-plot-t-x">
+<h3>Method plot(t,x)<a class="headerlink" href="#method-plot-t-x" title="Permalink to this headline">¶</a>
+</h3>
+<p>Plotting the pendulum:</p>
+<div class="highlight-matlab notranslate"><table class="highlighttable"><tr>
+<td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td>
+<td class="code">
+<div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, t, vars__ <span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="c">% extract states</span><span class="w"></span>
+<span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">u</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">v</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">vars__</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">tt</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">30</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">xx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">tt</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">yy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">tt</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">hold</span><span class="w"> </span><span class="s">off</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nb">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'red'</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">LL</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="o">/</span><span class="nb">hypot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">x0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">LL</span><span class="o">*</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">y0</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">LL</span><span class="o">*</span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">L</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mf">1.5</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">drawLine</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'k'</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">drawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">L</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'k'</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">drawAxes</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">drawLine</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">y0</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">'LineWidth'</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="s">'Color'</span><span class="p">,</span><span class="s">'b'</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">drawCOG</span><span class="p">(</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">,</span><span class="w"> </span><span class="n">x0</span><span class="p">,</span><span class="w"> </span><span class="n">y0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">fillCircle</span><span class="p">(</span><span class="w"> </span><span class="s">'r'</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*</span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nb">axis</span><span class="p">([</span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="n">L</span><span class="w"> </span><span class="o">-</span><span class="n">L</span><span class="w"> </span><span class="n">L</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="nb">title</span><span class="p">(</span><span class="nb">sprintf</span><span class="p">(</span><span class="s">'time=%g'</span><span class="p">,</span><span class="n">t</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="n">axis</span><span class="w"> </span><span class="s">equal</span><span class="p">;</span><span class="w"></span>
+<span class="k">end</span><span class="w"></span>
+</pre></div>
+</td>
+</tr></table></div>
 </div>
 </div>
-<div class="section" id="instantiate-the-ode">
-<h2>Instantiate the ODE<a class="headerlink" href="#instantiate-the-ode" title="Permalink to this headline">¶</a>
+<div class="section" id="matlab-usage-in-script">
+<h2>MATLAB usage in script<a class="headerlink" href="#matlab-usage-in-script" title="Permalink to this headline">¶</a>
 </h2>
+<div class="section" id="instantiate-the-ode">
+<h3>Instantiate the ODE<a class="headerlink" href="#instantiate-the-ode" title="Permalink to this headline">¶</a>
+</h3>
 <p>Having <cite>Pendulum5EQ.m</cite> now can instantiate the ODE</p>
 <div class="highlight-matlab notranslate">
 <div class="highlight"><pre><span></span><span class="c">% load the Pendulum model in the variable ode</span><span class="w"></span>
@@ -193,8 +704,8 @@ The following is the contents of the file <cite>Pendulum5EQ.m</cite></p>
 </div>
 </div>
 <div class="section" id="choose-solver">
-<h2>Choose solver<a class="headerlink" href="#choose-solver" title="Permalink to this headline">¶</a>
-</h2>
+<h3>Choose solver<a class="headerlink" href="#choose-solver" title="Permalink to this headline">¶</a>
+</h3>
 <p>Choose <cite>ExplicitEuler</cite> as solver and attach the
 instantiated ode to it.</p>
 <div class="highlight-matlab notranslate">
@@ -204,8 +715,8 @@ instantiated ode to it.</p>
 </div>
 </div>
 <div class="section" id="integrate">
-<h2>Integrate<a class="headerlink" href="#integrate" title="Permalink to this headline">¶</a>
-</h2>
+<h3>Integrate<a class="headerlink" href="#integrate" title="Permalink to this headline">¶</a>
+</h3>
 <p>Select the range and the sam pling point for the numerical solution</p>
 <div class="highlight-matlab notranslate">
 <div class="highlight"><pre><span></span><span class="n">Tmax</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
@@ -241,8 +752,8 @@ The first column contain (theta) the second column
 contains  (omega).</p>
 </div>
 <div class="section" id="extract-solution">
-<h2>Extract solution<a class="headerlink" href="#extract-solution" title="Permalink to this headline">¶</a>
-</h2>
+<h3>Extract solution<a class="headerlink" href="#extract-solution" title="Permalink to this headline">¶</a>
+</h3>
 <div class="highlight-matlab notranslate">
 <div class="highlight"><pre><span></span><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="mi">1</span><span class="p">,:);</span><span class="w"></span>
 <span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="mi">2</span><span class="p">,:);</span><span class="w"></span>
@@ -250,8 +761,8 @@ contains  (omega).</p>
 </div>
 </div>
 <div class="section" id="plot-the-solution">
-<h2>Plot the solution<a class="headerlink" href="#plot-the-solution" title="Permalink to this headline">¶</a>
-</h2>
+<h3>Plot the solution<a class="headerlink" href="#plot-the-solution" title="Permalink to this headline">¶</a>
+</h3>
 <div class="highlight-matlab notranslate">
 <div class="highlight"><pre><span></span><span class="c">% sample a circle and plot (the constraint)</span><span class="w"></span>
 <span class="n">xx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">100</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">);</span><span class="w"></span>
@@ -269,6 +780,7 @@ contains  (omega).</p>
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/Manual_ODE_TEST2_mov1.mp4"><img alt="_images/Manual_ODE_TEST2_mov1.mp4" class="align-center" src="_images/Manual_ODE_TEST2_mov1.mp4" style="width: 90%;"></a>
+</div>
 </div>
 </div>
 

@@ -747,6 +747,7 @@ table.highlighttable td.code {
 
 .highlight .hll {
     display: block;
+    background-color: #FFF0AB;
 }
 
 div.highlight pre,

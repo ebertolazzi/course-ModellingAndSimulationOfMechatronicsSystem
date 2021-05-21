@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ODE solve example 1 &#8212; ODE/DAE v0.2-4-g5e75e86
+    <title>ODE solve example 1 &#8212; ODE/DAE v0.2-5-g30b6d35
 </title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
@@ -79,6 +79,7 @@
   <div class="section" id="ode-solve-example-1">
 <h1>ODE solve example 1<a class="headerlink" href="#ode-solve-example-1" title="Permalink to this headline">¶</a>
 </h1>
+<a class="reference internal image-reference" href="_images/simple-pendulum.svg"><img alt="_images/simple-pendulum.svg" class="align-center" src="_images/simple-pendulum.svg" width="25%"></a>
 <div class="section" id="load-ode">
 <h2>Load ODE<a class="headerlink" href="#load-ode" title="Permalink to this headline">¶</a>
 </h2>
@@ -95,30 +96,31 @@ The following is the contents of the file <cite>Pendulum2EQ.m</cite></p>
 <div class="highlight-matlab notranslate">
 <div class="highlight"><pre><span></span><span class="k">classdef</span><span class="w"> </span><span class="n">Pendulum2EQ</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DAC_ODEclass</span><span class="w"></span>
 <span class="w">  </span><span class="k">properties</span><span class="w"> </span><span class="p">(</span><span class="nb">SetAccess</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">protected</span><span class="p">,</span><span class="w"> </span><span class="nb">Hidden</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; ray of the circle (constraint)</span><span class="w"></span>
 <span class="w">    </span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c">%&gt; gravity constant</span><span class="w"></span>
 <span class="w">    </span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="w"></span>
 <span class="w">  </span><span class="k">methods</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>self<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Pendulum2EQ</span><span class="p">(</span> ell, gravity <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">ODEbaseClass</span><span class="p">(</span><span class="s">'Pendulum2EQ'</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">neq</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">ninv</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">self</span><span class="p">@</span><span class="n">DAC_ODEclass</span><span class="p">(</span><span class="s">'Pendulum2EQ'</span><span class="p">,</span><span class="n">neq</span><span class="p">,</span><span class="n">ninv</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="w">     </span><span class="p">=</span><span class="w"> </span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>ode<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% extract components</span><span class="w"></span>
 <span class="w">      </span><span class="n">theta</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">omega</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="c">% get parameters of the ODE</span><span class="w"></span>
 <span class="w">      </span><span class="n">g</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">ell</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">ell</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">ode</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="c">% build rhs</span><span class="w"></span>
 <span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">omega</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">ode</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">ell</span><span class="p">)</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span>jac<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">DfDx</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">% evaluate Jacobian of rhs.</span><span class="w"></span>
-<span class="w">      </span><span class="c">% Necessary only for implicit solver</span><span class="w"></span>
 <span class="w">      </span><span class="n">theta</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">omega</span><span class="w">    </span><span class="p">=</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">g</span><span class="w">        </span><span class="p">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">gravity</span><span class="p">;</span><span class="w"></span>
@@ -126,6 +128,12 @@ The following is the contents of the file <cite>Pendulum2EQ.m</cite></p>
 <span class="w">      </span><span class="n">jac</span><span class="w">      </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">jac</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="p">(</span><span class="n">g</span><span class="o">/</span><span class="n">ell</span><span class="p">)</span><span class="o">*</span><span class="nb">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">h</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="w"></span>
+<span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
+<span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">DhDx</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="k">end</span><span class="w"></span>
 <span class="w">    </span><span class="c">% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</span><span class="w"></span>
 <span class="w">    </span><span class="k">function</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span> self, t, Z <span class="p">)</span><span class="w"></span>

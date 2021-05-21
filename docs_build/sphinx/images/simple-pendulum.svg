@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" viewBox="179 247 423 432" width="423" height="432">
+  <defs>
+    <filter id="Shadow" filterUnits="userSpaceOnUse" x="136.7" y="203.8">
+      <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="1.308"/>
+      <feOffset in="blur" result="offset" dx="0" dy="2"/>
+      <feFlood flood-color="black" flood-opacity=".5" result="flood"/>
+      <feComposite in="flood" in2="offset" operator="in" result="color"/>
+      <feMerge>
+        <feMergeNode in="color"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2021-05-21 21:02:04 +0000</metadata>
+  <g id="Canvas_1" stroke="none" stroke-opacity="1" fill-opacity="1" fill="none" stroke-dasharray="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="179" y="247" width="423" height="432"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_12" filter="url(#Shadow)">
+        <path d="M 535.73706 312.1542 C 616.0878 394.3595 616.0878 527.6405 535.73706 609.8458 C 455.38675 692.0515 325.11325 692.0515 244.76294 609.8458 C 164.41222 527.6405 164.41222 394.3595 244.76294 312.1542 C 325.11325 229.94846 455.38675 229.94846 535.73706 312.1542" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+      </g>
+      <g id="Graphic_8" filter="url(#Shadow)">
+        <ellipse cx="284.75" cy="643.5" rx="28.2500451407286" ry="28.0000447412531" fill="#ff7e79"/>
+        <ellipse cx="284.75" cy="643.5" rx="28.2500451407286" ry="28.0000447412531" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_10">
+        <line x1="383.36676" y1="472.907" x2="298.79784" y2="619.1992" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+      </g>
+      <g id="Graphic_11" filter="url(#Shadow)">
+        <circle cx="390.25" cy="461" r="13.7500219711511" fill="black"/>
+        <circle cx="390.25" cy="461" r="13.7500219711511" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_13" filter="url(#Shadow)">
+        <ellipse cx="562.75" cy="574" rx="28.2500451407285" ry="28.000044741253" fill="#ff7e79" fill-opacity=".20250995"/>
+      </g>
+      <g id="Line_14">
+        <line x1="391.25" y1="462" x2="539.1556" y2="558.5914" stroke="black" stroke-opacity=".09613113" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+      </g>
+      <g id="Graphic_15" filter="url(#Shadow)">
+        <ellipse cx="503.75" cy="636.5" rx="28.2500451407286" ry="28.0000447412531" fill="#ff7e79" fill-opacity=".20250995"/>
+      </g>
+      <g id="Line_16">
+        <line x1="392.25" y1="463" x2="488.56985" y2="612.8789" stroke="black" stroke-opacity=".09613113" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/>
+      </g>
+    </g>
+  </g>
+</svg>

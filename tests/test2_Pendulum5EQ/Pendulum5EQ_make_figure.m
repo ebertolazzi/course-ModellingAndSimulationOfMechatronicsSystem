@@ -1,8 +1,9 @@
 % load the Pendulum model in the variable ode
 close all;
+mass    = 1;
 ell     = 2;
 gravity = 9.81;
-ode     = Pendulum5EQ( ell, gravity );
+ode     = Pendulum5EQ( mass, ell, gravity );
 solver  = ExplicitEuler(); % initialize solver
 solver.setODE(ode);        % Attach ode to the solver
 
@@ -31,9 +32,9 @@ hold on
 axis equal
 plot( x, y, '-o', 'MarkerSize', 6, 'Linewidth', 2, 'Color', 'blue' );
 title('x,y');
-save_png('./images/Manual_ODE_TEST2_fig1');
+save_png('./Manual_ODE_TEST2_fig1');
 
 close all;
 hold off
 %ode.animate_plot( tt, sol, 10, 1 );
-ode.make_movie( './images/Manual_ODE_TEST2_mov1.mp4', tt, sol, 1 );
+ode.make_movie( './Manual_ODE_TEST2_mov1.mp4', tt, sol, 1 );

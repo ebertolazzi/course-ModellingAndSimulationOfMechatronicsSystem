@@ -1,6 +1,10 @@
 ODE solve example 1
 ===================
 
+.. image:: images/simple-pendulum.svg
+    :align: center
+    :width: 25%
+
 Load ODE
 --------
 
@@ -18,68 +22,76 @@ In this case the class ``Pendulum2EQ`` derived from
 the base class ``DAC_ODEclass``.
 The following is the contents of the file `Pendulum2EQ.m`
 
-.. code:: matlab
+.. code-block:: matlab
 
-  classdef Pendulum2EQ < DAC_ODEclass
-    properties (SetAccess = protected, Hidden = true)
-      ell;
-      gravity;
+    classdef Pendulum2EQ < DAC_ODEclass
+      properties (SetAccess = protected, Hidden = true)
+        %> ray of the circle (constraint)
+        ell;
+        %> gravity constant
+        gravity;
+      end
+      methods
+        function self = Pendulum2EQ( ell, gravity )
+          neq  = 2;
+          ninv = 0;
+          self@DAC_ODEclass('Pendulum2EQ',neq,ninv);
+          self.ell     = ell;
+          self.gravity = gravity;
+        end
+        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        function ode = f( self, t, Z )
+          theta  = Z(1);
+          omega  = Z(2);
+          g      = self.gravity;
+          ell    = self.ell;
+          ode    = zeros(2,1);
+          ode(1) = omega;
+          ode(2) = -(g/ell)*sin(theta);
+        end
+        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        function jac = DfDx( self, t, Z )
+          theta    = Z(1);
+          omega    = Z(2);
+          g        = self.gravity;
+          ell      = self.ell;
+          jac      = zeros(2,2);
+          jac(1,2) = 1;
+          jac(2,1) = -(g/ell)*cos(theta);
+        end
+        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        function h( self, t, Z )
+        end
+        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        function DhDx( self, t, Z )
+        end
+        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        function plot( self, t, Z )
+          theta = Z(1);
+          omega = Z(2);
+          x  = self.ell*sin(theta);
+          y  = -self.ell*cos(theta);
+          x0 = 0;
+          y0 = 0;
+          tt = 0:pi/30:2*pi;
+          xx = self.ell*cos(tt);
+          yy = self.ell*sin(tt);
+          hold off;
+          plot(xx,yy,'LineWidth',2,'Color','red');
+          hold on;
+          L = 1.5*self.ell;
+          drawLine(-L,0,L,0,'LineWidth',2,'Color','k');
+          drawLine(0,-L,0,L,'LineWidth',2,'Color','k');
+          drawAxes(2,0.25,1,0,0);
+          drawLine(x0,y0,x,y,'LineWidth',8,'Color','b');
+          drawCOG( 0.1*self.ell, x0, y0 );
+          fillCircle( 'r', x, y, 0.1*self.ell );
+          axis([-L L -L L]);
+          axis equal;
+        end
+      end
     end
-    methods
-      function self = Pendulum2EQ( ell, gravity )
-        self@ODEbaseClass('Pendulum2EQ');
-        self.ell     = ell;
-        self.gravity = gravity;
-      end
-      function ode = f( self, t, Z )
-        % extract components
-        theta  = Z(1);
-        omega  = Z(2);
-        % get parameters of the ODE
-        g      = self.gravity;
-        ell    = self.ell;
-        ode    = zeros(2,1);
-        % build rhs
-        ode(1) = omega;
-        ode(2) = -(g/ell)*sin(theta);
-      end
-      function jac = DfDx( self, t, Z )
-        % evaluate Jacobian of rhs.
-        % Necessary only for implicit solver
-        theta    = Z(1);
-        omega    = Z(2);
-        g        = self.gravity;
-        ell      = self.ell;
-        jac      = zeros(2,2);
-        jac(1,2) = 1;
-        jac(2,1) = -(g/ell)*cos(theta);
-      end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      function plot( self, t, Z )
-        theta = Z(1);
-        omega = Z(2);
-        x  = self.ell*sin(theta);
-        y  = -self.ell*cos(theta);
-        x0 = 0;
-        y0 = 0;
-        tt = 0:pi/30:2*pi;
-        xx = self.ell*cos(tt);
-        yy = self.ell*sin(tt);
-        hold off;
-        plot(xx,yy,'LineWidth',2,'Color','red');
-        hold on;
-        L = 1.5*self.ell;
-        drawLine(-L,0,L,0,'LineWidth',2,'Color','k');
-        drawLine(0,-L,0,L,'LineWidth',2,'Color','k');
-        drawAxes(2,0.25,1,0,0);
-        drawLine(x0,y0,x,y,'LineWidth',8,'Color','b');
-        drawCOG( 0.1*self.ell, x0, y0 );
-        fillCircle( 'r', x, y, 0.1*self.ell );
-        axis([-L L -L L]);
-        axis equal;
-      end
-    end
-  end
+
 
 Instantiate the ODE
 -------------------
