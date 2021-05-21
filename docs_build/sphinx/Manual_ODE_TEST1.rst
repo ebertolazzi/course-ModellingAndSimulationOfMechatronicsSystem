@@ -14,7 +14,7 @@ Consider the ODE:
   \end{cases}
 
 Define the class for the ODE to be integrated.
-In this case the class ``Pendulum2EQ`` derived from 
+In this case the class ``Pendulum2EQ`` derived from
 the base class ``DAC_ODEclass``.
 The following is the contents of the file `Pendulum2EQ.m`
 
@@ -36,7 +36,7 @@ The following is the contents of the file `Pendulum2EQ.m`
         theta  = Z(1);
         omega  = Z(2);
         % get parameters of the ODE
-        g      = self.gravity; 
+        g      = self.gravity;
         ell    = self.ell;
         ode    = zeros(2,1);
         % build rhs
@@ -128,7 +128,7 @@ setup initial condition
 compute numerical solution
 
 .. code:: matlab
-  
+
   sol = solver.advance( tt, ini );
 
 now the matrix ``sol`` contain the solution.
@@ -150,7 +150,7 @@ Plot the solution
 
 .. code:: matlab
 
-  % sample a circle and plot (the constraint) 
+  % sample a circle and plot (the constraint)
   xx = ell*cos(0:pi/100:2*pi);
   yy = ell*sin(0:pi/100:2*pi);
   plot( xx, yy, '-r', 'Linewidth', 1 );
@@ -162,7 +162,7 @@ Plot the solution
 .. image:: ./images/Manual_ODE_TEST1_fig1.png
    :width: 90%
    :align: center
- 
+
 .. code:: matlab
 
   plot( tt, theta, '-o', 'MarkerSize', 6, 'Linewidth', 2 );

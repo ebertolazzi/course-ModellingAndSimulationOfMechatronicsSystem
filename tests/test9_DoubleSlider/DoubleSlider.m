@@ -49,17 +49,18 @@ classdef DoubleSlider < DAC_ODEclass
       res__4 = 2 * lambda__2 * t1;
       t3 = m * g;
       res__5 = t1 * (-t3 + 2 * lambda__1);
-      t6 = cos(theta);
+      t6 = sin(theta);
       t8 = omega ^ 2;
       t9 = t8 * m;
       t10 = t9 * t6 * L;
-      t16 = sin(theta);
+      t16 = cos(theta);
       t17 = 0.1e1 / t16;
-      res__6 = t1 * t17 / L * (-t10 + 2 * t3 - 4 * lambda__1);
-      t19 = t6 ^ 2;
-      res__7 = t17 * (3 * t9 * t19 * L - 6 * m * g * t6 - 4 * t16 * t19 * lambda__2 + 4 * t19 * t6 * lambda__1 + 4 * t16 * lambda__2 + 8 * t6 * lambda__1) * omega / 4;
-      res__8 = -(-4 * t16 * t6 * lambda__2 + 4 * t19 * lambda__1 + 3 * t10 - 6 * t3 + 12 * lambda__1) * omega / 4;
-      
+      res__6 = t1 * t17 / L * (t10 - 2 * t3 + 4 * lambda__1);
+      t19 = t16 ^ 2;
+      t26 = t6 * lambda__1;
+      res__7 = t17 * (-3 * t8 * m * L + 3 * t9 * t19 * L + 6 * m * g * t6 - 4 * t19 * t16 * lambda__2 + 4 * t19 * t26 - 12 * t26) * omega / 4;
+      res__8 = (-4 * t16 * t6 * lambda__2 - 4 * t19 * lambda__1 + 3 * t10 - 6 * t3 + 16 * lambda__1) * omega / 4;
+       
       % store on output
       res__f = zeros(8,1);
       res__f(1) = res__1;
@@ -96,17 +97,18 @@ classdef DoubleSlider < DAC_ODEclass
       res__4_1 = 2 * lambda__2 * t1;
       t3 = m * g;
       res__5_1 = t1 * (-t3 + 2 * lambda__1);
-      t6 = cos(theta);
+      t6 = sin(theta);
       t8 = omega ^ 2;
       t9 = t8 * m;
       t10 = t9 * t6 * L;
-      t16 = sin(theta);
+      t16 = cos(theta);
       t17 = 0.1e1 / t16;
-      res__6_1 = t1 * t17 / L * (-t10 + 2 * t3 - 4 * lambda__1);
-      t19 = t6 ^ 2;
-      res__7_1 = t17 * (3 * t9 * t19 * L - 6 * m * g * t6 - 4 * t16 * t19 * lambda__2 + 4 * t19 * t6 * lambda__1 + 4 * t16 * lambda__2 + 8 * t6 * lambda__1) * omega / 4;
-      res__8_1 = -(-4 * t16 * t6 * lambda__2 + 4 * t19 * lambda__1 + 3 * t10 - 6 * t3 + 12 * lambda__1) * omega / 4;
-      
+      res__6_1 = t1 * t17 / L * (t10 - 2 * t3 + 4 * lambda__1);
+      t19 = t16 ^ 2;
+      t26 = t6 * lambda__1;
+      res__7_1 = t17 * (-3 * t8 * m * L + 3 * t9 * t19 * L + 6 * m * g * t6 - 4 * t19 * t16 * lambda__2 + 4 * t19 * t26 - 12 * t26) * omega / 4;
+      res__8_1 = (-4 * t16 * t6 * lambda__2 - 4 * t19 * lambda__1 + 3 * t10 - 6 * t3 + 16 * lambda__1) * omega / 4;
+
       % store on output
       res__DfDx = zeros(8,1);
       res__DfDx(1,1) = res__1_1;
@@ -138,18 +140,18 @@ classdef DoubleSlider < DAC_ODEclass
       omega     = vars__(6);
       lambda__1 = vars__(7);
       lambda__2 = vars__(8);
-      
+
       % evaluate function
       t1 = cos(theta);
       t3 = sin(theta);
-      res__1 = (lambda__2 * t1 + lambda__1 * t3) * L;
-      res__2 = t1 * L - 2 * y;
-      res__3 = -t3 * L - 2 * x;
-      t11 = L * omega;
-      res__4 = t3 * t11 + 2 * v;
-      res__5 = t1 * t11 + 2 * u;
-      t21 = omega ^ 2;
-      res__6 = 0.1e1 / m / t3 * (t1 * (-2 * m * g + 4 * lambda__1) + t21 * m * L - 4 * t3 * lambda__2);
+      res__1 = -(lambda__1 * t1 + lambda__2 * t3) * L;
+      res__2 = t3 * L - 2 * y;
+      res__3 = -t1 * L - 2 * x;
+      t12 = L * omega;
+      res__4 = -t1 * t12 + 2 * v;
+      res__5 = -t3 * t12 + 2 * u;
+      t22 = omega ^ 2;
+      res__6 = 0.1e1 / m / t1 * (t3 * (-2 * m * g + 4 * lambda__1) + t22 * m * L - 4 * lambda__2 * t1);
       
       % store on output
       res__h    = zeros(6,1);
@@ -178,30 +180,32 @@ classdef DoubleSlider < DAC_ODEclass
       lambda__2 = vars__(8);
 
       % evaluate function
-      t1 = cos(theta);
-      t3 = sin(theta);
-      res__1_3 = (t1 * lambda__1 - t3 * lambda__2) * L;
-      res__1_7 = t3 * L;
-      res__1_8 = t1 * L;
+      t1 = sin(theta);
+      t3 = cos(theta);
+      res__1_3 = (lambda__1 * t1 - lambda__2 * t3) * L;
+      t6 = t3 * L;
+      res__1_7 = -t6;
+      t7 = t1 * L;
+      res__1_8 = -t7;
       res__2_2 = -2;
-      res__2_3 = -res__1_7;
+      res__2_3 = t6;
       res__3_1 = -2;
-      res__3_3 = -res__1_8;
-      t6 = L * omega;
-      res__4_3 = t1 * t6;
+      res__3_3 = t7;
+      t8 = L * omega;
+      res__4_3 = t1 * t8;
       res__4_5 = 2;
       res__4_6 = res__1_7;
-      res__5_3 = -t3 * t6;
+      res__5_3 = -t3 * t8;
       res__5_4 = 2;
       res__5_6 = res__1_8;
-      t8 = omega ^ 2;
-      t15 = t3 ^ 2;
-      t18 = 0.1e1 / m;
-      res__6_3 = t18 / t15 * (-t8 * m * res__5_6 + 2 * m * g - 4 * lambda__1);
-      t19 = 0.1e1 / t3;
-      res__6_6 = 2 * t19 * t6;
-      res__6_7 = 4 * t18 * t19 * t1;
-      res__6_8 = -4 * t18;
+      t10 = omega ^ 2;
+      t17 = t3 ^ 2;
+      t20 = 0.1e1 / m;
+      res__6_3 = t20 / t17 * (t10 * m * res__3_3 - 2 * m * g + 4 * lambda__1);
+      t21 = 0.1e1 / t3;
+      res__6_6 = 2 * t21 * t8;
+      res__6_7 = 4 * t20 * t21 * t1;
+      res__6_8 = -4 * t20;
       
       % store on output
       res__DhDx      = zeros(6,8);

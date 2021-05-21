@@ -7,6 +7,8 @@ function DoubleSliderPlot( t, x, y, theta, ell )
       xc2 = -axis_lim:0.05:axis_lim;
       yc2 = 0.0*(-axis_lim:0.05:axis_lim);
       plot( xc2, yc2, '-r', 'Linewidth', 1 );
+      hold on;
+      plot( yc2, xc2, '-r', 'Linewidth', 1 );
       axis equal;
       drawLine( x+ell/2*cos(theta), y+ell/2*sin(theta), ...
                 x-ell/2*cos(theta), y-ell/2*sin(theta), ...
