@@ -6,49 +6,86 @@
 
 \chapter{Ordinary Differential Equations}
 \label{ODEs}
-In mathematics, an \textit{ordinary differential equation} is a \textit{differential equation} containing one or more functions of one independent variable and its derivatives. The term \textit{ordinary} is used in contrast with the term \textit{partial} so to specify that the differential equations has only \textit{one} independent variable. This mathematical tool is widely used to describe dynamical systems (physical, social, economical, biological and so on and so forth). The first mathematicians to study and apply ordinary differential equations include important names like Newton, Euler, Leibniz, the Bernoulli family, Riccati, Clairaut and d'Alembert. An example of this kind of equations is probably one of the most known formulas in the world, that is trivially the Newton's second law of motion:
+In mathematics, an \textit{ordinary differential equation} is a 
+\textit{differential equation} containing one or more functions of one independent 
+variable and its derivatives.
+The term \textit{ordinary} is used in contrast with the term \textit{partial}
+so to specify that the differential equations has only \textit{one} independent variable.
+This mathematical tool is widely used to describe dynamical systems (physical, social,
+economical, biological and so on and so forth).
+The first mathematicians to study and apply ordinary differential equations
+include important names like Newton, Euler, Leibniz, the Bernoulli family, 
+Riccati, Clairaut and d'Alembert.
+An example of this kind of equations is probably one of the most known
+formulas in the world, that is trivially the Newton's second law of motion:
+%%%
 \begin{equation}
-\mathcal{F}(z(t))=m\dfrac{d^2}{dt^2}z(t)
+   \mathcal{F}(z(t))=m\dfrac{\mathrm{d}^2}{\mathrm{d}t^2}z(t)
 \end{equation}
+%%%
 where $\mathcal{F}$ is a function of the unknown position function $z(t)$ at time $t$.
 
 \section{An introduction to Initial Value Problems}
-Before getting into any numerical solution scheme let us briefly recall the essential formal definitions and properties of ordinary differential equations and initial value problems.
+%%%
+Before getting into any numerical solution scheme let us briefly 
+recall the essential formal definitions and properties of ordinary
+differential equations and initial value problems.
 
 \begin{definition}[Ordinary differential equation]
-	An \textit{ordinary differential equation} (ODE) is an equation for a function $z(t)$, defined on an interval $I \subset \mathbb{R}$ and with values in the real or complex numbers or in the space $\mathbb{R}^d$ (or $\mathbb{C}^d$), of the form:
-	\begin{equation}
-		F\left(t,z(t),z'(t),z''(t)\dots,z^{(n)}\right) = 0
-	\end{equation}
-	Here $F$ represents an arbitrary function of its arguments. The \textit{order} $n$ of a differential equation is the highest derivative which occurs. If the dimension $d$ of the value range of $z(t)$ is higher than one, we talk about \textit{systems of differential equations}.
+%%%
+An \textit{ordinary differential equation} (ODE) is an equation
+for a function $z(t)$, defined on an interval $I \subset \mathbb{R}$
+and with values in the real or complex numbers or in the space
+$\mathbb{R}^d$ (or $\mathbb{C}^d$), of the form:
+%%%
+\begin{equation*}
+  F\left(t,z(t),z'(t),z''(t)\dots,z^{(n)}\right) = 0
+\end{equation*}
+%%%
+Here $F$ represents an arbitrary function of its arguments.
+The \textit{order} $n$ of a differential equation is the highest derivative which occurs.
+If the dimension $d$ of the value range of $z(t)$ is higher than one,
+we talk about \textit{systems of differential equations}.
 \end{definition}
 
 \begin{definition}
-	An \textit{explicit} differential equation of first order is	a equation of the form:
-	\begin{equation}
-		z'(t)=f\left(t,z(t)\right) \qquad \text{or shortly:} \qquad z'=f\left(t,z\right)
-		\label{eq::explicitODE}
-	\end{equation}
-	A differential equation of order $n$ is called explicit, if it is of the form:
-	\begin{equation}
-		z^{(n)}(t) = F\left(t,z(t),z'(t),z''(t)\dots,z^{(n-1)}(t)\right)
-	\end{equation}
+  An \textit{explicit} differential equation of first order is	a equation of the form:
+  %%%
+  \begin{equation}
+    z'(t)=f\left(t,z(t)\right) \qquad \text{or shortly:} \qquad z'=f\left(t,z\right)
+	\label{eq::explicitODE}
+  \end{equation}
+  %%%
+  A differential equation of order $n$ is called explicit, if it is of the form:
+  %%%
+  \begin{equation}
+    z^{(n)}(t) = F\left(t,z(t),z'(t),z''(t)\dots,z^{(n-1)}(t)\right)
+  \end{equation}
 \end{definition}
 
 \begin{definition}
-	A differential equation of the form \eqref{eq::explicitODE} is called	\textit{autonomous}, if the right hand side $f$ is not explicitly dependent on $t$, namely:
-	\begin{equation}
-		z'(t)=f\left(z(t)\right)
-	\end{equation}
+  A differential equation of the form \eqref{eq::explicitODE} is called	\textit{autonomous},
+  if the right hand side $f$ is not explicitly dependent on $t$, namely:
+  %%%
+  \begin{equation}
+    z'(t)=f\left(z(t)\right)
+  \end{equation}
 \end{definition}
 
 \begin{lemma}
-	Every differential equation of higher order can be written as a system of first-order differential equations. If the equation is explicit, then the system is explicit.
+  Every differential equation of higher order can be written as a 
+  system of first-order differential equations.
+  If the equation is explicit, then the system is explicit.
 \end{lemma}
 
 \begin{proof}
-	By the introduction of additional variables $z_0(t)=z(t)$, $z_1(t)=z'(t)$ to $z_{n-1}(t) = z^{(n-1)}(t)$, each differential equation of order $n$ can be transformed into a system of $n$ differential equations of first order. This system has the form:
-	\begin{equation}
+  By the introduction of additional variables $z_0(t)=z(t)$,
+  $z_1(t)=z'(t)$ to $z_{n-1}(t) = z^{(n-1)}(t)$,
+  each differential equation of order $n$ can be transformed into a 
+  system of $n$ differential equations of first order.
+  This system has the form:
+  %%%
+  \begin{equation}
 		\begin{Bmatrix}
 			z'_0(t) - z_1(t) \\
 			z'_1(t) - z_2(t) \\
@@ -59,9 +96,11 @@ Before getting into any numerical solution scheme let us briefly recall the esse
 		\begin{Bmatrix}
 			0 \\ 0 \\ 0 \\ 0 \\ 0
 		\end{Bmatrix}
-	\end{equation}
-	In the case of an explicit equation, the system has the form:
-	\begin{equation}
+  \end{equation}
+  %%%
+  In the case of an explicit equation, the system has the form:
+  %%%
+  \begin{equation}
 	\begin{Bmatrix}
 		z'_0(t) \\
 		z'_1(t) \\
@@ -76,177 +115,317 @@ Before getting into any numerical solution scheme let us briefly recall the esse
 		z_{n-1}(t) \\
 		F\left(t,z_0(t),z_1(t),\dots,z_{n-1}(t)\right)
 	\end{Bmatrix}
-	\end{equation}
+  \end{equation}
 \end{proof}
 
-We will see that most of times the ODEs do not come alone. Almost always they are coupled with an \textit{initial condition}, thus forming the so-called \textit{initial value problem} (also known as \textit{Cauchy problem}). The initial condition give information about the value of function $z$ at a given point $t_0$ in the domain.
+We will see that most of times the ODEs do not come alone.
+Almost always they are coupled with an \textit{initial condition},
+thus forming the so-called \textit{initial value problem}
+(also known as \textit{Cauchy problem}).
+The initial condition give information about the value
+of function $z$ at a given point $t_0$ in the domain.
 
 \begin{definition}[Initial value problem]
-	Given a point $(t_0,u_0) \in \mathbb{R} \times \mathbb{R}^d$. Furthermore, let the function $f(t,z(t))$ with values in $\mathbb{R}^d$ be defined in a neighborhood $I \times U \subset \mathbb{R} \times \mathbb{R}^d$ of the initial value. Then an \textit{initial value problem} (IVP) is	defined as follows: find a function $z(t)$, such that:
-	\begin{equation}
+  Given a point $(t_0,u_0) \in \mathbb{R} \times \mathbb{R}^d$.
+  Furthermore, let the function $f(t,z(t))$ with values in
+  $\mathbb{R}^d$ be defined in a neighborhood
+  $I \times U \subset \mathbb{R} \times \mathbb{R}^d$ of the initial value.
+  Then an \textit{initial value problem} (IVP) is 
+  defined as follows: find a function $z(t)$, such that:
+  %%%
+  \begin{equation}
 	\begin{cases}
 	z'(t) = f(t,z(t)) \\
 	z(t_0) = z_0
 	\end{cases}
-	\end{equation}
+  \end{equation}
 \end{definition}
 
 \begin{definition}[Local solution]
-	We call a continuously differentiable function $z(t)$ with $z(t_0) = z_0$ a \textit{local solution} of the IVP, if there exists a	neighborhood $J$ of the point in time $t_0$ in which $z(t)$ and $f(t,z(t))$ are defined and if the equation $z(t_0) = z_0$ holds for all $t \in J$.
+  We call a continuously differentiable function $z(t)$ with $z(t_0) = z_0$
+  a \textit{local solution} of the IVP, if there exists a	neighborhood $J$
+  of the point in time $t_0$ in which $z(t)$ and $f(t,z(t))$ are defined
+  and if the equation $z(t_0) = z_0$ holds for all $t \in J$.
 \end{definition}
 
 \begin{definition}[Linear ODE]
-	A differential equation is said to be \textit{linear} if $F$ can be written as a linear combination of the derivatives of $z(t)$:
-	\begin{equation}
-		z^{(n)}(t) = \sum_{i=1}^{n-1} a_i(t)z^{(i)}(t)+r(t)
-	\end{equation}
-	with $a_i(t)$ and $r(t)$ continuous functions in $t$. If $r(t)=0$ the we call the linear differential equation \textit{homogeneous} otherwise we call it \textit{inhomogeneous}.
+A differential equation is said to be \textit{linear} if $F$ can be written
+as a linear combination of the derivatives of $z(t)$:
+%%%
+\begin{equation}
+  z^{(n)}(t) = \sum_{i=1}^{n-1} a_i(t)z^{(i)}(t)+r(t)
+\end{equation}
+%%%
+with $a_i(t)$ and $r(t)$ continuous functions in $t$.
+If $r(t)=0$ the we call the linear differential equation 
+\textit{homogeneous} otherwise we call it \textit{inhomogeneous}.
 \end{definition}
 
 \subsection{Well-posedness of the Initial Value Problems}
 
 \begin{definition}
-	A mathematical problem is called well-posed if the following \textit{Hadamard conditions} are satisfied:
-	\begin{itemize}
-		\setlength{\itemsep}{0pt}
-		\item A solution exists.
-		\item The solution is unique.
-		\item The solution is continuously dependent on the data.
-	\end{itemize}
+  A mathematical problem is called well-posed if the following \textit{Hadamard conditions} are satisfied:
+  %%%
+  \begin{itemize}
+	\setlength{\itemsep}{0pt}
+	\item A solution exists.
+	\item The solution is unique.
+	\item The solution is continuously dependent on the data.
+  \end{itemize}
+  %%%
 \end{definition}
 
-In the specific case of IVPs, the third condition is often dropped and substituted with the so-called Lipschitz continuity, which is more a quantitative condition.
+In the specific case of IVPs, the third condition is often 
+dropped and substituted with the so-called Lipschitz continuity,
+which is more a quantitative condition.
 
 \begin{definition}
-	The function $f(t,z)$ satisfies on its domain $D = I \times \Omega \subset \mathbb{R} \times \mathbb{R}^d$ an uniformly continuous Lipschitz condition if it is Lipschitz continuous with regard to $z$. In other words it exists a positive constant $L$, such that:
+	The function $f(t,z)$ satisfies on its domain 
+	$D = I \times \Omega \subset \mathbb{R} \times \mathbb{R}^d$
+	an uniformly continuous Lipschitz condition if it is Lipschitz
+	continuous with regard to $z$. In other words it exists a positive constant $L$, such that:
+	%%%
 	\begin{equation}
 		\forall t\in I; x,z \in \Omega : |f(t,x) - f(t,z)| \leq L |x-z|
 	\end{equation}
+	%%%
 	It satisfies a local Lipschitz condition if the same holds true for all compact subsets of $D$.
 \end{definition}
 
-As we will see the \textit{Peano's existence theorem} proofs that if $f$ is a continuous map than there exists at least a solution to the ODE. It must be pointed out that the Peano theorem does not proof that the solution is unique.
+As we will see the \textit{Peano's existence theorem} 
+proofs that if $f$ is a continuous map than there exists 
+at least a solution to the ODE.
+It must be pointed out that the Peano theorem does 
+not proof that the solution is unique.
 
 \begin{theorem}[Peano's existence theorem]
 	Let the function $f(t,z)$ be continuous on the closed set
+	%%%
 	\begin{equation}
-	\bar{D} = \left\lbrace (t,z) \in \mathbb{R} \times \mathbb{R}^d ~\big|~ |t-t_0|\leq\alpha, |z-z_0|\leq\beta \right\rbrace
+	  \bar{D} = \left\lbrace (t,z) \in \mathbb{R} \times \mathbb{R}^d 
+	  ~\big|~ |t-t_0|\leq\alpha, |z-z_0|\leq\beta \right\rbrace
 	\end{equation}
-	where $\alpha,\beta > 0$. Then there exists a solution $z \in \mathbb{C}^1(I)$ on the interval $I = \left[ t_0-T, t_0+T \right]$ with:
+	%%%
+	where $\alpha,\beta > 0$.
+	Then there exists a solution $z \in \mathbb{C}^1(I)$ 
+	on the interval $I = \left[ t_0-T, t_0+T \right]$ with:
+	%%%
 	\begin{equation}
 		T = \min \left(\alpha, \dfrac{\beta}{M} \right), M = \max_{(t,u)\in\bar{D}}|f(t,z)|
 	\end{equation}
 \end{theorem}
 
 \begin{theorem}[Peano's continuation theorem]
-	Let the assumptions of Peano's existence theorem hold. Then, the solution can be	extended to an interval $I_m = [t_-, t_+]$ such that the points $(t_-,z(t_-))$ and $(t_+, z(t_+))$ are on the boundary of $D$. Neither the values of $t$, nor of $z(t)$ need to be bounded as long as $f$ remains bounded.
+	Let the assumptions of Peano's existence theorem hold.
+	Then, the solution can be extended to an interval $I_m = [t_-, t_+]$
+	such that the points $(t_-,z(t_-))$ and $(t_+, z(t_+))$
+	are on the boundary of $D$. Neither the values of $t$,
+	nor of $z(t)$ need to be bounded as long as $f$ remains bounded.
 \end{theorem}
 
-To proof the uniqueness of solution we employ the aforementioned \textit{Lipschitz continuity} together with the \textit{Gr\"onwall's lemma}.
+To proof the uniqueness of solution we employ the
+aforementioned \textit{Lipschitz continuity}
+together with the \textit{Gr\"onwall's lemma}.
 
 \begin{lemma}[Gr\"onwall's theorem]
-	Let be $w(t)$, $a(t)$ and $b(t)$ be nonnegative, integrable functions, such that $a(t)w(t)$ is integrable. Furthermore, let $b(t)$ be monotonically nondecreasing and let $w(t)$ satisfy the integral inequality:
+	Let be $w(t)$, $a(t)$ and $b(t)$ be nonnegative,
+	integrable functions, such that $a(t)w(t)$ is integrable.
+	Furthermore, let $b(t)$ be monotonically nondecreasing
+	and let $w(t)$ satisfy the integral inequality:
+	%%%
 	\begin{equation}
 		w(t) \leq b(t) + \int_{t_0}^{t} a(s)w(s)ds, \qquad t \geq t_0
 	\end{equation}
+	%%%
 	Then, for almost all $t \geq t_0$ there holds:
+	%%%
 	\begin{equation}
 		w(t) \leq b(t)\exp\left( \int_{t_0}^{t} a(s)ds\right) 
 	\end{equation}
 \end{lemma}
 
-The existence and uniqueness of solution can be now proofed thanks to the \textit{Picard-Lindel\"of theorem} (also called \textit{Picard's existence theorem}, \textit{Cauchy-Lipschitz theorem}, or \textit{existence and uniqueness theorem}):
+The existence and uniqueness of solution can be now 
+proofed thanks to the \textit{Picard-Lindel\"of theorem}
+(also called \textit{Picard's existence theorem},
+\textit{Cauchy-Lipschitz theorem}, or \textit{existence and uniqueness theorem}):
 
 \begin{theorem}[Picard-Lindel\"of theorem]
-	Let $f(t,z)$ be continuous on a cylinder $D = {(t,z) \in \mathbb{R} \times \mathbb{R}^d ~ \big| ~ |t-t_0| \leq a, |z-z_0| \leq b}$. Let $f$ be bounded such that there is a constant $M = \max_{D} |f|$ and satisfy the Lipschitz condition with constant $L$ on $D$. Then the IVP:
+	Let $f(t,z)$ be continuous on a cylinder
+	$D = {(t,z) \in \mathbb{R} \times \mathbb{R}^d ~ \big| ~ |t-t_0| \leq a, |z-z_0| \leq b}$.
+	Let $f$ be bounded such that there is a constant
+	$M = \max_{D} |f|$ and satisfy the 
+	Lipschitz condition with constant $L$ on $D$. Then the IVP:
+	%%%
 	\begin{equation}
 	\begin{cases}
 		z'(t) = f(t,z(t)) \\
 		z(t_0) = z_0
 	\end{cases}
 	\end{equation}
-	is uniquely solvable on the interval $I = [t_0-T, t_0+T]$ where $T = \min\left\lbrace a, b/M \right\rbrace$.
+	%%%
+	is uniquely solvable on the interval
+	$I = [t_0-T, t_0+T]$ where $T = \min\left\lbrace a, b/M \right\rbrace$.
 \end{theorem}
 
 \section{Numerical Solutions of Initial Value Problems}
 
-In most cases an analytical solution to IVPs cannot be found or it is simply impractical (complex integrals appear in the solution). Thus, a set of numerical schemes for solving IVPs are now presented. It must be pointed out that all the schemes can be naturally extended to systems of differential equations. Moreover, since higher order differential equations can be rewritten as a system of first order differential equations, we will only concentrate on numerical methods for these last ones.
+In most cases an analytical solution to IVPs cannot be found or 
+it is simply impractical (complex integrals appear in the solution).
+Thus, a set of numerical schemes for solving IVPs are now presented.
+It must be pointed out that all the schemes can be naturally extended
+to systems of differential equations.
+Moreover, since higher order differential equations can be
+rewritten as a system of first order differential equations,
+we will only concentrate on numerical methods for these last ones.
 
 \begin{definition}[Time step]
-On a time interval $I = [t_0,t_0+T]$, we define a partitioning in $n$ subintervals, also known as \textit{time steps}. The time steps $I_k=[t_{k-1}, t_k]$ have the step size $h_k = t_k - t_{k-1}$. A partitioning in $n$ time steps implies $t_n = T$. The term $k$-th time step is used for both the interval $I_k$ and for the point in time $t_k$, but it should always be clear through context which one is meant. Very often, we will consider evenly spaced time steps, in which case we denote the step size by $h$ and $h_k = h$ for all $k$.
+On a time interval $I = [t_0,t_0+T]$, we define a partitioning in $n$ subintervals,
+also known as \textit{time steps}.
+The time steps $I_k=[t_{k-1}, t_k]$ have the step size $h_k = t_k - t_{k-1}$.
+A partitioning in $n$ time steps implies $t_n = T$.
+The term $k$-th time step is used for both the interval $I_k$
+and for the point in time $t_k$, but it should always be clear
+through context which one is meant.
+Very often, we will consider evenly spaced time steps,
+in which case we denote the step size by $h$ and $h_k = h$ for all $k$.
 \end{definition}
 
-Numerical methods can be subdivided into two main categories: \textit{one-step methods} and \textit{multi-step methods}. In the first category the step $z_{k+1}$ is determined only by $z_{k}$, where as in the second category the the step $z_{k+1}$ is determined also by $z_{k-1},\dots,z_{k-n}$
+Numerical methods can be subdivided into two main categories:
+\textit{one-step methods} and \textit{multi-step methods}.
+In the first category the step $z_{k+1}$ is determined only
+by $z_{k}$, where as in the second category the the step
+$z_{k+1}$ is determined also by $z_{k-1},\dots,z_{k-n}$
 
 \begin{definition}[Explicit method]
-	An \textit{explicit method} (forward integration) is a method which, given $z_0$ at $t_0$ computes a sequence of approximations $z_1, \dots, z_n$ to the solution of an IVP in the time steps $t_1, \dots, t_n$ using an update formula of the form:
+	An \textit{explicit method} (forward integration) is
+	a method which, given $z_0$ at $t_0$ computes a sequence
+	of approximations $z_1, \dots, z_n$ to the solution of an
+	IVP in the time steps $t_1, \dots, t_n$ using an update formula of the form:
+	%%%
 	\begin{equation}
 		z_k = z_{k-1} + h_kF(t_{k-1},z_{k-1},\dots,z_{k-p})
 	\end{equation}
-	where $F$ is called \textit{increment function} and $p$ is the order is the numerical multi-step method. If $p=1$ we call the method as one-step method. 
+	%%%
+	where $F$ is called \textit{increment function} and $p$ is the
+	order is the numerical multi-step method. If $p=1$ we call
+	the method as one-step method. 
 \end{definition}
 
 \begin{definition}[Implicit method]
-	An \textit{implicit method} (backward integration) is a method which, given $z_0$ at $t_0$ computes a sequence of approximations $z_1, \dots, z_n$ to the solution of an IVP in the time steps $t_1, \dots, t_n$ using an update formula of the form:
+	An \textit{implicit method} (backward integration)
+	is a method which, given $z_0$ at $t_0$ computes a sequence
+	of approximations $z_1, \dots, z_n$ to the solution of an IVP
+	in the time steps $t_1, \dots, t_n$ using an update formula of the form:
+	%%%
 	\begin{equation}
 		z_k = z_{k-1} + h_kF(t_{k},z_{k},\dots,z_{k-p})
 	\end{equation}
-	Notice that the increment function $F$ depends on $z_k$ and the previous equation must be solved for $z_k$.
+	%%%%
+	Notice that the increment function $F$ depends on $z_k$
+	and the previous equation must be solved for $z_k$.
 \end{definition}
 
 \subsection{Euler Method}
-The first and simplest on-step numerical method is the Euler method. There are many ways of deriving this method. To derive this method let us consider the following IVP:
+The first and simplest on-step numerical method is the Euler method.
+There are many ways of deriving this method.
+To derive this method let us consider the following IVP:
+%%%
 \begin{equation}
 	\begin{cases}
 		z'(t) = f(t,z) \\
 		z(t_0)= z_0
 	\end{cases}
 \end{equation}
+%%%
 The truncated Taylor series of the solution $z(t)$ centered in $t_0$, that is:
+%%%
 \begin{equation}
-	z(t_0+h) = z_0 + hz_1 + o(h^2)
+	z(t_0+h) = z_0 + hz_1 + \mathcal{O}(h^2)
 	\label{eq::taylor_euler}
 \end{equation}
-where $z_1(t=t_0)=z'(t=t_0)$ and since $z(t)$ is considered to be the solution is the IVPs $z_1(t=t_0)=f(t_0,z_0)$. We get an approximation of $z(t_0+h)$, namely:
+%%%
+where $z_1(t=t_0)=z'(t=t_0)$ and since $z(t)$ is considered to
+be the solution is the IVPs $z_1(t=t_0)=f(t_0,z_0)$.
+We get an approximation of $z(t_0+h)$, namely:
+%%%
 \begin{equation}
 %	\tilde{z}(t_0+h) = z_0 + hz_1
 	\label{eq::euler_0}
 \end{equation}
+%%%
 Notice that the difference between $\tilde{z}(t_0+h)$ and $z(t_0+h)$ is proportional to $h^2$.
 
-If we consider a generic interval $I=[t_0, t_0+T]$, we can generalize the equation \eqref{eq::euler_0} to the $k$-th step and repeat it on each $k$-th subinterval $I_k=[t_{k-1}, t_k]$. Thus, in general the $k$-th step of the \textit{explicit Euler method} can be written as:
+If we consider a generic interval $I=[t_0, t_0+T]$, we can
+generalize the equation \eqref{eq::euler_0} to the $k$-th step
+and repeat it on each $k$-th subinterval $I_k=[t_{k-1}, t_k]$.
+Thus, in general the $k$-th step of the \textit{explicit Euler method} can be written as:
+%%%
 \begin{equation}
 	z(t_k) = z_{k-1} + hf(t_{k-1},z_{k-1}), \quad k=1,\dots,n
 	\label{eq::euler_explicit}
 \end{equation}
+%%%
 whereas the the $k$-th step of the \textit{implicit Euler method} can be written as:
+%%%
 \begin{equation}
 	z(t_k) = z_{k-1} + hf(t_{k},z_{k}), \quad k=1,\dots,T/h
 	\label{eq::euler_implicit}
 \end{equation}
 
-It can be prrofed that both explicit Euler method and implicit Euler method converges to the exact solutionas $h\rightarrow0$ and the error at any time $t \in I = [t_0, t_0+T]$ can be bounded by $Ch$, where $C$ is a positive constant. Since $C$ is proportional to $e^{LT}$, where the Lipschitz constant $L$ of $f$ may be very large. Such problem, which are commonly referred to be \textit{stiff}, are characterized by a large changes in at very different time scales and high sensitivity to changes in the initial condition. If we apply the Euler method to a stiff problems it turns out that the explicit method is not able to properly find the solution due to its \textit{stability}. On the other hand implicit Euler method works large number of applications with a rate of converge of $o(h)$.
+It can be prrofed that both explicit Euler method and implicit Euler 
+method converges to the exact solutions $h\rightarrow0$ and 
+the error at any time $t \in I = [t_0, t_0+T]$ can be bounded by $Ch$, where $C$ 
+is a positive constant.
+Since $C$ is proportional to $e^{LT}$, where the Lipschitz constant $L$
+of $f$ may be very large. Such problem, which are commonly referred to 
+be \textit{stiff}, are characterized by a large changes in at very 
+different time scales and high sensitivity to changes in the initial condition.
+If we apply the Euler method to a stiff problems it turns out that the
+explicit method is not able to properly find the solution due to
+its \textit{stability}. On the other hand implicit Euler method works
+large number of applications with a rate of converge of $\mathcal{O}(h)$.
 
 \subsection{Runge-Kutta Methods}
-Even if the Euler method works fine for most of applications, if the dimension $d$ is large, the end time $T$ is large, the error tolerance $\varepsilon$ is small or more importantly the ODE is stiff we might want to improve the solution method. To pursue these improvements we can use the so-called \textit{Runge-Kutta methods}.
+Even if the Euler method works fine for most of applications,
+if the dimension $d$ is large, the end time $T$ is large,
+the error tolerance $\varepsilon$ is small or more importantly
+the ODE is stiff we might want to improve the solution method.
+To pursue these improvements we can use the so-called \textit{Runge-Kutta methods}.
 
 \subsubsection{Explicit Runge-Kutta Methods}
 The generic \textit{explicit Runge-Kutta method} is a one-step method with the representation:
+%%%
 \begin{equation}
 	\begin{split}
 	\begin{aligned}
-		g_i &= z_k + h\sum_{j=1}^{i-1}a_{ij}k_j \\
-		k_i &= f(hc_i,g_i) \\
-		g_{k+1} &= z_k + h\sum_{i=1}^{s}b_ik_i \\
+		z_{k+1} &= z_k + \sum_{i=1}^{s}b_iK_i \\
+		&\begin{cases}
+		K_1 &= hf\Big(t_k,z_k\Big) \\[1em]
+		K_2 &= hf\Big(t_k+hc_2,z_k + a_{21}K_1\Big) \\[1em]
+		K_3 &= hf\Big(t_k+hc_3,z_k + a_{31}K_1 + a_{32}K_2\Big) \\[1em]
+		\vdots \\[1em]
+		K_s &= hf\Big(t_k+hc_s,z_k + \displaystyle\sum_{j=1}^{s-1}a_{sj}K_j\Big)
+		\end{cases}
 	\end{aligned}
 	\end{split}
 	\label{eq::rungekutta_explicit}
 \end{equation}
-where $i=1,\dots,s$. In this method the values $hc_i$ are the quadrature points on the interval $[0, h]$. The values $k_i$ are approximations to function values of the integrand in these points and the values $g i$ constitute approximations to the solution $z(hc_i)$ in the quadrature points. This method uses $s$ intermediate values and is thus called an $s$-stage method.
+%%%
+where $i=1,\dots,s$. In this method the values $t_k+hc_i$
+are the quadrature points on the interval $[0, h]$.
+The values $K_i/h$ are approximations to function values of the
+integrand in these points and the values $z_k + \displaystyle\sum_{j=1}^{s}a_{1j}K_j$ constitute
+approximations to the solution $z(t_k+hc_i)$ in the quadrature points.
+
+This method uses $s$ intermediate values and is thus called an $s$-stage method.
 
 \begin{definition}[Butcher tableau]
-	It is customary to write Runge-Kutta methods in the form of a \textit{Butcher tableau}, containing only the coefficients of equation \ref{eq::rungekutta_explicit} in the following matrix form:
-	\begin{equation}
+	It is customary to write Runge-Kutta methods in the
+	form of a \textit{Butcher tableau}, containing only
+	the coefficients of equation \ref{eq::rungekutta_explicit}
+	in the following matrix form:
+	%%%
+	\begin{equation*}
 		\begin{array}
 			{c|ccccc}
 			0      &  0     & 0      & 0      & 0         & 0 \\
@@ -256,12 +435,14 @@ where $i=1,\dots,s$. In this method the values $hc_i$ are the quadrature points 
 			c_s    & a_{s1} & a_{s2} & \ldots & a_{s,s-1} & 0 \\ \hline
 			       & b_1    & b_2    & \ldots & b_{s-1}   & b_s
 		\end{array}
-	\end{equation}
+	\end{equation*}
+	%%%
 \end{definition}
 
 \paragraph{Explicit Euler}
+%%%
 A more generalized formulation of the explicit Euler method.
-
+%%%
 \begin{equation}
 	\begin{array}{c|c}
 		0 & 0 \\ \hline
@@ -271,8 +452,10 @@ A more generalized formulation of the explicit Euler method.
 \end{equation}
 
 \paragraph{Midpoint method}
-The midpoint method is a variation of the explicit Euler method, also known as Collatz method. It is a second-order method with two stages.
-
+%%%
+The midpoint method is a variation of the explicit Euler method,
+also known as Collatz method. It is a second-order method with two stages.
+%%%
 \begin{equation}
 	\begin{array}{c|cc}
 		0   & 0   & 0 \\
@@ -283,7 +466,9 @@ The midpoint method is a variation of the explicit Euler method, also known as C
 \end{equation}
 
 \paragraph{Heun's method}
-The Heun's method is also known as the explicit trapezoid rule since it improves the standard explicit Euler method. It is a second-order method with two stages.
+The Heun's method is also known as the explicit trapezoid rule
+since it improves the standard explicit Euler method.
+It is a second-order method with two stages.
 
 \begin{equation}
 	\begin{array}{c|cc}
@@ -311,9 +496,11 @@ It is a second-order method with two stages and a minimum local error bound.
 \begin{equation}
 	\begin{array}{c|cc}
 		0      & 0      & 0 \\
-		\alpha & \alpha & 0 \\ \hline
+		\alpha & \alpha & 0 \\ \hline\\[-1em]
 		       & 1-\dfrac{1}{2\alpha} & \dfrac{1}{2\alpha}
 	\end{array}
+	\qquad
+	\alpha\in(0,1)
 	\label{eq::generic_second}
 \end{equation}
 
@@ -327,7 +514,7 @@ It is a second-order method with two stages and a minimum local error bound.
 		1   & -1  & 2   & 0 \\ \hline
 		    & 1/6 & 2/3 & 1/6
 	\end{array}
-		\label{eq::RK3}
+	\label{eq::RK3}
 \end{equation}
 
 \paragraph{Heun's third-order method}
@@ -401,14 +588,25 @@ The classical fourth-order Runge-Kutta:
 It is a second-order method with two stages and a minimum truncation error.
 
 \begin{equation}
-	\begin{array}{c|cccc}
-		    0     &     0     &      0      &     0      &     0     \\
-		   .4     &    .4     &      0      &     0      &     0     \\
-		.45573725 & .29697761 &  .15875964  &     0      &     0     \\
-		    1     & .21810040 & -3.05096516 & 3.83286476 &     0     \\ \hline
-		          & .17476028 & -.55148066  & 1.20553560 & .17118478
-	\end{array}
-	\label{eq::ralston4}
+  \rotatebox[origin=c]{-90}{$
+  \begin{array}{c|ccccc}
+    0          & 0          & 0           & 0          & 0 \\[1.5em]
+    \dfrac{2}{5} & \dfrac{2}{5}  & 0           & 0          & 0 \\[1.5em]
+    \dfrac{7}{8}-\dfrac{3}{16}\sqrt{5}
+    & 
+    \dfrac{357}{256}\sqrt{5}-\dfrac{2889}{1024} &
+    \dfrac{3785}{1024}-\dfrac{405}{256}\sqrt{5}  & 0          & 0 \\[1.5em]
+    1          & 
+    \dfrac{1047}{3020}\sqrt{5}-\dfrac{673}{1208} &
+    -\dfrac{975}{2552}-\dfrac{1523}{1276}\sqrt{5} &
+    \dfrac{93408}{48169}+\dfrac{203968}{240845}\sqrt{5} & 0 \\[1.5em]
+    \hline\\[-1em]
+    & \dfrac{263}{1812}+\dfrac{2}{151}\sqrt{5} & 
+    \dfrac{125}{3828}-\dfrac{250}{957}\sqrt{5} & 
+    \dfrac{3426304}{5924787}+\dfrac{553984}{1974929}\sqrt{5} & 
+    \dfrac{10}{41}-\dfrac{4}{123}\sqrt{5}
+  \end{array}$}
+  \label{eq::ralston4}
 \end{equation}
 
 \paragraph{3/8-rule fourth-order method}
@@ -425,21 +623,31 @@ It is a second-order method with two stages and a minimum truncation error.
 \end{equation}
 
 \subsubsection{Implicit Runge-Kutta Methods}
-All the presented method are \textit{explicit Runge-Kutta methods}. If we deal with \textit{stiff} equations the \textit{implicit Runge-Kutta method} should be preferred.
+All the presented method are \textit{explicit Runge-Kutta methods}.
+If we deal with \textit{stiff} equations the
+\textit{implicit Runge-Kutta method} should be preferred.
 
-The generic \textit{implicit Runge-Kutta method} is a one-step method with the representation:
+The generic \textit{implicit Runge-Kutta method} is
+a one-step method with the representation:
+%%%%
+%%%
 \begin{equation}
 	\begin{split}
 	\begin{aligned}
-		g_i &= z_k + h\sum_{j=1}^{s}a_{ij}k_j \\
-		k_i &= f(hc_i,g_i) \\
-		g_{k+1} &= z_k + h\sum_{i=1}^{s}b_{i}k_i
-		\end{aligned}
+		z_{k+1} &= z_k + \sum_{i=1}^{s}b_iK_i \\
+		&\begin{cases}
+		K_1 &= hf\Big(t_k+hc_1,z_k + \displaystyle\sum_{j=1}^{s}a_{1j}K_j\Big) \\[1em]
+		K_2 &= hf\Big(t_k+hc_2,z_k + \displaystyle\sum_{j=1}^{s}a_{2j}K_j\Big) \\[1em]
+		\vdots \\[1em]
+		K_s &= hf\Big(t_k+hc_s,z_k + \displaystyle\sum_{j=1}^{s}a_{sj}K_j\Big)
+		\end{cases}
+	\end{aligned}
 	\end{split}
 	\label{eq::rungekutta_implicit}
 \end{equation}
 
 The butcher tableau for \eqref{eq::rungekutta_implicit} will be then of the form:
+%%%%
 \begin{equation}
 	\begin{array}
 	{c|cccc}
@@ -463,7 +671,8 @@ A more generalized formulation of the implicit Euler method.
 \end{equation}
 
 \paragraph{Implicit midpoint method}
-The implicit midpoint method is a variation of the explicit Euler method, also known as Collatz method. It is a second-order method with two stages.
+The implicit midpoint method is a variation of the explicit Euler method,
+also known as Collatz method. It is a second-order method with two stages.
 
 \begin{equation}
 	\begin{array}{c|c}
@@ -491,11 +700,20 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Gauss-Legendre second-order method}
 \begin{equation}
 	\begin{array}{c|cc}
-		\dfrac{1}{2}-\dfrac{\sqrt3}{6} &         \dfrac{1}{4}          & \dfrac{1}{4}-\dfrac{\sqrt3}{6} \\
-		\dfrac{1}{2}+\dfrac{\sqrt3}{6} & \dfrac{1}{4}+\dfrac{\sqrt3}{6} &         \dfrac{1}{4}          \\[1em]
-		\hline
-		\\[-1em]		                               &         \dfrac{1}{2}          &         \dfrac{1}{2}          \\
-		                               &   \dfrac{1}{2}+\dfrac{\sqrt{3}}{2}   &   \dfrac{1}{2}-\dfrac{\sqrt{3}}{2}
+		\dfrac{1}{2}-\dfrac{\sqrt3}{6} &
+		   \dfrac{1}{4} &
+		       \dfrac{1}{4}-\dfrac{\sqrt3}{6}
+		           \\[1em]
+		\dfrac{1}{2}+\dfrac{\sqrt3}{6} & 
+		    \dfrac{1}{4}+\dfrac{\sqrt3}{6} &
+		        \dfrac{1}{4}
+		            \\[1em]
+		\hline\\[-1em]
+		    & \dfrac{1}{2}
+		    & \dfrac{1}{2}
+		    \\[1em]
+		    & \dfrac{1}{2}+\dfrac{\sqrt{3}}{2}
+		    & \dfrac{1}{2}-\dfrac{\sqrt{3}}{2}
 	\end{array}
 	\label{eq::gauss-legendre_2}
 \end{equation}
@@ -503,13 +721,26 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Gauss-Legendre sixth-order method}
 \begin{equation}
 	\begin{array}{c|ccc}
-		\dfrac{1}{2} - \dfrac{\sqrt{15}}{10} &            \dfrac{5}{36}             & \dfrac{2}{9}- \dfrac{\sqrt{15}}{15}  & \dfrac{5}{36} - \dfrac{\sqrt{15}}{30} \\
-		           \dfrac{1}{2}             & \dfrac{5}{36} + \dfrac{\sqrt{15}}{24} &            \dfrac{2}{9}             & \dfrac{5}{36} - \dfrac{\sqrt{15}}{24} \\
-		\dfrac{1}{2} + \dfrac{\sqrt{15}}{10} & \dfrac{5}{36} + \dfrac{\sqrt{15}}{30} & \dfrac{2}{9} + \dfrac{\sqrt{15}}{15} &            \dfrac{5}{36}      \\[1em]
-		\hline
-		\\[-1em]
-		                                   &            \dfrac{5}{18}             &            \dfrac{4}{9}             &            \dfrac{5}{18}             \\
-		                                   &              -\dfrac{5}{6}               &              \dfrac{8}{3}               &              -\dfrac{5}{6}
+		\dfrac{1}{2} - \dfrac{\sqrt{15}}{10} &
+		    \dfrac{5}{36} &
+		        \dfrac{2}{9}- \dfrac{\sqrt{15}}{15} &
+		            \dfrac{5}{36} - \dfrac{\sqrt{15}}{30} \\[1em]
+		\dfrac{1}{2} &
+		    \dfrac{5}{36} + \dfrac{\sqrt{15}}{24} &
+		        \dfrac{2}{9} &
+		            \dfrac{5}{36} - \dfrac{\sqrt{15}}{24} \\[1em]
+		\dfrac{1}{2} + \dfrac{\sqrt{15}}{10} &
+		    \dfrac{5}{36} + \dfrac{\sqrt{15}}{30} &
+		        \dfrac{2}{9} + \dfrac{\sqrt{15}}{15} &
+		            \dfrac{5}{36} \\[1em]
+		\hline\\[-1em]
+		& \dfrac{5}{18}
+		& \dfrac{4}{9}
+		& \dfrac{5}{18}
+		\\[1em]
+        & -\dfrac{5}{6}
+        & \dfrac{8}{3}
+        & -\dfrac{5}{6}
 	\end{array}
 	\label{eq::gauss-legendre_6}
 \end{equation}
@@ -565,13 +796,22 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Radau IA fifth-order method}
 \begin{equation}
 	\begin{array}{c|ccc}
-		0   & \dfrac{1}{9} & \dfrac{-1 - \sqrt{6}}{18} & \dfrac{-1 + \sqrt{6}}{18} \\
-		\dfrac{3}{5} - \dfrac{\sqrt{6}}{10}  & \dfrac{1}{9} & \dfrac{11}{45} + \dfrac{7\sqrt{6}}{360} & \dfrac{11}{45} - \dfrac{43\sqrt{6}}{360}\\
-		\dfrac{3}{5} + \dfrac{\sqrt{6}}{10} & \dfrac{1}{9} & \dfrac{11}{45} + \dfrac{43\sqrt{6}}{360} & \dfrac{11}{45} - \dfrac{7\sqrt{6}}{360} 
-		\\[1em]
-		\hline
-		\\[-1em]
-		& \dfrac{1}{9} & \dfrac{4}{9} + \dfrac{\sqrt{6}}{36} & \dfrac{4}{9} - \dfrac{\sqrt{6}}{36}  \\
+		0 &
+		    \dfrac{1}{9} &
+		        \dfrac{-1 - \sqrt{6}}{18} &
+		            \dfrac{-1 + \sqrt{6}}{18} \\[1em]
+		\dfrac{3}{5} - \dfrac{\sqrt{6}}{10} &
+		    \dfrac{1}{9} &
+		        \dfrac{11}{45} + \dfrac{7\sqrt{6}}{360} &
+		            \dfrac{11}{45} - \dfrac{43\sqrt{6}}{360}\\[1em]
+		\dfrac{3}{5} + \dfrac{\sqrt{6}}{10} &
+		    \dfrac{1}{9} &
+		        \dfrac{11}{45} + \dfrac{43\sqrt{6}}{360} &
+		            \dfrac{11}{45} - \dfrac{7\sqrt{6}}{360} \\[1em]
+		\hline\\[-1em]
+		& \dfrac{1}{9}
+		& \dfrac{4}{9} + \dfrac{\sqrt{6}}{36}
+		& \dfrac{4}{9} - \dfrac{\sqrt{6}}{36}
 	\end{array}
 	\label{eq::radauia}
 \end{equation}
@@ -579,13 +819,22 @@ These methods are based on the points of Gauss-Legendre quadrature.
 \subparagraph{Radau II fifth-order method}
 \begin{equation}
 	\begin{array}{c|ccc}
-		\dfrac{2}{5} - \dfrac{\sqrt{6}}{10}   & \dfrac{11}{45} - \dfrac{7\sqrt{6}}{360} & \dfrac{37}{225} - \dfrac{169\sqrt{6}}{1800} & -\dfrac{2}{225} + \dfrac{\sqrt{6}}{75} \\
-		\dfrac{2}{5} + \dfrac{\sqrt{6}}{10}  & \dfrac{37}{225} + \dfrac{169\sqrt{6}}{1800} & \dfrac{11}{45} + \dfrac{7\sqrt{6}}{360} & -\dfrac{2}{225} - \dfrac{\sqrt{6}}{75}\\
-		1                   & \dfrac{4}{9} - \dfrac{\sqrt{6}}{36} & \dfrac{4}{9} + \dfrac{\sqrt{6}}{36} & \dfrac{1}{9}
-		\\[1em]
-		\hline
-		\\[-1em]
-		& \dfrac{4}{9} - \dfrac{\sqrt{6}}{36} & \dfrac{4}{9} + \dfrac{\sqrt{6}}{36} & \dfrac{1}{9}  \\
+		\dfrac{2}{5} - \dfrac{\sqrt{6}}{10} &
+		    \dfrac{11}{45} - \dfrac{7\sqrt{6}}{360} &
+		        \dfrac{37}{225} - \dfrac{169\sqrt{6}}{1800} &
+		            -\dfrac{2}{225} + \dfrac{\sqrt{6}}{75} \\[1em]
+		\dfrac{2}{5} + \dfrac{\sqrt{6}}{10} &
+		    \dfrac{37}{225} + \dfrac{169\sqrt{6}}{1800} &
+		        \dfrac{11}{45} + \dfrac{7\sqrt{6}}{360} &
+		            -\dfrac{2}{225} - \dfrac{\sqrt{6}}{75}\\[1em]
+		1 &
+		    \dfrac{4}{9} - \dfrac{\sqrt{6}}{36} &
+		        \dfrac{4}{9} + \dfrac{\sqrt{6}}{36} &
+		            \dfrac{1}{9} \\[1em]
+		\hline\\[-1em]
+		& \dfrac{4}{9} - \dfrac{\sqrt{6}}{36}
+		& \dfrac{4}{9} + \dfrac{\sqrt{6}}{36}
+		& \dfrac{1}{9}
 	\end{array}
 	\label{eq::radauiia}
 \end{equation}

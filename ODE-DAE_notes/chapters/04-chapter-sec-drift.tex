@@ -1,0 +1,130 @@
+%
+% !TEX root = ../main.tex
+%
+	
+\section{The drift effect}
+
+In this section we want investigate the effects of the 
+differentiating process done to transform problem in 
+\cref{eq:generalequationofmotionfirstorder} into problem 
+\cref{eq:generalequationofmotionfirstorderdiffconstraint}. 
+Unfortunately this method is \emph{not} priceless, 
+indeed formally we substitute an algebraic constraint with 
+its second derivative w.r.t time. To better understand the 
+consequences let us consider a fictitious constraint 
+$\widetilde{\bm{\phi}}(\bm{q},t)$ of the form,
+%%%
+\begin{equation}
+	\widetilde{\bm{\phi}}(\bm{q},t) := \bm{\phi}(\bm{q},t)+\bm{a}_0 + \bm{a}_{1}t.
+\end{equation}
+%%%
+It is easy to see that consider a mechanical system subject to
+constraint $\phi(\bm{q},t)$ or $\widetilde{\bm{\phi}}(\bm{q},t)$
+differentiating twice is exactly the same, i.e.,
+%%%
+\begin{equation}
+	\frac{\diff^2\bm{\phi}}{\diff t^2} = \frac{\diff^2\widetilde{\bm{\phi}}}{\diff t^2}.
+\end{equation}
+%%%
+This fact produces the \emph{drift effect}, i.e., the original
+constraint $\bm{\phi}(\bm{q},t)$ is violated with an error growing
+with time. This error grows in the best case linearly, but it can be
+faster due to \emph{numerical} errors.
+The reason of this behaviour is the term $\bm{a}_{1}t$ which does
+not have any effect in the formulation
+(\ref{eq:generalequationofmotionfirstorderdiffconstraint}).
+Note also that this is not an undesired effect coming from not
+enough precision of the numerical scheme, but it is intrinsic
+effect due to substitution of the constraint $\bm{\phi}$ with
+its second derivative w.r.t time. A simple solution to this
+undesired effect is the Baumgarte's stabilization that we
+will discuss in the next section.
+%%%
+\begin{example}
+	\label{ex:pendulum2}
+	Continuing \cref{ex:pendulum1} we provide a first
+	order representation for the pendulum; setting
+	$\bm{p} = \dot{\bm{q}}$ results, 
+	%%%
+	\begin{subequations}
+		\begin{align*}
+			\bm{p} &= \dot{\bm{q}},\\
+			m\dot{\bm{p}} + mg\bm{e}_{2} &= 2\bm{q}\lambda,\\
+			\transp{\bm{q}}\bm{q} - \ell^{2} &= 0.
+		\end{align*}
+	\end{subequations}
+	%%%
+	Then in order to eliminate the Lagrange multiplier let us differentiate the constraint,
+	%%%
+	\begin{equation*}
+		\frac{\diff\phi}{\diff t} = 2\transp{\bm{q}}\bm{p} = 0.
+	\end{equation*}
+	%%%
+	Notice that as expected velocity $\bm{p}$ and position 
+	$\bm{q}$ are orthogonal each other. Differentiating again we obtain 
+	%%%
+	\begin{equation*}
+		\frac{\diff^{2}\phi}{\diff t^2} 
+		= 2\transp{\dot{\bm{q}}}\bm{p} + 2\transp{\bm{q}}\dot{\bm{p}}
+		= 2\transp{\bm{p}}\bm{p} + 2\transp{\bm{q}}\dot{\bm{p}} = 0.
+	\end{equation*}
+	%%%
+	Now we can write the problem in shape of \cref{eq:numericalscheme}, 
+	%%%
+	\begin{equation}
+		\label{eq:numericalschemependulum}
+		\begin{bmatrix}
+			\bm{I}_{2} 	& 0 & 0 \\
+			0 			& m\bm{I}_{2} & -2\bm{q} \\ 
+			0 			& -2\transp{\bm{q}}  & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+			\dot{\bm{q}} \\
+			\dot{\bm{p}} \\
+			\lambda
+		\end{bmatrix}
+		= 
+		\begin{bmatrix}
+			\bm{p} \\
+			-mg\bm{e}_{2}\\
+			2\transp{\bm{p}}\bm{p}
+		\end{bmatrix},
+	\end{equation}
+	%%%
+\end{example}
+%%%
+where $\bm{I}_{2}\in\mathbb{R}^{2\times 2}$ is the identity matrix of dimension 2.
+The explicit value for the Lagrange multipliers is the following
+%%%
+\begin{equation}
+	\label{eq:explicitlambdapendulum}
+	\lambda = -\frac{m}{2\bm{q}^{\intercal}\bm{q}}
+	\left(\bm{p}^{\intercal}\bm{p}-g\bm{q}^{\intercal}\bm{e}_{2}\right)
+	= -\frac{m}{2\ell^{2}}\left(\bm{p}^{\intercal}\bm{p}-gq_{2}\right). 
+\end{equation}
+%%%
+To better appreciate the drift effect we can simulate
+\cref{eq:numericalschemependulum} using an ODE solver.
+The results are showed in \cref{fig:trackingerrosr}.
+%%%
+\begin{figure}[htbp]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}
+			[xmin=-5,xmax=5,ymin=-7.5,ymax=2.5, ytick={-7.5,-5,-2.5,0,2.5,5},grid=both,width=10cm,height=10cm]
+			\draw (axis cs:0,0) circle [black, radius=2.5];
+			\addplot[dotted,samples=10,color=red]table[x=x1,y=y1]{data/nstab.txt};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Pendulum simulation with drift effect.}
+	\label{fig:trackingerrosr}
+\end{figure}
+%%%
+Simulation has been performed for $50$ seconds with the following
+parameters, $g = 9.81$, $m=2$, $\ell=2.5$ and initial conditions
+$\bm{q}_{0} = (0.86; 2.35)\in\mathbb{R}^{2}$,
+$\dot{\bm{q}}_{0} = \bm{p}_{0} = (0,0)\in\mathbb{R}^{2}$
+and $\lambda_{0} = 3.69$, which are all consistent with
+the constraint and with \cref{eq:explicitlambdapendulum}.
+
+\endinput
