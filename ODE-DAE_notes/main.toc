@@ -38,14 +38,14 @@
 \contentsline {section}{\numberline {2.1}Linear Differential Algebraic Equations}{13}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Review of Gaussian Elimination}{18}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Gauss like method to compute DAEs' index}{22}{section.2.3}%
-\contentsline {chapter}{\numberline {3}Differential Algebraic Equations for Mechanics}{27}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Overview of Lagrangian Mechanics}{27}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Mechanical equations of motion}{31}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Euler-Lagrange equations with redundant coordinates}{34}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Resolution and Numerical Integration of Differential Algebraic Equations}{37}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The drift effect}{39}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Baumgarte's stabilization}{41}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Projection method}{43}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Coordinate partition}{45}{section.4.4}%
-\contentsline {chapter}{\numberline {A}}{47}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Explicit matrix inverse}{47}{section.A.1}%
+\contentsline {chapter}{\numberline {3}Differential Algebraic Equations for Mechanics}{26}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview of Lagrangian Mechanics}{26}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Mechanical equations of motion}{30}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Euler-Lagrange equations with redundant coordinates}{33}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Resolution and Numerical Integration of Differential Algebraic Equations}{36}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The drift effect}{38}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Baumgarte's stabilization}{40}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Projection method}{42}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Coordinate partition}{44}{section.4.4}%
+\contentsline {chapter}{\numberline {A}}{45}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Explicit matrix inverse}{45}{section.A.1}%
