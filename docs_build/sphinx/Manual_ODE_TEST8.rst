@@ -1,6 +1,10 @@
 ODE solve example 8
 ===================
 
+.. image:: images/crank-rod.png
+    :align: center
+    :width: 25%
+
 Load ODE
 --------
 

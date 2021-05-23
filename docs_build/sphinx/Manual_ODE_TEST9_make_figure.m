@@ -1,5 +1,6 @@
 % load the DoubleSlider model in the variable ode
 close all;
+clear all;
 
 ell     = 1.0;
 m       = 1.0;
@@ -48,6 +49,10 @@ axis equal;
 plot( x, y, '-o', 'MarkerSize', 6, 'Linewidth', 2, 'Color', 'blue' );
 title('x,y');
 save_png('./images/Manual_ODE_TEST9_fig1');
+
+close all;
+ode.plot(0, ini)
+save_png('./images/double-slider');
 
 close all;
 hold off

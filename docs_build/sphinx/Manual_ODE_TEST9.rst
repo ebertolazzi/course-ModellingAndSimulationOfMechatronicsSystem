@@ -1,6 +1,10 @@
 ODE solve example 9
 ===================
 
+.. image:: images/double-slider.png
+    :align: center
+    :width: 25%
+
 Load ODE
 --------
 

@@ -1,5 +1,6 @@
 % load the CrankRod17EQ model in the variable ode
 close all;
+clear all;
 
 ell     = 1.0;
 m       = 1.0;
@@ -58,6 +59,10 @@ plot( x1, y1, '-o', 'MarkerSize', 6, 'Linewidth', 2, 'Color', 'blue' );
 plot( x2, y2, '-o', 'MarkerSize', 6, 'Linewidth', 2, 'Color', 'green' );
 title('x,y');
 save_png('./images/Manual_ODE_TEST8_fig1');
+
+close all;
+ode.plot(0, ini)
+save_png('./images/crank-rod');
 
 close all;
 hold off
