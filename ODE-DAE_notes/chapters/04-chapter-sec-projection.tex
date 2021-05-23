@@ -1,0 +1,82 @@
+%
+% !TEX root = ../main.tex
+%
+\section{Projection method}
+%%%
+Another way to stabilize the constraint $\bm{\phi}(\bm{q},t)=0$ and avoid the drift
+effect is using the so-called Projection method.
+The idea is to firstly reduce the index of the DAE, thus obtaining an ODE
+and the aforementioned \emph{hidden constraints}.
+Then the resulting ODE can be numerically integrated, leading to a generic
+intermediate solution $\widetilde{\bm{q}}(t_n)$.
+This temporary solution is projected to the hidden constraints in order to
+minimise the error between the numerical integration solution and the actual
+system constraints, which is a \textit{nonlinear constrained least squares problem}
+because of the norm chosen.
+The projection gives the orthogonal projection to the contraints.
+
+It should be noticed that unlike the previously presented Baumgarte's stabilization
+method this technique is useful and particularly effective if you are interested
+in the \emph{short term} behaviour, since even during transients the constraint
+is always satisfied.
+Different information from the original and reduced system can be used for
+various projection methods. For example, we can decide to get an advantage
+by first projecting the ODE solution $\widetilde{\bm{q}}(t_n)$ to the position
+constraints and than to the velocity constraints.
+
+\begin{example}
+	%%%
+	\begin{figure}[htbp]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}
+				[xmin=-3,xmax=3,ymin=-3,ymax=3,grid=both,width=8cm,height=8cm]
+				\draw (axis cs:0,0) circle [black, radius=2.5];
+				\addplot[dotted,samples=10,color=red]table[x=x1,y=y1]{data/stab.txt};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Pendulum simulation with Projection method.}
+		\label{}
+	\end{figure}
+	%%%
+	Continuing \cref{ex:pendulum2} we want use the 
+	Projection technique to stabilize the pendulum.
+	The numerical scheme for integrating the reduced DAE
+	is that in \cref{eq:numericalschemependulum}.
+	We want now to project the results of the generic ODE
+	numerical integrator to the following \emph{hidden constraints},
+	%%%
+	\begin{equation*}
+		\begin{split}
+		\dfrac{\diff\phi}{\diff t} &= 2\transp{\bm{q}}\bm{p} = 0.\\[1em]
+		\dfrac{\diff^{2}\phi}{\diff t^2} & = 2\transp{\dot{\bm{q}}}\bm{p} 
+		+ 2\transp{\bm{q}}\dot{\bm{p}} = 2\transp{\bm{p}}\bm{p} 
+		+ 2\transp{\bm{q}}\dot{\bm{p}} = 0.
+		\end{split}
+	\end{equation*}
+	%%%
+	At each time step, the resulting orthogonal projection to the constraints is equal to
+	%%%
+	\begin{equation}
+		\begin{split}
+		\text{minimize:} \quad & \dfrac{1}{2}|| \widetilde{\bm{q}} - \bm{q} ||_2
+		\\[1em]
+		\text{subject to:} \quad & \bm{\phi}(\bm{q},t) = \transp{\bm{q}}\bm{q} - \ell^{2} = 0
+		\end{split}
+	\end{equation}
+	%%%
+	for the position coordinates projection, and
+	%%%
+	\begin{equation}
+		\begin{split}
+		\textrm{minimize:} \quad &
+		\dfrac{1}{2}|| \widetilde{\bm{p}} - \bm{p} ||_2\\[1em]
+		\text{subject to:} \quad & \frac{\diff\bm{\phi}}{\mathrm{d}\bm{q}}(\bm{q},t)\bm{p}
+		+ \frac{\diff\bm{\phi}}{\mathrm{d}t}(\bm{q},t)= 0
+		\end{split}
+	\end{equation}
+	%%%
+	for the velocity coordinates projection.
+\end{example}
+
+\endinput

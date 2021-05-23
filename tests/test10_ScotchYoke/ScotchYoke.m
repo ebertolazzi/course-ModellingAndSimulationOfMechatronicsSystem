@@ -287,7 +287,12 @@ classdef ScotchYoke < DAC_ODEclass
       t13 = (L + x2 - X30) * k + x2__dot * c;
       t14 = 0 <= t13;
       t15 = t13 < 0;
-      t16 = piecewise(t14, k, t15, 0);
+      % t16 = piecewise(t14, k, t15, 0);
+      if t14
+        t16 = k;
+      elseif t15
+        t16 = 0;
+      end
       res__6_1 = t16 * t9 * t8;
       t18 = res__5_5 * t2;
       t19 = theta__dot ^ 2;
@@ -299,7 +304,12 @@ classdef ScotchYoke < DAC_ODEclass
       t51 = 0.1e1 / iz1;
       t52 = t51 * t7;
       res__6_3 = t52 * (-2 * R * lambda__1 * res__2_2 * t22 - 2 * R * lambda__2 * t22 * res__5_5 - iz1 * res__2_2 * t19 * t4 + lambda__2 * R * res__5_5 + iz1 * t19 * t18 + 2 * lambda__1 * t3 * t27 - 2 * lambda__2 * t39 * t38 - T * t27 - T * t46 + lambda__1 * t39) * R;
-      t53 = piecewise(t14, c, t15, 0);
+      %t53 = piecewise(t14, c, t15, 0);
+      if t14
+        t53 = c;
+      elseif t15
+        t53 = 0;
+      end
       res__6_4 = t53 * t9 * t8;
       res__6_6 = -2 * t7 * (t46 + t27) * theta__dot * R;
       t60 = R ^ 2;
@@ -336,7 +346,7 @@ classdef ScotchYoke < DAC_ODEclass
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function plot( self, t, Z )
-      ScotchYokePlot( t, Z(1), Z(2), Z(3), self.R, self.H, self.L, self.alpha );
+      ScotchYokePlot( t, Z(1), Z(2), Z(3), self.R, self.H, self.L, self.alpha, self.X30 );
     end
   end
 end

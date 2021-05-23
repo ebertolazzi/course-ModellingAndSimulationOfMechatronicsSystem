@@ -10,58 +10,48 @@ close all;
 clc;
 
 %% Initialize parameters of the model and instantiate model class
-m1    = 0.5;
-m2    = 0.5;
-iz1   = 0.0;
-iz2   = 0.0;
+m1    = 1.5;
+m2    = 1.5;
+iz1   = 1.1;
+iz2   = 1.1;
 R     = 0.1;
 H     = 0.05;
-L     = 0.4;
-alpha = pi/4;
-X30   = 0.5;
-k     = 1;
-c     = 1;
-T     = 0;
+L     = 0.1;
+alpha = -pi/4;
+X30   = 0.2;
+k     = 7.5;
+c     = 1.0;
+T     = -0.05;
 ode   = ScotchYoke( m1, m2, iz1, iz2, R, H, L, alpha, X30, k, c , T);
 
 %% Initialize the solver class
-solver_1 = Collatz();
-solver_2 = RK4();
-solver_3 = GaussLegendre4();
+solver_1 = ExplicitEuler();
+solver_2 = ImplicitEuler();
+solver_3 = RK4();
 
-LEGEND = {'Collatz', 'RK4','GaussLegendre4'};
+LEGEND = {'ExplicitEuler', 'ImplicitEuler','RK4'};
 
 solver_1.setODE(ode);
 solver_2.setODE(ode);
 solver_3.setODE(ode);
 
 %% Select the range and the sampling point for the numerical solution
-Tmax = 3.0;
-h    = 0.005;
+Tmax = 15.0;
+h    = 0.1;
 tt   = 0:h:Tmax;
 
 %% Set consistent initial conditions
 angle     = pi/4;
 speed     = 0.0;
 
-% x2_0       = -(-cos(angle)*R*cos(alpha) - sin(alpha)*sin(angle)*R + H*sin(alpha))/cos(alpha);
-% s_0        = -(-sin(angle)*R + H)/cos(alpha);
-% theta_0    = angle;
-% x2_dot0    = -R*speed*(cos(alpha)*sin(angle) - sin(alpha)*cos(angle))/cos(alpha);
-% s_dot0     = speed*cos(angle)*R/cos(alpha);
-% theta_dot0 = speed;
-% lambda_10  = -cos(alpha)*R*m2*(cos(angle)*iz1*speed^2 + sin(angle)*T)/(cos(angle)^2*R^2*m2*cos(alpha) + cos(angle)*sin(angle)*R^2*m2*sin(alpha) - R^2*m2*cos(alpha) - cos(alpha)*iz1);
-% lambda_20  = -sin(alpha)*R*m2*(cos(angle)*iz1*speed^2 + sin(angle)*T)/(cos(angle)^2*R^2*m2*cos(alpha) + cos(angle)*sin(angle)*R^2*m2*sin(alpha) - R^2*m2*cos(alpha) - cos(alpha)*iz1);
-
-x2_0 = -(-cos(angle)*R*cos(alpha) - sin(alpha)*sin(angle)*R + H*sin(alpha))/cos(alpha);
-s_0 = -(-sin(angle)*R + H)/cos(alpha);
+x2_0 = (cos(angle)*R*cos(alpha) - sin(alpha)*(-sin(angle)*R + H))/cos(alpha);
+s_0 = (sin(angle)*R - H)/cos(alpha);
 theta_0 = angle;
-x2_dot0 = -R*speed*(cos(alpha)*sin(angle) - sin(alpha)*cos(angle))/cos(alpha);
+x2_dot0 = R*speed*(sin(alpha)*cos(angle) - cos(alpha)*sin(angle))/cos(alpha);
 s_dot0 = speed*cos(angle)*R/cos(alpha);
 theta_dot0 = speed;
-lambda_10 = -(cos(angle)*R*iz1*m2*speed^2*cos(alpha) + sin(angle)*R*c*iz1*speed*cos(alpha) - sin(alpha)*c*iz1*speed*cos(angle)*R - cos(angle)*R*iz1*k*cos(alpha) + sin(angle)*R*T*m2*cos(alpha) - sin(alpha)*sin(angle)*R*iz1*k + H*sin(alpha)*iz1*k - L*iz1*k*cos(alpha) + X30*iz1*k*cos(alpha))/(cos(angle)^2*R^2*m2*cos(alpha) + cos(angle)*sin(angle)*R^2*m2*sin(alpha) - R^2*m2*cos(alpha) - cos(alpha)*iz1);
-lambda_20 = -sin(alpha)*(cos(angle)*R*iz1*m2*speed^2*cos(alpha) + sin(angle)*R*c*iz1*speed*cos(alpha) - sin(alpha)*c*iz1*speed*cos(angle)*R - cos(angle)*R*iz1*k*cos(alpha) + sin(angle)*R*T*m2*cos(alpha) - sin(alpha)*sin(angle)*R*iz1*k + H*sin(alpha)*iz1*k - L*iz1*k*cos(alpha) + X30*iz1*k*cos(alpha))/(cos(alpha)*(cos(angle)^2*R^2*m2*cos(alpha) + cos(angle)*sin(angle)*R^2*m2*sin(alpha) - R^2*m2*cos(alpha) - cos(alpha)*iz1));
-
+lambda_10 = -cos(alpha)*R*m2*(cos(angle)*iz1*speed^2 + sin(angle)*T)/((cos(angle)^2*R^2*m2 - R^2*m2 - iz1)*cos(alpha) + sin(alpha)*cos(angle)*sin(angle)*R^2*m2);
+lambda_20 = -sin(alpha)*R*m2*(cos(angle)*iz1*speed^2 + sin(angle)*T)/((cos(angle)^2*R^2*m2 - R^2*m2 - iz1)*cos(alpha) + sin(alpha)*cos(angle)*sin(angle)*R^2*m2);
 ini        = [ x2_0; s_0; theta_0; ...
                x2_dot0; s_dot0; theta_dot0; ...
                lambda_10; lambda_20 ];
@@ -86,30 +76,40 @@ theta_3 = sol_3(3,:);
 
 %% Plot the solution
 h = figure();
-a = 0:0.01:2*pi;
-plot( R*cos(a), R*sin(a), '-', 'Linewidth', 1, 'Color','green' );
+x0 = 0;
+y0 = 0;
+close all;
 hold on;
+xc1 = R*cos(0:pi/100:2*pi);
+yc1 = R*sin(0:pi/100:2*pi);
+axis_lim = R*1.5;
+xc2 = -axis_lim:0.05:axis_lim;
+yc2 = 0.0*(-axis_lim:0.05:axis_lim);
 axis equal
 plot( x2_1, H*ones(length(x2_1)), '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 plot( x2_2, H*ones(length(x2_2)), '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 plot( x2_3, H*ones(length(x2_3)), '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+plot( [X30, X30], [-R, R], '-k', 'MarkerSize', 6, 'Linewidth', 4 );
+plot( xc1, yc1, '-r', 'Linewidth', 1 );
+plot( xc2, yc2, '-r', 'Linewidth', 1 );
+plot( yc2, xc2, '-r', 'Linewidth', 1 );
 title('x,y');
 
-% h = figure();
-% plot( tt, x1_1.^2+y1_1.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% hold on;
-% plot( tt, x1_2.^2+y1_2.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% plot( tt, x1_3.^2+y1_3.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% legend(LEGEND);
-% title('x_1');
-% 
-% h = figure();
-% plot( tt, x2_1.^2+y2_1.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% hold on;
-% plot( tt, x2_2.^2+y2_2.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% plot( tt, x2_3.^2+y2_3.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% legend(LEGEND);
-% title('x_2');
+h = figure();
+plot( tt, x2_1, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+hold on;
+plot( tt, x2_2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+plot( tt, x2_3, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+legend(LEGEND);
+title('x_2');
+
+h = figure();
+plot( tt, theta_1, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+hold on;
+plot( tt, theta_2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+plot( tt, theta_3, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+legend(LEGEND);
+title('theta');
 
 %% Make animation of the solution
 if true
@@ -149,30 +149,40 @@ theta_3 = sol_3(3,:);
 
 %% Plot the solution
 h = figure();
-a = 0:0.01:2*pi;
-plot( R*cos(a), R*sin(a), '-', 'Linewidth', 1, 'Color','green' );
+x0 = 0;
+y0 = 0;
+close all;
 hold on;
+xc1 = R*cos(0:pi/100:2*pi);
+yc1 = R*sin(0:pi/100:2*pi);
+axis_lim = R*1.5;
+xc2 = -axis_lim:0.05:axis_lim;
+yc2 = 0.0*(-axis_lim:0.05:axis_lim);
 axis equal
 plot( x2_1, H*ones(length(x2_1)), '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 plot( x2_2, H*ones(length(x2_2)), '-o', 'MarkerSize', 6, 'Linewidth', 2 );
 plot( x2_3, H*ones(length(x2_3)), '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+plot( [X30, X30], [-R, R], '-k', 'MarkerSize', 6, 'Linewidth', 4 );
+plot( xc1, yc1, '-r', 'Linewidth', 1 );
+plot( xc2, yc2, '-r', 'Linewidth', 1 );
+plot( yc2, xc2, '-r', 'Linewidth', 1 );
 title('x,y');
 
-% h = figure();
-% plot( tt, x1_1.^2+y1_1.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% hold on;
-% plot( tt, x1_2.^2+y1_2.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% plot( tt, x1_3.^2+y1_3.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% legend(LEGEND);
-% title('x_1');
-% 
-% h = figure();
-% plot( tt, x2_1.^2+y2_1.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% hold on;
-% plot( tt, x2_2.^2+y2_2.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% plot( tt, x2_3.^2+y2_3.^2-ell^2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
-% legend(LEGEND);
-% title('x_2');
+h = figure();
+plot( tt, x2_1, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+hold on;
+plot( tt, x2_2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+plot( tt, x2_3, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+legend(LEGEND);
+title('x_2');
+
+h = figure();
+plot( tt, theta_1, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+hold on;
+plot( tt, theta_2, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+plot( tt, theta_3, '-o', 'MarkerSize', 6, 'Linewidth', 2 );
+legend(LEGEND);
+title('theta');
 
 %% Make animation of the solution
 if true
@@ -188,6 +198,6 @@ if true
     ode.plot( tt(k), sol_3(:,k));
     title(LEGEND{3});
     drawnow limitrate;
-    pause(0.1);
+    pause(0.01);
   end
 end

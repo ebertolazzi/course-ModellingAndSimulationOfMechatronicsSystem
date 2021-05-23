@@ -1,38 +1,44 @@
-\documentclass[10pt,a4paper,twoside,openright]{book}
-	%---------------------------------------------
-	%	load settings
-	%---------------------------------------------
-	\usepackage{settings/style}
+\documentclass[11pt,a4paper,twoside,openany]{book}
+%---------------------------------------------
+%	load settings
+%---------------------------------------------
+\usepackage{settings/style}
 
-	\begin{document}
-		\frontmatter		
-		%---------------------------------------------
-		%	list of  contents/figures/tables pages
-		%---------------------------------------------
-		%\tableofcontents
-		%\cleardoublepage
-		%\listoffigures
-		%\cleardoublepage
-		
-		%---------------------------------------------
-		%	chapters
-		%---------------------------------------------
-		\mainmatter
-		\include{chapters/01-chapter}
-		\include{chapters/02-chapter}
-		\include{chapters/03-chapter}
-		\include{chapters/04-chapter}
-		
-		%---------------------------------------------
-		%	appendix
-		%---------------------------------------------
-		\appendix
-		\input{chapters/appendix}
-				
-		%---------------------------------------------
-		%	bibliography
-		%---------------------------------------------
-		\backmatter
-		\bibliographystyle{plain} %unsrtnat
-		\bibliography{bibliography/bibliography}
-	\end{document}
+\begin{document}
+	\frontmatter
+
+    \title{DAE notes for the course\\[1em] Modeling and Simulation of Mechatronics System}
+    \author{Enrico Bertolazzi\and Matteo Cocetti\and Davide Stocco}
+    \date{}
+    \maketitle
+
+	%---------------------------------------------
+	%	list of  contents/figures/tables pages
+	%---------------------------------------------
+	\tableofcontents
+	\cleardoublepage
+	%\listoffigures
+	%\cleardoublepage
+	
+	%---------------------------------------------
+	%	chapters
+	%---------------------------------------------
+	\mainmatter
+	\include{chapters/01-chapter}
+	\include{chapters/02-chapter}
+	\include{chapters/03-chapter}
+	\include{chapters/04-chapter}
+	
+	%---------------------------------------------
+	%	appendix
+	%---------------------------------------------
+	\appendix
+	\input{chapters/appendix}
+			
+	%---------------------------------------------
+	%	bibliography
+	%---------------------------------------------
+	\backmatter
+	\bibliographystyle{plain} %unsrtnat
+	\bibliography{bibliography/bibliography}
+\end{document}
