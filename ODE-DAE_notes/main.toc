@@ -1,0 +1,51 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Ordinary Differential Equations}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}An introduction to Initial Value Problems}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Well-posedness of the Initial Value Problems}{3}{subsection.1.1.1}%
+\contentsline {section}{\numberline {1.2}Numerical Solutions of Initial Value Problems}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Euler Method}{5}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Runge-Kutta Methods}{6}{subsection.1.2.2}%
+\contentsline {subsubsection}{Explicit Runge-Kutta Methods}{6}{section*.2}%
+\contentsline {paragraph}{Explicit Euler}{6}{section*.3}%
+\contentsline {paragraph}{Midpoint method}{7}{section*.4}%
+\contentsline {paragraph}{Heun's method}{7}{section*.5}%
+\contentsline {paragraph}{Ralston's method}{7}{section*.6}%
+\contentsline {paragraph}{Generic second-order method}{7}{section*.7}%
+\contentsline {paragraph}{Runge-Kutta's third-order method (RK3)}{7}{section*.8}%
+\contentsline {paragraph}{Heun's third-order method}{7}{section*.9}%
+\contentsline {paragraph}{Ralston's third-order method}{8}{section*.10}%
+\contentsline {paragraph}{Strong Stability Preserving Runge-Kutta (SSPRK3)}{8}{section*.11}%
+\contentsline {paragraph}{Generic third-order method}{8}{section*.12}%
+\contentsline {paragraph}{Classical Runge-Kutta's method (RK4)}{8}{section*.13}%
+\contentsline {paragraph}{Ralston's fourth-order method}{8}{section*.14}%
+\contentsline {paragraph}{3/8-rule fourth-order method}{9}{section*.15}%
+\contentsline {subsubsection}{Implicit Runge-Kutta Methods}{9}{section*.16}%
+\contentsline {paragraph}{Implicit Euler method}{10}{section*.17}%
+\contentsline {paragraph}{Implicit midpoint method}{10}{section*.18}%
+\contentsline {paragraph}{Crank-Nicolson method}{10}{section*.19}%
+\contentsline {paragraph}{Gauss-Legendre methods}{11}{section*.20}%
+\contentsline {subparagraph}{Gauss-Legendre second-order method}{11}{section*.21}%
+\contentsline {subparagraph}{Gauss-Legendre sixth-order method}{11}{section*.22}%
+\contentsline {paragraph}{Lobatto methods}{11}{section*.23}%
+\contentsline {subparagraph}{Lobatto IIIA fourth-order method}{11}{section*.24}%
+\contentsline {subparagraph}{Lobatto IIIB fourth-order method}{11}{section*.25}%
+\contentsline {subparagraph}{Lobatto IIIC fourth-order method}{12}{section*.26}%
+\contentsline {subparagraph}{Lobatto IIIC$^\star $ fourth-order method}{12}{section*.27}%
+\contentsline {paragraph}{Radau methods}{12}{section*.28}%
+\contentsline {subparagraph}{Radau IA fifth-order method}{12}{section*.29}%
+\contentsline {subparagraph}{Radau II fifth-order method}{12}{section*.30}%
+\contentsline {chapter}{\numberline {2}Linear Differential Algebraic Equations}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Linear Differential Algebraic Equations}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Review of Gaussian Elimination}{18}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Gauss like method to compute DAEs' index}{22}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Differential Algebraic Equations for Mechanics}{27}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview of Lagrangian Mechanics}{27}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Mechanical equations of motion}{31}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Euler-Lagrange equations with redundant coordinates}{34}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Resolution and Numerical Integration of Differential Algebraic Equations}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The drift effect}{39}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Baumgarte's stabilization}{41}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Projection method}{43}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Coordinate partition}{45}{section.4.4}%
+\contentsline {chapter}{\numberline {A}}{47}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Explicit matrix inverse}{47}{section.A.1}%

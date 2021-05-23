@@ -1,38 +1,38 @@
-\documentclass[10pt,a4paper,twoside,openright]{book}
-	%---------------------------------------------
-	%	load settings
-	%---------------------------------------------
-	\usepackage{settings/style}
+\documentclass[11pt,a4paper,twoside,openright]{book}
+%---------------------------------------------
+%	load settings
+%---------------------------------------------
+\usepackage{settings/style}
 
-	\begin{document}
-		\frontmatter		
-		%---------------------------------------------
-		%	list of  contents/figures/tables pages
-		%---------------------------------------------
-		%\tableofcontents
-		%\cleardoublepage
-		%\listoffigures
-		%\cleardoublepage
-		
-		%---------------------------------------------
-		%	chapters
-		%---------------------------------------------
-		\mainmatter
-		\include{chapters/01-chapter}
-		\include{chapters/02-chapter}
-		\include{chapters/03-chapter}
-		\include{chapters/04-chapter}
-		
-		%---------------------------------------------
-		%	appendix
-		%---------------------------------------------
-		\appendix
-		\input{chapters/appendix}
-				
-		%---------------------------------------------
-		%	bibliography
-		%---------------------------------------------
-		\backmatter
-		\bibliographystyle{plain} %unsrtnat
-		\bibliography{bibliography/bibliography}
-	\end{document}
+\begin{document}
+	\frontmatter		
+	%---------------------------------------------
+	%	list of  contents/figures/tables pages
+	%---------------------------------------------
+	\tableofcontents
+	\cleardoublepage
+	%\listoffigures
+	%\cleardoublepage
+	
+	%---------------------------------------------
+	%	chapters
+	%---------------------------------------------
+	\mainmatter
+	\include{chapters/01-chapter}
+	\include{chapters/02-chapter}
+	\include{chapters/03-chapter}
+	\include{chapters/04-chapter}
+	
+	%---------------------------------------------
+	%	appendix
+	%---------------------------------------------
+	\appendix
+	\input{chapters/appendix}
+			
+	%---------------------------------------------
+	%	bibliography
+	%---------------------------------------------
+	\backmatter
+	\bibliographystyle{plain} %unsrtnat
+	\bibliography{bibliography/bibliography}
+\end{document}

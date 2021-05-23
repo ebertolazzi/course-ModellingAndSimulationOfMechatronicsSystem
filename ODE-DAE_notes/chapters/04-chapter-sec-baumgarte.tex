@@ -1,0 +1,227 @@
+%
+% !TEX root = ../main.tex
+%
+
+\section{Baumgarte's stabilization}
+
+A very popular way to stabilize the constraint $\bm{\phi}(\bm{q},t)=0$
+and thus avoid the drift effect is using Baumgarte's stabilization,
+see \cite{baumgarte1972stabilization}.
+This idea is well presented with other techniques in the survey paper
+\cite{ascher1995stabilization}.
+The key idea is to substitute the constraint with a \emph{differential equation}
+that \emph{asymptotically} satisfies $\bm{\phi}(\bm{q},t)=0$.
+Obviously this technique is effective only if you are interested in
+the \emph{long term} behaviour, since during transients the constraint
+may be violated. Since constrained mechanical systems require to
+differentiations to eliminate the Lagrange multipliers,
+we consider a linear second order stable differential equation of the form,
+%%% 
+\begin{equation}
+	\label{eq:secondordersystem}
+	\frac{\diff^2 z(t)}{\diff t^2} +
+	2\xi\omega_{\textnormal{n}}\frac{\diff z(t)}{\diff t}
+	+ \omega_{\textnormal{n}}^2z(t) = 0,
+\end{equation}
+%%%
+where $z(t)\in\mathbb{R}$. In this form we recognize the well known
+equation for second order linear mechanical or electrical systems,
+such as the \emph{RLC circuit} or the \emph{mass spring damper}.
+In these framework $\xi\in\mathbb{R}_{>0}$ is the \emph{damping ratio}
+and $\omega_{\textnormal{n}}\in\mathbb{R}_{>0}$ is the \emph{natural frequency}.
+Depending on the value of $\xi$ different cases can arise:
+%%%
+\begin{itemize}
+	\item $0<\xi<1$: solution $z$ is \emph{underdamped},
+	\item $\xi=1$: solution $z$ is \emph{critically damped},
+	\item $\xi>1$: solution $z$ is \emph{overdamped}.
+\end{itemize}
+%%%
+The general form for the solution is the following
+%%%
+\begin{equation*}
+	z(t) = k_{1}e^{\left(-\xi+\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t}
+	+ k_{2}e^{\left(-\xi-\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t}, 
+\end{equation*}
+%%%
+where $k_{1},k_{2}\in\mathbb{R}$ are constants determined by the initial
+conditions $z_{0} = z(t=0)$ and $\dot{z}_{0} = \dot{z}(t=0)$.
+Solutions for the different cases can be arranged in different ways,
+here we show some of them. For a deeper treatment see for example
+\cite{rao1995mechanical}.
+Let us start from the underdamped case; solution takes the form
+%%%
+\begin{equation}
+	\label{eq:underdamped}
+	z(t) = c_ {1}e^{-\xi\omega_{\textnormal{n}}t}
+	\cos\left({\sqrt{1-\xi^2}\omega_{\textnormal{n}}t-c_{2}}\right),
+\end{equation}
+%%%
+where constants $c_{1},c_{2}\in\mathbb{R}$ are given by,
+%%% 
+\begin{equation*}
+  c_{1} = \frac{\sqrt{z_{0}^2
+  \omega_{\textnormal{n}}^2+\dot{z}_{0}^2+2z_{0}\dot{z}_{0}\xi
+  \omega_{\textnormal{n}}}}{\sqrt{1-\xi^2}\omega_{\textnormal{n}}}
+  \qquad
+   c_{2} = \mathrm{arctan}\left(\frac{\dot{z}_{0}+\xi\omega_{\textnormal{n}}z_{0}}
+  { x_ {0}\omega_{\textnormal{n}}\sqrt{1-\xi^2}}\right).
+\end{equation*}
+%%%
+As we can observe in \cref{eq:underdamped} solution is a cosine
+function modulated by a decreasing exponential function.
+For the critically damped case a linear term appears and the solution takes the form, 
+%%%
+\begin{equation}
+	\label{eq:criticallydamped}
+	z(t) = (c_{1}+c_{2}t)e^{-\omega_{\textnormal{n}}t},
+\end{equation}
+%%%
+where $c_{1},c_{2}\in\mathbb{R}$ are given by $c_{1} = z_{0}$ and 
+$c_{2} = \dot{z}_{0}+\omega_{\textnormal{n}}z_{0}$.
+Finally for the overdamped case the solution takes the form
+%%%
+\begin{equation}
+	\label{eq:overdamped}
+	z(t) = c_{1}e^{\left(-\xi+\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t} 
+	+ c_{2}e^{\left(-\xi-\sqrt{\xi^2-1}\right)\omega_{\textnormal{n}}t}, 
+\end{equation}
+%%%
+with constants, 
+%%%
+\begin{equation*}
+  c_{1} = \frac{x_{0}\omega_{\textnormal{n}}
+  \left(\xi+\sqrt{\xi^2-1}\right)+\dot{x}_{0}}{2\omega_{\textnormal{n}}\sqrt{\xi^2-1}},\qquad
+  c_{2} = \frac{-x_{0}\omega_{\textnormal{n}}
+  \left(\xi-\sqrt{\xi^2-1}\right)-\dot{x}_{0}}{2\omega_{\textnormal{n}}\sqrt{\xi^2-1}}.
+\end{equation*}
+%%%
+However, regardless of the specific form of the solution,
+all the three cases satisfy a \emph{global exponential stability}
+property, i.e., $\forall(z_{0},\dot{z}_{0})\in\mathbb{R}\times\mathbb{R}$
+the solution $z(t,z_{0},\dot{z}_{0})$ satisfies
+%%%
+\begin{equation*}
+	\lim_{t\rightarrow\infty} z(t,z_{0},\dot{z}_{0}) = 0.
+\end{equation*}
+%%%
+The notation $z(t,z_{0},\dot{z}_{0})$ is just to stress that the
+solution depends on time but also from initial conditions $(z_{0},\dot{z}_{0})$.
+This consideration suggests to substitute the constraint
+$\bm{\phi}(\bm{q},t)$ with an ODE of the form (\ref{eq:secondordersystem}).
+In this way, despite the initial conditions, the solution will asymptotically
+satisfies $\bm{\phi}(\bm{q},t)=0$.
+Thus the explicit \emph{Baumgarte's stabilization} for DAEs of index three takes the form,	
+%%%
+\begin{equation*}
+	\frac{\diff^2\bm{\phi}}{\diff t^2} 
+	+ 2\xi\omega_{\textnormal{n}}\frac{\diff\bm{\phi}}{\diff t}
+	+ \omega_{\textnormal{n}}^2\bm{\phi} = 0.
+\end{equation*}
+%%%
+Computing explicitly the terms for mechanical systems the stabilization results,
+%%%
+\begin{equation}
+	\frac{\diff}{\diff t}\frac{\partial\bm{\phi}}
+	     {\partial\bm{q}}\dot{\bm{q}}+\frac{\partial\bm{\phi}}
+	     {\partial\bm{q}}\ddot{\bm{q}}+\frac{\partial^{2}\bm{\phi}}
+	     {\partial t^2} + 2\xi\omega_{\textnormal{n}}
+	     \frac{\partial\phi}{\partial\bm{q}}\dot{\bm{q}} 
+	+ 2\xi\omega_{\textnormal{n}}\frac{\partial\bm{\phi}}{\partial t}+\omega_{\textnormal{n}}^2\bm{\phi} = 0.
+\end{equation}
+%%%
+which can be re-arranged in the following form
+%%%
+\begin{equation}
+	\label{eq:baumstability}
+	-\frac{\partial\bm{\phi}}{\partial\bm{q}}\dot{\bm{p}}
+	= \frac{\diff}{\diff t}\frac{\partial\bm{\phi}}{\partial\bm{q}}\bm{p}
+	+\frac{\partial^{2}\bm{\phi}}{\partial t^2}
+	+ 2\xi\omega_{\textnormal{n}}\frac{\partial\phi}{\partial\bm{q}}\bm{p}
+	+ 2\xi\omega_{\textnormal{n}}\frac{\partial\bm{\phi}}{\partial t}
+	+\omega_{\textnormal{n}}^2\bm{\phi} :=\bm{m}(\bm{q},\bm{p},t).
+\end{equation}
+%%%
+Now \cref{eq:baumstability} can be easy implemented without any modification 
+in \cref{eq:numericalscheme}; indeed it is sufficient to redefine $\bm{m}(\bm{q},\bm{p},t)$
+as in \cref{eq:baumstability}.
+However a question is still open, how can we tune the parameters 
+$\omega_{\textnormal{n}}$ and $\xi$?. Unfortunately there is not general rule,
+but it is useful to notice that the velocity of convergence to zero of the solution
+depends on both$\xi$ and $\omega_{\textnormal{n}}$.
+Therefore it is a good idea to select them in order to obtain an high
+decay rate compatibly with the \emph{numerical stability}.
+This means that the dynamics associated to the constraint $\bm{\phi}(\bm{q},t)$
+cannot be too fast compared to other ones, otherwise the system could be very
+hard (stiff) to simulate numerically.
+Indeed systems where two or more very different time scales are involved are
+usually called \emph{stiff problems} or \emph{stiff systems}.
+These may cause some numerical problems, since stiff equations require
+an integration step extremely small and are numerically unstable.
+In general it is hard to provide a unique definition of stiffness,
+but the main idea is that the differential equations includes some
+terms that can lead to rapid variation in the solution.
+%%%
+\begin{example}
+	Continuing \cref{ex:pendulum2} we want use the Baumgarte's
+	technique to stabilize the pendulum. Therefore the idea is to substitute the constraint
+	%%%
+	\begin{equation*}
+		2\bm{p}^{\intercal}\bm{p}+2\bm{q}\dot{\bm{p}} = 0
+	\end{equation*}
+	%%%
+	with
+	%%%
+	\begin{equation*}
+		-2\transp{\bm{q}}\dot{\bm{p}} = 2\transp{\bm{p}}\bm{p}
+		+ 4\omega_{\textnormal{n}}\xi\transp{\bm{q}}\bm{p}
+		+ \omega_{\textnormal{n}}^{2}(\transp{\bm{q}}\bm{q}-\ell^{2}).
+	\end{equation*}
+	%%%
+	Thus final equations appears as, 
+	%%%
+	\begin{equation}
+		\label{eq:examplewithbaumga}
+		\begin{bmatrix}
+			\bm{I}_{2} 	& 0 & 0 \\
+			0 			& m\bm{I}_{2} & -2\bm{q} \\ 
+			0 			& -2\transp{\bm{q}}  & 0
+		\end{bmatrix}
+		\begin{bmatrix}
+			\dot{\bm{q}} \\
+			\dot{\bm{p}} \\
+			\lambda
+		\end{bmatrix}
+		= 
+		\begin{bmatrix}
+			\bm{p} \\
+			-mg\bm{e}_{2}\\
+			2\transp{\bm{p}}\bm{p} + 4\omega_{\textnormal{n}}\xi\transp{\bm{q}}\bm{p} 
+			+ \omega_{\textnormal{n}}^{2}(\transp{\bm{q}}\bm{q}-\ell^{2})
+		\end{bmatrix}.
+	\end{equation}
+	%%%
+	Again to appreciate the effects of Baumgarte's stabilization we can simulate
+	\cref{eq:examplewithbaumga} with same parameters as \cref{ex:pendulum2}
+	and stabilization parameters $\xi = 0.8$,
+	$\omega_{\textnormal{n}} = 2$.
+	The result is showed in \cref{fig:trackingerros}.
+	%%%
+	\begin{figure}[htbp]
+		\centering
+		\begin{tikzpicture}
+			\begin{axis}
+				[xmin=-3,xmax=3,ymin=-3,ymax=3,grid=both,width=8cm,height=8cm]
+				\draw (axis cs:0,0) circle [black, radius=2.5];
+				\addplot[dotted,samples=10,color=red]table[x=x1,y=y1]{data/stab.txt};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Pendulum simulation with Baumgarte's stabilization.}
+		\label{fig:trackingerros}
+	\end{figure}
+	%%%
+\end{example}
+
+\endinput
+		
+		
