@@ -101,7 +101,6 @@ the base class ``DAC_ODEclass``.
 The following is the contents of the file `Pendulum5EQ.m`
 
 .. code-block:: matlab
-    :linenos:
 
     classdef Pendulum5EQ < DAC_ODEclass
       properties (SetAccess = protected, Hidden = true)
@@ -161,11 +160,10 @@ Use maple command
 
     > F_TO_MATLAB( <subs(REMOVE_T,RHS)>, subs(REMOVE_T,VARS), "f");
 
-The lines 3-12 which remap model parameters
+The lines highlighted which remap model parameters
 are not automatically generated.
 
 .. code-block:: matlab
-    :linenos:
     :emphasize-lines: 3-12
 
     function res__f = f( self, t, vars__ )
@@ -210,11 +208,10 @@ Use maple command
 
     > JF_TO_MATLAB( subs(REMOVE_T,JODE), subs(REMOVE_T,VARS), "DfDx");
 
-The lines 3-12 which remap model parameters
+The lines highlighted which remap model parameters
 are not automatically generated.
 
 .. code-block:: matlab
-    :linenos:
     :emphasize-lines: 2-4
 
     function res__DfDx = DfDx( self, t, vars__ )
@@ -277,11 +274,10 @@ Use maple command
 
     > F_TO_MATLAB( subs(REMOVE_T,A), subs(REMOVE_T,VARS), "h");
 
-The lines 3-12 which remap model parameters
+The lines highlighted which remap model parameters
 are not automatically generated.
 
 .. code-block:: matlab
-    :linenos:
     :emphasize-lines: 2-4
 
     function res__h = h( self, t, vars__ )
@@ -324,11 +320,10 @@ Use maple command
 
     > JF_TO_MATLAB( subs(REMOVE_T,JA), subs(REMOVE_T,VARS), "DhDx");
 
-The lines 3-12 which remap model parameters
+The lines highlighted which remap model parameters
 are not automatically generated.
 
 .. code-block:: matlab
-    :linenos:
     :emphasize-lines: 2-4
 
     function res__DhDx = DhDx( self, t, vars__ )
@@ -383,7 +378,6 @@ Method plot(t,x)
 Plotting the pendulum:
 
 .. code-block:: matlab
-    :linenos:
 
     function plot( self, t, vars__ )
       % extract states
