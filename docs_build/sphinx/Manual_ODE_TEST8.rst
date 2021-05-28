@@ -31,7 +31,91 @@ Consider a crank-rod system described by the following DAE (17 equations):
     y_2 = 0 &
   \end{cases}
 
-If index is reduced, we obtain the ODE:
+MAPLE
+-----
+
+Load maple toolbox
+
+.. code-block:: maple
+
+    > read("{PATH}/DAE-toolbox.maplet");
+
+Define ODE and constranints
+
+.. code-block:: maple
+
+    > EQ1  := diff(x__1(t),t)=u__1(t);
+    > EQ2  := diff(y__1(t),t)=v__1(t);
+    > EQ3  := diff(x__2(t),t)=u__2(t);
+    > EQ4  := diff(y__2(t),t)=v__2(t);
+    > EQ5  := diff(theta__1(t),t)=omega__1(t);
+    > EQ6  := diff(theta__2(t),t)=omega__2(t);
+    > EQ7  := m*diff(u__1(t),t)-lambda__1(t)+lambda__3(t)=0;
+    > EQ8  := m*diff(v__1(t),t)+mg-lambda__2(t)=0;
+    > EQ9  := m*diff(u__2(t),t)-lambda__3(t)=0;
+    > EQ10 := m*diff(v__2(t),t)+mg-lambda__4(t)=0;
+    > ALG1 := -lambda__1(t)*L*sin(theta__1(t))+lambda__2(t)*L*cos(theta__1(t))-lambda__5(t)*L*cos(theta__1(t))=0;
+    > ALG2 := -lambda__3(t)*L*sin(theta__2(t))+lambda__5(t)*L*cos(theta__2(t))=0;
+    > ALG3 := x__1(t)-L*cos(theta__1(t))=0;
+    > ALG4 := y__1(t)-L*sin(theta__1(t))=0;
+    > ALG5 := x__2(t)-x__1(t)-L*cos(theta__2(t))=0;
+    > ALG6 := y__2(t)=0;
+    > ALG7 := L*sin(theta__1(t))-L*sin(theta__2(t))=0;
+
+Define variables (and differential of its)
+
+.. code-block:: maple
+
+    > VARS  := [x(t),y(t),u(t),v(t),lambda(t)];
+    > DVARS := map(diff,VARS,t)
+
+Use toolbox to separate differential and algebraic
+part and build the matrix ``E`` for differetial part of the DAE.
+
+.. code-block:: maple
+
+    > E1, G1, A1, r := DAE_separate_algebraic_bis( [EQ||(1..4),ALG], DVARS );
+
+Reduce by 1 the index
+
+.. code-block:: maple
+
+    > E2, G2, A2, r := DAE_reduce_index_by_1( E1, G1, A1, DVARS );
+
+Reduce (again) by 1 the index
+
+.. code-block:: maple
+
+    > E3, G3, A3, r := DAE_reduce_index_by_1( E2, G2, A2, DVARS );
+
+Reduce (one more) by 1 the index
+
+.. code-block:: maple
+
+    > E4, G4, A4, r := DAE_reduce_index_by_1( E3, G3, A3, DVARS );
+
+Now is an ODE, 3 index reduction appllied,
+original DAE of index 3.
+
+.. code-block:: maple
+
+    > RHS := collect(simplify(LinearSolve( E4, G4 )),[m,lambda]);
+
+
+Build Jacobian of RHS of ODE:
+
+.. code-block:: maple
+
+    > JODE := map(simplify,JACOBIAN(RHS_ODE,VARS));
+
+Build the map with the hidden constraints and its Jacobian:
+
+.. code-block:: maple
+
+    > A := <A1,A2,A3>;
+    > JA := map(simplify,JACOBIAN(A,VARS));
+
+If index is reduced, we obtain the following ODE:
 
 .. math::
 
@@ -87,34 +171,84 @@ If index is reduced, we obtain the ODE:
 Define the class for the ODE to be integrated.
 In this case the class ``CrankRod17EQ`` derived from
 the base class ``DAC_ODEclass``.
-The following is the contents of the file `CrankRod14EQ.m`
+The following is the contents of the file `CrankRod17EQ.m`
 
-..
-  :emphasize-lines: 18, 19, 20, 21, 80, 81, 82, 83, 146, 147, 148, 149, 203, 205, 206
+.. code-block:: matlab
 
-.. code:: matlab
-
-  classdef CrankRod17EQ < DAC_ODEclass
-    properties (SetAccess = protected, Hidden = true)
-      ell;
-      m;
-      gravity;
-    end
-    methods
-      function self = CrankRod17EQ( ell, m, gravity )
-        neq  = 17;
-        ninv = 15;
-        self@DAC_ODEclass( 'CrankRod17EQ', neq, ninv );
-        self.ell     = ell;
-        self.m       = m;
-        self.gravity = gravity;
+      classdef CrankRod17EQ < DAC_ODEclass
+        properties (SetAccess = protected, Hidden = true)
+          ell;
+          m;
+          gravity;
+        end
+        methods
+          function self = CrankRod17EQ( ell, m, gravity )
+            neq  = 17;
+            ninv = 15;
+            self@DAC_ODEclass( 'CrankRod17EQ', neq, ninv );
+            self.ell     = ell;
+            self.m       = m;
+            self.gravity = gravity;
+          end
+          % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          function res__f = f( self, t, vars__ )
+            % ...
+          end
+          % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          function res__DfDx = DfDx( self, t, vars__ )
+            % ...
+          end
+          % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          function res__DfDt = DfDt( self, t, vars__ )
+            % ...
+          end
+          % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          function res__h = h( self, t, vars__ )
+            % ...
+          end
+          % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          function res__DhDx = DhDx( self, t, vars__ )
+            % ...
+          end
+          % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          function res__DhDt = DhDt( self, t, vars__ )
+            % ...
+          end
+          % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+          function plot( self, t, Z )
+            % ...
+          end
+        end
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+To define the methods you need the MAPLE
+substitution (make a function ``fun(x)`` as the symbol ``fun``)
+
+.. code-block:: maple
+
+    > REMOVE_T := map(x->x=op(0,x),VARS);
+
+Method f(t,x)
+~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > F_TO_MATLAB( <subs(REMOVE_T,RHS)>, subs(REMOVE_T,VARS), "f");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-4
+
       function res__f = f( self, t, vars__ )
-        % extract parameters
         g = self.gravity;
         m = self.m;
         L = self.ell;
+
         % extract states
         x__1      = vars__(1);
         y__1      = vars__(2);
@@ -133,6 +267,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         lambda__3 = vars__(15);
         lambda__4 = vars__(16);
         lambda__5 = vars__(17);
+
         % evaluate function
         res__1 = u__1;
         res__2 = v__1;
@@ -218,6 +353,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         t271 = 3 * t101;
         t283 = 3 * t1;
         res__17 = t179 * t185 * (t127 * (t18 * t243 * t24 + t32 * t241 + t35) + t56 * (t32 * (t248 - t66) - t18 * t241 * t116 + t255 + t66) + t55 * (t32 * (omega__1 * t259 - 3 * t36) + t18 * (t211 + t24 * (t213 - 3 * t29) - t217) - omega__1 * t259 + t271) + t7 * (t32 * (t255 + t66) + 2 * t18 * t24 * (t222 + t223) * t14 + t248 - t66) + t32 * (omega__1 * t283 + t94) + t18 * (t24 * (t47 + t30) + t217) - omega__1 * t283 - t271);
+
         % store on output
         res__f     = zeros(17,1);
         res__f(1)  = res__1;
@@ -237,12 +373,28 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__f(15) = res__15;
         res__f(17) = res__17;
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DfDx(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( <subs(REMOVE_T,RHS)>, subs(REMOVE_T,VARS), "DfDx");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-4
+    
       function res__DfDx = DfDx( self, t, vars__ )
-        % extract parameters
         g = self.gravity;
         m = self.m;
         L = self.ell;
+
         % extract states
         x__1      = vars__(1);
         y__1      = vars__(2);
@@ -261,6 +413,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         lambda__3 = vars__(15);
         lambda__4 = vars__(16);
         lambda__5 = vars__(17);
+
         % evaluate function
         res__1_1 = u__1;
         res__2_1 = v__1;
@@ -346,6 +499,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         t271 = 3 * t101;
         t283 = 3 * t1;
         res__17_1 = t179 * t185 * (t127 * (t18 * t243 * t24 + t32 * t241 + t35) + t56 * (t32 * (t248 - t66) - t18 * t241 * t116 + t255 + t66) + t55 * (t32 * (omega__1 * t259 - 3 * t36) + t18 * (t211 + t24 * (t213 - 3 * t29) - t217) - omega__1 * t259 + t271) + t7 * (t32 * (t255 + t66) + 2 * t18 * t24 * (t222 + t223) * t14 + t248 - t66) + t32 * (omega__1 * t283 + t94) + t18 * (t24 * (t47 + t30) + t217) - omega__1 * t283 - t271);
+
         % store on output
         res__DfDx       = zeros(17,1);
         res__DfDx(1,1)  = res__1_1;
@@ -365,16 +519,47 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__DfDx(15,1) = res__15_1;
         res__DfDx(17,1) = res__17_1;
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DfDt(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( JACOBIAN(<subs(REMOVE_T,RHS)>, [t]), [t], "DfDt");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+
       function res__DfDt = DfDt( self, t, vars__ )
         res__DfDt = zeros(17,1);
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      function res__h = h( self, t, vars__ )
-        % extract parameters
+
+Method h(t,x)
+~~~~~~~~~~~~~
+
+Implementation of hidden constraints:
+Use maple command
+
+.. code-block:: maple
+
+    > F_TO_MATLAB( subs(REMOVE_T,A), subs(REMOVE_T,VARS), "h");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-4
+
+    function res__h = h( self, t, vars__ )
         g = self.gravity;
         m = self.m;
         L = self.ell;
+
         % extract states
         x__1      = vars__(1);
         y__1      = vars__(2);
@@ -393,6 +578,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         lambda__3 = vars__(15);
         lambda__4 = vars__(16);
         lambda__5 = vars__(17);
+        
         % evaluate function
         t2 = cos(theta__1);
         t4 = sin(theta__1);
@@ -422,6 +608,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__14 = t35 * (t24 - lambda__4);
         t40 = omega__2 ^ 2;
         res__15 = t35 / t7 * t33 * (t4 * (t9 * (-2 * lambda__3 + lambda__1) - t40 * t29) + (-t2 * t27 + t31) * t7);
+        
         % store on output
         res__h     = zeros(15,1);
         res__h(1)  = res__1;
@@ -440,12 +627,28 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__h(14) = res__14;
         res__h(15) = res__15;
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DhDx(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of jacobian of hidden constraints:
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( subs(REMOVE_T,JA), subs(REMOVE_T,VARS), "DhDx");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-4
+
       function res__DhDx = DhDx( self, t, vars__ )
-        % extract parameters
         g = self.gravity;
         m = self.m;
         L = self.ell;
+
         % extract states
         x__1      = vars__(1);
         y__1      = vars__(2);
@@ -464,6 +667,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         lambda__3 = vars__(15);
         lambda__4 = vars__(16);
         lambda__5 = vars__(17);
+
         % evaluate function
         t2 = sin(theta__1);
         t4 = cos(theta__1);
@@ -532,6 +736,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         t47 = t40 * t24;
         res__15_13 = t47 * t25 * (t43 + t44);
         res__15_15 = t47 * t25 * (-t43 - 2 * t44);
+
         % store on output
         res__DhDx        = zeros(15,17);
         res__DhDx(1,5)   = res__1_5;
@@ -579,23 +784,66 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__DhDx(15,13) = res__15_13;
         res__DhDx(15,15) = res__15_15;
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DhDt(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( JACOBIAN(<subs(REMOVE_T,A)>, [t]), [t], "DhDt");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+
       function res__DhDt = DhDt( self, t, vars__ )
         res__DhDt = zeros(15,1);
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      function plot( self, t, Z )
-        CrankRod17EQPlot( t, Z(1), Z(2), Z(3), Z(4), self.ell );
+
+Method plot(t,x)
+~~~~~~~~~~~~~~~~
+
+Plotting the mechanism:
+
+.. code-block:: matlab
+
+      function CrankRod17EQPlot( t, x1, y1, x2, y2, ell )
+        x_0 = 0;
+        y_0 = 0;
+        xc1 = ell*cos(0:pi/100:2*pi);
+        yc1 = ell*sin(0:pi/100:2*pi);
+        hold off;
+        plot( xc1, yc1, '-r', 'Linewidth', 1 );
+        hold on;
+        axis_lim = ell*2.5;
+        xc2 = -axis_lim:0.05:axis_lim;
+        yc2 = 0.0*(-axis_lim:0.05:axis_lim);
+        plot( xc2, yc2, '-r', 'Linewidth', 1 );
+        axis equal;
+        drawLine( x_0, y_0, x1, y1, 'LineWidth', 8, 'Color', 'r' );
+        drawLine( x1, y1, x2, y2, 'LineWidth', 8, 'Color', 'r' );
+        drawCOG(0.1*ell,x_0,y_0);
+        fillCircle( 'b', x1, y1, 0.1*ell );
+        fillCircle( 'b', x2, y2, 0.1*ell );
+        xlim([ -axis_lim axis_lim ]);
+        ylim([ -axis_lim axis_lim ]);
+        title(sprintf('time=%5.2g',t));
       end
-    end
-  end
+
+
+MATLAB usage in script
+----------------------
 
 Instantiate the ODE
--------------------
+~~~~~~~~~~~~~~~~~~~
 
 Having `CrankRod17EQ.m` now can instantiate the ODE
 
-.. code:: matlab
+.. code-block:: matlab
 
   % load the crank and rod model in the variable ode
   ell     = 1.0;
@@ -604,22 +852,22 @@ Having `CrankRod17EQ.m` now can instantiate the ODE
   ode     = CrankRod17EQ( ell, m, gravity );
 
 Choose solver
--------------
+~~~~~~~~~~~~~
 
 Choose `ExplicitEuler` as solver and attach the
 instantiated ode to it.
 
-.. code:: matlab
+.. code-block:: matlab
 
   solver = ExplicitEuler(); % initialize solver
   solver.setODE(ode);       % Attach ode to the solver
 
 Integrate
----------
+~~~~~~~~~
 
 Select the range and the sampling point for the numerical solution
 
-.. code:: matlab
+.. code-block:: matlab
 
   Tmax = 7.5;
   h    = 0.05;
@@ -649,7 +897,7 @@ setup initial condition, use hidden constraint
 
 to set consistent initial conditions
 
-.. code:: matlab
+.. code-block:: matlab
 
   angle     = -pi/4;
   speed     = 0.0;
@@ -676,7 +924,7 @@ to set consistent initial conditions
 
 compute numerical solution
 
-.. code:: matlab
+.. code-block:: matlab
 
   sol = solver.advance( tt, ini );
 
@@ -685,9 +933,9 @@ The first column contain \(\theta\) the second column
 contains  \(\omega\).
 
 Extract solution
-----------------
+~~~~~~~~~~~~~~~~
 
-.. code:: matlab
+.. code-block:: matlab
 
   x_1   = sol(1,:);
   y_1   = sol(2,:);
@@ -695,9 +943,9 @@ Extract solution
   y_2   = sol(4,:);
 
 Plot the solution
------------------
+~~~~~~~~~~~~~~~~~
 
-.. code:: matlab
+.. code-block:: matlab
 
   % sample a circle and plot (the constraint)
   xc1 = ell*cos(0:pi/100:2*pi);
@@ -719,7 +967,7 @@ Plot the solution
    :width: 90%
    :align: center
 
-.. code:: matlab
+.. code-block:: matlab
 
   ode.animate_plot( tt, sol, 10, 1 );
 

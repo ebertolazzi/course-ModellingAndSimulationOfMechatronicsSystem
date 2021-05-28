@@ -3,7 +3,7 @@ ODE solve example 10
 
 .. image:: images/scotch-yoke.png
     :align: center
-    :width: 25%
+    :width: 50%
 
 Load ODE
 --------
@@ -24,7 +24,82 @@ Consider a Scotch-Yoke system described by the following DAE (14 equations):
     -\sin(\theta)R + s\cos(\alpha) + H &
   \end{cases}
 
-If index is reduced, we obtain the ODE:
+MAPLE
+-----
+
+Load maple toolbox
+
+.. code-block:: maple
+
+    > read("{PATH}/DAE-toolbox.maplet");
+
+Define ODE and constranints
+
+.. code-block:: maple
+
+    > EQ1  := diff(x2(t),t)=x2__dot(t);
+    > EQ2  := diff(s(t),t)=s__dot(t);
+    > EQ3  := diff(theta(t),t)=theta__dot(t);
+    > EQ4  := diff(x2__dot(t),t)*m2+lambda__1(t)-min(0,-(L+x2(t)-X30)*k-x2__dot(t)*c)=0;
+    > EQ5  := diff(theta__dot(t),t)*iz1-R*(lambda__2(t)*cos(theta(t))-lambda__1(t)*sin(theta(t)))-T=0;
+    > ALG1 := -sin(alpha)*lambda__1(t)+cos(alpha)*lambda__2(t)=0;
+    > ALG2 := -cos(theta(t))*R-s(t)*sin(alpha)+x2(t)=0;
+    > ALG3 := -sin(theta(t))*R+s(t)*cos(alpha)+H0=0;
+
+Define variables (and differential of its)
+
+.. code-block:: maple
+
+    > VARS  := [x(t),y(t),u(t),v(t),lambda(t)];
+    > DVARS := map(diff,VARS,t)
+
+Use toolbox to separate differential and algebraic
+part and build the matrix ``E`` for differetial part of the DAE.
+
+.. code-block:: maple
+
+    > E1, G1, A1, r := DAE_separate_algebraic_bis( [EQ||(1..4),ALG], DVARS );
+
+Reduce by 1 the index
+
+.. code-block:: maple
+
+    > E2, G2, A2, r := DAE_reduce_index_by_1( E1, G1, A1, DVARS );
+
+Reduce (again) by 1 the index
+
+.. code-block:: maple
+
+    > E3, G3, A3, r := DAE_reduce_index_by_1( E2, G2, A2, DVARS );
+
+Reduce (one more) by 1 the index
+
+.. code-block:: maple
+
+    > E4, G4, A4, r := DAE_reduce_index_by_1( E3, G3, A3, DVARS );
+
+Now is an ODE, 3 index reduction appllied,
+original DAE of index 3.
+
+.. code-block:: maple
+
+    > RHS := collect(simplify(LinearSolve( E4, G4 )),[m,lambda]);
+
+
+Build Jacobian of RHS of ODE:
+
+.. code-block:: maple
+
+    > JODE := map(simplify,JACOBIAN(RHS_ODE,VARS));
+
+Build the map with the hidden constraints and its Jacobian:
+
+.. code-block:: maple
+
+    > A := <A1,A2,A3>;
+    > JA := map(simplify,JACOBIAN(A,VARS));
+
+If index is reduced, we obtain the following ODE:
 
 .. math::
 
@@ -51,14 +126,11 @@ If index is reduced, we obtain the ODE:
   \end{cases}
 
 Define the class for the ODE to be integrated.
-In this case the class ``DoubleSlider`` derived from
+In this case the class ``ScotchYoke`` derived from
 the base class ``DAC_ODEclass``.
-The following is the contents of the file `CrankRod14EQ.m`
+The following is the contents of the file `ScotchYoke.m`
 
-..
-  :emphasize-lines: 18, 19, 20, 21, 80, 81, 82, 83, 146, 147, 148, 149, 203, 205, 206
-
-.. code:: matlab
+.. code-block:: matlab
 
   classdef ScotchYoke < DAC_ODEclass
     properties (SetAccess = protected, Hidden = true)
@@ -79,7 +151,7 @@ The following is the contents of the file `CrankRod14EQ.m`
       function self = ScotchYoke( m1, m2, iz1, iz2, R, H, L, alpha, X30, k, c, T )
         neq  = 8;
         ninv = 6;
-        self@DAC_ODEclass( 'CrankRod17EQ', neq, ninv );
+        self@DAC_ODEclass( 'ScotchYoke', neq, ninv );
         self.m1    = m1;
         self.m2    = m2;
         self.iz1   = iz1;
@@ -95,7 +167,59 @@ The following is the contents of the file `CrankRod14EQ.m`
       end
       % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
       function res__f = f( self, t, vars__ )
-        % extract parameters
+        % ...
+      end
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      function res__DfDx = DfDx( self, t, vars__ )
+        % ...
+      end
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      function res__DfDt = DfDt( self, t, vars__ )
+        % ...
+      end
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      function res__h = h( self, t, vars__ )
+        % ...
+      end
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      function res__DhDx = DhDx( self, t, vars__ )
+        % ...
+      end
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      function res__DhDt = DhDt( self, t, vars__ )
+        % ...
+      end
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      function plot( self, t, Z )
+        % ...
+      end
+    end
+  end
+
+To define the methods you need the MAPLE
+substitution (make a function ``fun(x)`` as the symbol ``fun``)
+
+.. code-block:: maple
+
+    > REMOVE_T := map(x->x=op(0,x),VARS);
+
+Method f(t,x)
+~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > F_TO_MATLAB( <subs(REMOVE_T,RHS)>, subs(REMOVE_T,VARS), "f");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-13
+
+      function res__f = f( self, t, vars__ )
         m1    = self.m1;
         m2    = self.m2;
         iz1   = self.iz1;
@@ -108,6 +232,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         k     = self.k;
         c     = self.c;
         T     = self.T;
+
         % extract states
         x2         = vars__(1);
         s          = vars__(2);
@@ -146,6 +271,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         t78 = 0.1e1 / (t68 * (2 * t65 - t13 - iz1) + 2 * m2 * t12 * t32 * t17 * t9 * t39 - t65) * m2 * theta__dot;
         res__7 = -4 * t78 * t62 * R * t39;
         res__8 = -4 * t78 * t62 * R * t32;
+
         % store on output
         res__f    = zeros(8,1);
         res__f(1) = res__1;
@@ -157,9 +283,24 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__f(7) = res__7;
         res__f(8) = res__8;
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DfDx(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( <subs(REMOVE_T,RHS)>, subs(REMOVE_T,VARS), "DfDx");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-13
+    
       function res__DfDx = DfDx( self, t, vars__ )
-        % extract parameters
         m1    = self.m1;
         m2    = self.m2;
         iz1   = self.iz1;
@@ -172,6 +313,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         k     = self.k;
         c     = self.c;
         T     = self.T;
+
         % extract states
         x2         = vars__(1);
         s          = vars__(2);
@@ -181,6 +323,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         theta__dot = vars__(6);
         lambda__1  = vars__(7);
         lambda__2  = vars__(8);
+
         % evaluate function
         res__1_1 = x2__dot;
         res__2_1 = s__dot;
@@ -210,6 +353,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         t78 = 0.1e1 / (t68 * (2 * t65 - t13 - iz1) + 2 * m2 * t12 * t32 * t17 * t9 * t39 - t65) * m2 * theta__dot;
         res__7_1 = -4 * t78 * t62 * R * t39;
         res__8_1 = -4 * t78 * t62 * R * t32;
+
         % store on output
         res__DfDx      = zeros(8,1);
         res__DfDx(1,1) = res__1_1;
@@ -221,13 +365,43 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__DfDx(7,1) = res__7_1;
         res__DfDx(8,1) = res__8_1;
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DfDt(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( JACOBIAN(<subs(REMOVE_T,RHS)>, [t]), [t], "DfDt");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+
       function res__DfDt = DfDt( self, t, vars__ )
-        res = zeros(8,1);
+        res__DfDt = zeros(8,1);
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method h(t,x)
+~~~~~~~~~~~~~
+
+Implementation of hidden constraints:
+Use maple command
+
+.. code-block:: maple
+
+    > F_TO_MATLAB( subs(REMOVE_T,A), subs(REMOVE_T,VARS), "h");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-13
+
       function res__h = h( self, t, vars__ )
-        % extract parameters
         m1    = self.m1;
         m2    = self.m2;
         iz1   = self.iz1;
@@ -240,6 +414,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         k     = self.k;
         c     = self.c;
         T     = self.T;
+
         % extract states
         x2         = vars__(1);
         s          = vars__(2);
@@ -268,6 +443,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         t30 = R * lambda__2;
         t32 = theta__dot ^ 2;
         res__6 = 0.1e1 / t1 / m2 / iz1 * (-t22 * iz1 * t3 + t3 * (-t27 * lambda__1 * t24 - t5 * (iz1 * t32 + t8 * t30) * t29 - T * m2 * t9 + (t27 + iz1) * lambda__1) - t29 * t1 * (-t24 * t30 + t5 * (lambda__1 * t9 - T) + iz1 * t8 * t32));
+        
         % store on output
         res__h    = zeros(6,1);
         res__h(1) = res__1;
@@ -277,9 +453,24 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__h(5) = res__5;
         res__h(6) = res__6;
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DhDx(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of jacobian of hidden constraints:
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( subs(REMOVE_T,JA), subs(REMOVE_T,VARS), "DhDx");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+    :emphasize-lines: 2-13, 50-55, 67-72
+
       function res__DhDx = DhDx( self, t, vars__ )
-        % extract parameters
         m1    = self.m1;
         m2    = self.m2;
         iz1   = self.iz1;
@@ -292,6 +483,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         k     = self.k;
         c     = self.c;
         T     = self.T;
+
         % extract states
         x2         = vars__(1);
         s          = vars__(2);
@@ -301,6 +493,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         theta__dot = vars__(6);
         lambda__1  = vars__(7);
         lambda__2  = vars__(8);
+
         % evaluate function
         res__1_7 = sin(alpha);
         t1 = cos(alpha);
@@ -355,6 +548,7 @@ The following is the contents of the file `CrankRod14EQ.m`
         t61 = m2 * t60;
         res__6_7 = t7 * t9 * t51 * (res__5_5 * (-t22 * t61 + iz1 + t61) - m2 * t60 * res__2_2 * t38);
         res__6_8 = -t4 * t52 * (-res__2_2 * t4 + t18) * t60;
+
         % store on output
         res__DhDx      = zeros(6,8);
         res__DhDx(1,7) = res__1_7;
@@ -378,25 +572,71 @@ The following is the contents of the file `CrankRod14EQ.m`
         res__DhDx(6,7) = res__6_7;
         res__DhDx(6,8) = res__6_8;  
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Method DhDt(t,x)
+~~~~~~~~~~~~~~~~
+
+Implementation of RHS of ODE.
+Use maple command
+
+.. code-block:: maple
+
+    > JF_TO_MATLAB( JACOBIAN(<subs(REMOVE_T,A)>, [t]), [t], "DhDt");
+
+The lines highlighted which remap model parameters
+are not automatically generated.
+
+.. code-block:: matlab
+
       function res__DhDt = DhDt( self, t, vars__ )
         res__DhDt = zeros(6,1);
       end
-      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      function plot( self, t, Z )
-        ScotchYokePlot( t, Z(1), Z(2), Z(3), self.R, self.H, self.L, self.alpha, self.X30 );
-      end
-    end
-  end
+
+Method plot(t,x)
+~~~~~~~~~~~~~~~~
+
+Plotting the mechanism:
+
+.. code-block:: matlab
+
+        function ScotchYokePlot( t, x2, s, theta, R, H, L, alpha, x30)
+          x_0 = 0;
+          y_0 = 0;
+          xc1 = R*cos(0:pi/100:2*pi);
+          yc1 = R*sin(0:pi/100:2*pi);
+          hold off;
+          plot( xc1, yc1, '-r', 'Linewidth', 1 );
+          hold on
+          axis_lim = R*1.5;
+          xc2 = -axis_lim:0.05:axis_lim;
+          yc2 = 0.0*(-axis_lim:0.05:axis_lim);
+          plot( xc2, yc2, '-r', 'Linewidth', 1 );
+          plot( yc2, xc2, '-r', 'Linewidth', 1 );
+          axis equal
+          drawLine( x_0, y_0, R*cos(theta), R*sin(theta), 'LineWidth', 8, 'Color', 'r' );
+          drawLine( x2, H, x2+L, H, 'LineWidth', 8, 'Color', 'r' );
+          drawLine( R*cos(theta), R*sin(theta), x2, H, 'LineWidth', 4, 'Color', 'k' );
+          drawLine( x30, R, x30, -R, 'LineWidth', 4, 'Color', 'k' );
+          drawCOG(0.1*R, x_0, y_0);
+          fillCircle( 'b', R*cos(theta), R*sin(theta), 0.1*R );
+          fillCircle( 'b', x2, H, 0.1*R );
+          xlim([ -axis_lim x30+R/2 ]);
+          ylim([ -axis_lim axis_lim ]);
+          title(sprintf('time=%5.2g',t));
+        end
+
+
+MATLAB usage in script
+----------------------
 
 Instantiate the ODE
--------------------
+~~~~~~~~~~~~~~~~~~~
 
-Having `DoubleSlider.m` now can instantiate the ODE
+Having `ScotchYoke.m` now can instantiate the ODE
 
-.. code:: matlab
+.. code-block:: matlab
 
-  % load the crank and rod model in the variable ode
+  % load the Scotch-Yoke model in the variable ode
   m1    = 1.5;
   m2    = 1.5;
   iz1   = 1.1;
@@ -412,22 +652,22 @@ Having `DoubleSlider.m` now can instantiate the ODE
   ode   = ScotchYoke( m1, m2, iz1, iz2, R, H, L, alpha, X30, k, c , T);
 
 Choose solver
--------------
+~~~~~~~~~~~~~
 
 Choose `ExplicitEuler` as solver and attach the
 instantiated ode to it.
 
-.. code:: matlab
+.. code-block:: matlab
 
   solver = ExplicitEuler(); % initialize solver
   solver.setODE(ode);       % Attach ode to the solver
 
 Integrate
----------
+~~~~~~~~~
 
 Select the range and the sampling point for the numerical solution
 
-.. code:: matlab
+.. code-block:: matlab
 
   Tmax = 10.0;
   h    = 0.1;
@@ -449,7 +689,7 @@ setup initial condition, use hidden constraint
 
 to set consistent initial conditions
 
-.. code:: matlab
+.. code-block:: matlab
 
   x2_0 = (cos(angle)*R*cos(alpha) - sin(alpha)*(-sin(angle)*R + H))/cos(alpha);
   s_0 = (sin(angle)*R - H)/cos(alpha);
@@ -465,7 +705,7 @@ to set consistent initial conditions
 
 compute numerical solution with projrction method
 
-.. code:: matlab
+.. code-block:: matlab
 
   sol = solver.advance( tt, ini, true, true);
 
@@ -474,18 +714,18 @@ The first column contain \(\theta\) the second column
 contains  \(\omega\).
 
 Extract solution
-----------------
+~~~~~~~~~~~~~~~~
 
-.. code:: matlab
+.. code-block:: matlab
 
   x2    = sol_1(1,:);
   s     = sol_1(2,:);
   theta = sol_1(3,:);
 
 Plot the solution
------------------
+~~~~~~~~~~~~~~~~~
 
-.. code:: matlab
+.. code-block:: matlab
 
   % sample a circle and plot (the constraint)
   x0 = 0;
@@ -508,7 +748,7 @@ Plot the solution
    :width: 90%
    :align: center
 
-.. code:: matlab
+.. code-block:: matlab
 
   ode.animate_plot( tt, sol, 10, 1 );
 

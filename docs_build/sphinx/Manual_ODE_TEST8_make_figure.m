@@ -1,4 +1,4 @@
-% load the CrankRod17EQ model in the variable ode
+% l--oad the CrankRod17EQ model in the variable ode
 close all;
 clear all;
 
