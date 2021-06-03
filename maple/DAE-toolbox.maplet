@@ -136,7 +136,7 @@ end proc:
 # Make DAE semi-explicit
 DAE_make_semi_explicit := proc( DAE, vars )
   local i, DVARS, AVARS, ODE, Dvars;
-  Dvars := diff(VARS,t);
+  Dvars := diff(vars,t);
   # find differential variables and create ODE
   DVARS := [];
   AVARS := [];
@@ -144,8 +144,8 @@ DAE_make_semi_explicit := proc( DAE, vars )
   for i from 1 to nops(Dvars) do
     if has(DAE,Dvars[i]) then
       DVARS := [op(DVARS),vars[i]];
-      ODE   := [op(ODE),Dvars[i]=cat(op(0,VARS[i]),__d)(t)];
-      AVARS := [op(AVARS),cat(op(0,VARS[i]),__d)(t)];      
+      ODE   := [op(ODE),Dvars[i]=cat(op(0,vars[i]),__d)(t)];
+      AVARS := [op(AVARS),cat(op(0,vars[i]),__d)(t)];      
     else
       AVARS := [op(AVARS),vars[i]];      
     end;
@@ -238,7 +238,9 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi_in, f_in, qvars, vvars, lvars )
   else
     f := convert(f_in,Vector);
   end;
-  if type(Phi_in,'Vector') then
+
+
+  if type(Phi_in,'Vector') then
     Phi := Phi_in;
   else
     Phi := convert(Phi_in,Vector);
@@ -258,7 +260,8 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi_in, f_in, qvars, vvars, lvars )
 
   if m <> nops(lvars) then
     print("DAE3_get_ODE_and_invariants: lvars must have the same length the number of constraints", lvars, Phi);
-  end;
+  end;
+
   # differential variables
   q_D := map( diff, qvars, t );
   v_D := map( diff, vvars, t );
