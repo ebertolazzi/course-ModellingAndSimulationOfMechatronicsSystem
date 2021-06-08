@@ -129,7 +129,16 @@ end proc:
 # 
 DAE_separate_algebraic_bis := proc( EQS, Dvars )
   local n, m, r, E, G, E1, G1, A;
-  E, G         := GenerateMatrix( EQS, Dvars ):
+  if not type(EQS,list) or not type(Dvars,list) then
+    printf(     "DAE_separate_algebraic_bis: first argument must be a list of equations\n"     "second argument must be a list of differential variables\n"
+    );
+    error("BAD DATA");  end;
+  if nops(EQS) <> nops(Dvars) then
+    printf(
+     "DAE_separate_algebraic_bis: the number of equations (%d)\n"     "must be the same of the number of variables (%d)\n",     nops(EQS),nops(Dvars)
+    );
+    error("BAD DATA");
+  end;  E, G         := GenerateMatrix( EQS, Dvars ):
   E1, G1, A, r := DAE_separate_algebraic( E, G );
   return E1, G1, A, r;
 end proc:
@@ -164,7 +173,7 @@ DAE_reduce_index_by_1_full := proc( E, G, Dvars )
   E1, G1, A, r := DAE_separate_algebraic( E, G );
 
   if tb_dae_debug then
-    print("DAEreduceBy1TheIndex: E1,G1,A",E1,G1,A);
+    print("DAE_reduce_index_by_1_full: E1,G1,A",E1,G1,A);
   end;
 
   # Separate Algebraic and Differential part
@@ -174,7 +183,7 @@ DAE_reduce_index_by_1_full := proc( E, G, Dvars )
   H, F := GenerateMatrix( convert(DA,list), Dvars );
 
   if tb_dae_debug then
-    print("DAEreduceBy1TheIndex: H,F",H,F);
+    print("DAE_reduce_index_by_1_full: H,F",H,F);
   end;
 
   # Build the modified DAE, by substituting the algebraic equation(s)
@@ -188,13 +197,13 @@ DAE_reduce_index_by_1_full2 := proc( EQS, Dvars )
   E, G := GenerateMatrix( EQS, Dvars ):
 
   if tb_dae_debug then
-    print("DAEreduceBy1TheIndexBis: E,G",E,G);
+    print("DAE_reduce_index_by_1_full2: E,G",E,G);
   end;
 
   E1, G1, ALG := DAEreduceBy1TheIndex( E, G, Dvars ):
 
   if tb_dae_debug then
-    print("DAEreduceBy1TheIndexBis: E1, G1, ALG",E1,G1,ALG);
+    print("DAE_reduce_index_by_1_full2: E1, G1, ALG",E1,G1,ALG);
   end;
 
   return convert(convert(E1.<Dvars>,Vector)-convert(G1,Vector),list), ALG;
@@ -211,14 +220,26 @@ end proc:
 # 
 # with the new algebraic part separated
 DAE_reduce_index_by_1 := proc( E, G, A, Dvars )
-  local r, DA, E1, G1, A1, H, F;
+  local n, m, n1, m1, na, r, DA, E1, G1, A1, H, F;
+  # check dimensions
+  n, m := Dimension(E);  na := nops(convert(A,list));  if na+n <> m  then
+    printf(      "DAE_reduce_index_by_1: number of row of E (%d x %d)\n"      "plus the number of algebraic equations (%d)\n"      "must be equal to the column of E\n", n, m, na    );
+    error("INPUT DATA ERROR\n");  end;
 
   # Separate Algebraic and Differential part
   DA := diff( A, t );
 
   # E2*Dvars-G2 = DALG
   H, F := GenerateMatrix( convert(DA,list), Dvars );
-
+  n1, m1 := Dimension(H);
+  if n1+n <> m or m1 <> m then
+    printf(
+      "DAE_reduce_index_by_1: bad dimension of linear part of constraint derivative\n"
+      "A' = H vars' + F, size H = %d x %d, size E = %d x %d\n",
+      n1, m1, n, m
+    );
+    error("INPUT DATA ERROR\n");
+  end;
   # find hidden constraint
 
   E1, G1, A1, r := DAE_separate_algebraic( <E,H>, <G,F> );
@@ -248,18 +269,18 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi_in, f_in, qvars, vvars, lvars )
 
   n, m:= Dimension( Mass );
   if n <> m or n <> nops(vvars) then
-    print("DAE3_get_ODE_and_invariants: mass marrix must be square and of the same size of the length of vvars", Mass, vvars);
+    print(      "DAE3_get_ODE_and_invariants: mass marrix must be square\n"      "and of the same size of the length of vvars", Mass, vvars    );
   end;
 
   n := nops( qvars );
   m := Dimension( Phi );
 
   if n <> nops(vvars) then
-    print("DAE3_get_ODE_and_invariants: qvars and vvars must have the same length", qvars, vvars);
+    print(      "DAE3_get_ODE_and_invariants: qvars and vvars\n"      "must have the same length", qvars, vvars    );
   end;
 
   if m <> nops(lvars) then
-    print("DAE3_get_ODE_and_invariants: lvars must have the same length the number of constraints", lvars, Phi);
+    print(      "DAE3_get_ODE_and_invariants: lvars must have\n"      "the same length the number of constraints", lvars, Phi    );
   end;
 
   # differential variables
