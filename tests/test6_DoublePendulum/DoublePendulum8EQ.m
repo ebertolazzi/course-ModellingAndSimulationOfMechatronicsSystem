@@ -277,7 +277,7 @@ classdef DoublePendulum8EQ < DAC_ODEclass
 
   methods
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function self = DoublePendulum8EQ( data )
+    function self = DoublePendulum8EQ( data, eta, omega )
       % call the constructor of the basic class
       neq  = 8;
       ninv = 4;
@@ -289,8 +289,8 @@ classdef DoublePendulum8EQ < DAC_ODEclass
       self.L2      = data.L2;
       self.m1      = data.m1;
       self.m2      = data.m2;
-      self.eta     = 0;
-      self.omega   = 0;
+      self.eta     = eta;
+      self.omega   = omega;
       self.npos    = 4;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
