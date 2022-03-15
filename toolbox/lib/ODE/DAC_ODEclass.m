@@ -9,7 +9,7 @@
 % Universita` degli Studi di Trento
 % email: enrico.bertolazzi@unitn.it
 %
-%> 
+%>
 %> ODE base class describing an ODE
 %>
 %> *Usage*
@@ -42,7 +42,7 @@ classdef DAC_ODEclass < DAC_base_class
     f( self, t, x )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %>
-    %> The derived function must return 
+    %> The derived function must return
     %> the jacobian of the r.h.s. of the ODE:
     %>
     %> \f[ \partial \mathbf{f}( t, \mathbf{x} ) / \partial \mathbf{x} \f]
@@ -57,7 +57,7 @@ classdef DAC_ODEclass < DAC_base_class
     h( self, t, x )
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %>
-    %> The derived function must return 
+    %> The derived function must return
     %> the jacobian of the hidden constraints of the ODE:
     %>
     %> \f[ \partial \mathbf{h}( t, \mathbf{x} ) / \partial \mathbf{x} \f]

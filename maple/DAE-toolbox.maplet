@@ -129,16 +129,24 @@ end proc:
 # 
 DAE_separate_algebraic_bis := proc( EQS, Dvars )
   local n, m, r, E, G, E1, G1, A;
-  if not type(EQS,list) or not type(Dvars,list) then
-    printf(     "DAE_separate_algebraic_bis: first argument must be a list of equations\n"     "second argument must be a list of differential variables\n"
-    );
-    error("BAD DATA");  end;
-  if nops(EQS) <> nops(Dvars) then
+
+  if not type(EQS,list) or not type(Dvars,list) then
     printf(
-     "DAE_separate_algebraic_bis: the number of equations (%d)\n"     "must be the same of the number of variables (%d)\n",     nops(EQS),nops(Dvars)
+     "DAE_separate_algebraic_bis: first argument must be a list of equations\n"
+     "second argument must be a list of differential variables\n"
     );
     error("BAD DATA");
-  end;  E, G         := GenerateMatrix( EQS, Dvars ):
+  end;
+  if nops(EQS) <> nops(Dvars) then
+    printf(
+     "DAE_separate_algebraic_bis: the number of equations (%d)\n"
+     "must be the same of the number of variables (%d)\n",
+     nops(EQS),nops(Dvars)
+    );
+    error("BAD DATA");
+  end;
+
+  E, G         := GenerateMatrix( EQS, Dvars ):
   E1, G1, A, r := DAE_separate_algebraic( E, G );
   return E1, G1, A, r;
 end proc:
@@ -221,18 +229,31 @@ end proc:
 # with the new algebraic part separated
 DAE_reduce_index_by_1 := proc( E, G, A, Dvars )
   local n, m, n1, m1, na, r, DA, E1, G1, A1, H, F;
-  # check dimensions
-  n, m := Dimension(E);  na := nops(convert(A,list));  if na+n <> m  then
-    printf(      "DAE_reduce_index_by_1: number of row of E (%d x %d)\n"      "plus the number of algebraic equations (%d)\n"      "must be equal to the column of E\n", n, m, na    );
-    error("INPUT DATA ERROR\n");  end;
+
+  # check dimensions
+  n, m := Dimension(E);
+
+  na := nops(convert(A,list));
+
+  if na+n <> m  then
+    printf(
+      "DAE_reduce_index_by_1: number of row of E (%d x %d)\n"
+      "plus the number of algebraic equations (%d)\n"
+      "must be equal to the column of E\n", n, m, na
+    );
+    error("INPUT DATA ERROR\n");
+  end;
 
   # Separate Algebraic and Differential part
   DA := diff( A, t );
 
   # E2*Dvars-G2 = DALG
   H, F := GenerateMatrix( convert(DA,list), Dvars );
-  n1, m1 := Dimension(H);
-  if n1+n <> m or m1 <> m then
+
+  n1, m1 := Dimension(H);
+
+
+  if n1+n <> m or m1 <> m then
     printf(
       "DAE_reduce_index_by_1: bad dimension of linear part of constraint derivative\n"
       "A' = H vars' + F, size H = %d x %d, size E = %d x %d\n",
@@ -269,18 +290,27 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi_in, f_in, qvars, vvars, lvars )
 
   n, m:= Dimension( Mass );
   if n <> m or n <> nops(vvars) then
-    print(      "DAE3_get_ODE_and_invariants: mass marrix must be square\n"      "and of the same size of the length of vvars", Mass, vvars    );
+    print(
+      "DAE3_get_ODE_and_invariants: mass marrix must be square\n"
+      "and of the same size of the length of vvars", Mass, vvars
+    );
   end;
 
   n := nops( qvars );
   m := Dimension( Phi );
 
   if n <> nops(vvars) then
-    print(      "DAE3_get_ODE_and_invariants: qvars and vvars\n"      "must have the same length", qvars, vvars    );
+    print(
+      "DAE3_get_ODE_and_invariants: qvars and vvars\n"
+      "must have the same length", qvars, vvars
+    );
   end;
 
   if m <> nops(lvars) then
-    print(      "DAE3_get_ODE_and_invariants: lvars must have\n"      "the same length the number of constraints", lvars, Phi    );
+    print(
+      "DAE3_get_ODE_and_invariants: lvars must have\n"
+      "the same length the number of constraints", lvars, Phi
+    );
   end;
 
   # differential variables
@@ -334,7 +364,7 @@ DAE3_get_ODE_and_invariants := proc( Mass, Phi_in, f_in, qvars, vvars, lvars )
   ]);
 end proc:
 DAE3_get_ODE_and_invariants_full := proc( Mass, Phi, f, qvars, vvars, lvars )
-  local tbl, n, m, bigETA;
+  local tbl, i, n, m, bigETA;
 
   tbl := DAE3_get_ODE_and_invariants( Mass, Phi, f, qvars, vvars, lvars );
 
