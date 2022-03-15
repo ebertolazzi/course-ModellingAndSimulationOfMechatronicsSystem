@@ -49,7 +49,7 @@ However ``DIFF`` work
   > fun := sin(x(t));
   > DIFF(sin(x(t)),x(t));
 
-    cos( x(t))
+    cos(x(t))
 
 returning the correct answer.
 
@@ -76,10 +76,8 @@ The parameters can be also functions.
   > PARS := [x,y(t)]:
   > JACOBIAN(FUN,PARS);
 
-           [       2 x                         1                ]
-           [                                                    ]
-           [     2                                              ]
-           [-y(t)  sin(x y(t))  cos(x y(t)) - y(t) x sin(x y(t))]
+           [       2*x                         1              ]
+           [-y(t)^2*sin(x*(t))  cos(x*y(t))-y(t)*x*sin(x*y(t))]
 
 
 Kernel_build
@@ -229,8 +227,8 @@ is transformed to
 
   [ \dot{u}(t), \dot{v}(t), \lambda(t) ]
 
-For a non trivial usare of ``DAE_make_semi_explicit``
-lokk at :file:`DAE-toolbox-usare-2.mw`
+For a non trivial usage of ``DAE_make_semi_explicit``
+lokk at :file:`DAE-toolbox-usage-2.mw`
 
 DAE_reduce_index_by_1
 ~~~~~~~~~~~~~~~~~~~~~
@@ -279,11 +277,11 @@ is equal to the number of equations.
 
 Library has also the functions:
 
-- DAE_reduce_index_by_1_full( E, G, Dvars )
+- `DAE_reduce_index_by_1_full( E, G, Dvars )`
   Do not need to previously separate algebraic part, is
   done internally.
 
-- DAE_reduce_index_by_1_full2proc( EQS, Dvars )
+- `DAE_reduce_index_by_1_full2proc( EQS, Dvars )`
   Do not need to put in the form `E x' = G`
   is done internally.
 

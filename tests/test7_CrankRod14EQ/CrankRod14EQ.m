@@ -25,22 +25,22 @@ classdef CrankRod14EQ < DAC_ODEclass
       self.gravity = gravity;
     end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    function res__f = f( self, t, vars__ )
+   function res__f = f( self, t, vars__ )
       % extract parameters
       g = self.gravity;
       m = self.m;
       L = self.ell;
-      
+
       % extract states
-      x__1  = vars__(1);
-      y__1  = vars__(2);
-      x__2  = vars__(3);
-      y__2  = vars__(4);
+      x__1 = vars__(1);
+      y__1 = vars__(2);
+      x__2 = vars__(3);
+      y__2 = vars__(4);
       theta = vars__(5);
-      u__1  = vars__(6);
-      v__1  = vars__(7);
-      u__2  = vars__(8);
-      v__2  = vars__(9);
+      u__1 = vars__(6);
+      v__1 = vars__(7);
+      u__2 = vars__(8);
+      v__2 = vars__(9);
       omega = vars__(10);
       lambda__1 = vars__(11);
       lambda__2 = vars__(12);
@@ -54,7 +54,7 @@ classdef CrankRod14EQ < DAC_ODEclass
       res__4 = v__2;
       res__5 = omega;
       t2 = 0.1e1 / m;
-      res__6 = t2 * (lambda__1 - lambda__3);
+      res__6 = t2 * (-lambda__3 + lambda__1);
       t3 = m * g;
       res__7 = t2 * (-t3 + lambda__2);
       res__8 = lambda__3 * t2;
@@ -66,12 +66,13 @@ classdef CrankRod14EQ < DAC_ODEclass
       t15 = 0.1e1 / t14;
       res__10 = t2 * t15 / L * (-t10 - lambda__1 + lambda__3);
       t18 = t7 ^ 2;
+      t22 = t14 * lambda__2;
       t24 = t18 * t7;
-      t36 = 0.1e1 / (4 * t18 - 5);
-      t38 = t15 * t36 * (3 * m * t18 * L * t6 + lambda__2 * t14 * t18 - lambda__2 * t14 + lambda__1 * t24 + lambda__3 * t24 + 2 * lambda__1 * t7 - 4 * lambda__3 * t7) * omega;
-      res__11 = -3 * t38;
-      res__12 = -t36 * (lambda__2 * t14 * t7 + lambda__1 * t18 + lambda__3 * t18 + 15 * t10 + 15 * lambda__1 - 15 * lambda__3) * omega;
-      res__13 = -2 * t38;
+      t35 = 0.1e1 / (4 * t18 - 5);
+      t37 = t15 * t35 * (3 * m * t18 * L * t6 + t18 * t22 + t24 * lambda__1 + t24 * lambda__3 + 2 * t7 * lambda__1 - 4 * t7 * lambda__3 - t22) * omega;
+      res__11 = -3 * t37;
+      res__12 = -t35 * (t18 * lambda__1 + t18 * lambda__3 + t7 * t22 + 15 * t10 + 15 * lambda__1 - 15 * lambda__3) * omega;
+      res__13 = -2 * t37;
       
       % store on output
       res__f = zeros(14,1);
@@ -88,7 +89,7 @@ classdef CrankRod14EQ < DAC_ODEclass
       res__f(11) = res__11;
       res__f(12) = res__12;
       res__f(13) = res__13;
-    end
+   end
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     function res__DfDx = DfDx( self, t, vars__ )
       % extract parameters

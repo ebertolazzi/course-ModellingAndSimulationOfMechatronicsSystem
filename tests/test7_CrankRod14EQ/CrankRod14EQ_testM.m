@@ -5,6 +5,7 @@
 % email: enrico.bertolazzi@unitn.it
 
 %% Initialize by cleaning memory and widows
+clc;
 clear all;
 close all;
 
