@@ -1,0 +1,298 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class DIAL_Base &#8212; ODE/DAE v0.2-16-g7c2a9b4
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class DIAL_ODEsolver" href="class_a00123.html" />
+    <link rel="prev" title="Class CrankNicolson" href="class_a00187.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00123.html" title="Class DIAL_ODEsolver"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00187.html" title="Class CrankNicolson"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class DIAL_Base</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-dial-base">
+<span id="exhale-class-a00119"></span><h1>Class DIAL_Base<a class="headerlink" href="#class-dial-base" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_DIAL_Base.m.html#file-dial-base-m"><span class="std std-ref">File DIAL_Base.m</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">handle</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DIAL_ODEsystem</span></code> (<a class="reference internal" href="class_a00127.html#exhale-class-a00127"><span class="std std-ref">Class DIAL_ODEsystem</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv49DIAL_Base">
+<span id="_CPPv39DIAL_Base"></span><span id="_CPPv29DIAL_Base"></span><span id="DIAL_Base"></span><span class="target" id="a00119"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DIAL_Base</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">handle</span></span><a class="headerlink" href="#_CPPv49DIAL_Base" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Class container for the system of Ordinary Differential Equations (ODEs) or Differential Algebraic Equations (DAEs) </p>
+<p>Subclassed by <a class="reference internal" href="class_a00127.html#a00127"><span class="std std-ref">DIAL_ODEsystem</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base4plotE2in2in2in2in">
+<span id="_CPPv3N9DIAL_Base4plotE2in2in2in2in"></span><span id="_CPPv2N9DIAL_Base4plotE2in2in2in2in"></span><span id="DIAL_Base::plot__in.in.in.in"></span><span class="target" id="a00119_1a429e8e64ad3c090eef6d71d4c6fb16fd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">plot</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base4plotE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>(Abstract) Plot the system of ODEs/DAEs model in a defined pose </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base9DIAL_BaseE2in2in2in2in">
+<span id="_CPPv3N9DIAL_Base9DIAL_BaseE2in2in2in2in"></span><span id="_CPPv2N9DIAL_Base9DIAL_BaseE2in2in2in2in"></span><span id="DIAL_Base::DIAL_Base__in.in.in.in"></span><span class="target" id="a00119_1a5c599996ba7959394db1556231c1edba"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DIAL_Base</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">name</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">neqn</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ninv</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base9DIAL_BaseE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Class constructor</p>
+<p></p>
+<ul class="simple">
+<li><p><em>name</em> Name of the system of ODEs/DAEs</p></li>
+<li><p><em>neqn</em> Number of equations of the system of ODEs/DAEs</p></li>
+<li><p><em>ninv</em> Number of invariants/contraints of the system of ODEs/DAEs </p></li>
+</ul>
+
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base7getNeqnE2in2in">
+<span id="_CPPv3N9DIAL_Base7getNeqnE2in2in"></span><span id="_CPPv2N9DIAL_Base7getNeqnE2in2in"></span><span id="DIAL_Base::getNeqn__in.in"></span><span class="target" id="a00119_1a62ac525090cc2f2cd18836d88217c1b0"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNeqn</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base7getNeqnE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the number of equations of the system of ODEs/DAEs. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base7getNinvE2in2in">
+<span id="_CPPv3N9DIAL_Base7getNinvE2in2in"></span><span id="_CPPv2N9DIAL_Base7getNinvE2in2in"></span><span id="DIAL_Base::getNinv__in.in"></span><span class="target" id="a00119_1aeaeccc26eba46c64695967f8a8584c16"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getNinv</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base7getNinvE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the number of invariants/contraints of the system of ODEs/DAEs. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base6setNeqE2in2in2in">
+<span id="_CPPv3N9DIAL_Base6setNeqE2in2in2in"></span><span id="_CPPv2N9DIAL_Base6setNeqE2in2in2in"></span><span id="DIAL_Base::setNeq__in.in.in"></span><span class="target" id="a00119_1a0aba0c1d1878d3b41606d3fc98964de7"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setNeq</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9DIAL_Base6setNeqE2in2in2in" title="DIAL_Base::setNeq::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N9DIAL_Base6setNeqE2in2in2in" title="DIAL_Base::setNeq::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N9DIAL_Base6setNeqE2in2in2in" title="DIAL_Base::setNeq::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base6setNeqE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the number of equations of the system of ODEs/DAEs. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base7setNinvE2in2in2in">
+<span id="_CPPv3N9DIAL_Base7setNinvE2in2in2in"></span><span id="_CPPv2N9DIAL_Base7setNinvE2in2in2in"></span><span id="DIAL_Base::setNinv__in.in.in"></span><span class="target" id="a00119_1ae45ba5f0ea987446a63954dd0f51cbc6"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setNinv</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N9DIAL_Base7setNinvE2in2in2in" title="DIAL_Base::setNinv::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N9DIAL_Base7setNinvE2in2in2in" title="DIAL_Base::setNinv::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N9DIAL_Base7setNinvE2in2in2in" title="DIAL_Base::setNinv::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base7setNinvE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the number of invariants/contraints of the system of ODEs/DAEs. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base11animatePlotE2in2in2in2in2in2in">
+<span id="_CPPv3N9DIAL_Base11animatePlotE2in2in2in2in2in2in"></span><span id="_CPPv2N9DIAL_Base11animatePlotE2in2in2in2in2in2in"></span><span id="DIAL_Base::animatePlot__in.in.in.in.in.in"></span><span class="target" id="a00119_1aa26b487ada2c3c25258d7889c88073d8"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">animatePlot</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">pause</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">step</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base11animatePlotE2in2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Animate the system of ODEs/DAEs solution</p>
+<p></p>
+<ul class="simple">
+<li><p><em>t</em> Vector of sampled time</p></li>
+<li><p><em>x</em> Matrix with the solution at sampled time</p></li>
+<li><p><em>pause</em> Pause in ms between two frames</p></li>
+<li><p><em>step</em> Update the plot every <code class="docutils literal notranslate"><span class="pre">step</span></code> time steps </p></li>
+</ul>
+
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9DIAL_Base9makeMovieE2in2in2in2in2in2in">
+<span id="_CPPv3N9DIAL_Base9makeMovieE2in2in2in2in2in2in"></span><span id="_CPPv2N9DIAL_Base9makeMovieE2in2in2in2in2in2in"></span><span id="DIAL_Base::makeMovie__in.in.in.in.in.in"></span><span class="target" id="a00119_1ab9db29cf863a28f0f8450d93a3f98c9d"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">makeMovie</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">path</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">step</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9DIAL_Base9makeMovieE2in2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Make a movie of the system of ODEs/DAEs solution</p>
+<p></p>
+<ul class="simple">
+<li><p><em>path</em> Path to the filename where to save movie</p></li>
+<li><p><em>t</em> Vector of sampled time</p></li>
+<li><p><em>x</em> Matrix with the solution at sampled time</p></li>
+<li><p><em>step</em> Update the plot every <code class="docutils literal notranslate"><span class="pre">step</span></code> time steps </p></li>
+</ul>
+
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_INTRO.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_TOOLBOX.html">DAE-Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_EXAMPLES.html">ODE/DAE library examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00123.html" title="Class DIAL_ODEsolver"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00187.html" title="Class CrankNicolson"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class DIAL_Base</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Enrico Bertolazzi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

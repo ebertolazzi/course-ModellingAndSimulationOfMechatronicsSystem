@@ -18,117 +18,147 @@ Consider the ODE:
   \end{cases}
 
 Define the class for the ODE to be integrated.
-In this case the class ``Pendulum2EQ`` derived from
-the base class ``DAC_ODEclass``.
-The following is the contents of the file `Pendulum2EQ.m`
+In this case the class ``LinearPendulumODE`` derived from
+the base class ``LinearPendulumODE``.
+The following is the contents of the file `LinearPendulumODE.m`
 
 .. code-block:: matlab
 
-    classdef Pendulum2EQ < DAC_ODEclass
-      properties (SetAccess = protected, Hidden = true)
-        %> ray of the circle (constraint)
-        ell;
-        %> gravity constant
-        gravity;
-      end
-      methods
-        function self = Pendulum2EQ( ell, gravity )
-          neq  = 2;
-          ninv = 0;
-          self@DAC_ODEclass('Pendulum2EQ',neq,ninv);
-          self.ell     = ell;
-          self.gravity = gravity;
-        end
-        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        function ode = f( self, t, Z )
-          theta  = Z(1);
-          omega  = Z(2);
-          g      = self.gravity;
-          ell    = self.ell;
-          ode    = zeros(2,1);
-          ode(1) = omega;
-          ode(2) = -(g/ell)*sin(theta);
-        end
-        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        function jac = DfDx( self, t, Z )
-          theta    = Z(1);
-          omega    = Z(2);
-          g        = self.gravity;
-          ell      = self.ell;
-          jac      = zeros(2,2);
-          jac(1,2) = 1;
-          jac(2,1) = -(g/ell)*cos(theta);
-        end
-        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        function h( self, t, Z )
-        end
-        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        function DhDx( self, t, Z )
-        end
-        % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        function plot( self, t, Z )
-          theta = Z(1);
-          omega = Z(2);
-          x  = self.ell*sin(theta);
-          y  = -self.ell*cos(theta);
-          x0 = 0;
-          y0 = 0;
-          tt = 0:pi/30:2*pi;
-          xx = self.ell*cos(tt);
-          yy = self.ell*sin(tt);
-          hold off;
-          plot(xx,yy,'LineWidth',2,'Color','red');
-          hold on;
-          L = 1.5*self.ell;
-          drawLine(-L,0,L,0,'LineWidth',2,'Color','k');
-          drawLine(0,-L,0,L,'LineWidth',2,'Color','k');
-          drawAxes(2,0.25,1,0,0);
-          drawLine(x0,y0,x,y,'LineWidth',8,'Color','b');
-          drawCOG( 0.1*self.ell, x0, y0 );
-          fillCircle( 'r', x, y, 0.1*self.ell );
-          axis([-L L -L L]);
-          axis equal;
-        end
-      end
+  classdef LinearPendulumODE < DIAL_ODEsystem
+    %
+    properties (SetAccess = protected, Hidden = true)
+      %
+      %> Pendulum mass (kg)
+      %
+      m_m;
+      %
+      %> Pendulum length (m)
+      %
+      m_l;
+      %
+      %> Gravity acceleration (m/s^2)
+      %
+      m_g;
     end
-
+    %
+    methods
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+      function this = LinearPendulumODE( m, l, g )
+        neq  = 2;
+        ninv = 0;
+        this@DIAL_ODEsystem( 'LinearPendulumODE', neq, ninv );
+        this.m_m = m;
+        this.m_l = l;
+        this.m_g = g;
+      end
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+      function out = f( this, ~, X )
+        out    = zeros(2,1);
+        out(1) = X(2);
+        out(2) = -this.m_g / this.m_l * X(1);
+      end
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+      function out = DfDx( this, ~, ~ )
+        out      = zeros(2,2);
+        out(1,2) = 1.0;
+        out(2,1) = -this.m_g / this.m_l;
+      end
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+      function h( ~, ~, ~ )
+      end
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+      function DhDx( ~, ~, ~ )
+      end
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+      function plot( this, ~, X )
+        x  =  this.m_l*sin(X(1));
+        y  = -this.m_l*cos(X(1));
+        x0 = 0;
+        y0 = 0;
+        tt = 0:pi/100:2*pi;
+        xx = this.m_l*cos(tt);
+        yy = this.m_l*sin(tt);
+        hold off;
+        plot(xx, yy, 'LineWidth', 1.0, 'Color', 'red');
+        hold on;
+        grid on; grid minor;
+        xlabel('$x$(m)');
+        ylabel('$y$(m)');
+        l = 1.1*this.m_l;
+        drawLine(x0, y0, x, y, 'LineWidth', 5, 'Color', 'k');
+        drawCOG( 0.1*this.m_l, x0, y0 );
+        fillCircle( 'r', x, y, 0.1*this.m_l );
+        xlim([-l, l]);
+        ylim([-l, l]);
+        axis equal;
+      end
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+      function out = exact( this, x_i, t )
+        sqrt_g_l = sqrt(this.m_g / this.m_l);
+        out      = zeros(2,length(t));
+        out(1,:) = -sqrt_g_l .* x_i(2) .* sin(sqrt_g_l .* t) + x_i(1) * cos(sqrt_g_l .* t);
+        out(2,:) = sqrt_g_l .* (sqrt_g_l .* x_i(2) .* cos(sqrt_g_l .* t) - x_i(1) * sin(sqrt_g_l .* t));
+      end
+      %
+      %
+      % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      %
+    end
+    %
+  end
 
 Instantiate the ODE
 -------------------
 
-Having `Pendulum2EQ.m` now can instantiate the ODE
+Having `LinearPendulumODE.m` now can instantiate the ODE:
 
 .. code:: matlab
 
-  % load the Pendulum model in the variable ode
-  ell     = 2;
-  gravity = 9.81;
-  ode     = Pendulum2EQ( ell, gravity );
+  % Load the linear pendulum model
+  m = 1.0;  % Mass (kg)
+  l = 1.0;  % Length (m)
+  g = 9.81; % Gravity (m/s^2)
+  ODE = LinearPendulumODE( m, l, g );
 
 Choose solver
 -------------
 
-Choose `ExplicitEuler` as solver and attach the
-instantiated ode to it.
+Choose `ExplicitEuler` as solver and attach the instantiated
+ODE to it:
 
 .. code:: matlab
 
-  solver = ExplicitEuler(); % initialize solver
-  solver.setODE(ode);       % Attach ode to the solver
+  solver = ExplicitEuler(); % Initialize solver
+  solver.setODE(ODE);       % Attach ODE to the solver
 
 
 Integrate
 ---------
 
-Select the range and the sam pling point for the numerical solution
+Select the range and the sampling point for the numerical solution:
 
 .. code:: matlab
 
-  Tmax = 10;
-  h    = 0.05;
-  tt   = 0:h:Tmax;
+    d_t   = 0.05; % (s)
+    T_ini = 0.0;  % (s)
+    T_end = 10.0; % (s)
+    tt = T_ini:d_t:T_end;
 
-setup initial condition
+Setup initial condition:
 
 .. code:: matlab
 
@@ -136,8 +166,7 @@ setup initial condition
   omega0  = 0;
   ini     = [theta0;omega0];
 
-
-compute numerical solution
+Compute numerical solution:
 
 .. code:: matlab
 
@@ -154,17 +183,17 @@ Extract solution
 
   theta = sol(1,:);
   omega = sol(2,:);
-  x = ell*sin(theta);
-  y = -ell*cos(theta);
+  x =  l*sin(theta);
+  y = -l*cos(theta);
 
 Plot the solution
 -----------------
 
 .. code:: matlab
 
-  % sample a circle and plot (the constraint)
-  xx = ell*cos(0:pi/100:2*pi);
-  yy = ell*sin(0:pi/100:2*pi);
+  % Sample a circle and plot (the constraint)
+  xx = l*cos(0:pi/100:2*pi);
+  yy = l*sin(0:pi/100:2*pi);
   plot( xx, yy, '-r', 'Linewidth', 1 );
   hold on
   axis equal
@@ -199,7 +228,7 @@ Plot the solution
 
 .. code:: matlab
 
-  ode.animate_plot( tt, sol, 10, 1 );
+  ode.animatePlot( tt, sol, 10, 1 );
 
 .. image:: ./images/Manual_ODE_TEST1_mov1.mp4
    :width: 90%

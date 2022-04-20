@@ -1,0 +1,445 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class RadauIA5 &#8212; ODE/DAE v0.2-16-g7c2a9b4
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class RadauIIA3" href="class_a00259.html" />
+    <link rel="prev" title="Class RadauIA3" href="class_a00251.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00259.html" title="Class RadauIIA3"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00251.html" title="Class RadauIA3"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class RadauIA5</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-radauia5">
+<span id="exhale-class-a00255"></span><h1>Class RadauIA5<a class="headerlink" href="#class-radauia5" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_ODE_ImplicitMethods_RadauIA5.m.html#file-ode-implicitmethods-radauia5-m"><span class="std std-ref">File RadauIA5.m</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DIAL_RKimplicit</span></code> (<a class="reference internal" href="class_a00135.html#exhale-class-a00135"><span class="std std-ref">Class DIAL_RKimplicit</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv48RadauIA5">
+<span id="_CPPv38RadauIA5"></span><span id="_CPPv28RadauIA5"></span><span id="RadauIA5"></span><span class="target" id="a00255"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RadauIA5</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="class_a00135.html#_CPPv415DIAL_RKimplicit" title="DIAL_RKimplicit"><span class="n"><span class="pre">DIAL_RKimplicit</span></span></a><a class="headerlink" href="#_CPPv48RadauIA5" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Class container for Radau IA fifth-order method (3 stages) </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA58RadauIA5E2in">
+<span id="_CPPv3N8RadauIA58RadauIA5E2in"></span><span id="_CPPv2N8RadauIA58RadauIA5E2in"></span><span id="RadauIA5::RadauIA5__in"></span><span class="target" id="a00255_1ad2bdc38a90ffdf2ce5a771f005026004"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RadauIA5</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA58RadauIA5E2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>RadauIA fifth-order method (3 stages)</p>
+<p></p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|ccc}
+  0 &amp; \frac{1}{9} &amp; \frac{-1 - \sqrt{6}}{18} &amp; \frac{-1 + \sqrt{6}}{18} \\
+  \frac{3}{5} - \frac{\sqrt{6}}{10} &amp; \frac{1}{9} &amp; \frac{11}{45} + \frac{7\sqrt{6}}{360} &amp; \frac{11}{45} - \frac{43\sqrt{6}}{360} \\
+  \frac{3}{5} + \frac{\sqrt{6}}{10} &amp; \frac{1}{9} &amp; \frac{11}{45} + \frac{43\sqrt{6}}{360} &amp; \frac{11}{45} - \frac{7\sqrt{6}}{360} \\
+  \hline
+    &amp; \frac{1}{9} &amp; \frac{4}{9} + \frac{\sqrt{6}}{36} &amp; \frac{4}{9} - \frac{\sqrt{6}}{36} \\
+\end{array}\end{split}\]</div>
+
+ 
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54getAE2in2in">
+<span id="_CPPv3N8RadauIA54getAE2in2in"></span><span id="_CPPv2N8RadauIA54getAE2in2in"></span><span id="RadauIA5::getA__in.in"></span><span class="target" id="a00135_1a015e3a31181f1aa0b3d4fa80382bed65"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getA</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54getAE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the Runge-Kutta matrix. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54getBE2in2in">
+<span id="_CPPv3N8RadauIA54getBE2in2in"></span><span id="_CPPv2N8RadauIA54getBE2in2in"></span><span id="RadauIA5::getB__in.in"></span><span class="target" id="a00135_1a85be2aea4c82819bfc928157f82e427c"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getB</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54getBE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the Runge-Kutta weights vector (row vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54getCE2in2in">
+<span id="_CPPv3N8RadauIA54getCE2in2in"></span><span id="_CPPv2N8RadauIA54getCE2in2in"></span><span id="RadauIA5::getC__in.in"></span><span class="target" id="a00135_1adb9463031b912e57db2d7af8bc0abb2a"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getC</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54getCE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the Runge-Kutta nodes vector (column vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54setAE2in2in2in">
+<span id="_CPPv3N8RadauIA54setAE2in2in2in"></span><span id="_CPPv2N8RadauIA54setAE2in2in2in"></span><span id="RadauIA5::setA__in.in.in"></span><span class="target" id="a00135_1a142a691e391e07b6e346a79c2ac1a9a5"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setA</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8RadauIA54setAE2in2in2in" title="RadauIA5::setA::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N8RadauIA54setAE2in2in2in" title="RadauIA5::setA::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N8RadauIA54setAE2in2in2in" title="RadauIA5::setA::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54setAE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the Runge-Kutta matrix. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54setBE2in2in2in">
+<span id="_CPPv3N8RadauIA54setBE2in2in2in"></span><span id="_CPPv2N8RadauIA54setBE2in2in2in"></span><span id="RadauIA5::setB__in.in.in"></span><span class="target" id="a00135_1a98174d7bc446396dac2da0c785fe3739"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8RadauIA54setBE2in2in2in" title="RadauIA5::setB::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N8RadauIA54setBE2in2in2in" title="RadauIA5::setB::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N8RadauIA54setBE2in2in2in" title="RadauIA5::setB::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54setBE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the Runge-Kutta weights vector (row vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54setCE2in2in2in">
+<span id="_CPPv3N8RadauIA54setCE2in2in2in"></span><span id="_CPPv2N8RadauIA54setCE2in2in2in"></span><span id="RadauIA5::setC__in.in.in"></span><span class="target" id="a00135_1a88ec0245d2ef5cd141dd407a399e7cd9"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setC</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8RadauIA54setCE2in2in2in" title="RadauIA5::setC::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N8RadauIA54setCE2in2in2in" title="RadauIA5::setC::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N8RadauIA54setCE2in2in2in" title="RadauIA5::setC::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54setCE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the Runge-Kutta nodes vector (column vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA512stepResidualE2in2in2in2in2in2in">
+<span id="_CPPv3N8RadauIA512stepResidualE2in2in2in2in2in2in"></span><span id="_CPPv2N8RadauIA512stepResidualE2in2in2in2in2in2in"></span><span id="RadauIA5::stepResidual__in.in.in.in.in.in"></span><span class="target" id="a00135_1a5e700fa88d5f0ff08316f1654812c8e9"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stepResidual</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">K</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">d_t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA512stepResidualE2in2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Compute the step residual <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K}) \)</span>. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA512stepJacobianE2in2in2in2in2in2in">
+<span id="_CPPv3N8RadauIA512stepJacobianE2in2in2in2in2in2in"></span><span id="_CPPv2N8RadauIA512stepJacobianE2in2in2in2in2in2in"></span><span id="RadauIA5::stepJacobian__in.in.in.in.in.in"></span><span class="target" id="a00135_1ad5a083a6acf4e0ba2b4a5af7033e1d5f"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stepJacobian</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">K</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">d_t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA512stepJacobianE2in2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Compute the Jacobian of <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K}) \)</span>:</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial\mathbf{F}(\mathbf{K})}{\partial \mathbf{K}} \]</div>
+. 
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA59solveStepE2in2in2in2in2in">
+<span id="_CPPv3N8RadauIA59solveStepE2in2in2in2in2in"></span><span id="_CPPv2N8RadauIA59solveStepE2in2in2in2in2in"></span><span id="RadauIA5::solveStep__in.in.in.in.in"></span><span class="target" id="a00135_1a4781607f53a3470c5a7a5c5c95f13dce"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">solveStep</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">d_t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA59solveStepE2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Solve the implicit step <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K})=\mathbf{0} \)</span> by Newton method</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{K}^{\ell+1} = \mathbf{K}^{\ell} - \left(\frac{\partial\mathbf{F}(\mathbf{K}^{\ell})}{\partial \mathbf{K}}\right)^{-1}\mathbf{F}(\mathbf{K}^{\ell}) \]</div>
+. 
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54stepE2in2in2in2in2in">
+<span id="_CPPv3N8RadauIA54stepE2in2in2in2in2in"></span><span id="_CPPv2N8RadauIA54stepE2in2in2in2in2in"></span><span id="RadauIA5::step__in.in.in.in.in"></span><span class="target" id="a00135_1a854c93a40cd6b34e441c646be8f4e51e"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">d_t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54stepE2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Perform an implicit step by solving the residual <span class="math notranslate nohighlight">\( \mathbf{F}(\mathbf{K})=\mathbf{0} \)</span>. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA54stepE2in2in2in2in">
+<span id="_CPPv3N8RadauIA54stepE2in2in2in2in"></span><span id="_CPPv2N8RadauIA54stepE2in2in2in2in"></span><span id="RadauIA5::step__in.in.in.in"></span><span class="target" id="a00123_1ae67086c01e7108c428a282e37913cee5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">d_t</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA54stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Generic advancing step for a generic numerical integration method:</p>
+<p></p>
+<ul class="simple">
+<li><p><em>x_k</em> States value at <span class="math notranslate nohighlight">\( k \)</span>-th time step <span class="math notranslate nohighlight">\( \mathbf{x}(t_k) \)</span></p></li>
+<li><p><em>t_k</em> Time step <span class="math notranslate nohighlight">\( t_k \)</span></p></li>
+<li><p><em>d_t</em> Advancing time step <span class="math notranslate nohighlight">\( \Delta t\)</span></p></li>
+</ul>
+
+<p>Returns the approximation of <span class="math notranslate nohighlight">\( \mathbf{x_{k+1}}(t_{k}+\Delta t) \)</span> </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA59getSolverE2in2in">
+<span id="_CPPv3N8RadauIA59getSolverE2in2in"></span><span id="_CPPv2N8RadauIA59getSolverE2in2in"></span><span id="RadauIA5::getSolver__in.in"></span><span class="target" id="a00123_1ae8d5055884cd1360ce2b9ff52cf31087"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getSolver</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA59getSolverE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the name of the numerical method used to advance solution. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA56getODEE2in2in">
+<span id="_CPPv3N8RadauIA56getODEE2in2in"></span><span id="_CPPv2N8RadauIA56getODEE2in2in"></span><span id="RadauIA5::getODE__in.in"></span><span class="target" id="a00123_1af3271460ca1a0a544ad172101fc3b6b4"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getODE</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA56getODEE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the system of ODEs to be integrated. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA59setSolverE2in2in2in">
+<span id="_CPPv3N8RadauIA59setSolverE2in2in2in"></span><span id="_CPPv2N8RadauIA59setSolverE2in2in2in"></span><span id="RadauIA5::setSolver__in.in.in"></span><span class="target" id="a00123_1afc7c75fca37996a46a64b9de9e8d537c"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSolver</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8RadauIA59setSolverE2in2in2in" title="RadauIA5::setSolver::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N8RadauIA59setSolverE2in2in2in" title="RadauIA5::setSolver::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N8RadauIA59setSolverE2in2in2in" title="RadauIA5::setSolver::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA59setSolverE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the name of the numerical method used to integrate the system of ODEs. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA56setODEE2in2in2in">
+<span id="_CPPv3N8RadauIA56setODEE2in2in2in"></span><span id="_CPPv2N8RadauIA56setODEE2in2in2in"></span><span id="RadauIA5::setODE__in.in.in"></span><span class="target" id="a00123_1a16a8e39fc905056273c77054f581ce9b"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setODE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N8RadauIA56setODEE2in2in2in" title="RadauIA5::setODE::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N8RadauIA56setODEE2in2in2in" title="RadauIA5::setODE::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N8RadauIA56setODEE2in2in2in" title="RadauIA5::setODE::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA56setODEE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the system of ODEs to be integrated. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA57projectE2in2in2in">
+<span id="_CPPv3N8RadauIA57projectE2in2in2in"></span><span id="_CPPv2N8RadauIA57projectE2in2in2in"></span><span id="RadauIA5::project__in.in.in"></span><span class="target" id="a00123_1ab224a050eb23df6db88fbdb67e29f42a"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">project</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_tilde</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA57projectE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Solve the problem</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left\{\begin{array}{ll} \textrm{minimize} &amp; \frac{1}{2}\left(\mathbf{x}-\widetilde{\mathbf{x}}\right)^2 \\[1em] \textrm{subject to} &amp; \mathbf{h}( t, \mathbf{x} ) = \mathbf{0} \end{array}\right. \end{split}\]</div>
+
+<p>Given the Lagrangian</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ L( \mathbf{x}, \boldsymbol{\lambda} ) = \frac{1}{2}\left(\mathbf{x}-\widetilde{\mathbf{x}}\right)^2+ \boldsymbol{\lambda} \cdot \mathbf{h}( t, \mathbf{x} ) \]</div>
+
+<p>Solve the problem</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left\{\begin{array}{rcl} \mathbf{x}+\dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T \boldsymbol{\lambda} &amp;=&amp; \widetilde{\mathbf{x}}\\[1em] \mathbf{h}(t,\mathbf{x}) &amp;=&amp; \mathbf{0} \end{array}\right. \end{split}\]</div>
+
+<p><strong>Solution algorithm</strong></p>
+<p>Using the Taylor expansion</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{h}( t, \mathbf{x} ) + \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} \delta\mathbf{x} + \mathcal{O}\left( ||\delta\mathbf{x}||^2 \right) = \mathbf{0} \]</div>
+
+<p>define the iterative method</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{x}_{k+1} = \mathbf{x}_k + \delta\mathbf{x} \]</div>
+
+<p>where <span class="math notranslate nohighlight">\( \delta\mathbf{x} \)</span> is the solution of the linear system</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left[\begin{array}{cc} \mathbf{I} &amp; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T \\[1em] \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} &amp; \mathbf{0} \end{array}\right] \left[\begin{array}{c} \delta\mathbf{x} \\[1em] \boldsymbol{\lambda} \end{array}\right] = \left[\begin{array}{c} \widetilde{\mathbf{x}}-\mathbf{x}_k \\[1em] -\mathbf{h}(t_k,\mathbf{x}_k) \end{array}\right] \end{split}\]</div>
+ 
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8RadauIA59integrateE2in2in2in2in">
+<span id="_CPPv3N8RadauIA59integrateE2in2in2in2in"></span><span id="_CPPv2N8RadauIA59integrateE2in2in2in2in"></span><span id="RadauIA5::integrate__in.in.in.in"></span><span class="target" id="a00123_1af4734f08b6940ae5b8a5937dbfd6b5cb"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integrate</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_i</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">varargin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8RadauIA59integrateE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Integrate the system of ODEs and calculate the approximate solution:</p>
+<p></p>
+<ul class="simple">
+<li><p><em>t</em> Time vector</p></li>
+<li><p><em>x_0</em> Initial states value</p></li>
+<li><p><em>project</em> [optional, default = false] Apply projection to invariants at each step</p></li>
+<li><p><em>verbose</em> [optional, default = false] Activate vebose mode and print integration messages</p></li>
+<li><p><em>maxabs</em> [optional, default = 1.0e3] If <span class="math notranslate nohighlight">\( || \mathbf{x} ||_{\infty} \)</span> is greater than maxabs computation is interrupted</p></li>
+</ul>
+
+<p>Returns a matrix <code class="docutils literal notranslate"><span class="pre">length(x0)</span> <span class="pre">x</span> <span class="pre">length(t)</span></code> containing the solution</p>
+<p><strong>Usage</strong></p>
+<p></p>
+<p></p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Advance without the solution projection on invariants and disabled verbose mode</span><span class="w"></span>
+<span class="n">sol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">advance</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x_0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Advance with the solution projection on invariants and disabled verbose mode</span><span class="w"></span>
+<span class="n">sol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">advance</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x_0</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Advance without the solution projection on invariants and enabled verbose mode</span><span class="w"></span>
+<span class="n">sol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">advance</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x_0</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="w"> </span><span class="c">% Plot the first component of the solution</span><span class="w"></span>
+<span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+
+ 
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_INTRO.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_TOOLBOX.html">DAE-Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_EXAMPLES.html">ODE/DAE library examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00259.html" title="Class RadauIIA3"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00251.html" title="Class RadauIA3"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class RadauIA5</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Enrico Bertolazzi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>

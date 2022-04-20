@@ -7,15 +7,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; ODE/DAE v0.2-13-ge2a6c43
+    <title>Introduction &#8212; ODE/DAE v0.2-16-g7c2a9b4
 </title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/cloud.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/cloud.css" />
     <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
     <link rel="stylesheet" type="text/css" href="_static/collapsible-lists/css/tree_view.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -77,7 +77,7 @@
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a>
 </h1>
-<p>Library for the course <em>Modelling And Simulation Of Mechatronics System</em></p>
+<p>Library for the course <em>Mechatronics System Simulation</em></p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a>
 </h2>
@@ -85,58 +85,56 @@
 <a class="reference external" href="https://github.com/ebertolazzi/course-ModellingAndSimulationOfMechatronicsSystem/releases">here</a>
 and follows the instruction.</p>
 </div>
-<div class="section" id="ode-solvers">
-<h2>ODE solvers<a class="headerlink" href="#ode-solvers" title="Permalink to this headline">¶</a>
+<div class="section" id="library-structure">
+<h2>Library structure<a class="headerlink" href="#library-structure" title="Permalink to this headline">¶</a>
 </h2>
 <ul>
-<li><p><strong>DAC_ODEclass</strong>
-base class to define the Ordinary Differential equation to be integrated</p></li>
-<li><p><strong>DAC_ODEsolver</strong>
-base class to define the solver for ODE</p></li>
+<li><p><strong>DIAL_ODEsystem</strong>
+base class to define the system of Ordinary Differential Equations (ODEs) to be integrated.</p></li>
+<li><p><strong>DIAL_ODEsolver</strong>
+base class to define the solver for the system of ODEs.</p></li>
 <li>
-<p><strong>DAC_ODEsolverRKexplicit</strong>
-base class to define the explicit Runge Kutta solver.
-A list of already implemented available in the library is the following:</p>
+<p><strong>DIAL_RKexplicit</strong>
+base class to define the explicit Runge-Kutta solver.</p>
 <table class="docutils align-default" id="id1" style="width: 80%">
 <caption>
 <span class="caption-text">Available explicit solvers</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a>
 </caption>
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
 </colgroup>
 <tbody>
 <tr class="row-odd">
 <td><p><em>ExplicitEuler</em></p></td>
-<td><p><em>MidPoint</em></p></td>
+<td><p><em>ExplicitMidpoint</em></p></td>
 <td><p><em>Collatz</em></p></td>
+<td><p><em>Heun2</em></p></td>
 </tr>
 <tr class="row-even">
-<td><p><em>Heun</em></p></td>
 <td><p><em>Heun3</em></p></td>
-<td></td>
-</tr>
-<tr class="row-odd">
-<td><p><em>Ralston</em></p></td>
+<td><p><em>Ralston2</em></p></td>
 <td><p><em>Ralston3</em></p></td>
 <td><p><em>Ralston4</em></p></td>
 </tr>
-<tr class="row-even">
-<td><p><em>RK3_8</em></p></td>
+<tr class="row-odd">
 <td><p><em>RK3</em></p></td>
 <td><p><em>RK4</em></p></td>
-</tr>
-<tr class="row-odd">
+<td><p><em>RK38</em></p></td>
 <td><p><em>SSPRK3</em></p></td>
-<td></td>
-<td></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p><strong>DAC_ODEsolverRKimplicit</strong></p>
+<dl class="simple">
+<dt><strong>DIAL_RKimplicit</strong></dt>
+<dd>
+<p>base class to define the miplicit Runge-Kutta solver.</p>
+</dd>
+</dl>
 <table class="docutils align-default" id="id2" style="width: 80%">
 <caption>
 <span class="caption-text">Available implicit solvers</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a>
@@ -149,22 +147,34 @@ A list of already implemented available in the library is the following:</p>
 </colgroup>
 <tbody>
 <tr class="row-odd">
-<td><p><em>ImplicitEuler</em></p></td>
 <td><p><em>CrankNicolson</em></p></td>
+<td><p><em>GaussLegendre2</em></p></td>
 <td><p><em>GaussLegendre4</em></p></td>
 <td><p><em>GaussLegendre6</em></p></td>
 </tr>
 <tr class="row-even">
-<td><p><em>LobattoIIIA</em></p></td>
-<td><p><em>LobattoIIIB</em></p></td>
-<td><p><em>LobattoIIIC</em></p></td>
-<td><p><em>LobattoIIIC_star</em></p></td>
+<td><p><em>ImplicitEuler</em></p></td>
+<td><p><em>ImplicitMidpoint</em></p></td>
+<td><p><em>LobattoIIIA2</em></p></td>
+<td><p><em>LobattoIIIA4</em></p></td>
 </tr>
 <tr class="row-odd">
-<td><p><em>RadauIA</em></p></td>
-<td><p><em>RadauIIA</em></p></td>
-<td></td>
-<td></td>
+<td><p><em>LobattoIIIB2</em></p></td>
+<td><p><em>LobattoIIIB4</em></p></td>
+<td><p><em>LobattoIIIC2</em></p></td>
+<td><p><em>LobattoIIIC4</em></p></td>
+</tr>
+<tr class="row-even">
+<td><p><em>LobattoIIICS2</em></p></td>
+<td><p><em>LobattoIIICS4</em></p></td>
+<td><p><em>LobattoIIID2</em></p></td>
+<td><p><em>LobattoIIID4</em></p></td>
+</tr>
+<tr class="row-odd">
+<td><p><em>RadauIA3</em></p></td>
+<td><p><em>RadauIA5</em></p></td>
+<td><p><em>RadauIIA3</em></p></td>
+<td><p><em>RadauIIA5</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -182,13 +192,13 @@ A list of already implemented available in the library is the following:</p>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
         <p class="logo"><a href="index.html" title="index">
-          <img class="logo" src="_static/logo_new.png" alt="Logo"/>
+          <img class="logo" src="_static/logo.jpg" alt="Logo"/>
         </a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -199,7 +209,7 @@ A list of already implemented available in the library is the following:</p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ode-solvers">ODE solvers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-structure">Library structure</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Manual_TOOLBOX.html">DAE-Toolbox</a></li>
@@ -254,7 +264,7 @@ A list of already implemented available in the library is the following:</p>
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2021, Enrico Bertolazzi.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.5.4.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
     </div>
     <!-- cloud_sptheme 1.4 -->
   </body>

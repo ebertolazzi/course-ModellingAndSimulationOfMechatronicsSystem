@@ -1,4 +1,4 @@
-Copyright (c) 2020, Enrico Bertolazzi
+Copyright (c) 2020, Enrico Bertolazzi and Davide Stocco
 
 Redistribution and use in source and binary forms,
 with or without modification, are permitted provided

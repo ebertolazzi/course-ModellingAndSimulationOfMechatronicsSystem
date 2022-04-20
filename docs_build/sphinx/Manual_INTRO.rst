@@ -1,7 +1,7 @@
 Introduction
 ============
 
-Library for the course *Modelling And Simulation Of Mechatronics System*
+Library for the course *Mechatronics System Simulation*
 
 Installation
 ------------
@@ -10,50 +10,57 @@ Download the toolbox from
 `here <https://github.com/ebertolazzi/course-ModellingAndSimulationOfMechatronicsSystem/releases>`__
 and follows the instruction.
 
-ODE solvers
------------
+Library structure
+-----------------
 
-- **DAC_ODEclass**
-  base class to define the Ordinary Differential equation to be integrated
-- **DAC_ODEsolver**
-  base class to define the solver for ODE
-- **DAC_ODEsolverRKexplicit**
-  base class to define the explicit Runge Kutta solver.
-  A list of already implemented available in the library is the following:
+- **DIAL_ODEsystem**
+  base class to define the system of Ordinary Differential Equations (ODEs) to be integrated.
+- **DIAL_ODEsolver**
+  base class to define the solver for the system of ODEs.
+- **DIAL_RKexplicit**
+  base class to define the explicit Runge-Kutta solver.
 
   .. list-table:: Available explicit solvers
     :width: 80%
 
     * - *ExplicitEuler*
-      - *MidPoint*
+      - *ExplicitMidpoint*
       - *Collatz*
-    * - *Heun*
-      - *Heun3*
-      -
-    * - *Ralston*
+      - *Heun2*
+    * - *Heun3*
+      - *Ralston2*
       - *Ralston3*
       - *Ralston4*
-    * - *RK3_8*
-      - *RK3*
+    * - *RK3*
       - *RK4*
-    * - *SSPRK3*
-      -
-      -
+      - *RK38*
+      - *SSPRK3*
 
-- **DAC_ODEsolverRKimplicit**
+- **DIAL_RKimplicit**
+    base class to define the miplicit Runge-Kutta solver.
 
   .. list-table:: Available implicit solvers
     :width: 80%
 
-    * - *ImplicitEuler*
-      - *CrankNicolson*
+    * - *CrankNicolson*
+      - *GaussLegendre2*
       - *GaussLegendre4*
       - *GaussLegendre6*
-    * - *LobattoIIIA*
-      - *LobattoIIIB*
-      - *LobattoIIIC*
-      - *LobattoIIIC_star*
-    * - *RadauIA*
-      - *RadauIIA*
-      -
-      -
+    * - *ImplicitEuler*
+      - *ImplicitMidpoint*
+      - *LobattoIIIA2*
+      - *LobattoIIIA4*
+    * - *LobattoIIIB2*
+      - *LobattoIIIB4*
+      - *LobattoIIIC2*
+      - *LobattoIIIC4*
+    * - *LobattoIIICS2*
+      - *LobattoIIICS4*
+      - *LobattoIIID2*
+      - *LobattoIIID4*
+    * - *RadauIA3*
+      - *RadauIA5*
+      - *RadauIIA3*
+      - *RadauIIA5*
+
+

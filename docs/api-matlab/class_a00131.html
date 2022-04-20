@@ -1,0 +1,446 @@
+
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class DIAL_RKexplicit &#8212; ODE/DAE v0.2-16-g7c2a9b4
+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cloud.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/table_styling.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noticia+Text:400,i,b,bi|Open+Sans:400,i,b,bi|Roboto+Mono:400,i,b,bi&amp;display=swap" type="text/css" />
+    
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    
+    
+     
+        <script src="../_static/jquery.cookie.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.base.js"></script>
+    
+
+    
+     
+        <script src="../_static/cloud.js"></script>
+    
+
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class DIAL_RKimplicit" href="class_a00135.html" />
+    <link rel="prev" title="Class DIAL_ODEsystem" href="class_a00127.html" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head><body>
+    <div class="relbar-top">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             accesskey="C">toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00135.html" title="Class DIAL_RKimplicit"
+             accesskey="N">next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00127.html" title="Class DIAL_ODEsystem"
+             accesskey="P">previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" accesskey="U">MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class DIAL_RKexplicit</a></li> 
+      </ul>
+    </div>
+    </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="class-dial-rkexplicit">
+<span id="exhale-class-a00131"></span><h1>Class DIAL_RKexplicit<a class="headerlink" href="#class-dial-rkexplicit" title="Permalink to this headline">¶</a>
+</h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_ODE_DIAL_RKexplicit.m.html#file-ode-dial-rkexplicit-m"><span class="std std-ref">File DIAL_RKexplicit.m</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a>
+</h2>
+<div class="section" id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">DIAL_ODEsolver</span></code> (<a class="reference internal" href="class_a00123.html#exhale-class-a00123"><span class="std std-ref">Class DIAL_ODEsolver</span></a>)</p></li>
+</ul>
+</div>
+<div class="section" id="derived-types">
+<h3>Derived Types<a class="headerlink" href="#derived-types" title="Permalink to this headline">¶</a>
+</h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Collatz</span></code> (<a class="reference internal" href="class_a00139.html#exhale-class-a00139"><span class="std std-ref">Class Collatz</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ExplicitEuler</span></code> (<a class="reference internal" href="class_a00143.html#exhale-class-a00143"><span class="std std-ref">Class ExplicitEuler</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">ExplicitMidpoint</span></code> (<a class="reference internal" href="class_a00147.html#exhale-class-a00147"><span class="std std-ref">Class ExplicitMidpoint</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Heun2</span></code> (<a class="reference internal" href="class_a00151.html#exhale-class-a00151"><span class="std std-ref">Class Heun2</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Heun3</span></code> (<a class="reference internal" href="class_a00155.html#exhale-class-a00155"><span class="std std-ref">Class Heun3</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">RK3</span></code> (<a class="reference internal" href="class_a00171.html#exhale-class-a00171"><span class="std std-ref">Class RK3</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">RK38</span></code> (<a class="reference internal" href="class_a00175.html#exhale-class-a00175"><span class="std std-ref">Class RK38</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">RK4</span></code> (<a class="reference internal" href="class_a00179.html#exhale-class-a00179"><span class="std std-ref">Class RK4</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Ralston2</span></code> (<a class="reference internal" href="class_a00159.html#exhale-class-a00159"><span class="std std-ref">Class Ralston2</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Ralston3</span></code> (<a class="reference internal" href="class_a00163.html#exhale-class-a00163"><span class="std std-ref">Class Ralston3</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Ralston4</span></code> (<a class="reference internal" href="class_a00167.html#exhale-class-a00167"><span class="std std-ref">Class Ralston4</span></a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">SSPRK3</span></code> (<a class="reference internal" href="class_a00183.html#exhale-class-a00183"><span class="std std-ref">Class SSPRK3</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a>
+</h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv415DIAL_RKexplicit">
+<span id="_CPPv315DIAL_RKexplicit"></span><span id="_CPPv215DIAL_RKexplicit"></span><span id="DIAL_RKexplicit"></span><span class="target" id="a00131"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DIAL_RKexplicit</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="class_a00123.html#_CPPv414DIAL_ODEsolver" title="DIAL_ODEsolver"><span class="n"><span class="pre">DIAL_ODEsolver</span></span></a><a class="headerlink" href="#_CPPv415DIAL_RKexplicit" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Class implementing the abstract function <code class="docutils literal notranslate"><span class="pre">step</span></code> for the <strong>explicit</strong> Runge-Kutta integration methods. The user must simply define the Butcher tableau of the Runge-Kutta method:</p>
+<p></p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|c}
+  c &amp; A \\
+  \hline 
+    &amp; b^T
+\end{array}\end{split}\]</div>
+
+ 
+<p>Subclassed by <a class="reference internal" href="class_a00139.html#a00139"><span class="std std-ref">Collatz</span></a>, <a class="reference internal" href="class_a00143.html#a00143"><span class="std std-ref">ExplicitEuler</span></a>, <a class="reference internal" href="class_a00147.html#a00147"><span class="std std-ref">ExplicitMidpoint</span></a>, <a class="reference internal" href="class_a00151.html#a00151"><span class="std std-ref">Heun2</span></a>, <a class="reference internal" href="class_a00155.html#a00155"><span class="std std-ref">Heun3</span></a>, <a class="reference internal" href="class_a00171.html#a00171"><span class="std std-ref">RK3</span></a>, <a class="reference internal" href="class_a00175.html#a00175"><span class="std std-ref">RK38</span></a>, <a class="reference internal" href="class_a00179.html#a00179"><span class="std std-ref">RK4</span></a>, <a class="reference internal" href="class_a00159.html#a00159"><span class="std std-ref">Ralston2</span></a>, <a class="reference internal" href="class_a00163.html#a00163"><span class="std std-ref">Ralston3</span></a>, <a class="reference internal" href="class_a00167.html#a00167"><span class="std std-ref">Ralston4</span></a>, <a class="reference internal" href="class_a00183.html#a00183"><span class="std std-ref">SSPRK3</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit15DIAL_RKexplicitE2in2in2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit15DIAL_RKexplicitE2in2in2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit15DIAL_RKexplicitE2in2in2in2in2in"></span><span id="DIAL_RKexplicit::DIAL_RKexplicit__in.in.in.in.in"></span><span class="target" id="a00131_1a0ba34906ce7f47e077cc4ed02bd9733c"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DIAL_RKexplicit</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">name</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">A</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">b</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">c</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit15DIAL_RKexplicitE2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Initialize the class with the method name and the Butcher tableau</p>
+<p></p>
+<ul class="simple">
+<li><p><em>A</em> Runge-Kutta matrix</p></li>
+<li><p><em>b</em> Runge-Kutta weights vector (row vector)</p></li>
+<li><p><em>c</em> Runge-Kutta nodes vector (column vector) </p></li>
+</ul>
+
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4getAE2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4getAE2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4getAE2in2in"></span><span id="DIAL_RKexplicit::getA__in.in"></span><span class="target" id="a00131_1a6b7a0862059322b18a984c7ae4c07394"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getA</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4getAE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the Runge-Kutta matrix. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4getBE2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4getBE2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4getBE2in2in"></span><span id="DIAL_RKexplicit::getB__in.in"></span><span class="target" id="a00131_1a885e4cf965029607e3240dfd4072e9cf"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getB</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4getBE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the Runge-Kutta weights vector (row vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4getCE2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4getCE2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4getCE2in2in"></span><span id="DIAL_RKexplicit::getC__in.in"></span><span class="target" id="a00131_1a7ec4ad3043952e2c55facb0744887fa0"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getC</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4getCE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the Runge-Kutta nodes vector (column vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4setAE2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4setAE2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4setAE2in2in2in"></span><span id="DIAL_RKexplicit::setA__in.in.in"></span><span class="target" id="a00131_1a2d4a1cda28166e67da5ff057b8777647"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setA</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setAE2in2in2in" title="DIAL_RKexplicit::setA::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setAE2in2in2in" title="DIAL_RKexplicit::setA::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setAE2in2in2in" title="DIAL_RKexplicit::setA::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4setAE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the Runge-Kutta matrix. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4setBE2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4setBE2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4setBE2in2in2in"></span><span id="DIAL_RKexplicit::setB__in.in.in"></span><span class="target" id="a00131_1a51e50432cbc9e80b3a270f104c6d599c"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setBE2in2in2in" title="DIAL_RKexplicit::setB::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setBE2in2in2in" title="DIAL_RKexplicit::setB::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setBE2in2in2in" title="DIAL_RKexplicit::setB::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4setBE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the Runge-Kutta weights vector (row vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4setCE2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4setCE2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4setCE2in2in2in"></span><span id="DIAL_RKexplicit::setC__in.in.in"></span><span class="target" id="a00131_1a7072c7e6486804f3fb06caef92cfee0f"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setC</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setCE2in2in2in" title="DIAL_RKexplicit::setC::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setCE2in2in2in" title="DIAL_RKexplicit::setC::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit4setCE2in2in2in" title="DIAL_RKexplicit::setC::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4setCE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the Runge-Kutta nodes vector (column vector) </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4stepE2in2in2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4stepE2in2in2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4stepE2in2in2in2in2in"></span><span id="DIAL_RKexplicit::step__in.in.in.in.in"></span><span class="target" id="a00131_1a096425c1b66a831226b33f3352a6a4e0"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">d_t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4stepE2in2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Compute an integration step using the <strong>explicit</strong> Runge-Kutta method:</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{rcl} x_{k+1} &amp;=&amp; x_k + \displaystyle\sum_{j=1}^s b_j K_j \\ K_i &amp;=&amp; h f\left( t_k + c_i \Delta t, x_k + \displaystyle\sum_{j=1}^{i-1} A_{ij} K_j \right), \qquad i=1,2,\ldots,s \end{array} \end{split}\]</div>
+
+<p></p>
+<ul class="simple">
+<li><p><em>x_k</em> States value at <span class="math notranslate nohighlight">\( k \)</span>-th time step <span class="math notranslate nohighlight">\( \mathbf{x}(t_k) \)</span></p></li>
+<li><p><em>t_k</em> Time step <span class="math notranslate nohighlight">\( t_k \)</span></p></li>
+<li><p><em>d_t</em> Advancing time step <span class="math notranslate nohighlight">\( \Delta t\)</span></p></li>
+</ul>
+
+<p>Returns the approximation of <span class="math notranslate nohighlight">\( \mathbf{x_{k+1}}(t_{k}+\Delta t) \)</span> </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit9getSolverE2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit9getSolverE2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit9getSolverE2in2in"></span><span id="DIAL_RKexplicit::getSolver__in.in"></span><span class="target" id="a00123_1ae8d5055884cd1360ce2b9ff52cf31087"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getSolver</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit9getSolverE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the name of the numerical method used to advance solution. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit6getODEE2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit6getODEE2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit6getODEE2in2in"></span><span id="DIAL_RKexplicit::getODE__in.in"></span><span class="target" id="a00123_1af3271460ca1a0a544ad172101fc3b6b4"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">getODE</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit6getODEE2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Get the system of ODEs to be integrated. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit9setSolverE2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit9setSolverE2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit9setSolverE2in2in2in"></span><span id="DIAL_RKexplicit::setSolver__in.in.in"></span><span class="target" id="a00123_1afc7c75fca37996a46a64b9de9e8d537c"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSolver</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit9setSolverE2in2in2in" title="DIAL_RKexplicit::setSolver::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit9setSolverE2in2in2in" title="DIAL_RKexplicit::setSolver::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit9setSolverE2in2in2in" title="DIAL_RKexplicit::setSolver::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit9setSolverE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the name of the numerical method used to integrate the system of ODEs. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit6setODEE2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit6setODEE2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit6setODEE2in2in2in"></span><span id="DIAL_RKexplicit::setODE__in.in.in"></span><span class="target" id="a00123_1a16a8e39fc905056273c77054f581ce9b"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setODE</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit6setODEE2in2in2in" title="DIAL_RKexplicit::setODE::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit6setODEE2in2in2in" title="DIAL_RKexplicit::setODE::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"></span>, <a class="reference internal" href="#_CPPv4N15DIAL_RKexplicit6setODEE2in2in2in" title="DIAL_RKexplicit::setODE::in"><span class="n"></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">ignoredArg</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit6setODEE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Set the system of ODEs to be integrated. </p>
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit7projectE2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit7projectE2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit7projectE2in2in2in"></span><span id="DIAL_RKexplicit::project__in.in.in"></span><span class="target" id="a00123_1ab224a050eb23df6db88fbdb67e29f42a"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">project</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_tilde</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit7projectE2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Solve the problem</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left\{\begin{array}{ll} \textrm{minimize} &amp; \frac{1}{2}\left(\mathbf{x}-\widetilde{\mathbf{x}}\right)^2 \\[1em] \textrm{subject to} &amp; \mathbf{h}( t, \mathbf{x} ) = \mathbf{0} \end{array}\right. \end{split}\]</div>
+
+<p>Given the Lagrangian</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ L( \mathbf{x}, \boldsymbol{\lambda} ) = \frac{1}{2}\left(\mathbf{x}-\widetilde{\mathbf{x}}\right)^2+ \boldsymbol{\lambda} \cdot \mathbf{h}( t, \mathbf{x} ) \]</div>
+
+<p>Solve the problem</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left\{\begin{array}{rcl} \mathbf{x}+\dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T \boldsymbol{\lambda} &amp;=&amp; \widetilde{\mathbf{x}}\\[1em] \mathbf{h}(t,\mathbf{x}) &amp;=&amp; \mathbf{0} \end{array}\right. \end{split}\]</div>
+
+<p><strong>Solution algorithm</strong></p>
+<p>Using the Taylor expansion</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{h}( t, \mathbf{x} ) + \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} \delta\mathbf{x} + \mathcal{O}\left( ||\delta\mathbf{x}||^2 \right) = \mathbf{0} \]</div>
+
+<p>define the iterative method</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{x}_{k+1} = \mathbf{x}_k + \delta\mathbf{x} \]</div>
+
+<p>where <span class="math notranslate nohighlight">\( \delta\mathbf{x} \)</span> is the solution of the linear system</p>
+<p></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left[\begin{array}{cc} \mathbf{I} &amp; \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}}^T \\[1em] \dfrac{\partial \mathbf{h}(t,\mathbf{x})}{\partial\mathbf{x}} &amp; \mathbf{0} \end{array}\right] \left[\begin{array}{c} \delta\mathbf{x} \\[1em] \boldsymbol{\lambda} \end{array}\right] = \left[\begin{array}{c} \widetilde{\mathbf{x}}-\mathbf{x}_k \\[1em] -\mathbf{h}(t_k,\mathbf{x}_k) \end{array}\right] \end{split}\]</div>
+ 
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit9integrateE2in2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit9integrateE2in2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit9integrateE2in2in2in2in"></span><span id="DIAL_RKexplicit::integrate__in.in.in.in"></span><span class="target" id="a00123_1af4734f08b6940ae5b8a5937dbfd6b5cb"></span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integrate</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_i</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">varargin</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit9integrateE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Integrate the system of ODEs and calculate the approximate solution:</p>
+<p></p>
+<ul class="simple">
+<li><p><em>t</em> Time vector</p></li>
+<li><p><em>x_0</em> Initial states value</p></li>
+<li><p><em>project</em> [optional, default = false] Apply projection to invariants at each step</p></li>
+<li><p><em>verbose</em> [optional, default = false] Activate vebose mode and print integration messages</p></li>
+<li><p><em>maxabs</em> [optional, default = 1.0e3] If <span class="math notranslate nohighlight">\( || \mathbf{x} ||_{\infty} \)</span> is greater than maxabs computation is interrupted</p></li>
+</ul>
+
+<p>Returns a matrix <code class="docutils literal notranslate"><span class="pre">length(x0)</span> <span class="pre">x</span> <span class="pre">length(t)</span></code> containing the solution</p>
+<p><strong>Usage</strong></p>
+<p></p>
+<p></p>
+<div class="highlight-matlab notranslate">
+<div class="highlight"><pre><span></span><span class="c">% Advance without the solution projection on invariants and disabled verbose mode</span><span class="w"></span>
+<span class="n">sol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">advance</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x_0</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Advance with the solution projection on invariants and disabled verbose mode</span><span class="w"></span>
+<span class="n">sol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">advance</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x_0</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="c">% Advance without the solution projection on invariants and enabled verbose mode</span><span class="w"></span>
+<span class="n">sol</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">advance</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">x_0</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+
+<span class="w"> </span><span class="c">% Plot the first component of the solution</span><span class="w"></span>
+<span class="w"> </span><span class="nb">plot</span><span class="p">(</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">sol</span><span class="p">(</span><span class="mi">1</span><span class="p">,:)</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+
+ 
+</dd>
+</dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N15DIAL_RKexplicit4stepE2in2in2in2in">
+<span id="_CPPv3N15DIAL_RKexplicit4stepE2in2in2in2in"></span><span id="_CPPv2N15DIAL_RKexplicit4stepE2in2in2in2in"></span><span id="DIAL_RKexplicit::step__in.in.in.in"></span><span class="target" id="a00123_1ae67086c01e7108c428a282e37913cee5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">function</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step</span></span></span><span class="sig-paren">(</span><span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">this</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">x_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">t_k</span></span>, <span class="n"></span><span class="w"> </span><span class="n sig-param"><span class="pre">d_t</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N15DIAL_RKexplicit4stepE2in2in2in2in" title="Permalink to this definition">¶</a><br>
+</dt>
+<dd>
+<p>Generic advancing step for a generic numerical integration method:</p>
+<p></p>
+<ul class="simple">
+<li><p><em>x_k</em> States value at <span class="math notranslate nohighlight">\( k \)</span>-th time step <span class="math notranslate nohighlight">\( \mathbf{x}(t_k) \)</span></p></li>
+<li><p><em>t_k</em> Time step <span class="math notranslate nohighlight">\( t_k \)</span></p></li>
+<li><p><em>d_t</em> Advancing time step <span class="math notranslate nohighlight">\( \Delta t\)</span></p></li>
+</ul>
+
+<p>Returns the approximation of <span class="math notranslate nohighlight">\( \mathbf{x_{k+1}}(t_{k}+\Delta t) \)</span> </p>
+</dd>
+</dl>
+
+</div>
+</dd>
+</dl>
+
+</div>
+</div>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+        <p class="logo"><a href="../index.html" title="index">
+          <img class="logo" src="../_static/logo.jpg" alt="Logo"/>
+        </a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+<div class="sphinx-toc sphinxglobaltoc">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_INTRO.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_TOOLBOX.html">DAE-Toolbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Manual_EXAMPLES.html">ODE/DAE library examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root.html">MATLAB API</a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    
+    
+        <div class="sidebar-toggle-group no-js">
+            
+            <button class="sidebar-toggle" id="sidebar-hide" title="Hide the sidebar menu">
+                 «
+                <span class="show-for-small">hide menu</span>
+                
+            </button>
+            <button class="sidebar-toggle" id="sidebar-show" title="Show the sidebar menu">
+                
+                <span class="show-for-small">menu</span>
+                <span class="hide-for-small">sidebar</span>
+                 »
+            </button>
+        </div>
+    
+      <div class="clearer"></div>
+    </div>
+    <div class="relbar-bottom">
+        
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../index.html" title="Table Of Contents"
+             >toc</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00135.html" title="Class DIAL_RKimplicit"
+             >next</a> &nbsp; &nbsp;</li>
+        <li class="right" >
+          <a href="class_a00127.html" title="Class DIAL_ODEsystem"
+             >previous</a> &nbsp; &nbsp;</li>
+    <li><a href="../index.html">ODE/DAE</a> &#187;</li>
+
+          <li class="nav-item nav-item-1"><a href="root.html" >MATLAB API</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Class DIAL_RKexplicit</a></li> 
+      </ul>
+    </div>
+    </div>
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, Enrico Bertolazzi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.1.1.
+    </div>
+    <!-- cloud_sptheme 1.4 -->
+  </body>
+</html>
