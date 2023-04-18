@@ -18,9 +18,21 @@ ODE = PendulumODE(m, l, g, X_0);
 
 %% Initialize the solver and set the ODE
 
-solver1 = ExplicitEuler();
-%solver2 = ImplicitEuler();
-solver2 = Heun2();
+explicit_solver          = { @ExplicitEuler, @ExplicitMidpoint, @Heun2, @Wray3, @Heun3, @Ralston2, @Ralston3, @Ralston4, @RK3, @RK4, @RK38, @SSPRK3 };
+implicit_solver          = { @CrankNicolson, @GaussLegendre2, @GaussLegendre4, @GaussLegendre6, @ImplicitEuler, @ImplicitMidpoint, @LobattoIIIA2, @LobattoIIIA4, @LobattoIIIB2, @LobattoIIIB4, @LobattoIIIC2, @LobattoIIIC4, @LobattoIIICS2, @LobattoIIICS4, @LobattoIIID2, @LobattoIIID4, @RadauIA3, @RadauIA5, @RadauIIA3, @RadauIIA5, @SunGeng5 };
+explicit_embedded_solver = { @BogackiShampine23, @CashKarp45, @DormandPrince54, @Fehlberg12, @Fehlberg45I, @Fehlberg45II, @Fehlberg78, @HeunEuler21, @Merson34, @Verner65, @Zonnenveld45 };
+implicit_embedded_solver = { @GaussLegendre34, @GaussLegendre56, @LobattoIIIA12, @LobattoIIIA34, @LobattoIIIB12, @LobattoIIIB34, @LobattoIIIC12, @LobattoIIIC34 };
+
+
+solver1 = GaussLegendre56();
+%solver2 = explicit_solver{12}();
+%solver2 = implicit_solver{21}();
+%solver2 = explicit_embedded_solver{11}();
+solver2 = implicit_embedded_solver{8}();
+
+%BogackiShampine23
+
+
 %solver = DormandPrince54();
 solver1.set_ode( ODE );
 solver2.set_ode( ODE );
@@ -43,6 +55,8 @@ Energy1 = ODE.H( x1_out );
 Energy2 = ODE.H( x2_out );
 
 %% Plot results
+
+solver2.info
 
 figure();
 hold on; grid on; grid minor;
