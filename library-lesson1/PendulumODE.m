@@ -1,5 +1,5 @@
 % Class container for the non-linear pendulum (ODE version)
-classdef PendulumODE < ODEsystem
+classdef PendulumODE < ImplicitSystem
   %
   properties (SetAccess = protected, Hidden = true)
     m_m;   % Pendulum mass (kg)
@@ -21,17 +21,13 @@ classdef PendulumODE < ODEsystem
       num_invs = 1;
 
       % Call the superclass constructor
-      this@ODEsystem('PendulumODE', num_eqns, num_invs);
+      this@ImplicitSystem('PendulumODE', num_eqns, num_invs);
 
       % Check the input arguments
-      assert(m > 0, ...
-        [CMD, 'pendulum mass must be positive.']);
-      assert(l > 0, ...
-        [CMD, 'pendulum length must be positive.']);
-      assert(g > 0, ...
-        [CMD, 'gravity acceleration must be positive.']);
-      assert(length(X_0) == num_eqns, ...
-        [CMD, 'invalid initial conditions vector size.']);
+      assert(m > 0, [CMD, 'pendulum mass must be positive.']);
+      assert(l > 0, [CMD, 'pendulum length must be positive.']);
+      assert(g > 0, [CMD, 'gravity acceleration must be positive.']);
+      assert(length(X_0) == num_eqns, [CMD, 'invalid initial conditions vector size.']);
 
       this.m_m   = m;
       this.m_l   = l;
@@ -43,65 +39,83 @@ classdef PendulumODE < ODEsystem
     %
     function out = F( this, x, x_dot, ~ )
 
-      CMD = 'PendulumODE::F(...): ';
+      % extract parameters
+      theta = x(1);
+      omega = x(2);
 
-      % Check the input arguments
-      assert(length(x) == this.m_num_eqns, ...
-        [CMD, 'invalid x vector length.']);
-      assert(length(x_dot) == this.m_num_eqns, ...
-        [CMD, 'invalid x_dot vector length.']);
+      theta_dot = x_dot(1);
+      omega_dot = x_dot(2);
+
+      g = this.m_g;
+      l = this.m_l;
 
       % Evaluate the system
-      out    = zeros(2,1);
-      out(1) = x_dot(1) - x(2);
-      out(2) = x_dot(2) + this.m_g / this.m_l * sin(x(1));
+      out    = [ theta_dot - omega; omega_dot + (g/l) * sin(theta) ];
     end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function [out, out_dot] = JF( this, x, x_dot, t )
+      % Calulate Jacobians
+      out     = this.JF_x(x, x_dot, t);
+      out_dot = this.JF_x_dot(x, x_dot, t);
+    end % JF
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function [JF_x, JF_x_dot] = JF( this, x, ~, ~ )
+    function res = JF_x( this, x, ~, ~ )
 
-      CMD = 'PendulumODE::JF(...): ';
+      % extract parameters
+      theta = x(1);
+      omega = x(2);
 
-      % Check the input arguments
-      assert(length(x) == this.m_num_eqns, ...
-        [CMD, 'invalid x vector length.']);
+      g = this.m_g;
+      l = this.m_l;
 
       % Evaluate the system Jacobians
-      JF_x      = zeros(2);
-      JF_x_dot  = eye(2);
-      JF_x(1,2) = -1.0;
-      JF_x(2,1) = this.m_g / this.m_l * cos(x(1));
+      res      = zeros(2,2);
+      res(1,2) = -1.0;
+      res(2,1) = (g/l) * cos(theta);
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = H( this, x, ~ )
+    function res = JF_x_dot( this, x, ~, ~ )
+      res = eye(2);
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function out = h( this, x, ~ )
 
-      CMD = 'PendulumODE::H(...): ';
+      % extract parameters
+      theta = x(1,:);
+      omega = x(2,:);
 
-      % Check the input arguments
-      assert(size(x,1) == this.m_num_eqns, ...
-        [CMD, 'invalid x vector length.']);
+      m  = this.m_m;
+      g  = this.m_g;
+      l  = this.m_l;
+      x0 = this.m_X_0;
 
       % Evaluate the system invariant
-      out = -this.m_m.*this.m_g.*this.m_l.*(cos(x(1,:)) - cos(this.m_X_0(1))) + ...
-            0.5.*this.m_m.*this.m_l^2.*(x(2,:).^2 - this.m_X_0(2)^2);
+      out = -m.*g.*l.*(cos(theta) - cos(x0(1))) + 0.5.*m.*l^2.*(omega.^2 - x0(2)^2);
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = JH( this, x, ~ )
+    function out = Jh( this, x, ~ )
 
-      CMD = 'PendulumODE::JH(...): ';
+      % extract parameters
+      theta = x(1,:);
+      omega = x(2,:);
 
-      % Check the input arguments
-      assert(size(x,1) == this.m_num_eqns, ...
-        [CMD, 'invalid x vector length.']);
+      m  = this.m_m;
+      g  = this.m_g;
+      l  = this.m_l;
+      x0 = this.m_X_0;
 
       % Evaluate the system gradient of the invariant
-      out = [this.m_m.*this.m_g.*this.m_l.*sin(x(1,:)), ...
-             this.m_m.*this.m_l^2.*x(2,:)];
+      out = [m.*g.*l.*sin(theta), m.*l^2.*omega];
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
