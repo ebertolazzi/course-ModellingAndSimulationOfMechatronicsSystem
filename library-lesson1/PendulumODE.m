@@ -1,5 +1,5 @@
 % Class container for the non-linear pendulum (ODE version)
-classdef PendulumODE < ImplicitSystem
+classdef PendulumODE < Indigo_ImplicitSystem
   %
   properties (SetAccess = protected, Hidden = true)
     m_m;   % Pendulum mass (kg)
@@ -21,7 +21,7 @@ classdef PendulumODE < ImplicitSystem
       num_invs = 1;
 
       % Call the superclass constructor
-      this@ImplicitSystem('PendulumODE', num_eqns, num_invs);
+      this@Indigo_ImplicitSystem('PendulumODE', num_eqns, num_invs);
 
       % Check the input arguments
       assert(m > 0, [CMD, 'pendulum mass must be positive.']);
@@ -103,7 +103,7 @@ classdef PendulumODE < ImplicitSystem
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = Jh( this, x, ~ )
+    function out = Jh_x( this, x, ~ )
 
       % extract parameters
       theta = x(1,:);
