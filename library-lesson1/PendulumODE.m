@@ -1,6 +1,6 @@
 % Class container for the non-linear pendulum (ODE version)
-classdef PendulumODE < Indigo_ImplicitSystem
-  %
+classdef PendulumODE < Indigo.Systems.Implicit
+%
   properties (SetAccess = protected, Hidden = true)
     m_m;   % Pendulum mass (kg)
     m_l;   % Pendulum length (m)
@@ -19,9 +19,10 @@ classdef PendulumODE < Indigo_ImplicitSystem
       % Set the number of equations and the number of invariants
       num_eqns = 2;
       num_invs = 1;
+      num_veil = 0;
 
       % Call the superclass constructor
-      this@Indigo_ImplicitSystem('PendulumODE', num_eqns, num_invs);
+      this@Indigo.Systems.Implicit('PendulumODE', num_eqns, num_veil, num_invs);
 
       % Check the input arguments
       assert(m > 0, [CMD, 'pendulum mass must be positive.']);
@@ -37,7 +38,7 @@ classdef PendulumODE < Indigo_ImplicitSystem
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = F( this, x, x_dot, ~ )
+    function out = F( this, x, x_dot, ~, ~ )
 
       % extract parameters
       theta = x(1);
@@ -53,17 +54,9 @@ classdef PendulumODE < Indigo_ImplicitSystem
       out    = [ theta_dot - omega; omega_dot + (g/l) * sin(theta) ];
     end
     %
-    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    %
-    function [out, out_dot] = JF( this, x, x_dot, t )
-      % Calulate Jacobians
-      out     = this.JF_x(x, x_dot, t);
-      out_dot = this.JF_x_dot(x, x_dot, t);
-    end % JF
-    %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function res = JF_x( this, x, ~, ~ )
+    function res = JF_x( this, x, ~, ~, ~ )
 
       % extract parameters
       theta = x(1);
@@ -80,13 +73,19 @@ classdef PendulumODE < Indigo_ImplicitSystem
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function res = JF_x_dot( this, x, ~, ~ )
+    function res = JF_x_dot( this, x, ~, ~, ~ )
       res = eye(2);
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = h( this, x, ~ )
+    function res = JF_v( this, x, ~, ~, ~ )
+      res = zeros( this.m_num_eqns, this.m_num_veils );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function out = h( this, x, ~, ~ )
 
       % extract parameters
       theta = x(1,:);
@@ -103,7 +102,7 @@ classdef PendulumODE < Indigo_ImplicitSystem
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     %
-    function out = Jh_x( this, x, ~ )
+    function out = Jh_x( this, x, ~, ~ )
 
       % extract parameters
       theta = x(1,:);
@@ -116,6 +115,27 @@ classdef PendulumODE < Indigo_ImplicitSystem
 
       % Evaluate the system gradient of the invariant
       out = [m.*g.*l.*sin(theta), m.*l^2.*omega];
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function out = Jh_v( this, x, ~, ~ )
+      % Evaluate the system gradient of the invariant
+      out = zeros( this.m_num_invs, this.m_num_veil );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function out = Jv_x( this, ~, ~ )
+      % Evaluate the system gradient of the invariant
+      out = zeros( this.m_num_veil, this.m_num_eqns );
+    end
+    %
+    % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    %
+    function out = v( this, ~, ~ )
+      % Evaluate the system gradient of the invariant
+      out = zeros( this.m_num_veil, 1 );
     end
     %
     % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

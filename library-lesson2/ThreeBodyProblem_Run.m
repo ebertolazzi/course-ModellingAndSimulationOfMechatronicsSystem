@@ -81,7 +81,7 @@ implicit_embedded_solver = {
   'LobattoIIIC34',   ...
 };
 
-solver = Indigo(explicit_solver{1});
+solver = IndigoSolver(explicit_solver{1});
 %solver = implicit_embedded_solver{2}();
 solver.set_system( ODE );
 
@@ -191,7 +191,7 @@ if (animate_solution)
 
   % Animate solution with for loop
   fprintf('Animating solution...\n');
-  Indigo_progress_bar('_start');
+  Indigo.Utils.progress_bar('_start');
 
   x1 = x(1,:); y1 = y(1,:);
   x2 = x(2,:); y2 = y(2,:);
@@ -214,14 +214,14 @@ if (animate_solution)
     drawnow limitrate;
 
     % Update progress bar
-    Indigo_progress_bar(100*i/frames);
+    Indigo.Utils.progress_bar(100*i/frames);
 
     time = toc;
     p = max(0.0, t(i)/speed - time);
     pause( p );
   end
   hold off;
-  Indigo_progress_bar('Animation completed!');
+  Indigo.Utils.progress_bar('Animation completed!');
 
 end
 
