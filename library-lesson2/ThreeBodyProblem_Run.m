@@ -81,8 +81,8 @@ implicit_embedded_solver = {
   'LobattoIIIC34',   ...
 };
 
-solver = IndigoSolver(explicit_solver{1});
-%solver = implicit_embedded_solver{2}();
+%solver = IndigoSolver(explicit_solver{1});
+solver = IndigoSolver(implicit_solver{4});
 solver.set_system( ODE );
 
 %% Integrate the system of ODE

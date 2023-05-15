@@ -142,7 +142,7 @@ for i = 1:length(solver_name)
   solver{i}.disable_projection();
   [X{i},~, T{i}] = solver{i}.solve( T_vec, X_0 );
 
-  % Calculate contraints vialations
+  % Calculate contraints violations
   H{i} = ODE.h( X{i}, [], T{i} );
 
 end
@@ -158,7 +158,7 @@ figure();
   grid minor;
   % title(title_str);
   xlabel('$t$ (s)');
-  ylabel('$\theta$ (rad)');
+  ylabel('position x,y');
   for i = 1:length(solver_name)
     t  = T{i};
     x1 = X{i}(1,:);
