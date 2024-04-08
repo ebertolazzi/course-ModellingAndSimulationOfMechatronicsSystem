@@ -79,13 +79,13 @@ classdef Mechanism < Indigo.Systems.Implicit
       out_6 = x1_dot - u1;
       t11 = x1 ^ 2;
       t12 = y1 ^ 2;
-      out_7 = -lambda1_dot * (t11 + t12) - lambda2_dot * (-x1 * x2 + t11 + t12) - 4 * ((u1 - u2 / 4) * x1 - 0.3e1 / 0.4e1 * u1 * x2 + v1 * y1) * lambda2 - 4 * u1 * x1 * lambda1 + v1 * (-8 * y1 * lambda1 + 3 * g) / 2;
+      out_7 = -lambda1_dot * (t11 + t12) - lambda2_dot * (-x1 * x2 + t11 + t12) - 4 * lambda2 * ((u1 - u2 / 4) * x1 - 0.3e1 / 0.4e1 * u1 * x2 + v1 * y1) - 4 * u1 * x1 * lambda1 + v1 * (-8 * y1 * lambda1 + 3 * g) / 2;
       t36 = t11 ^ 2;
       t38 = t11 * x1;
       t41 = x2 ^ 2;
       t57 = u2 * lambda1;
       t65 = u1 * lambda1;
-      out_8 = lambda2_dot * (2 * t36 - 4 * x2 * t38 + t11 * (2 * t41 + 2 * t12) - 4 * x2 * x1 * t12 + 4 * t41 * t12) / 2 + t38 * ((8 * u1 - 14 * u2) * lambda2 - 6 * t57) / 2 - t11 * ((u1 - 7 * u2) * lambda2 - 3 * t65) * x2 + x1 * (-6 * t41 * u1 * lambda2 - 3 * x2 * (0.8e1 / 0.3e1 * y1 * t8 + g) * v1 + 8 * ((u1 - 0.7e1 / 0.4e1 * u2) * lambda2 - 0.3e1 / 0.4e1 * t57) * t12) / 2 - 5 * x2 * ((u1 - 0.8e1 / 0.5e1 * u2) * lambda2 + t65 / 5) * t12;
+      out_8 = lambda2_dot * (2 * t36 - 4 * x2 * t38 + t11 * (2 * t41 + 2 * t12) - 4 * x2 * x1 * t12 + 4 * t41 * t12) / 2 + t38 * ((8 * u1 - 14 * u2) * lambda2 - 6 * t57) / 2 - t11 * ((u1 - 7 * u2) * lambda2 - 3 * t65) * x2 + x1 * (-6 * t41 * u1 * lambda2 - 3 * x2 * (0.8e1 / 0.3e1 * y1 * t8 + g) * v1 + 8 * ((u1 - 0.7e1 / 0.4e1 * u2) * lambda2 - 0.3e1 / 0.4e1 * t57) * t12) / 2 - 5 * t12 * ((u1 - 0.8e1 / 0.5e1 * u2) * lambda2 + t65 / 5) * x2;
 
       % Store outputs
       out_F = zeros(8, 1);
@@ -132,7 +132,7 @@ classdef Mechanism < Indigo.Systems.Implicit
       t4 = 2 * x1;
       t8 = u1 - u2 / 4;
       t11 = u1 * lambda1;
-      out_7_1 = -2 * x1 * lambda1_dot - lambda2_dot * (t4 - x2) - 4 * lambda2 * t8 - 4 * t11;
+      out_7_1 = -2 * x1 * lambda1_dot - lambda2_dot * (t4 - x2) - 4 * t8 * lambda2 - 4 * t11;
       t13 = x1 ^ 2;
       t14 = t13 * x1;
       t16 = x2 * t13;
@@ -151,36 +151,36 @@ classdef Mechanism < Indigo.Systems.Implicit
       t59 = lambda2 * t56 - 0.3e1 / 0.4e1 * t33;
       out_8_1 = lambda2_dot * (8 * t14 - 12 * t16 + 2 * x1 * (2 * t18 + 2 * t19) - 4 * t24) / 2 + 0.3e1 / 0.2e1 * t13 * (lambda2 * t31 - 6 * t33) - 2 * x1 * t42 * x2 - 3 * t18 * t46 - 0.3e1 / 0.2e1 * x2 * t52 + 4 * t59 * t19;
       out_5_2 = out_4_1;
-      out_7_2 = -4 * lambda1 * v1 - 4 * lambda2 * v1 - 2 * y1 * lambda1_dot - 2 * y1 * lambda2_dot;
+      out_7_2 = -4 * v1 * lambda1 - 4 * lambda2 * v1 - 2 * y1 * lambda1_dot - 2 * y1 * lambda2_dot;
       t89 = u1 - 0.8e1 / 0.5e1 * u2;
       t92 = lambda2 * t89 + t11 / 5;
-      out_8_2 = lambda2_dot * (-8 * x1 * x2 * y1 + 4 * y1 * t13 + 8 * y1 * t18) / 2 + x1 * (-3 * x2 * t49 * v1 + 16 * t59 * y1) / 2 - 10 * x2 * t92 * y1;
+      out_8_2 = lambda2_dot * (-8 * y1 * x1 * x2 + 4 * t13 * y1 + 8 * t18 * y1) / 2 + x1 * (-3 * x2 * t49 * v1 + 16 * t59 * y1) / 2 - 10 * y1 * t92 * x2;
       out_1_3 = -out_1_1;
       out_4_3 = out_1_1;
       out_7_3 = x1 * lambda2_dot + 3 * t46;
       t107 = u1 * x2;
-      out_8_3 = lambda2_dot * (-4 * t19 * x1 - 4 * t14 + 4 * t16 + 8 * t24) / 2 - t13 * t42 + x1 * (-12 * lambda2 * t107 - 3 * t52) / 2 - 5 * t92 * t19;
+      out_8_3 = lambda2_dot * (-4 * x1 * t19 - 4 * t14 + 4 * t16 + 8 * t24) / 2 - t13 * t42 + x1 * (-12 * lambda2 * t107 - 3 * t52) / 2 - 5 * t19 * t92;
       out_6_4 = -1;
-      out_7_4 = -4 * (x1 - 0.3e1 / 0.4e1 * x2) * lambda2 - 4 * lambda1 * x1;
-      t129 = t19 * lambda2;
-      out_8_4 = 4 * t14 * lambda2 - t13 * (lambda2 - 3 * lambda1) * x2 + x1 * (-6 * t18 * lambda2 + 8 * t129) / 2 - 5 * x2 * (lambda2 + lambda1 / 5) * t19;
+      out_7_4 = -4 * lambda2 * (x1 - 0.3e1 / 0.4e1 * x2) - 4 * lambda1 * x1;
+      out_8_4 = 4 * t14 * lambda2 - t13 * (lambda2 - 3 * lambda1) * x2 + x1 * (-6 * lambda2 * t18 + 8 * lambda2 * t19) / 2 - 5 * t19 * (lambda2 + lambda1 / 5) * x2;
       out_2_5 = -1;
       out_7_5 = -4 * y1 * lambda2 - 4 * y1 * lambda1 + 0.3e1 / 0.2e1 * g;
       out_8_5 = -0.3e1 / 0.2e1 * x1 * x2 * t51;
       out_3_6 = -1;
       out_7_6 = lambda2 * x1;
-      out_8_6 = t14 * (-14 * lambda2 - 6 * lambda1) / 2 + 7 * t13 * lambda2 * x2 + 4 * x1 * (-0.7e1 / 0.4e1 * lambda2 - 0.3e1 / 0.4e1 * lambda1) * t19 + 8 * x2 * t129;
+      t152 = lambda2 * x2;
+      out_8_6 = t14 * (-14 * lambda2 - 6 * lambda1) / 2 + 7 * t13 * t152 + 4 * x1 * (-0.7e1 / 0.4e1 * lambda2 - 0.3e1 / 0.4e1 * lambda1) * t19 + 8 * t19 * t152;
       out_4_7 = -t4;
       out_5_7 = -2 * y1;
       t165 = v1 * y1;
       out_7_7 = -4 * u1 * x1 - 4 * t165;
       t175 = 8 * v1 * x2 * y1;
-      out_8_7 = -3 * t14 * u2 + 3 * t13 * t107 + x1 * (-6 * t19 * u2 + t175) / 2 - x2 * u1 * t19;
+      out_8_7 = -3 * t14 * u2 + 3 * t13 * t107 + x1 * (-6 * u2 * t19 + t175) / 2 - t19 * t107;
       out_1_8 = 2 * x1 - 2 * x2;
       out_4_8 = -out_1_8;
       out_5_8 = out_5_7;
       out_7_8 = -4 * x1 * t8 + 3 * t107 - 4 * t165;
-      out_8_8 = t14 * t31 / 2 - t13 * t39 * x2 + x1 * (-6 * t18 * u1 + 8 * t56 * t19 + t175) / 2 - 5 * x2 * t89 * t19;
+      out_8_8 = t14 * t31 / 2 - t13 * t39 * x2 + x1 * (-6 * t18 * u1 + 8 * t56 * t19 + t175) / 2 - 5 * t19 * t89 * x2;
 
       % Store outputs
       out_JF_x = zeros(8, 8);
