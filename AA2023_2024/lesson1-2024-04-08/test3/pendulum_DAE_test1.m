@@ -12,7 +12,7 @@
 %
 % x'*u + x*u' + y' * v + y * v' = 0 ==> u^2 + v^2 + lambda * ( x^2 + y^2 ) - y * g = 0
 %
-% Eliminazione lambda ==> lambda(x,y,u,v) = (y*g - (u^2 + v^2 ))/(x^2+y^2)
+% Elimination lambda ==> lambda(x,y,u,v) = (y*g - (u^2 + v^2 ))/(x^2+y^2)
 %
 % x' = u
 % y' = v
@@ -26,7 +26,7 @@
 % u(k+1) = u(k) + dt*( lambda(x(k),y(k),u(k),v(k))*x(k) )
 % v(k+1) = v(k) + dt*( lambda(x(k),y(k),u(k),v(k))*y - g )
 %
-T_max = 10;
+T_max = 100;
 g     = 9.81;
 ell   = 2;
 %
@@ -77,12 +77,15 @@ plot( xx, yy, '-', 'LineWidth', 1, 'Color', 'red' );
 hold on
 plot( x, y, 'o-', 'LineWidth', 2, 'Color', 'blue' );
 axis equal
+title('xy-trajectory');
 
 subplot(3,1,2);
 % plot a red circle with the exact solution
 plot( t, x.^2+y.^2-ell^2, 'o-', 'LineWidth', 1, 'Color', 'red' );
+title('constraint violation');
 
 subplot(3,1,3);
 % plot a red circle with the exact solution
 E = (1/2)*(u.^2+v.^2)+g*y;
 plot( t, E, 'o-', 'LineWidth', 1, 'Color', 'red' );
+title('Total Energy');

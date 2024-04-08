@@ -53,11 +53,13 @@ plot( xx, yy, '-', 'LineWidth', 1, 'Color', 'red' );
 
 % plot a blue dotted line with the numerical solution
 hold on
-plot( x, y, 'o-', 'LineWidth', 2, 'Color', 'blue' );
+plot( x, y, '-o', 'LineWidth', 2, 'Color', 'blue' );
 axis equal
+title('x,y trajectory')
 
 subplot(2,1,2);
 % plot a blue dotted line with the integral invariant error
 hold on
 err = x.^2+y.^2-1;
-plot( t, err, '-', 'LineWidth', 2, 'Color', 'blue' );
+plot( t, err, '-o', 'LineWidth', 2, 'Color', 'blue' );
+title('invariant violation');

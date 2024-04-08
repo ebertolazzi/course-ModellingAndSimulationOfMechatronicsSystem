@@ -6,11 +6,6 @@
 %
 % using RK4 scheme
 %
-% theta(k+1/2) = theta(k)+(dt/2)*omega(k)
-% omega(k+1/2) = omega(k)-(dt/2)*(g/ell)*sin(theta(k))
-%
-% theta(k+1) = theta(k)+dt*omega(k+1/2)
-% omega(k+1) = omega(k)-dt*(g/ell)*sin(theta(k+1/2))
 %
 T_max = 20;
 g     = 9.81;
@@ -51,8 +46,10 @@ hold off
 plot( t, theta, 'o-', 'LineWidth', 1, 'Color', 'red' );
 hold on
 plot( t, omega, 'o-', 'LineWidth', 2, 'Color', 'blue' );
+title('theta, omega solution');
 
 subplot(2,1,2);
 % plot a red circle with the exact solution
 E = (1/2)*omega.^2-(g/ell)*cos(theta);
 plot( t, E, 'o-', 'LineWidth', 1, 'Color', 'red' );
+title('invariant violation');

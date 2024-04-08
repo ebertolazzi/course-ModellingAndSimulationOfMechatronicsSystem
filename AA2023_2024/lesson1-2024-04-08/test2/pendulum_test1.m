@@ -44,8 +44,10 @@ hold off
 plot( t, theta, 'o-', 'LineWidth', 1, 'Color', 'red' );
 hold on
 plot( t, omega, 'o-', 'LineWidth', 2, 'Color', 'blue' );
+title('theta, omega solution');
 
 subplot(2,1,2);
 % plot a red circle with the exact solution
 E = (1/2)*omega.^2-(g/ell)*cos(theta);
 plot( t, E, 'o-', 'LineWidth', 1, 'Color', 'red' );
+title('invariant violation');
